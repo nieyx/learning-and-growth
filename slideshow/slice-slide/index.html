@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>切割轮播图</title>
+    <style>
+        /*公共样式*/
+        html,body,div,img,ul,li {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        html,body {
+            width: 100%;
+            height: 100%;
+            background-color:gray;
+            overflow:hidden;
+
+        }
+        /*全局设置*/
+        .box  {
+            width: 800px;
+            height: 600px;
+            margin:100px auto;
+            position: relative;
+        }
+        .pic {
+            width: 100%;
+            height: 100%;
+            /*background: url(images/1.jpg);*/
+
+        }
+        .pic ul {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .pic ul li {
+            width: 20%;
+            height: 100%;
+            position: absolute;
+            top:0;
+            left:0;
+            background-color: pink;
+        }
+        /*设置li中的span*/
+        .pic ul li span {
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top:0;
+            left:0;
+            transform-style:preserve-3d;
+        }
+        .pic ul li span:nth-child(1) {
+            transform:translateZ(300px);
+        }
+        .pic ul li span:nth-child(2) {
+            transform:rotateX(90deg) translateZ(300px);
+        }
+        .pic ul li span:nth-child(3) {
+            transform:rotateX(180deg) translateZ(300px);
+        }
+        .pic ul li span:nth-child(4) {
+            transform:rotateX(270deg) translateZ(300px);
+        }
+
+        /*设置li中的图片*/
+        .pic ul li:nth-child(1) {
+            background-color: pink;
+        }
+        .pic ul li:nth-child(2) {
+            background-color: yellow;
+            left:20%;
+        }
+        .pic ul li:nth-child(3) {
+            background-color: yellowgreen;
+            left:40%;
+        }
+        .pic ul li:nth-child(4) {
+            background-color: deepskyblue;
+            left:60%;
+        }
+        .pic ul li:nth-child(5) {
+            background-color: orangered;
+            left:80%;
+        }
+        /*设置btn按钮*/
+        .btn {
+            width: 100%;
+            height: 50px;
+            position: absolute;
+            top: 50%;
+            transform:translateY(-50%);
+
+
+        }
+        .btn::before,.btn::after {
+            content: "";
+            width: 50px;
+            height: 100%;
+            position: absolute;
+            line-height:100%;
+            text-align: center;
+            font-size:50px;
+            background: rgba(0,0,0,0.3);
+            cursor: pointer;
+        }
+        .btn::before {
+            content: "<";
+            left:0;
+        }
+        .btn::after {
+            content: ">";
+            right:0;
+        }
+    </style>
+</head>
+<body>
+<!--/*遍历图片部分*/-->
+<?php
+$arr = array(
+    "images/1.jpg",
+    "images/2.jpg",
+    "images/3.jpg",
+    "images/4.jpg",
+);
+?>
+<div class="box">
+    <div class="pic">
+        <!--<?php foreach ($arr as $key => $value) {?>-->
+        <!--<img src="<?php echo $value ?>" alt="">-->
+        <!--<?php-->
+        <!--}?>-->
+        <ul>
+            <li>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </li>
+            <li>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </li>
+            <li>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </li>
+            <li>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </li>
+            <li>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </li>
+        </ul>
+
+        <!--<img src="images/1.jpg" alt=""/>-->
+        <!--<img src="images/2.jpg" alt=""/>-->
+        <!--<img src="images/3.jpg" alt=""/>-->
+        <!--<img src="images/4.jpg" alt=""/>-->
+    </div>
+    <div class="btn">
+    </div>
+</div>
+<script src="../../jquery-1.11.1.min.js"></script>
+<script>
+    var current = 0;
+    $(function () {
+        $(".btn::before").on('click', function () {
+            current++;
+            $('li').each(function (key) {
+                $(this).css({
+                    'transform':'rotateX('+current*90+'deg)',
+                    'transition-delay':key*0.25+'s',
+
+                })
+            })
+        })
+        $(".btn::after").on('click', function () {
+            current--;
+            $('li').each(function (key) {
+                $(this).css({
+                    'transform':'rotateX('+current*90+'deg)',
+                    'transition-delay':key*0.25+'s',
+
+                })
+            })
+        })
+    })
+</script>
+</body>
+</html>
