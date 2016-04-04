@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border:0;
+        }
+        .all {
+            width: 131px;
+            height: 311px;
+            position: fixed;
+            top:50%;
+            right:-131px;
+            margin-top:-156px;
+        }
+        .all span {
+            position: absolute;
+            top:50%;
+            left:-29px;
+            margin-top:-59px;
+        }
+    </style>
+    <script src="../../jquery-1.11.1.min.js"></script>
+    <script>
+//        $(function () {
+//            var b = true;
+//            $(".all span").click(function () {
+//                if (b === true){
+//                    $(".all").animate({right:0},300);
+//                    $(this).children().attr("src","images/qqLOpen.jpg");
+//                    b = false;
+//                }
+//                else {
+//                    $(".all").animate({right:-131},300);
+//                    $(this).children().attr("src","images/qqL.jpg");
+//                    b = true;
+//
+//                }
+//            });
+//        })
+        $(function () {
+            var b = true;
+            $(".all span").click(function () {
+                if (b === true){
+                    $(".all").animate({right:0},300);
+                    $(this).children().attr("src","images/qqLOpen.jpg");
+                    b = false;
+                }
+                else {
+                    $(".all").animate({right:-131},300);
+                    $(this).children().attr("src","images/qqL.jpg");
+                    b = true;
+                }
+            });
+        })
+    </script>
+</head>
+<body>
+<div class="all">
+    <span><img src="images/qqL.jpg" width="29" height="117"/></span>
+    <img src="images/qq.jpg" width="131" height="311"/>
+</div>
+</body>
+</html>

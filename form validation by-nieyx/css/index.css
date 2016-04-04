@@ -1,0 +1,274 @@
+ /*测试样式*/
+/*body {*/
+   /*background-color: red;*/
+ /*}*/
+/*全局样式*/
+ * {
+   margin: 0;
+   padding: 0;
+ }
+ html, body {
+   width: 100%;
+   height: 100%;
+   padding:8px 6px 25px;
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+ }
+
+ ul ,li {
+   list-style: none;
+   text-decoration: none;
+ }
+
+ .fl {
+   float: left;
+ }
+
+ .fr {
+   float: right;
+ }
+ /*表单头部个人信息的样式*/
+
+ #mainBody {
+   width: 100%;
+   height: 100%;
+   border: 2px solid #FBFBFB;
+ }
+
+ /*#table栏的设置*/
+
+ #mainBody h3 {
+   height: 54px;
+   line-height:54px;
+   text-align: left;
+   font-size:18px;
+   background-color: #FBFBFB;
+   padding-left:20px;
+   border-bottom: 1px solid #EFEFEF;
+ }
+ 
+ #mainBody #table {
+   margin-left:20px;
+ }
+ #mainBody #table li {
+   padding-left:18px;
+   height:70px;
+   line-height:70px;
+
+ }
+ #mainBody #table span,
+ #mainBody #table div
+ {
+   text-align:left;
+ }
+ #mainBody #table li > span {
+   float:left;
+   width: 77px;
+ }
+ #mainBody #table li div {
+   float:left;
+ }
+
+/*第一行，头像*/
+ #mainBody #table li:nth-child(1) {
+   height: 201px;
+   line-height:201px;
+   border-bottom: 1px solid #EFEFEF;
+ }
+ #mainBody #table li:nth-child(1) span{
+
+ }
+ 
+ #mainBody #table li:nth-child(1) img {
+   margin-top:35px;
+ }
+
+
+ #mainBody #table li:nth-child(1) li div{
+   margin-top:80px;
+   margin-left: 50px;
+   line-height:normal;
+ }
+ #mainBody #table li:nth-child(1) div {
+   width: 1000px;
+   position: relative;
+ }
+ #mainBody #table li:nth-child(1) div label {
+   line-height:normal;
+   position: absolute;
+   top:100px;
+   left:40px;
+ }
+ #mainBody #table li:nth-child(1) .file {
+   float: left;
+   position: relative;
+   display: inline-block;
+   background: #FFA100;
+   border-radius: 4px;
+   width: 100px;
+   height: 40px;
+   line-height: 40px;
+   text-decoration: none;
+   text-indent: 0;
+   text-align: center;
+   color: #fff;
+   margin-top: 50px;
+   margin-left: 40px;
+   cursor: pointer;
+ }
+ #mainBody #table li:nth-child(1) .file #photo {
+   width: 100px;
+   height: 40px;
+   position: absolute;
+   font-size: 14px;
+   right: 0;
+   top: 0;
+   opacity: 0;
+ }
+ 
+ 
+   /*第二行，用户名*/
+ #mainBody #table li:nth-child(3) input{
+   width: 300px;
+   height: 40px;
+   border-radius: 4px;
+   padding-left:16px;
+   border: 1px solid #CDCECD;
+  color:#000000;
+ }
+
+/*手机号*/
+ #mainBody #table li:nth-child(5) input.notModify ,
+ #mainBody #table li:nth-child(6) input.notModify {
+   border:none;
+ }
+
+ #mainBody #table li:nth-child(5) input ,
+ #mainBody #table li:nth-child(6) input {
+   border: 1px solid #CDCECD;
+   border-radius:4px;
+   width: 200px;
+   height: 38px;
+   line-height: 38px;
+   padding-left:10px;
+ }
+
+ /*第七行 设计师*/
+ #mainBody #table li:nth-child(7) select,
+ #mainBody #table li:nth-child(7) option {
+   width: 142px;
+   height: 38px;
+   border: 1px solid #CDCECD;
+   padding-left:14px;
+   border-radius: 4px;
+ }
+
+ /*第10行，兴趣爱好*/
+ #mainBody #table li:nth-child(8) input {
+   width: 408px;
+   height: 38px;
+   border: 1px solid #CDCECD;
+   padding-left:14px;
+   border-radius: 4px;
+   color:#CDCECD;
+ }
+
+ /*兴趣爱好*/
+ #mainBody .hobby {
+   margin-left:115px;
+ }
+
+ #mainBody .hobby span {
+   border: 1px solid #CDCECD;
+   border-radius: 4px;
+   display: inline-block;
+   padding: 9px;
+   color:#CDCECD;
+ }
+
+ #mainBody .hobby span.modifySpan {
+   color: #FFA100;
+   border: 1px solid #FFA100;
+ }
+ #mainBody .hobby span:hover {
+   cursor: pointer;
+   color: #FFA100;
+   border: 1px solid #FFA100;
+ }
+ #mainBody .hobby span + span {
+   margin-left:2px;
+ }
+
+ /*保存按钮*/
+ #mainBody #save {
+   position: relative;
+   display: inline-block;
+   width: 100px;
+   height: 40px;
+   line-height:40px;
+   text-align: center;
+   margin-left:115px;
+   margin-top: 9px;
+   border-radius:4px;
+   background-color: #FFA100;
+   color:#fff;
+   cursor: pointer;
+ }
+ /*#mainBody #save input {*/
+   /*width: 100%;*/
+   /*height: 100%;*/
+   /*opacity: 0;*/
+   /*position: absolute;*/
+   /*top: 0;*/
+   /*left: 0;*/
+ /*}*/
+ /*验证修改的样式*/
+ .modify {
+   color:#FFA100;
+   cursor: pointer;
+   display: none;
+ }
+
+
+ /*提示框*/
+ #note {
+   width: 500px;
+   height: 300px;
+   position: fixed;
+   top:50%;
+   left:50%;
+   margin-left:-250px;
+   margin-top:-150px;
+   border: 1px solid #FFA100;
+   display: none;
+ }
+
+ #note h3 {
+   height: 50px;
+   line-height: 50px;
+   border-bottom: 2px solid #FFA100;
+   text-align: center;
+ }
+
+ #noteMessage {
+   height: 180px;
+   line-height: 180px;
+   font-size:20px;
+   text-align: center;
+   color:#FFA100;
+ }
+ #note span {
+   display: inline-block;
+   width: 100px;
+   height: 40px;
+   line-height: 40px;
+   border-radius: 4px;
+   float: right;
+   margin-right:20px;
+   margin-bottom:20px;
+   background-color: #FFA100;
+   color:#fff;
+   text-align: center;
+   cursor: pointer;
+ }
