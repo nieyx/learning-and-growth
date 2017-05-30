@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>delegate</title>
+	<style>
+		.container {
+			width: 800px;
+			height: 600px;
+			background: #f0f;
+			margin: 0 auto;
+		}
+
+		.container ul {
+			width: 100%;
+		}
+
+		.container ul li {
+			width: 600px;
+			height: 20px;
+			background: #fff;
+			margin-top: 5px;
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h2>定义函数遍历绑定</h2>
+		<ul id="container1">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+		<hr>
+		<h2>delegate事件绑定</h2>
+		<ul id="container2">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+	</div>
+
+	<script>
+		function addListenersLi(liNode) {
+			liNode.onclick = function(){
+				console.log(111)
+			}
+		}
+		var con1 = document.getElementById('container1');
+		var liNode = con1.getElementsByTagName('li');
+		for (var i = 0, len = liNode.length; i<len; i++){
+			addListenersLi(liNode[i]);
+		}
+
+		var con2 = document.getElementById('container2');
+		con2.addEventListener('click', function(e){
+			if(e.target && e.target.nodeName == 'LI'){
+				console.log('li', e.target.id, 'was clicked')
+			} else {
+				console.log('err')
+			}
+		})
+	</script>
+</body>
+</html>
