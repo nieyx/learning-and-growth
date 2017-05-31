@@ -21,6 +21,7 @@
 + command + shift + p 调出命令面板
 + command ++ ／-- 放大缩小字体
 + command + shift + w 关闭sublime
++ command + option + 2／3／4 -- 将试图拆分成2/3/4
 
 
 

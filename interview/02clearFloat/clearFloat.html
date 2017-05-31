@@ -11,7 +11,8 @@
 			border: 1px solid #000;
 		}
 		.container > div {
-			width: 200px;
+			/*width: 300px;*/
+			padding:10px;
 			background: #f00;
 			margin: 1px;
 			float: left;
@@ -28,16 +29,42 @@
 		.con2 {
 			height:200px;
 		}
-		.clearfix:after {
+		.outer{
+			border: 1px solid #ccc;
+			background: #fc9;
+			color: #fff; 
+			margin: 50px auto;
+			padding: 50px;
+		}
+		.div1{
+			width: 80px;
+			height: 80px;
+			background: red;
+			float: left;
+		}
+		.div2{
+			width: 80px;
+			height: 80px;
+			background: blue;
+			float: left;
+		}
+		.div3{
+			width: 80px;
+			height: 80px;
+			background: sienna;
+			float: left;
+		}
+
+		.outer {
+			zoom:1;
+		}
+		.outer:after {
 			clear:both;
 			content:'.';
 			display:block;
 			width: 0;
 			height: 0;
-			visibility:hidden;
-		}
-		.clearfix {
-			zoom:1; /*解决ie678的问题*/
+			visibility:hidden；
 		}
 	</style>
 </head>
@@ -55,13 +82,10 @@
 			<div>2</div>
 		</div>
 	</div>
-	<div class="container">
-		<h2>清除浮动的常用方法</h2>
-		<div class="con clearfix">
-			<div>1</div>
-			<div>1</div>
-			<!-- <div style='clear:both'></div>	 -->
-		</div>
+	<div class="outer">
+		<div class="div1">1</div>
+		<div class="div2">2</div>
+		<div class="div3">3</div>
 	</div>
 </body>
 </html>
