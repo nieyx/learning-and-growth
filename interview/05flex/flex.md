@@ -19,11 +19,38 @@
 
 ```
 #### 容器的属性
-```
-+ 共有6个属性
-```
+
+> 共有6个属性
++ flex-direction: 主轴的方向
+	- row
+	- row-reverse
+	- column
+	- column-reverse
++ flex-wrap: items是否换行
+	- nowrap
+	- wrap
+	- wrap-reverse
++ flex-flow:是flex-direction和flex-wrap的合体
++ justify-content:items按照主轴的排列方式
+	- flex-start／flex-end
+	- center
+	- space-between
+	- space-around
++ align-items:items按照侧轴的排列方式
+	- flex-start／flex-end
+	- center
+	- space-between
+	- space-around
++ align-content:在交叉轴上如何对齐
+
 #### 项目的属性
 ```
++ order： 取值越小越靠前
++ flex-grow
++ flex-shrink
++ flex-basic
++ flex
++ align-self
 
 ```
 
