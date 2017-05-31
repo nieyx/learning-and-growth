@@ -1,6 +1,9 @@
 ### flex 弹性盒子
 [详细文档地址]: <http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html>  "语法"
 [详细文档地址]: <http://www.ruanyifeng.com/blog/2015/07/flex-examples.html>  "案例"
+
+这是mac本地添加的内容，
+学习git的meger语句
 #### 什么是flex
 ```
 + flex是flexable box的简称，是弹性盒子
