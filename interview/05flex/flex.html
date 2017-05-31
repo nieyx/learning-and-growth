@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>flex</title>
+	<style>
+		.container {
+			width: 1000px;
+			height: 800px;
+			background: #f2f2f2;
+			display: flex;
+			flex-direction: column;
+			margin: 0 auto;
+		}
+		.container > div {
+			width: 100%;
+
+		}
+		.nav {
+			height: 200px;
+			background: #f0f;
+			flex:1;
+		}
+		.content {
+			height: 400px;
+			flex:3; /*自己占2份，其他1份*/
+			display: flex;
+
+		}
+		.content .items {
+			
+		}
+		.footer {
+			height: 200px;
+			background: #f0f;
+			flex:1;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="nav"></div>
+		<div class="content">
+			<div class="items"></div>
+			<div class="items"></div>
+			<div class="items"></div>
+		</div>
+		<div class="footer"></div>
+	</div>
+</body>
+</html>
