@@ -3,8 +3,50 @@
 <head>
 	<meta charset="UTF-8">
 	<title>position</title>
+	<style>
+		.container {
+			width: 800px;
+			height: 700px;
+			margin: 0 auto;
+			border: 1px solid #000;
+			position：relative;
+		}
+		.container div {
+			width: 200px;
+			height: 200px;
+			background: #f0f;
+		}
+		div.rel {
+			background: #f0f0e0;
+			position: relative;
+			top:10px;
+			left:10px;
+		}
+		div.abs {
+			background: #34bb7b;
+			position: absolute;
+			top: 330px;
+			left: 410px;
+		}
+		div.fix {
+			background: #f00;
+			position: fixed;　
+			top:600px;
+			left:300px;
+		}
+	</style>
 </head>
 <body>
-	
+	<div class="container">
+		<p>relative，相对于原来的位置移动了10/10之后，仍占有原来的位置</p>
+		<div class="rel">relative</div>
+		<p>absolute，相对于父容器container做了定位的偏移，并将脱离了文档流</p>
+		<div class="abs">absolute</div>
+		<div>static</div>
+		<p>fixed,使用了之后，或脱离文档流，不占位置</p>
+		<div class="fix">fixed</div>
+		<div>static</div>
+
+	</div>
 </body>
 </html>

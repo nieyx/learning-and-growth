@@ -18,5 +18,10 @@
 ```
 #### 清除浮动的几种方法
 ```
-
++ 为使用float的元素的父元素设置高度
++ 在使用float的元素后，加上一个空的div，添加一个clear：both的样式
++ 使用after的伪类
 ```
+
+#### 为什么overflow可以清除浮动
++ 因为当使用overflow的时候，触发了BFC--block formating context，块级格式化上下文
