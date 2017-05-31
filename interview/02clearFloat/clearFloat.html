@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>clearFloat</title>
+	<style>
+		.container {
+			width: 800px;
+			height: 350px;
+			margin: 0 auto;
+			border: 1px solid #000;
+		}
+		.container > div {
+			width: 200px;
+			background: #f00;
+			margin: 1px;
+			float: left;
+		}
+		.con div {
+			width: 100px;
+			height: 100px;
+			background: #f0f;
+			float: left;
+		}
+		.con1 div {
+			
+		}
+		.con2 {
+			height:200px;
+		}
+		.clearfix:after {
+			clear:both;
+			content:'.';
+			display:block;
+			width: 0;
+			height: 0;
+			visibility:hidden;
+		}
+		.clearfix {
+			zoom:1; /*解决ie678的问题*/
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<h2>父元素的高度不设置／设置后，float的样式差别</h2>
+		<p>左侧是没有设置父元素的高度，后侧为设置过的</p>
+		<div class="con con1">
+			<div>1</div>
+			<div>1</div>
+		</div>
+		<div class="con con2">
+			<div>2</div>
+			<div>2</div>
+		</div>
+	</div>
+	<div class="container">
+		<h2>清除浮动的常用方法</h2>
+		<div class="con clearfix">
+			<div>1</div>
+			<div>1</div>
+			<!-- <div style='clear:both'></div>	 -->
+		</div>
+	</div>
+</body>
+</html>
