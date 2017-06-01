@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>让盒子居中</title>
+	<style>
+		html,body{
+			margin:0px;
+			height:100%;
+		}
+		.container {
+			width: 100%;
+			height: 100%;
+			background: #e4d9d9;
+			display: flex;
+			justify-content: space-around;
+		}
+		.box {
+			width: 400px;
+			height: 100%;
+			background: #f0f;
+		}
+		.items {
+			width: 200px;
+			height: 200px;
+			background: #f00;
+			line-height: 200px;
+			text-align: center;
+		}
+		.box1 {
+			position: relative;
+		}
+		.item1 {
+			position: absolute;
+			top:50%;
+			left:50%;
+			-webkit-transform: translate(-50%,-50%);
+		}
+		.box2 {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.box3 {
+			position: absolute;
+		}
+		.item3 {
+			position: absolute;
+			margin: auto;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="box box1">
+			<div class="items item1">使用定位</div>
+		</div>
+		<div class="box box2">
+			<div class="items item2">使用flex</div>
+		</div>
+		<div class="box box3">
+			<div class="items item3">使用0</div>
+		</div>
+	</div>
+</body>
+</html>
