@@ -13,3 +13,9 @@
 		* 先git pull，将原称仓库中的内容同步到本地
 		* 然后查看冲突的内容，
 		* 修改文件后 ，在使用git push
+
++ git log 查看最近几次提交的版本
+	- 推出git log,输入**q**
+	- 文件的log信息太多，使用git log --pretty=oneline，让log信息一行显示
+
++ git reset --hard [commit id] 回退到指定的id版本
