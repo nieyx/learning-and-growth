@@ -19,5 +19,3 @@
 	- 文件的log信息太多，使用git log --pretty=oneline，让log信息一行显示
 
 + git reset --hard [commit id] 回退到指定的id版本
-
-+ test : 111
