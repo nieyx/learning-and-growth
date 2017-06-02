@@ -54,4 +54,7 @@
 + git merge dev 
 	- git merge dev // 合并分支
 	- 如果merge时候，出现冲突，根据文件中所提示的内容，作修改后再提交
-+ error
+
++ git stash
+	- 保存当前分支的内容，解决其他issue之后回来继续编辑
+
