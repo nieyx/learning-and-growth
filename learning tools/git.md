@@ -57,4 +57,8 @@
 
 + git stash
 	- 保存当前分支的内容，解决其他issue之后回来继续编辑
+	- git stash list // 查看stach的状态
+	- git stash pop // 恢复之前编辑的内容，并删除stash内容
+		* git stash apply // 恢复stash内容
+		* git stash drop // 删除stash内容
 
