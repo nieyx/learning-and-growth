@@ -22,3 +22,6 @@
 + git diff HEAD -- filename -- 将当前工作区内容与版本库的文件作比较
 
 + git checkout -- filename : 删除工作区的修改内容
++ git reset HEAD filename 
+	 - 将文件git add 添加到了暂存区，先通过git reset HEAD撤销秋改
+	 - 在使用git checkout -- filename 来撤销工作区的内容
