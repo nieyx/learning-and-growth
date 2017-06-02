@@ -19,3 +19,4 @@
 	- 文件的log信息太多，使用git log --pretty=oneline，让log信息一行显示
 
 + git reset --hard [commit id] 回退到指定的id版本
++ git diff HEAD -- filename -- 将当前工作区内容与版本库的文件作比较
