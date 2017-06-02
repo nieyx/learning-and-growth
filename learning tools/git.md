@@ -25,3 +25,8 @@
 + git reset HEAD filename 
 	 - 将文件git add 添加到了暂存区，先通过git reset HEAD撤销秋改
 	 - 在使用git checkout -- filename 来撤销工作区的内容
+
++ git rm filename 
+	- 在本地删除了文件，或者用rm filename之后
+		* 没有没有git commit ，此时使用git checkout -- filename，回恢复文件
+		* 若是使用git rm ，git commit ，则只能使用git log，查看commit id ，然后会退到上一个版本
