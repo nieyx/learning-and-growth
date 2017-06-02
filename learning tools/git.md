@@ -54,3 +54,4 @@
 + git merge dev 
 	- git merge dev // 合并分支
 	- 如果merge时候，出现冲突，根据文件中所提示的内容，作修改后再提交
++ error
