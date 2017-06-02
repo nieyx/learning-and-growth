@@ -48,6 +48,7 @@
 	- git branch // 查看分支
 	- git branch dev // 创建dev分支
 	- git branch -d dev // 删除dev分支
+	- git branch -D dev // 强行删除没有merge的分支
 
 + git checkout dev // 切换分支
 
@@ -61,4 +62,9 @@
 	- git stash pop // 恢复之前编辑的内容，并删除stash内容
 		* git stash apply // 恢复stash内容
 		* git stash drop // 删除stash内容
+	-  git stash apply stash@{0} // 多次stach，可选择恢复的内容
+
++ git remote
+	- 查看远程仓库，默认名为origin
+	- git remote -v 查看更加详细的信息
 
