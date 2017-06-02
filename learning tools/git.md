@@ -36,18 +36,19 @@
 		* 没有没有git commit ，此时使用git checkout -- filename，回恢复文件
 		* 若是使用git rm ，git commit ，则只能使用git log，查看commit id ，然后会退到上一个版本
 
-+ git checkout -b dev
-	- 创建分支并切换到分支，分支名称为dev
++ git checkout -b [branchName]
+	- git checkout -b dev创建分支并切换到分支，分支名称为dev
 	- 当前HEAD指向了dev分支
 	- git checkout -b dev 
 		* 此行代码相当于下面两行
-		* git branch dev  // 创建分支
-		* git checkout dev // 切换分支
+		* git branch dev  // 创建dev分支
+		* git checkout dev // 切换dev分支
 
-+ git branch 
++ git branch [branchName]
 	- git branch // 查看分支
-	- git branch dev // 创建分支
-	- git branch -d dev // 删除分支
+	- git branch dev // 创建dev分支
+	- git branch -d dev // 删除dev分支
+
 + git checkout dev // 切换分支
 
 + git merge dev 
