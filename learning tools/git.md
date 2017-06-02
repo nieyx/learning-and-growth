@@ -45,4 +45,10 @@
 		* git checkout dev // 切换分支
 
 + git branch 
-+ git checkout dev 
+	- git branch // 查看分支
+	- git branch dev // 创建分支
+	- git branch -d dev // 删除分支
++ git checkout dev // 切换分支
+
++ git merge dev 
+	- git merge dev // 合并分支
