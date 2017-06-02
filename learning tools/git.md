@@ -2,6 +2,11 @@
 
 #### git的学习
 
+#### 什么是git
+分布式管理控制系统
+
+#### git的快捷键
+
 + git add -- 将工作区的文件提交到暂存区域
 	- **git add -A** -- 提交全部文件
 + git commit -m ‘文件提交的注释’ 
@@ -30,3 +35,7 @@
 	- 在本地删除了文件，或者用rm filename之后
 		* 没有没有git commit ，此时使用git checkout -- filename，回恢复文件
 		* 若是使用git rm ，git commit ，则只能使用git log，查看commit id ，然后会退到上一个版本
+
++ git checkout -b dev
+	- 创建分支并切换到分支，分支名称为dev
+	- 当前HEAD指向了dev分支
