@@ -20,3 +20,5 @@
 
 + git reset --hard [commit id] 回退到指定的id版本
 + git diff HEAD -- filename -- 将当前工作区内容与版本库的文件作比较
+
++ git checkout -- filename : 删除工作区的修改内容
