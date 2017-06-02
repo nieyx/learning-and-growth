@@ -39,3 +39,10 @@
 + git checkout -b dev
 	- 创建分支并切换到分支，分支名称为dev
 	- 当前HEAD指向了dev分支
+	- git checkout -b dev 
+		* 此行代码相当于下面两行
+		* git branch dev  // 创建分支
+		* git checkout dev // 切换分支
+
++ git branch 
++ git checkout dev 
