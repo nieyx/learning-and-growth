@@ -24,7 +24,7 @@
 	}()) // 立即执行函数
 	```
 	- 函数的调用，一般不使用this，但是可以通过使用this，来判断，是否为严格模式
-	```
+	```js
 		var strict = function(){
 			return !this;
 		}();
@@ -33,7 +33,7 @@
 + 方法的调用
 	- 方法：保存在对象属性里的javaScript函数
 	- 例子
-	```
+	```js
 		o.m = f; // 对象o的m属性添加了f的方法
 		o.m // 调用时
 		o.m(x， y) // 传递参数时
@@ -41,7 +41,7 @@
 	- <strong>函数的调用和方法的调用，最显著的区别</strong>
 		* <strong>调用上下文this</strong>
 		* 属性表达式 o.m(对象o，属性m)中，对象o构成了调用上下文，函数体可以使用this来引用该对象
-		```
+		```js
 			var calculator = { // 对象的直接量
 				operand1: 1;
 				operand2: 2;
