@@ -1,6 +1,6 @@
 ## 函数
 
-#### 函数的调用
+### 函数的调用
 + 函数在定义的时候不会被执行，只有被**调用**的时候才会执行
 
 + 函数调用的几种方法
@@ -114,7 +114,102 @@
 		```
 	- 其中，call和apply中第一个实参，会变成this的值
 
-			
+### 函数的作用域	
+
++ 变量的作用域
+	- 变量作用域：一个变量的作用区域
+		> 全局作用域和函数作用域
+		> 
+		> 全局变量具有的全局作用域，在javaScript的任何地方都是有定义的
+		> 
+		> 局部变量：在函数体内声明的变量，在函数体内有定义
+
+		```js
+			var scope = 'global';
+			function checkscope(){
+				scope = 'local'; // 修改了全局变量
+				var scope = 'loacl';
+				return scope;
+			}
+			checkscope(); // local
+			scope  // local
+
+			//  函数的定义是可以嵌套的
+			var scope = 'global scope';
+			function checkscope(){
+				var scope = 'local scope';
+				function nested(){
+					var scope = 'nested scope';
+					return scope;
+				}
+				return nested();
+			}
+			checkscope() // nested scope
+
+		```
+
++ 函数的作用域和声明提前
+	- 函数的作用域
+		> js与c类的编程语言的区别
+		> 
+		> c: 块级作用域
+		>> 花括号内的每一段代码，都有各自的作用域
+		> 
+		> js： 函数作用域
+		>> 在函数体的声明的变量，在函数体内，以及在函数体内嵌套的函数都是有定义的
+		```js
+			function test(o){
+				var i = o; // i在函数体内都是有定义的
+				if (typeof o == "object"){
+					var j = 0; // j在函数体内有定义的，不仅仅是在这个代码段内
+					for (var k=0;k<10;k++){ // k在函数体内有定义，不仅仅在循环内哟定义
+						console.log(k); // 输入0-9
+					}
+					console.log(k); // 输出
+				}
+				console.log(j) //j已经定义了，但是可能没有初始化
+			}
+		```
+	- 声明提前
+		> 什么叫函数的声明提前？
+		> 
+		> js的函数作用域是指在函数内声明的所有变量在函数体内是**始终可见的**
+		> 
+		> 始终可见：意味着变量在声明之前就已经可用了
+		>
+		>这种特性被叫做函数的声明提前
+
+	- 声明提升的解析步骤
+		> 预编译
+		声明提升
+		解析代码
+
+
+	- 声明提升的案例
+		```js
+			var scope = 'global';
+			function f() {
+				console.log(scope); // undefined
+				var scope = 'local';
+				console.log(scope); // local
+			}
+ 			// 上述代码等价于
+ 			var scope = 'global';
+			function f() {
+				var scope;
+				console.log(scope); undefined
+				scope = 'local';
+				console.log(scope); // local
+			}
+		```
+
+	- 解决函数声明提升的方法
+		> **让变量声明和使用变量的代码尽可能的靠近**
+
++ 作用域链
+	- 
+
+
 		
 		
 
