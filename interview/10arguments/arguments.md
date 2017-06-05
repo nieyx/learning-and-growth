@@ -44,7 +44,8 @@
 >>
 >> 现在调用的方式arguments.callee.caller
 
-> 注：在严格模式下，caller和callee都会报错
+注：在严格模式下，caller和callee都会报错
+
 
 	- 应用案例1
 	```js
