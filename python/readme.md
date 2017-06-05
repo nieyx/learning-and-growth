@@ -27,6 +27,7 @@
 			chmod a+x hello.py
 		```
 ### python的输入输出
+
 	```python
 		name = input('please enter your name');
 		print('hello ,', name)
