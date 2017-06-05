@@ -47,35 +47,35 @@
 
 
 	- 应用案例1
-	```js
-		var read = function(){
-			console.log(arguments.caller); // go
-			console.log(arguments.callee); // read
-		};
-		var go = function(){
-			read();
-		}
-		go();
-		// 实际上上述返回的是undefined和read，这是因为caller的使用已经废弃了，
-		// 要修改成
-		var read = function(){
-			console.log(arguments.callee.caller); // go
-			console.log(arguments.callee); // read
-		};
-		var go = function(){
-			read();
-		}
-		go();
-	```
-	- 应用案例2-递归
-	```js
-		function factoritol(num){
-			if (num <= 1) {
-				return 
-			} else {
-				return num*arguments.callee(num-1);
+		```js
+			var read = function(){
+				console.log(arguments.caller); // go
+				console.log(arguments.callee); // read
+			};
+			var go = function(){
+				read();
 			}
-		}
-		factoritol(100);
-	```
+			go();
+			// 实际上上述返回的是undefined和read，这是因为caller的使用已经废弃了，
+			// 要修改成
+			var read = function(){
+				console.log(arguments.callee.caller); // go
+				console.log(arguments.callee); // read
+			};
+			var go = function(){
+				read();
+			}
+			go();
+		```
+	- 应用案例2-递归
+		```js
+			function factoritol(num){
+				if (num <= 1) {
+					return 
+				} else {
+					return num*arguments.callee(num-1);
+				}
+			}
+			factoritol(100);
+		```
 
