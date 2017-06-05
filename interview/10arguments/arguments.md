@@ -35,16 +35,15 @@
 	```
 
 + arguments.caller与arguments.callee的差别
-> 1.arguments.callee :被调用者
->> 在es5的严格模式中删除了
->>
->> 
-> 2.arguments.caller : 调用者
->> 在es5的严格模式中删除了
->>
->> 现在调用的方式arguments.callee.caller
-
-注：在严格模式下，caller和callee都会报错
+	> 1.arguments.callee :被调用者
+	>> 在es5的严格模式中删除了
+	>>
+	> 2.arguments.caller : 调用者
+	>> 在es5的严格模式中删除了
+	>>
+	>> 现在调用的方式arguments.callee.caller
+	>
+	>注：在严格模式下，caller和callee都会报错
 
 
 	- 应用案例1
