@@ -223,7 +223,76 @@
 	> 如果列表上的最后一个对象也没有x的值，则认为不存在x，则跑出异常
 
 
++ 高阶函数
+	- map/reduce
+		* map是属于array的方法，在括号内传递自定义的函数，就会得到新的array
+			```js
+				function pow(x) {
+					return x * x;
+				};
+				var arr = [1,2,3,4];
+				arr.map(pow); // [1,4,9,16]
+			```
+		* map可以计算任何的复杂的运算
+			```js
+				var arr = [1,2,3,4];
+				arr.map(String); // [‘1‘,‘2‘,‘3‘,‘4‘]
+			```
+	- filter
+		* 通常用来过滤数组
+		* filter(function(element,index,arr))括号中接受函数
+		* 根据函数返回的结果，true／false，来判断是否添加到数组中
+			```js
+				// 取出数组中的奇数
+				var arr = [1,2,3,4];
+				var r = arr.filter(function(x){
+					return x % 2 !== 0;
+				})
+				r; // 1,3
 
+				// 删除数组中空的字符串
+				var arr = ['A', '', 'B', null, undefined, 'C', '  '];
+				var r = arr.filter(function(ele){
+					return ele && ele.trim(); // IE9+
+				})
+				r; // ['A', 'B', 'C']
+
+				// function回调函数中，有多个参数
+				var arr = [1,2,3,4];
+				var r = arr.filter(function(element,index,arr){
+					console.log(element); // 1,2,3,4
+					console.log(index); // 0,1,2,3
+					console.log(arr); // [1,2,3,4]
+				})
+
+				// 去重
+				var arr = ['apple', 'strawberry', 'banana', 'pear', 'apple', 'orange', 'orange', 'strawberry'];
+				var r = arr.filter(function(ele,index,arr){
+					return arr.indexof(ele) === index; // 利用数组中每一项都有唯一索引值，来去重
+				})
+			```
+		* 
+	- sort
+		* sort对数组进行排序
+		* sort会修改原数组，
+		* sort()是根据ascii进行排序，对数字排序时候，10 > 20,所以要使用高阶函数
+		```js
+			// 高阶函数数组数字排序
+			var arr1 ,arr2 = [1,10,2,20,20,10,1,2];
+			arr1 = arr2.filter(function(ele,index,arr){
+				return arr.indexOf(ele) === index;
+			})
+			arr1.sort(function(x,y){
+				if (x>y) {
+					return 1;
+				}
+				if (x<y) {
+					return -1;
+				}
+				return 0;
+			});
+			arr1; // [1,2,10,20]
+		```
 		
 		
 
