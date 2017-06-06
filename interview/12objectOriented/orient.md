@@ -9,11 +9,13 @@
 	>> 例如: 根据Student类可以创建，xiaoming，xiaohong，xiaogang等多个实例
 	>>
 	>> 每个实例代表的学生，都指向一个Student的类
+	
 ### js中的面向对象编程
 + 在js中，没有类和实例的概念，
 + 通过prototype来实现的面向对象编程
+
 	```js
-		// 案例：原理的展示
+	// 案例：原理的展示
 		var xiaoming = {
 			name: '小明'
 		}; // 创建了xiaoming这个对象，只有name属性，没有其他的信息
@@ -41,7 +43,7 @@
 		xiaoming.__proto__ = Bird;
 		xiaoming.fly() // '小明' is  flying...;
 
-		// 案例：根据现有的Student来创建xiaohong
+	// 案例：根据现有的Student来创建xiaohong
 		var Student = {
 			name:'xiaoming',
 			age:18,
