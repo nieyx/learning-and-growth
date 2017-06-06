@@ -293,6 +293,63 @@
 			});
 			arr1; // [1,2,10,20]
 		```
+
+## 闭包
++ 什么是闭包
+	- 高阶函数，除了有可以传递函数功能，也可以返回函数
+	- 当相关的**参数和变量**都保存在**返回的函数中**--closure闭包
++ 闭包的应用
+	- 函数求和
+		```js
+			// 直接返回求和结果
+			var sum = function(arr) {
+				return arr.reduce(function(x,y){
+					return x+y;
+				})
+			};
+			sum([1,2,3,4]) // 10
+
+			// 若不想直接返回，在需要的时候在计算，就可以使用闭包
+			var lazy_sum = function (arr) {
+				var sum = function(){
+					return arr.reduce(function(x,y){
+						return x+y
+					})
+				}
+				return sum; // 在函数中返回了sum函数，sum函数可以使用lazy_sum中的局部变量
+			}
+			var f = lazy_sum([1,2,3,4]);
+			f(); // 10,在每次调用f()的时候才计算求和
+		```
+	- 在对象内部封闭私有变量
+		```js
+			// 例1
+			function create_counter(inital){
+				var x = inital || 0;
+				return {
+					inc: function(){
+						return x+=1
+					}
+				}
+			}
+			var c1 = create_counter();
+			c1.inc();
+			var c2 = create_counter(10);
+			c2.inc();
+
+			// 例2
+			var foo = {
+				secret: 'secret',
+				get_secret:function(){
+					return this.secret;
+				},
+				set_secret:function(x){
+					return this.secret = x;
+				}
+			};
+			foo.get_secret(); // 获取属性值
+			foo.set_secret('global'); // 修改属性值
+		```
 		
 		
 
