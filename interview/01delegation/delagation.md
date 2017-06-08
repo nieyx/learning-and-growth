@@ -37,4 +37,4 @@ delegate：代理，委托
 	- 事件冒泡阶段
 		* 从目标元素开始，像顶层元素传播
 		* 途中如果有节点绑定了事件处理函数，则一次性触发
-		* e.stopPropagation（）和e.canceBubble=true来组织冒泡
+		* e.stopPropagation（）和e.canceBubble=true来阻止冒泡
