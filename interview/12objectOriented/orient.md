@@ -64,7 +64,7 @@
 	```
 ### 原型链
 + 创建函数
-	- 每一个创建的对象，都会有一个原型，这个原型，指向它的原型对象
+	- 每一个创建的对象，都会有一个原型__proto__，这个原型，指向它的原型对象
 		```js
 			// 创建一个数组，它的原型指向如下
 			var arr = [1,2,3,4];
@@ -110,4 +110,26 @@
 			Student.prototype.constructor === Student // true
 
 		```
+	- 原型对象
+	```js
+	 	// 根据构造函数，可以创建出许多的对象;
+	 	// 如果对象有相同的方法，通过将方法添加到构造函数的原型上，可以节省内存
+	 	var Student = function(name){
+	 		this.name = name;
+	 	}
+	 	Student.prototype = {
+	 		hello:function(){
+	 			console.log(this.name + 'hello 哈')
+	 		}
+	 	}
+	 	var zhangsan = new Student('张三');
+	 	zhangsan.hello();
+
+	 	// 对于上述，有如下的原型链
+	 	zhangsan.__proto__ === Student.prototype;
+	 	zhangsan.constructor === Student;
+	 	Student.prototype.constructor === Student;
+	 	Student.prototype.__proto__ === Object.prototype;
+
+	```
 
