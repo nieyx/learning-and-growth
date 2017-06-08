@@ -1,4 +1,8 @@
 ### 事件代理和委托
++ 什么是delegate
++ javascript的事件代理
++ javascript事件代理的原理
++ 事件的莫啊跑和捕获
 
 #### 什么是delegate
 ```
