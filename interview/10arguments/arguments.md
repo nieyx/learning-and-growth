@@ -1,4 +1,6 @@
 ## arguments
++ 什么是arguments
++ argumrnts的应用
 
 ### 什么是arguments
 > 1.是个js的关键字
