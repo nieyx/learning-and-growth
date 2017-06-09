@@ -16,11 +16,8 @@
 #### 如何设置doctype
 >
 > 1. html4.0.1 有三种声明格式
->
 > 2. html5 ：使用最新的html的格式，因此是不需要DTD的引用
->
 > 3. html4.0.1与html5的差别
->
 >>	- 4.0.1 是基于SGML，而5.0不是，所以引用的方式不同
 >>	- SGML -- standard generalized makeup language
 
@@ -43,13 +40,10 @@
  ```
 #### 如何解决不同模式带来的问题及如何解决
 
->
 > + 不同的模式，对浏览器的影响
->
 >>	- 对于chrome，ff，没有很大的差别，但是对于ie浏览器来说，有一定的差别
 >>	- 对于ie 的差别主要体现在盒子模型上
 > + ie下的盒子模型
->
 >>	- 标准模式下的盒子模型
 		* margin padding border content四部分组成
 		* 宽度为content部分，不包括其他的部分
@@ -59,7 +53,6 @@
 		* 宽度为content + padding * 2 + border * 2 
 		* 外盒尺寸： content + padding * 2 + border * 2 + margin * 2
 > + 解决方式：
->
 >>	- 使用box-sizing来声明，
 		* border-box
 		* content-box
