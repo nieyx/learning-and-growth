@@ -25,6 +25,12 @@
 #### 容器的属性
 
 > 共有6个属性
+1. flex-direction
+2. flex-wrap
+3. flex-flow
+4. justfiy-content
+5. align-item
+6. align-content
 > + flex-direction: 主轴的方向
 >>	- row
 >>	- row-reverse
