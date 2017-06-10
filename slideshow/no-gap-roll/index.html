@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        html,body,div,ul,li,a,img {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        .box {
+            width: 800px;
+            height: 100px;
+            margin:200px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .box ul {
+            width: 1600px;
+            height: 100%;
+            position: absolute;
+            left:0;
+            animation:move 8s linear infinite;
+        }
+        .box ul:hover {
+            animation-play-state: paused;
+        }
+        .box li {
+            float: left;
+        }
+        @keyframes move {
+            0% {
+                left:0;
+            }
+            100% {
+                left:-800px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul>
+        <li><a href="#"><img src="images/dasu1.jpg" width="100"alt=""/></a></li>
+        <li><a href="#"><img src="images/dasu2.jpg" width="100"alt=""/></a></li>
+        <li><a href="#"><img src="images/dasu3.jpg" width="100"alt=""/></a></li>
+        <li><a href="#"><img src="images/dasu4.jpg" width="100"alt=""/></a></li>
+        <li><a href="#"><img src="images/dasu5.jpg" width="100"alt=""/></a></li>
+        <li><a href="#"><img src="images/dasu6.jpg" width="100"alt=""/></a></li>
+        <li><a href="#"><img src="images/dasu7.jpg" width="100"alt=""/></a></li>
+        <li><a href="#"><img src="images/dasu8.jpg" width="100"alt=""/></a></li>
+        <li><a href="#"><img src="images/dasu1.jpg" width="100"alt=""/></a></li>
+        <li><a href="#"><img src="images/dasu2.jpg" width="100"alt=""/></a></li>
+        <li><a href="#"><img src="images/dasu3.jpg" width="100"alt=""/></a></li>
+        <li><a href="#"><img src="images/dasu4.jpg" width="100"alt=""/></a></li>
+        <li><a href="#"><img src="images/dasu5.jpg" width="100"alt=""/></a></li>
+        <li><a href="#"><img src="images/dasu6.jpg" width="100"alt=""/></a></li>
+        <li><a href="#"><img src="images/dasu7.jpg" width="100"alt=""/></a></li>
+        <li><a href="#"><img src="images/dasu8.jpg" width="100"alt=""/></a></li>
+    </ul>
+</div>
+</body>
+</html>

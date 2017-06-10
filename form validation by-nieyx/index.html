@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>表单验证</title>
+  <link rel="stylesheet" href="css/index.css">
+  <script src='./js/jquery-1.11.1.min.js'></script>
+  <script src='./js/index.js'></script>
+
+</head>
+<body>
+<section id='mainBody'>
+    <form action="index.php">
+      <h3>个人信息</h3>
+      <ul id='table'>
+        <li>
+          <span>头像</span>
+          <img src="./img/imglogo.jpg" alt="" width='141px' height='141px' id='img' class='fl'>
+          <div class='fl'>
+              <a href="javascript:;" class="file">
+                本地照片
+                <input type="file" name=""  id='photo'>
+              </a>
+              <label>只支持JPG，PHG格式，文件小于3M</label>
+          </div>
+        </li>
+        <li>
+          <span>用户名</span>
+          <div>
+            <span>18622272976</span>
+          </div>
+        </li>
+        <li>
+          <span>昵称</span>
+          <div>
+            <input type="text"  value='王菁雅'>
+          </div>
+        </li>
+        <li>
+          <span>性别</span>
+          <div>
+            <input type="radio" name="gender" />男
+            <input type="radio" name="gender" checked='checked'/>女
+          </div>
+        </li>
+        <li>
+          <span>手机号</span>
+          <div>
+            <input id='subNum' placeholder='请输入您的手机号码' />
+            <span id='phoneConfirm'></span>
+            <span class='modify mphone'>修改</span>
+          </div>
+        </li>
+        <li>
+          <span>邮箱</span>
+          <div>
+            <input id='subEmail' placeholder='请输入您的邮箱'/>
+            <span id='emailConfirm'></span>
+            <span class='modify memail'>修改</span>
+          </div>
+        </li>
+        <li>
+        <span>职业</span>
+        <div>
+          <select>
+            <option>工程师</option>
+            <option selected="selected">设计师</option>
+          </select><br/>
+        </div>
+        </li>
+        <li>
+          <span>兴趣爱好</span>
+          <div>
+            <input type="text" id='hobby'/><br>
+          </div>
+        </li>
+      </ul>
+      <div class='hobby'>
+        <span>体育运动</span>
+        <span>交友</span>
+        <span>美食</span>
+        <span>电影</span>
+        <span>旅行</span>
+        <span>音乐数码</span>
+      </div>
+      <span id='save'>
+        保存
+        <!--<input  type='submit' />-->
+      </span>
+
+    </form>
+  <div id="note">
+    <h3>提示信息</h3>
+    <div id='noteMessage'></div>
+    <span id='noteConfirme'>确定</span>
+  </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>携程2遍</title>
+    <style>
+        /*公共样式*/
+        html,body,div,img {
+            margin: 0;
+            padding: 0;
+        }
+        html,body {
+            width: 100%;
+            height: 100%;
+        }
+        a {
+            text-decoration: none;
+            color:white;
+        }
+        /*头部*/
+        .banner {
+            display: flex;
+        }
+        .banner a {
+            flex:1;
+        }
+        .banner img {
+            width: 100%;
+            display: block;
+        }
+        /*主题部分*/
+        .main {
+            padding: 5px;
+        }
+        .items {
+            width: 100%;
+            height: 90px;
+            background-color: red;
+            margin-bottom:5px;
+            border-radius:5px;
+            display: flex;
+        }
+        .items .pub {
+            flex:1;
+        }
+        .items .sub {
+            flex:2;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .items .sub a {
+            width: 50%;
+            display: inline-block;
+            height: 45px;
+            line-height: 45px;
+            text-align: center;
+            border-left:1px solid #fff;
+            border-top:1px solid #fff;
+            box-sizing:border-box;
+        }
+        .items:nth-child(1) {
+            background-color: #FF697A;
+        }
+        .items:nth-child(2) {
+            background-color: #3D98FF;
+        }
+        .items:nth-child(3) {
+            background-color: #44C522;
+        }
+        .items:nth-child(4) {
+            background-color: #FC9720;
+        }
+        .items .sub a:nth-child(-n+2) {
+            border-top:0 none;
+        }
+        .items:nth-child(4) .sub a {
+            width: 33.333%;
+        }
+        .items:nth-child(4) .sub a:nth-child(-n+3) {
+            border-top:0 none;
+        }
+        /*其他的条目部分*/
+        .extra {
+            display: flex;
+        }
+        .extra a {
+            flex:1;
+        }
+        .extra img {
+            width: 100%;
+        }
+        /*尾部*/
+        .nav {
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            display: flex;
+            border:1px solid #000;
+            border-left:0 none;
+            border-right:0 none;
+            background-color: grey;
+        }
+        .nav a {
+            display: inline-block;
+            flex:1;
+            color:pink;
+        }
+        footer p {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <header>
+            <!--banner部分-->
+            <section class="banner">
+                <a href="javascript:;">
+                    <img src="images/banner.jpg" alt=""/>
+                </a>
+            </section>
+        </header>
+        <div class="main">
+            <!--条目部分-->
+            <section>
+                <div class="items">
+                    <div class="pub"></div>
+                    <div class="sub">
+                        <a href="javascript:;">今天是2015</a>
+                        <a href="javascript:;">12-31</a>
+                        <a href="javascript:;">希望2016</a>
+                        <a href="javascript:;">一切都好</a>
+                    </div>
+                </div>
+                <div class="items">
+                    <div class="pub"></div>
+                    <div class="sub">
+                        <a href="javascript:;">今天是2015</a>
+                        <a href="javascript:;">12-31</a>
+                        <a href="javascript:;">希望2016</a>
+                        <a href="javascript:;">一切都好</a>
+                    </div>
+                </div>
+                <div class="items">
+                    <div class="pub"></div>
+                    <div class="sub">
+                        <a href="javascript:;">今天是2015</a>
+                        <a href="javascript:;">12-31</a>
+                        <a href="javascript:;">希望2016</a>
+                        <a href="javascript:;">一切都好</a>
+                    </div>
+                </div>
+                <div class="items">
+                    <div class="sub">
+                        <a href="javascript:;">今天是2015</a>
+                        <a href="javascript:;">12-31</a>
+                        <a href="javascript:;">希望2016</a>
+                        <a href="javascript:;">一切都好</a>
+                        <a href="javascript:;">跟哥结婚</a>
+                        <a href="javascript:;">有一个big house</a>
+                    </div>
+                </div>
+            </section>
+            <!--其他的图片部分-->
+            <section>
+                <div class="extra">
+                    <a href="javascript:;"><img src="images/extra_1.png" alt=""/></a>
+                    <a href="javascript:;"><img src="images/extra_2.png" alt=""/></a>
+                </div>
+            </section>
+        </div>
+        <footer>
+            <section>
+                <div class="nav">
+                    <a href="javascript:;">要幸福</a>
+                    <a href="javascript:;">要幸福</a>
+                    <a href="javascript:;">要幸福</a>
+                </div>
+                <div class="copyright"></div>
+            </section>
+            <p>2016加油</p>
+        </footer>
+    </div>
+</body>
+</html>

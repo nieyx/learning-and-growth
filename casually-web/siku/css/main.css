@@ -1,0 +1,428 @@
+@charset "utf-8";
+.toolBar {
+    height: 30px;
+    background-color: #fff;
+}
+.toolBar ul {
+    float:right;
+}
+.toolBar ul li {
+    float:left ;
+    padding: 0px 10px;
+}
+.toolBar ul li a {
+    line-height: 30px;
+}
+.toolBar li.cart {
+    position: relative;
+    padding-left: 15px;
+}
+.toolBar li.cart span.car {
+    position: absolute;
+    left: -4px;
+    top: 8px;
+    width: 16px;
+    height: 13px;
+    display: inline-block;
+    background: url("../images/cart_new.png") no-repeat;
+}
+.toolBar li.user_service {
+    position: relative;
+}
+.toolBar li.user_service span{
+    position: absolute;
+    right: 0;
+    width: 7px;
+    height: 4px;
+    display: inline-block;
+    top: 15px;
+    background: url("../images/bar_arrow.png") no-repeat;
+}
+.searchBar {
+    height: 133px;
+}
+.searchBar .top_search {
+    position: relative;
+}
+.searchBar .top_search .logo_head {
+    position: relative;
+}
+.searchBar .top_search .logo_head .logo {
+    position: absolute;
+    left: 0;
+    top: -15px;
+}
+.searchBar .top_search .logo_active {
+    width: 120px;
+    height: 100px;
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-left: 62px;
+}
+.searchBar .top_search .logo {
+    width: 42px;
+    height: 100px;
+    display: inline-block;
+}
+.searchBar .search_input {
+    margin: 25px 0 0 70px;
+    position: relative;
+}
+.searchBar .search_input .search_bar{
+    width: 392px;
+    height: 27px;
+    font:400 16px/16px "Microsoft yahei";
+    border: 1px solid #53478F;
+    padding: 4px;
+}
+.searchBar .search_input .search_btn {
+    height: 37px;
+    width: 70px;
+    border: 1px solid #53478F;
+    color: #fff;
+    background: #544992;
+    font: 400 16px/16px "Microsoft yahei";
+}
+.searchBar .discount {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 826px;
+
+}
+.searchBar .discount a{
+    margin-right: 10px;
+}
+.searchBar .erweima {
+    position:absolute ;
+    right: 0;
+    top: 0;
+}
+.searchBar .nav {
+    height: 33px;
+    line-height: 33px;
+}
+.searchBar .nav .product-all {
+    position: relative;
+    width: 180px;
+    height: 33px;
+    line-height: 33px;
+    background-color: #382F6B;
+    cursor: pointer;
+}
+.searchBar .nav .product-all .product-all-items{
+    z-index: 100;
+    position: relative;
+    background: #382F6B;
+    display: none;
+}
+.searchBar .nav .product-all .product-all-items dl{
+    width: 162px;
+    padding: 12px 0 0 18px;
+
+}
+.searchBar .nav .product-all span img:hover{
+    -webkit-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    -o-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+}
+.searchBar .nav .product-all .product-all-items dl a{
+    color:white;
+}
+.searchBar .nav .product-all .product-all-items dt{
+     font: 400 14px/14px "Microsoft yahei";
+ }
+
+.searchBar .nav .product-all h1{
+    text-align: center;
+    font: 400 18px/33px "Microsoft yahei";
+    color: #ffffff;
+}
+.searchBar .nav-all{
+    margin-left: 70px;
+}
+.searchBar .nav-all a {
+    font:400 16px/16px "Microsoft yahei";
+    color: #333;
+    margin-right: 35px;
+}
+.searchBar .nav .product-all span {
+    position: absolute;
+    width: 8px;
+    height: 4px;
+    right: 27px;
+    top: 14px;
+    background: red;
+    display: inline-block;
+}
+.header {
+    position: relative;
+}
+.louti {
+    width: 10px;
+    height: 10px;
+    position: fixed;
+    right: 40px;
+    top:0px;
+    z-index: 100;
+    background: url("../images/louti.png") no-repeat;
+    /*TODO*/
+    display: none;
+
+}
+.louti .active {
+    background:url("../images/louti.png") 116px 418px;
+}
+.louti ul {
+    position: absolute;
+    top: 150px;
+    left: 0;
+    width: 120px;
+    height: 590px;
+    display: block;
+}
+.louti ul li {
+    width: 110px;
+    height: 29px;
+    display: block;
+    margin-bottom: 5px;
+}
+.louti ul li:hover {
+    cursor: pointer;
+}
+.louti .back-top {
+    height: 77px;
+}
+/*header结束*/
+
+/*containner开始*/
+
+.container .banner-text {
+    position: absolute;
+    top: -400px;
+    opacity: 0;
+    left: 0;
+    margin: 0 auto;
+}
+/*banner S*/
+.banner {
+    position: relative;
+}
+.banner img {
+    width: 100%;
+}
+.banner-img img, .banner-text img {
+    width: 100%;
+}
+
+.banner a {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.banner a.cur{
+    opacity: 0;
+}
+.banner-ca {
+    margin: 0 0 37.2% 20.9%;
+    /* padding-top: 3.5937%;*/
+    width: 9.0625%;
+}
+.banner-om {
+    margin: 0 0 9% 8.3%;
+    /*padding-top: 4.0104%;*/
+    width: 6.9791%;
+}
+.banner-ro {
+    margin: 0 0 21.9% 14.26%;
+    /*padding-top: 4.9479%;*/
+    width: 5.1562%;
+}
+.banner-bv {
+    margin: 0 0 29.63% 30.95%;
+    /*padding-top: 2.6562%;*/
+    width: 9.2708%;
+}
+.banner-bo {
+    margin: 0 0 21.43% 33%;
+    /*padding-top: 3.0729%;*/
+    width: 6.875%;
+}
+.banner-bu {
+    margin: 0 0 18.4% 22.35%;
+    /*padding-top: 2.9166%;*/
+    width: 11.875%;
+}
+.banner-ke {
+    margin: 0 0 10.36% 32.74%;
+    /*padding-top: 5.625%;*/
+    width: 5.2604%;
+}
+.banner-lv {
+    margin: 0 0 22.19% 43.8078%;
+    /*padding-top: 5.2604%;*/
+    width: 5.1562%;
+}
+.banner-mb {
+    margin: 0 0 20.15% 50.05%;
+    /*padding-top: 8.125%;*/
+    width: 9.6354%;
+}
+.banner-lo {
+    margin: 0 0 10.46% 46.43%;
+    /*padding-top: 4.0625%;*/
+    width: 7.7083%;
+}
+.banner-co {
+    margin: 0 0 4.8% 59.32%;
+    /*padding-top: 3.75%;*/
+    width: 6.9791%;
+}
+.banner-pr {
+    margin: 0 0 14.5% 59.6%;
+    /*padding-top: 3.177%;*/
+    width: 6.927%;
+}
+.banner-sf {
+    margin: 0 0 23.44% 63%;
+    /*padding-top: 3.8541%;*/
+    width: 11.6666%;
+}
+.banner-ba {
+    margin: 0 0 27.36% 64.82%;
+    /*padding-top: 3.5937%;*/
+    width: 4.7916%;
+}
+.banner-mk {
+    margin: 0 0 30.34% 64.87%;
+    /*padding-top: 3.5937%;*/
+    width: 4.7916%;
+}
+.banner-ch {
+    margin: 0 0 34.87% 66.455%;
+    /*padding-top: 5.8854%;*/
+    width: 8.8541%;
+}
+.banner-ve {
+    margin: 0 0 30.15% 69.95%;
+    /*padding-top: 4.4791%;*/
+    width: 8.0208%;
+}
+.banner-gi {
+    margin: 0 0 27.05% 69.95%;
+    /*padding-top: 4.4791%;*/
+    width: 8.0208%;
+}
+.banner-he {
+    margin: 0 0 12.6309% 68.3051%;
+    /*padding-top: 5.3645%;*/
+    width: 5.1562%;
+}
+.banner-gu {
+    margin: 0 0 4.8% 71.38%;
+    /*padding-top: 2.4479%;*/
+    width: 7.1875%;
+}
+.banner-ga {
+    margin: 0 0 13.12% 75.367%;
+    /*padding-top: 5.4166%;*/
+    width: 5.9895%;
+}
+.banner-ys {
+    margin: 0 0 28.1% 81.5%;
+    /*padding-top: 2.4479%;*/
+    width: 6.8229%;
+}
+.banner-dg {
+    margin: 0 0 15.08% 88.65%;
+    /*padding-top: 12.9687%;*/
+    width: 1.9791%;
+}
+.banner-fe {
+    margin: 0 0 9.8% 82.66%;
+    /*padding-top: 4.7916%;*/
+    width: 9.2708%;
+}
+.banner span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 5%;
+    display: none;
+}
+/*banner E*/
+.container .main0 {
+    height: 710px;
+    background-color: #FFE8BC;
+}
+.container .main0 .img-title {
+    width: 785px;
+    height: 155px;
+    margin: 0 auto;
+    position: relative;
+}
+.container .main0 .img-title a{
+    position: absolute;
+    right: 2px;
+    top: 86px;
+    width: 123px;
+    height: 20px;
+    display: block;
+}
+.container .main0 .person-des {
+    width: 990px;
+    margin: 10px auto;
+}
+.container .main1 .main1-title {
+    margin: 0 auto;
+    opacity: 0;
+    vertical-align: middle;
+}
+.container .main1 {
+    height: 810px;
+    background-color: #EE891F;
+}
+.container .main1 .main1-title {
+    width: 343px;
+    height: 96px;
+    margin: 0 auto;
+}
+.container .main1 .hot-topic {
+    width: 1005px;
+    margin: 0 auto;
+}
+.container .main1 .hot-topic a {
+    float: left;
+    margin: 10px 10px 0 0;
+    position: relative;
+    text-align: center;
+}
+.container .main1 .hot-topic a .img-des {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+.container .main1 .hot-topic a .img-des h5{
+    font-size: 29px;
+    color: #fff;
+    background:rgba(181, 75, 1, 0.8);
+}
+.container .main1 .hot-topic a .img-des p{
+    height: 0px;
+    line-height: 22px;
+    font-size: 14px;
+    color: #e3761f;
+    background-color: #642b04;
+}
+
+
+/*containner结束*/
+
+
+
+

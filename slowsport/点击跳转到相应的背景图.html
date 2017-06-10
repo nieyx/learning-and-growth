@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul ,ol {
+            list-style-type: none;
+        }
+        body,html{
+            height:100%;
+        }
+        ul {
+            width: 100%;
+            height: 100%;
+        }
+        ul li {
+            width: 100%;
+            height: 100%;
+        }
+        ol {
+            width: 100px;
+            height: 500px;
+            position: fixed;
+            top:100px;
+            left:100px;
+        }
+        ol li {
+            width: 100px;
+            height: 100px;
+            line-height: 100;
+            text-align: center;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+    </style>
+    <script src="../jquery-1.11.1.min.js"></script>
+    <script>
+        $(function () {
+            var arrColor = ["pink","yellow","blue","purple","red"];
+            var arrImage = ["url(images/b1.jpg)","url(images/b2.jpg)","url(images/b3.jpg)","url(images/b4.jpg)","url(images/b5.jpg)"];
+            //遍历添加
+            $("ol li").each(function (index,ele) {
+                $(ele).css({
+                    "background":arrColor[index],
+                });
+            })
+            $("ul li").each(function (index,ele) {
+                $(ele).css("background-image",arrImage[index]);
+            })
+            //当点击的时候，会跳转到相应的页面
+            $("ol li").on("click", function () {
+                var index = $(this).index();
+                $("html,body").animate({"scrollTop":$(window).height()*index},1000)
+            })
+        })
+    </script>
+</head>
+<body>
+<ol>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ol>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>

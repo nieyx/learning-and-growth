@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul,ol {
+            list-style: none;
+        }
+        img {
+            vertical-align: top;
+        }
+        .box {
+            width: 400px;
+            height: 307px;
+            background-color:lightslategray;
+            margin:100px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .box ul {
+            width: 10000px;
+            height: 307px;
+            position: absolute;
+            left:0;
+        }
+        .box ul li {
+            float: left;
+        }
+        .box ol {
+            position: absolute;
+            bottom:-23px;
+            left:131px;
+            cursor: pointer;
+        }
+        .box ol li {
+            display: inline-block;
+            width: 13px;
+            height: 13px;
+            background:url(images/00.png) no-repeat top;
+        }
+        .box ol li.current {
+            background-position:bottom;
+        }
+        .box div {
+            width: 400px;
+            height: 52px;
+            position: absolute;
+            top:45%;
+            left:0;
+        }
+        .box div span {
+            width: 52px;
+            height: 52px;
+            background:url(images/arr.png) no-repeat;
+            cursor: pointer;
+
+        }
+        .box div span.s1 {
+            position: absolute;
+            left:-16px;
+            background-position:left ;
+        }
+        .box div span.s2 {
+            position: absolute;
+            right:-16px;
+            background-position:right;
+        }
+    </style>
+    <script src="../../jquery-1.11.1.min.js"></script>
+    <script>
+        $(function () {
+            var num = 0;
+            //当点击小圆点的时候，图片滚动
+            $(".box ol li").on('click', function () {
+                var index = $(this).index();
+                $(this).addClass("current").siblings().removeClass("current");
+                $(".box ul").animate({"left":-index*$(".box").width()},500)
+                num = index;
+            })
+            //当点击左右箭头的时候
+            $(".box div .s2").on("click", function () {
+                ++num>5?num = 0:num;
+                $(".box ul").animate({"left":-num*$(".box").width()},500)
+                $(".box ol li").eq(num)
+                        .addClass("current")
+                        .siblings()
+                        .removeClass("current");
+
+            });
+            $(".box div .s1").on("click", function () {
+                --num<0?num =5:num;
+                $(".box ul").animate({"left":-num*$(".box").width()},500)
+                $(".box ol li").eq(num)
+                        .addClass("current")
+                        .siblings()
+                        .removeClass("current");
+            });
+            //自动播放
+            var timer = null;
+            clearInterval(timer);
+            timer = setInterval(autoplay,2000);
+            function autoplay(){
+                ++num>5?num = 0:num;
+                $(".box ul").stop().animate({"left":-num*$(".box").width()},500)
+                $(".box ol li").eq(num)
+                        .addClass("current")
+                        .siblings()
+                        .removeClass("current");
+            }
+            //鼠标悬浮上去就清除定时器
+            $(".box").hover(function () {
+                clearInterval(timer);
+            }, function () {
+                timer = setInterval(autoplay,2000);
+            })
+        })
+    </script>
+</head>
+<body>
+<div class="box">
+    <ul>
+        <li><a href="#"><img src="images/01.jpg" /></a></li>
+        <li><a href="#"><img src="images/02.jpg" /></a></li>
+        <li><a href="#"><img src="images/03.jpg" /></a></li>
+        <li><a href="#"><img src="images/04.jpg" /></a></li>
+        <li><a href="#"><img src="images/05.jpg" /></a></li>
+        <li><a href="#"><img src="images/06.jpg" /></a></li>
+    </ul>
+    <ol>
+        <li class="current"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ol>
+    <div>
+        <span class="s1"></span>
+        <span class="s2"></span>
+    </div>
+</div>
+</body>
+</html>

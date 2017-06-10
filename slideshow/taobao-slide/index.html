@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        .box {
+            width: 490px;
+            height: 170px;
+            margin:100px auto;
+            border: 1px solid #000;
+            position: relative;
+            overflow:hidden;
+        }
+        .box .d1 {
+            position: absolute;
+            top:0;
+            left:0;
+        }
+        .box .d1 img {
+            /*margin:10px;*/
+            vertical-align: top;
+
+        }
+        .box .d2 {
+            position: absolute;
+            bottom:20px;
+            right:20px;
+        }
+        .box .d2  li {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin:2px;
+            font:400 16px/20px "simsun";
+            background-color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .box .d2  li.current {
+            background-color: yellow;   
+        }
+    </style>
+    <script src="../../jquery-1.11.1.min.js"></script>
+    <script>
+//        window.onload = function () {
+//            //根据图片的个数自动生成span标签
+//            var box = document.getElementById("box");
+//            var imgs = box.children[0].children;
+//            var d2 = box.children[1];
+//            for (var i=0;i<imgs.length;i++){
+//                var lis = document.createElement("li");
+//                lis.innerHTML = i+1;
+//                d2.appendChild(lis);
+//            }
+//            //将第一张图片设置为默认的current属性
+//            d2.children[0].className = "current";
+//        }
+        $(function () {
+            //当点击ol中的li时，相应的ul会向上移动一张图片的高度
+            var imgh = $("#box").height();
+            $(".d2 li").on('click',function () {
+               var index = $(this).index();
+               $(this).addClass("current").siblings().removeClass("current");
+               $(".d1").animate({"top":-imgh*index},500);
+                num = index;
+           })
+            //定时器的动画
+            var timer = null;
+            var num = 0;
+//            clearInterval(timer);
+            timer = setInterval(autoplay,1000);
+            function autoplay(){
+                ++num >4?num=0:num;
+                $(".d2 li").eq(num)
+                        .addClass("current")
+                        .siblings()
+                        .removeClass("current");
+               $(".d1").animate({"top":-imgh*num},500);
+            }
+            //当鼠标悬浮上去的时候，要停止定时器
+            $(".box").hover(function () {
+                clearInterval(timer);
+            }, function () {
+                timer = setInterval(autoplay,1000);
+            })
+        })
+    </script>
+</head>
+<body>
+<div class="box" id="box">
+    <ul class="d1">
+        <li><img src="images/01.jpg" alt=""/></li>
+        <li><img src="images/02.jpg" alt=""/></li>
+        <li><img src="images/03.jpg" alt=""/></li>
+        <li><img src="images/04.jpg" alt=""/></li>
+        <li><img src="images/05.jpg" alt=""/></li>
+    </ul>
+    <ol class="d2">
+        <li class="current">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ol>
+</div>
+</body>
+</html>
