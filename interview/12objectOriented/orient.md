@@ -133,3 +133,50 @@
 
 	```
 
++ 原型继承
++ class继承
+	> ES6中class继承
+	```
+		// 构造函数
+		var  Student = function(name){
+			this.name = name || 'xiaoming';
+		}
+		Student.prototype = {
+			hello:function(){
+				console.log('hello ', this.name)
+			}
+		}
+		var xiaohong = new Student();
+		xiaohong.hello();
+
+		// 使用ES6的class类
+		class Teacher {
+			constructor (name) {
+				this.name = name;
+			}
+
+			speaking(){
+				console.log(this.name, 'is speaking!')
+			}
+		}
+		var zhangsan = new Teacher('张三');
+		zhangsan.speaking();
+
+		//  ES6中的class继承
+		class primaryTeacher extends Teacher {
+			constructor(name, grade){
+				super(name);
+				this.grade = grade;
+			}
+
+			hello(){
+				console.log(this.name,this.grade,'hello')
+			}
+		}
+		var lisi = new primaryTeacher('lisi');
+		lisi.hello();
+		lisi.speaking();
+		lisi.grade;
+		lisi.name;
+	```
+
