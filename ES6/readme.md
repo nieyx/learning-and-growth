@@ -16,7 +16,7 @@
 		b // b is not defined
 	```
 + let和var的差别
-	```
+	```js
 		// var是全局声明，let是块级作用域
 		var a = [];
 		for(var i = 0; i<10; i++){
