@@ -97,51 +97,61 @@
 	```
 
 + 匹配模式
-> 类似与js中的if，满足条件后才能匹配
-```less
-	// 画三角
-	.sanjiao {
-		width:0;
-		height:0;
-		overflow:hidden;
+	> 类似与js中的if，满足条件后才能匹配
+	```less
+		// 画三角
+		.sanjiao {
+			width:0;
+			height:0;
+			overflow:hidden;
 
-		border-width:10px;
-		border-color:transparent transparent red transparent;
-		border-style:dashed dashed solid dashed;
-	}
+			border-width:10px;
+			border-color:transparent transparent red transparent;
+			border-style:dashed dashed solid dashed;
+		}
 
-	// 匹配模式画三角
-	.triangle(top,@w:5px,@color:#ccc){
-		border-width:@w;
-		border-color:transparent transparent color transparent;
-		border-style:dashed dashed solid dashed;
-	}
-	.triangle(bottom,@w:5px,@color:#ccc){
-		border-width:@w;
-		border-color:transparent transparent color transparent;
-		border-style:solid dashed dashed dashed;
-	}
-	.triangle(@_,@w:5px,@color:#ccc){
-		// 不管比配模式选择了谁，都会带上@_
-		width:0;
-		height:0;
-		overflow:hidden;
-	}
-	.sanjiao {
-		.triangle(top);
-	}
+		// 匹配模式画三角
+		.triangle(top,@w:5px,@color:#ccc){
+			border-width:@w;
+			border-color:transparent transparent color transparent;
+			border-style:dashed dashed solid dashed;
+		}
+		.triangle(bottom,@w:5px,@color:#ccc){
+			border-width:@w;
+			border-color:transparent transparent color transparent;
+			border-style:solid dashed dashed dashed;
+		}
+		.triangle(@_,@w:5px,@color:#ccc){
+			// 不管比配模式选择了谁，都会带上@_
+			width:0;
+			height:0;
+			overflow:hidden;
+		}
+		.sanjiao {
+			.triangle(top);
+		}
 
-	// 匹配模式的定位
-	.pos(r){
-		position:relative;
-	}
-	.pos(a){
-		position:absilute;
-	}
-	.pos(f){
-		position:fixed;
-	}
-	.piple {
-		.pos(r) // 使用相对定位
-	}
-```
+		// 匹配模式的定位
+		.pos(r){
+			position:relative;
+		}
+		.pos(a){
+			position:absilute;
+		}
+		.pos(f){
+			position:fixed;
+		}
+		.piple {
+			.pos(r) // 使用相对定位
+		}
+	```
+
++ 运算
+	> 任何数字颜色或者变量，都可以参与运算，运算应该被包括在括号中
+	>> +-*/
+	```less
+		@test_01:300px;
+		.box_02{
+			width:(@test_01 + 20) * 5 / 2; // 进行加减乘除运算
+		}
+	```
