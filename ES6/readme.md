@@ -64,6 +64,41 @@
 			let a ;
 		}
 	```
-	> 对typeof 的影响
-	>>
-	>>
++ 不允许重复声明
+```js
+	// 不允许重复声明变量
+	(function(){
+		var a = 1;
+		let a = 2;
+	})(); // a has been declared
+
+	// 不允许重复声明参数
+	(function(arg){
+		let arg = 1;
+	})(1)  // arg has been declared
+```
+
++ ES6的块级作用域
+```js
+	// es5中使用的var
+	var f1 = function(){
+		var a = 1;
+		if (true){
+			console.log(a); // 1
+			var a = 2;
+		}
+		console.log(a); // 2
+	};
+	f1();
+
+	// es6中的块级作用域
+	var f2 = function(){
+		let a = 1;
+		if (true){
+			console.log(a); // a is not declared
+			let a = 2;
+		}
+		console.log(a); // 1
+	};
+	f2(); // 块级作用域，不会影响块外
+```
