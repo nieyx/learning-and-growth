@@ -2,7 +2,7 @@
 
 + 什么是less
 + 编译环境
-+ less语法
++ less基本语法
 
 
 ### 什么是less
@@ -16,7 +16,7 @@
 + node.js 库
 + 浏览器端编译
 
-### less语法
+### less基本语法
 + 注释
 	```less
 		/*被编译指柔扔存在*/
@@ -155,3 +155,75 @@
 			width:(@test_01 + 20) * 5 / 2; // 进行加减乘除运算
 		}
 	```
+
++ 嵌套规则
+	>两种用法，
+	>> & 对尾类的使用，hover／focus
+	>> 对链接的使用 &-item
+	```less
+		// 对ul中list设置的样式
+		/*
+			.list{}
+			.list li{}
+			.list a{}
+			.list span{}
+		*/
+
+		.list {
+			width:600px;
+			margin:30px auto;
+			padding:0;
+			list-style:none;
+
+			li {
+				height:30px;
+				line-height:30px;
+				background-color:pink;
+				margin-nottom:5px;
+
+			}
+			a {
+				float:left;
+			}
+			span {
+				float:right;
+			}
+		};
+
+		// 伪类样式的书写
+		/*
+		.list a{}
+		.list a:hover{}
+		*/
+
+		.list a{
+			&:hover{} // &代表上一层选择器
+		} 
+	```
+
++ @argumnets变量
+	> @arguments包含了所有传递进来的参数
+	```less
+		.border_arg(@w:30px,@c:red,@xx:solid){
+			// border:@w,@c,@xx;
+			border:@arguments // 与上面的等式时相同的
+		}
+	```
+
++ 避免编译、!important及总结
+	> 有时候需要输出一些不正确的css语法或者使用一些LESS不认识的专用语法
+	>> 在输出前，在字符串前加上一个～
+	```less
+		width: ~'calc(300px - 30px)'
+	```
+
+	> !importent 最高的优先级
+
+
++ less学习的网站 less.net
+
+
+
+
+
+
