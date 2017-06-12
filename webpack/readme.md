@@ -90,7 +90,7 @@
 ```
 
 ### webpack中的entry和output
-[http://webpack.github.io/docs/configuration.html#entry]
++ 文档链接地址[http://webpack.github.io/docs/configuration.html#entry]
 + entry
 	- 三种输入方式
 		```js
@@ -103,7 +103,7 @@
 
 		```
 + output
-[http://webpack.github.io/docs/configuration.html#output-filename]文档链接地址
+	- 文档链接地址[http://webpack.github.io/docs/configuration.html#output-filename]文档链接地址
 	- 输出方式
 		```js
 			output:{
@@ -113,11 +113,39 @@
 				filename: 'js/[name]+[hash].js', // 多个输出时，会有不同的文件名输出，用各自的name+hash
 				filename: 'js/[name]+[chunkhash].js' // 多个输出时，会有不同的文件名输出，用各自的name+chunkhash
 			}
+			// 修改文件后，hash值才会发生变化
 		```
 
 
 ### html-webpack-plugin插件的使用
-[https://www.npmjs.com/package/html-webpack-plugin]
+```js
+	// 在index.html中引用的文件名是固定情况时
+	<script src='dist/js/bundle.js'></script>
+	// 当使用name/hash/chunkhash值命名文件时候，script标签内路径的引用，就要使用html-webpack-plugin插件
+```
++ html-webpack-plugin插件的使用文档[https://www.npmjs.com/package/html-webpack-plugin]
++ 官网上如何使用插件的文档[http://webpack.github.io/docs/using-plugins.html]
++ 使用步骤
+	- 在项目路径下安装插件 
+		> npm install html-webpack-plugin --save-dev
+	- 安装后在webpack.config.js 文件中，引用这个插件
+		> var htmlWebpackPlugin = require('html-webpack-plugin')
+		```js
+			// 在文件中，初始化插件
+			plugins: [
+				new htmlWebpackPlugin() //
+			]
+			//再次执行npm run webpack之后，会在dist的文件下生成一个index.htmlde文件
+		```
++ 引出新的问题
+	- 在项目根目录下的index.html与在dist文件下生成的index.html没有任何的关系
+	- plugins有个参数，可以解决关联的问题
+	```js
+		new htmlWebpackPlugin({
+			template:'index.html' // 根目录下的模板文件
+		})
+	```
+
 
 
 
