@@ -79,7 +79,7 @@
 		}
 
 		// 案例radius
-		.border_radius(@border:5px){
+		.border_radius(@radius:5px){
 			-webkit-border-radius:@radius;
 			-moz-border-radius:@radius;
 			border-radius:@radius;
