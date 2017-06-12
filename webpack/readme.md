@@ -51,6 +51,7 @@
 	> webpack-demo
 	>> src
 	>>> script
+	>
 	>>> style
 
 + 配置输入输出文件路径
@@ -59,7 +60,7 @@
 		module.exports = {
 			entry: './script/js',
 			output: {
-				path: __dirname + '/dist/js',
+				path: __dirname + '/dist/js', // 不能是相对路径，要是绝对路径
 				filename: 'bundle.js'
 			}
 		}
@@ -75,6 +76,48 @@
 		webpack --config webpack.dev.config.js
 	```
 
+### 通过npm的方式调用
+> 在package.json中设置script下的参数，来实现运行的目的
+```js
+	// 在script中添加如下的webpack的代码，
+	"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    + "webpack": "webpack --config webpack.config --progress --display-modules --colors --display-reasons"
+
+    // 在终端输入如下命令行
+    npm run webpack
+  },
+```
+
+### webpack中的entry和output
+[http://webpack.github.io/docs/configuration.html#entry]
++ entry
+	- 三种输入方式
+		```js
+			entry:'./script/js', // 方式1
+			entry: ['./script/js/main.js','./script/js/a.js'] //方式2
+			entry: {
+				page1: './script/js',
+				page2: ['./script/js/main.js','./script/js/a.js']
+			} // 方式3
+
+		```
++ output
+[http://webpack.github.io/docs/configuration.html#output-filename]文档链接地址
+	- 输出方式
+		```js
+			output:{
+				path: __dirname + '/script/',
+				filename: 'js/bundle.js', // 多个输入，但是只有一个输出文件，有些不合理
+				filename: 'js/[name].js', // 多个输出时，会有不同的文件名输出，用各自的name
+				filename: 'js/[name]+[hash].js', // 多个输出时，会有不同的文件名输出，用各自的name+hash
+				filename: 'js/[name]+[chunkhash].js' // 多个输出时，会有不同的文件名输出，用各自的name+chunkhash
+			}
+		```
+
+
+### html-webpack-plugin插件的使用
+[https://www.npmjs.com/package/html-webpack-plugin]
 
 
 
