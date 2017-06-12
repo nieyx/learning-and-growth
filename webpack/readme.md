@@ -25,7 +25,7 @@
 > webpack本身只可以处理js文件，如若处理其他的文件，可以使用loader模块
 >> 首先在相关的文件夹下，安装css-loader和style-loader
 >> css-loader 来负责转换css文件，style-loader负责将css文件显示在页面上
-	```css
+	```js
 		require('!style-loader!css-loader'./css.css);
 
 		// 如果文件引入时没有写css-loader和style-loader，css编译会报错
@@ -34,4 +34,5 @@
 
 		// 如果要实时监控文件是否被修改，然后进行编译，则使用
 		webpack	 hello.js hello.bundle.js --module-bind 'css=style-loader!css-loader' --watch
+		
 	```
