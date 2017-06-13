@@ -6,7 +6,7 @@
 	mkdir webpack-demo && cd webpack-demo
 	// 2.初始化文件库
 	npm init -y
-	// 3.安装webpack,--sace-dev 是为了将包的信息自动添加到package.json文件中
+	// 3.安装webpack,--save-dev 是为了将包的信息自动添加到package.json文件中
 	npm install webpack --save-dev
 ```
 
@@ -22,7 +22,7 @@
 		webpack hello.js hello.bundle.js
 	```
 
-> webpack本身只可以处理js文件，如若处理其他的文件，可以使用loader模块
+> webpack本身只可以处理*js*文件，如若处理其他的文件，可以使用loader模块
 >> 首先在相关的文件夹下，安装css-loader和style-loader
 >> css-loader 来负责转换css文件，style-loader负责将css文件显示在页面上
 
