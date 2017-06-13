@@ -3,8 +3,9 @@ import layer from './src/components/layer/layer.js'
 
 const App = function(){
 	var dom = document.getElementById('app');
+	var Layer = new layer();
 	
-	dom.innerHTML = layer().tpl;
+	dom.innerHTML = Layer.tpl;
 }
 
 new App();

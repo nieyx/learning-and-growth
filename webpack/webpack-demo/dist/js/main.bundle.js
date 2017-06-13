@@ -572,10 +572,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 const App = function(){
 	var dom = document.getElementById('app');
-	console.log(__WEBPACK_IMPORTED_MODULE_1__src_components_layer_layer_js__["a" /* default */])
-	console.log(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__src_components_layer_layer_js__["a" /* default */])())
-	console.log(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__src_components_layer_layer_js__["a" /* default */])().tpl)
-	dom.innerHTML = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__src_components_layer_layer_js__["a" /* default */])().tpl;
+	var Layer = new __WEBPACK_IMPORTED_MODULE_1__src_components_layer_layer_js__["a" /* default */]();
+	console.log(Layer)
+	dom.innerHTML = Layer.tpl;
 }
 
 new App();
