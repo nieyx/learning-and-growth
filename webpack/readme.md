@@ -182,6 +182,133 @@
 	```
 
 + 处理**多页面**应用
+```js
+	plugins: [
+		new htmlWebpackPlugin({ // 进行初始化
+			filename: 'a.html', // 根目录下的模板文件
+			template: 'index.html', //可以指定打包后html文件的名字
+			inject: 'body',
+			title: 'webpack is good a!!',
+			chunks: ['main','a']
+			// minify: {
+			// 	removeComments:true, // 删除注释
+			// 	collapseWhitespace: true // 删除空格
+			// }
+		}), 
+		new htmlWebpackPlugin({ // 进行初始化
+			filename: 'b.html', // 根目录下的模板文件
+			template: 'index.html', //可以指定打包后html文件的名字
+			inject: 'body',
+			title: 'webpack is good b!!',
+			chunks: ['b']
+		}), 
+		new htmlWebpackPlugin({ // 进行初始化
+			filename: 'c.html', // 根目录下的模板文件
+			template: 'index.html', //可以指定打包后html文件的名字
+			inject: 'body',
+			title: 'webpack is good c!!',
+			chunks: ['c']
+		}), 
+	]
+```
++ 处理文件中的资源文件
+- loader[webpack.github.com/docs/ysing-loaders.html]
+
+> 安装babel-loader，来处理es6文件
+	+ 安装提示步骤[http://babeljs.io/docs/setup/#installation]
+	+ 制定babel的三种方式
+		- 在配置文件中设置
+		```js
+			// 方式1，在配置文件中设置
+			loaders{
+				module: {
+					test: /\.js$/,
+					loader: 'babel',
+					query: {
+						preset: ['latest']
+					}
+				}
+			}
+
+			// 方式2，在项目的根目录下，新建一个.babelrc的文件，文件中内容如下
+			{
+				presets: ['latest']
+			}
+
+			// 方式3 在package.json文件中设置
+			{
+			  "name": "webpack-demo",
+			  "version": "1.0.0",
+			  "description": "",
+			  "main": "index.js",
+			 + "babel": {
+			 	presets: ['latest']
+			 }
+			  "scripts": {
+			  },
+			}
+		```
+	+ loader的使用
+		- 文档地址[]
+		```js
+			var path = require('path');
+			loaders: {
+				module:{
+					test: '/\.js$/',
+					loader: 'babel-loader',
+					// 解决打包时间太长的问题，因为node_modules已经加载，就不在处理
+					exclude: path.resolve(__dirname,'/node_modules/'),
+					// 只处理src下的文件打包，会缩短打包时间
+					include: path.resolve(__dirname,'/src/'),
+				}
+			}
+		```
+
++ 如何使用css-loader和style-loader
++ 当webpack打包css文件时，如果遇到flex的这种css的属性，不同的浏览器会添加不同的前缀
+	- 安装postcss-loader来解决
+	- 安装步骤
+		> npm install postcss-loader --save-dev
+	- 包的使用文档[https://www.npmjs.com/package/postcss-loader]
+	- github 案例地址[https://github.com/postcss/postcss]
+	- 使用
+	```js
+		// 对于添加浏览器前缀，还要在安装autoprefixer,precss
+		npm install autoprefixer --save-dev	
+		// webpack.config.js文件中的配置
+		...
+		module: {
+			rules:[
+				{
+					test: /\.css$/,
+					use: [
+						{
+							loader: 'style-loader',
+						},
+						{
+							loader: 'css-loader',
+							options: {
+	                            importLoaders: 1,
+	                        }
+						},
+						{
+							loader: 'postcss-loader',
+						},
+	
+					],
+				}
+			]
+		}
+
+		// 在项目的根目录下，新建一个postcss.config.js
+		module.exports = {
+			plugins: {
+				require('precss'),
+				require('autoprefixer')
+			}
+
+		}
+	```
 
 
 
