@@ -1,3 +1,5 @@
+@import url('./flex.css');
+
 html, body, ul, li{
 	margin: 0;
 	padding: 0;
@@ -8,6 +10,3 @@ ul, li {
 	list-style:none;
 }
 
-.flex-div {
-	display: flex;
-}

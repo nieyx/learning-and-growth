@@ -288,7 +288,7 @@
 						{
 							loader: 'css-loader',
 							options: {
-	                            importLoaders: 1,
+	                            importLoaders: 1, // 在cssloader之后，来处理import的资源
 	                        }
 						},
 						{
@@ -309,6 +309,32 @@
 
 		}
 	```
+
+	- 处理css文件中的@import的文件
+		```css
+			module: {
+			rules:[
+				{
+					test: /\.css$/,
+					use: [
+						{
+							loader: 'style-loader',
+						},
+						{
+							loader: 'css-loader',
+							options: {
+	                            importLoaders: 1, // 在cssloader之后，来处理import的资源
+	                        }
+						},
+						{
+							loader: 'postcss-loader',
+						},
+	
+					],
+				}
+			]
+		}
+		```
 
 
 

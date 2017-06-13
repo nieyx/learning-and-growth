@@ -139,7 +139,7 @@ exports = module.exports = __webpack_require__(4)(undefined);
 
 
 // module
-exports.push([module.i, "html, body, ul, li{\n\tmargin: 0;\n\tpadding: 0;\n\tbackground-color: #f00;\n}\n\nul, li {\n\tlist-style:none;\n}\n\n.flex-div {\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n}", ""]);
+exports.push([module.i, ".flex-div {\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n}\n\nhtml, body, ul, li{\n\tmargin: 0;\n\tpadding: 0;\n\tbackground-color: #f00;\n}\n\nul, li {\n\tlist-style:none;\n}\n\n", ""]);
 
 // exports
 
