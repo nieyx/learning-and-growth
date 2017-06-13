@@ -142,9 +142,51 @@
 	- plugins有个参数，可以解决关联的问题
 	```js
 		new htmlWebpackPlugin({
-			template:'index.html' // 根目录下的模板文件
+			template:'index.html', // 根目录下的模板文件
+			filename: 'index-[hash].html', // 制定打包后的html文件的名字
+			inject: 'head', // 自定脚本输出到html文件中的位置，是head或是body标签，若果不使用，则设置为false
+			title: 'webpack is good!!', // 在webpack.config.js中设置模版变量值，可以在页面中展示
 		})
 	```
+	- 在webpack.config.js中设置了模板变量后，在index.html的文件中，进行模板变量的引用
+	```js
+		<%= htmlWebpackPlugin.options.title%> // title是模板变量值
+	```
+
+	- htmlWebpackPlugin中的参数
+		* files
+		> chunks
+		* options[https://www.npmjs.com/package/html-webpack-plugin]
+		> plugin的配置文件，所有插件的参数
+
+	- 让有的js文件在head中，有的在body中
+	```js
+		// 在index.html文件中，直接引入chunks中main／a的entery路径
+		<%= htmlWebpackPlugin.files.chunks.main.entry%>
+	```
+
+	- 文件压缩
+	```js
+		// 压缩过程中，删除注释，删除空格
+		new htmlWebpackPlugin({ // 进行初始化
+			template: 'index.html', // 根目录下的模板文件
+			filename: 'index.html', //可以指定打包后html文件的名字
+			inject: false,
+			title: 'webpack is good!!',
+			minify: {
+				removeComments:true, // 删除注释
+				collapseWhitespace: true // 删除空格
+			}
+
+		}) 
+	```
+
++ 处理**多页面**应用
+
+
+
+	
+
 
 
 
