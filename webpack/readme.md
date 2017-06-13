@@ -6,7 +6,7 @@
 	mkdir webpack-demo && cd webpack-demo
 	// 2.初始化文件库
 	npm init -y
-	// 3.安装webpack
+	// 3.安装webpack,--sace-dev 是为了将包的信息自动添加到package.json文件中
 	npm install webpack --save-dev
 ```
 
@@ -322,7 +322,7 @@
 						},
 						{
 							loader: 'css-loader',
-							options: {
+							
 	                            importLoaders: 1, // 在cssloader之后，来处理import的资源
 	                        }
 						},
@@ -335,6 +335,15 @@
 			]
 		}
 		```
+
+### 处理less／sass文件
+	+ 安装包
+	> npm i less-loader sass-loader --save-dev 
+	>
+	> 使用方式与css类似
+
+### 处理项目中的模板文件
+	+ webpack处理模板文件的loader[webpack.github.io/docs/list-of-loaders.html#templating]
 
 
 

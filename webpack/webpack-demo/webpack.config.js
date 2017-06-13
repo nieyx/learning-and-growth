@@ -21,6 +21,10 @@ module.exports = {
 				include: path.resolve(__dirname + './src/') // 只打包src文件夹，提高打包速度
 			},
 			{
+				test: /\.html$/,
+				loader: 'html-loader', 
+			},
+			{
 				test: /\.css$/,
 				// loader: 'style-loader!css-loader!postcss-loader', // 通过！将两个loader进行串联
 				// loaders: [
@@ -28,6 +32,7 @@ module.exports = {
 				// 	'css-loader',
 				// 	'postcss-loader'
 				// ], 
+				exclude: path.resolve(__dirname, '/node_modules/'),
 				use: [
 					{
 						loader:'style-loader',
@@ -40,6 +45,23 @@ module.exports = {
 					}
 					,{
 						loader:'postcss-loader',
+					}
+				]
+			},
+			{
+				test: /\.less$/,
+				use: [
+					{
+						loader:'style-loader',
+					},
+					{
+						loader:'css-loader',
+					},
+					{
+						loader:'postcss-loader',
+					},
+					{
+						loader:'less-loader',
 					}
 				]
 			}
