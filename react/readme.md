@@ -57,16 +57,19 @@ react入门教程[http://www.ruanyifeng.com/blog/2015/03/react.html]
 ```js
 ```
 + 组件
-> 允许将代码封装成组件，然后插入代码像插入html标签一样，React.creatClass
->
-> HelloMessage就是一个组件类，在reactDOM中通过<HelloMessage />来调用
->
-> 插入<HelloMessage />之后就实例出了一个实例
->
-> 所有组件，都有自己的render方法，用于输出组件的方法
->
-> 组件内只能有一个顶级标签，否则会报错,组件名称，开头必须大写
+	> 允许将代码封装成组件，然后插入代码像插入html标签一样，React.creatClass
+	>
+	> HelloMessage就是一个组件类，在reactDOM中通过<HelloMessage />来调用
+	>
+	> 插入<HelloMessage />之后就实例出了一个实例
+	>
+	> 所有组件，都有自己的render方法，用于输出组件的方法
+	>
+	> 组件内只能有一个顶级标签，否则会报错,组件名称，开头必须大写
+	>
+	> 组件的属性，可以在this.props对象上获取
 
+	- 案例
 	```html
 		<div class="app"></div>
 	```
@@ -86,6 +89,34 @@ react入门教程[http://www.ruanyifeng.com/blog/2015/03/react.html]
 		)
 	```
 
+
++ this.props.children
+	- this.props 组件的属性
+	- 代表所有组件的字节点
+	- react提供一个*React.Children*方法，来处理this.props.children的属性
+	```js
+		var NodeList = React.createClass({
+			render: function(){
+				return (
+					<ol>
+						{
+							React.Children.map(this.props.children,function(child){
+								return <li>{child}</li>
+							})
+						}
+					</ol>
+				)
+			}
+		})
+
+		ReactDOM.render(
+			<NodeList>
+				<span>hello</span>
+				<span>world</span>
+			</NodeList>,
+			document.getElementById('app')
+		)
+	```
 
 
 
