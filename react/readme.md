@@ -20,3 +20,41 @@ react入门教程[http://www.ruanyifeng.com/blog/2015/03/react.html]
 			document.getELementById('app');
 		)
 	```
+
++ JSX语法
+	- html与js混合书写，
+	```html
+		<div class='main'></div>
+	```
+	```js
+		var names = ['tom','lisa','bart']
+		reactDOM.render(
+			{
+			names.map(function(name){
+				return <div>hello {name}</div>
+			})
+			}
+			document.getELementById('app')
+		)
+	```
+	- 如果是数组，则直接取数组中的内容
+	```html
+		<div class='main'></div>
+	```
+	```js
+		var arr = [
+			<div>hello</div>,
+			<div>tom</div>
+
+		]
+		reactDOM.render(
+			<div>arr</div>
+			document.getELementById('app')
+		)
+	```
+
+
+
+
+
+
