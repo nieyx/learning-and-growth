@@ -58,6 +58,11 @@
 			<div id="col8"></div>
 			<div id="col9"></div>
 		</div>
+		<div class="row">
+			<div id="col10"></div>
+			<div id="col11"></div>
+			<div id="col12"></div>
+		</div>
 	</div>
 
 	<script type='text/babel'>
@@ -124,6 +129,41 @@
 				<span>world</span>
 			</NoteList>,
 			document.getElementById('col5')
+		)
+	</script>
+
+	<script type='text/babel'>
+		var MyTitle = React.createClass({
+			propTypes: {
+				title: React.PropTypes.string.isRequired
+			},
+			render: function(){
+				return <h1>{this.props.title}</h1>
+			}
+		})
+
+		var data = 123;
+		ReactDOM.render(
+			<MyTitle title={data} />,
+			document.getElementById('col6')
+		)
+	</script>
+
+	<script type='text/babel'>
+		var MyTitle = React.createClass({
+			getDefaultProps: function(){
+				return {
+					title: 'my title'
+				}
+			},
+			render:function(){
+				return <h1>{this.props.title}</h1>
+			}
+		})
+
+		ReactDOM.render(
+			<MyTitle />,
+			document.getElementById('col7')
 		)
 	</script>
 

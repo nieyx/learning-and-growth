@@ -118,6 +118,68 @@ react入门教程[http://www.ruanyifeng.com/blog/2015/03/react.html]
 		)
 	```
 
++ PropTypes 
+	- 验证组件的属性的是否正确
+	```js
+		var MyTitle = React.createClass({
+			propTypes :function(){
+				title: React.PropTypes.string.isRequired
+			},
+			render: function(){
+				return <h1>{this.props.title}</h1>
+			}
+		})
+
+		var data = 123;
+		ReactDOM.render(
+			<MyTitle  title={data} />,
+			document.getElementById('app')
+		)
+		// 运行之后报错，应该输入的data类型为string
+		//  Failed propType: Invalid prop `title` of type `number` supplied to `MyTitle`, expected `string`.
+	```
+	- 设置组件默认的属性值getDefaultProps
+	```js
+		var MyTitle = React.createClass({
+			getDefaultProps: function(){
+				return {
+					title: 'my title'
+				}
+			},
+			render:function(){
+				return <h1>{this.props.title}</h1>
+			}
+		})
+
+		ReactDOM.render(
+			<Mytitle />,
+			document.getElementById('app')
+		)
+	```
+
++ 获取真实的DOM节点
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
