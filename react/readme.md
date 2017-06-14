@@ -15,13 +15,14 @@ react入门教程[http://www.ruanyifeng.com/blog/2015/03/react.html]
 > 
 > 3. 组件
 > 
-> 4. this.props
+> 4. this.props.children
 > 
 > 5. propTypes
 >
 > 6. 获取真实的DOM节点
 >
-> 7.this.state
+> 7. this.state
+
 + reactDOM.render()
 	- 将模板转化为HTML的语言，并且插入dom
 	```html
@@ -237,6 +238,34 @@ react入门教程[http://www.ruanyifeng.com/blog/2015/03/react.html]
 		// 
 	```
 
++ 表单
+	- 表单属于用户和组件进行互动，所以不能使用静态的this.props,要使用this.state
+	- event.target.value 可以获取input，select ，textarea的输入和选择值
+	```js
+		// 与表单进行互动
+		var Input = React.createClass({
+			getInitialState: function(){
+				return {value: 'hello'}
+			},
+			handleChange: function(event){
+				return this.setState({value: event.target.value});
+			},
+			render: function(){
+				var value = this.state.value
+				return (
+					<div>
+						<input type="text" value={value} onChange={this.handleChange} />
+						<p>{value}</p>
+					</div>
+				)
+			}
+		})
+
+		ReactDOM.render(
+			<Input />,
+			document.getElementById('app')
+		)
+	```
 
 
 
