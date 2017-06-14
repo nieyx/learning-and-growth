@@ -52,10 +52,7 @@ react入门教程[http://www.ruanyifeng.com/blog/2015/03/react.html]
 			document.getELementById('app')
 		)
 	```
-```html
-```
-```js
-```
+
 + 组件
 	> 允许将代码封装成组件，然后插入代码像插入html标签一样，React.creatClass
 	>
@@ -158,6 +155,34 @@ react入门教程[http://www.ruanyifeng.com/blog/2015/03/react.html]
 	```
 
 + 获取真实的DOM节点
+	- 组件，并不是真实的DOM，是存在于内存之中的一种数据结构，是虚拟的DOM
+	- 组件只有在插入文档之后，才会变成真实的DOM
+	- react的设计模式，所有的DOM变动，都是先在虚拟的DOM上发生
+	- 然后再将实际发生DOM变动的部分，反应在真实的DOM上，这种算法，叫做DOM diff，**提高了网页的性能**
+	- 从组件获取真实的DOM节点，就需要使用*ref*
+	```js
+		//
+		var MyComponent = React.createClass({
+			handleClick: function(){
+				this.refs.myTextInput.focus();
+			},
+
+			render: function(){
+				return (
+					<div>
+						<input type="text" ref="myTextInput" />
+						<input type="button" value='button' onClick={this.handleClick} />
+					</div>
+				)
+			}
+		})
+
+		ReactDOM.render(
+			<MyComponent />,
+			document.getElementById('app')
+		)
+	```
+
 
 
 
