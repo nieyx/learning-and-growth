@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>react demo</title>
+	<script src="./react-demos-master/build/react.js"></script>
+    <script src="./react-demos-master/build/react-dom.js"></script>
+    <script src="./react-demos-master/build/browser.min.js"></script>
+    <style>
+    	html, body ,.contanier{
+    		width: 100%;
+    		height: 100%;
+    		background: #7cdcf2;
+    	}
+    	.container {
+    		width: 1240px;
+    		height: 100%;
+    		display: flex;
+    		margin:0 auto;
+    	}
+    	.container .row{
+    		width: 100%;
+    		flex-direction: column;
+			justify-content: center;
+			margin: 1px;
+			display: flex;
+    	}
+		.row div {
+			/*width: 300px;*/
+			height: 300px;
+			text-align: center;
+			font-size: 30px;
+			background: #fff;
+			margin: 1px;
+			justify-content: space-around;
+			align-items: center;
+			flex:1;
+
+
+		}
+
+    </style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div id="col1"></div>
+			<div id="col2"></div>
+			<div id="col3"></div>
+		</div>
+		<div class="row">
+			<div id="col4"></div>
+			<div id="col5"></div>
+			<div id="col6"></div>
+		</div>
+		<div class="row">
+			<div id="col7"></div>
+			<div id="col8"></div>
+			<div id="col9"></div>
+		</div>
+	</div>
+
+	<script type='text/babel'>
+		ReactDOM.render(
+			<div><span>hello react</span></div>,
+			document.getElementById('col1')
+		)
+	</script>
+	<script type='text/babel'>
+		var names = ['Alice', 'Emily', 'Kate'];
+		ReactDOM.render(
+			<ul>
+				{
+					names.map(function(name){
+						return <li>hello {name}!</li>
+					})
+				}
+			</ul>,
+			document.getElementById('col2')
+		)
+	</script>
+	<script type='text/babel'>
+		var arr = [
+			<h1>hello react</h1>,
+			<h2>React is awesome</h2>,
+		];
+		ReactDOM.render(
+			<div>{arr}</div>,
+			document.getElementById('col3')
+		)
+	</script>
+
+	<script type=text/babel>
+		var HelloMessage = React.createClass({
+			render:function(){
+				return <h1>hello {this.props.name}</h1>
+			}
+		});
+
+		ReactDOM.render(
+			<HelloMessage name='react' />,
+			document.getElementById('col4')
+		)
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

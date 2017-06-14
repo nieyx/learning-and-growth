@@ -30,9 +30,9 @@ react入门教程[http://www.ruanyifeng.com/blog/2015/03/react.html]
 		var names = ['tom','lisa','bart']
 		reactDOM.render(
 			{
-			names.map(function(name){
-				return <div>hello {name}</div>
-			})
+				names.map(function(name){
+					return <div>hello {name}</div>
+				})
 			}
 			document.getELementById('app')
 		)
@@ -43,13 +43,46 @@ react入门教程[http://www.ruanyifeng.com/blog/2015/03/react.html]
 	```
 	```js
 		var arr = [
-			<div>hello</div>,
-			<div>tom</div>
+			<h1>hello</h1>,
+			<h2>tom</h2>
 
 		]
 		reactDOM.render(
-			<div>arr</div>
+			<div>{arr}</div>
 			document.getELementById('app')
+		)
+	```
+```html
+```
+```js
+```
++ 组件
+> 允许将代码封装成组件，然后插入代码像插入html标签一样，React.creatClass
+>
+> HelloMessage就是一个组件类，在reactDOM中通过<HelloMessage />来调用
+>
+> 插入<HelloMessage />之后就实例出了一个实例
+>
+> 所有组件，都有自己的render方法，用于输出组件的方法
+>
+> 组件内只能有一个顶级标签，否则会报错,组件名称，开头必须大写
+
+	```html
+		<div class="app"></div>
+	```
+	```js
+		// HelloMessage就是一个组件类，在reactDOM中通过<HelloMessage />来调用
+		// 插入<HelloMessage />之后就实例出了一个实例
+		// 所有组件，都有自己的render方法，用于输出组件的方法
+		var HelloMessage = React.creatClass({
+			render:function(){
+				return <h1>hello {this.props.name}</h1>;
+			}
+		});
+
+		ReactDOM.render(
+			<HelloMessage name='john' />
+			document.getElementById('app')
 		)
 	```
 
