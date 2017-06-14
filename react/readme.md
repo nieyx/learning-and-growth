@@ -9,6 +9,17 @@ react入门教程[http://www.ruanyifeng.com/blog/2015/03/react.html]
 	> JSX语法：html和javascript的混合
 
 ### 入门语法
+> 1.reactDOM.render();
+> 
+> 2.JSX语法
+> 
+> 3.组件
+> 
+> 4.this.props
+> 
+> 5.propTypes
+>
+> 6.获取真实的DOM节点
 + reactDOM.render()
 	- 将模板转化为HTML的语言，并且插入dom
 	```html
@@ -54,13 +65,13 @@ react入门教程[http://www.ruanyifeng.com/blog/2015/03/react.html]
 	```
 
 + 组件
-	> 允许将代码封装成组件，然后插入代码像插入html标签一样，React.creatClass
+	> 允许将代码封装成组件，然后插入代码像插入html标签一样，React.createClass
 	>
 	> HelloMessage就是一个组件类，在reactDOM中通过<HelloMessage />来调用
 	>
 	> 插入<HelloMessage />之后就实例出了一个实例
 	>
-	> 所有组件，都有自己的render方法，用于输出组件的方法
+	> 所有组件，都有自己的render方法，用于*输出组件*的方法
 	>
 	> 组件内只能有一个顶级标签，否则会报错,组件名称，开头必须大写
 	>
@@ -74,7 +85,7 @@ react入门教程[http://www.ruanyifeng.com/blog/2015/03/react.html]
 		// HelloMessage就是一个组件类，在reactDOM中通过<HelloMessage />来调用
 		// 插入<HelloMessage />之后就实例出了一个实例
 		// 所有组件，都有自己的render方法，用于输出组件的方法
-		var HelloMessage = React.creatClass({
+		var HelloMessage = React.createClass({
 			render:function(){
 				return <h1>hello {this.props.name}</h1>;
 			}
