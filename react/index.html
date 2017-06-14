@@ -189,6 +189,30 @@
 		)
 	</script>
 
+	<script type='text/babel'	>
+		var LikeButton = React.createClass({
+			getInitialState: function(){
+				return {liked: false}
+			},
+			handleClick: function(){
+				return this.setState({liked: !this.state.liked})
+			},
+			render: function(){
+				var text = this.state.liked ? 'liked' : 'haven\'t liked'
+				return (
+					<p onClick={this.handleClick}>
+						your {text} is changed
+					</p>
+				)
+			}
+		})
+
+		ReactDOM.render(
+			<LikeButton />,
+			document.getElementById('col9')
+		)
+	</script>
+
 
 
 

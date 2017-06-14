@@ -9,17 +9,19 @@ react入门教程[http://www.ruanyifeng.com/blog/2015/03/react.html]
 	> JSX语法：html和javascript的混合
 
 ### 入门语法
-> 1.reactDOM.render();
+> 1. reactDOM.render();
 > 
-> 2.JSX语法
+> 2. JSX语法
 > 
-> 3.组件
+> 3. 组件
 > 
-> 4.this.props
+> 4. this.props
 > 
-> 5.propTypes
+> 5. propTypes
 >
-> 6.获取真实的DOM节点
+> 6. 获取真实的DOM节点
+>
+> 7.this.state
 + reactDOM.render()
 	- 将模板转化为HTML的语言，并且插入dom
 	```html
@@ -192,6 +194,47 @@ react入门教程[http://www.ruanyifeng.com/blog/2015/03/react.html]
 			<MyComponent />,
 			document.getElementById('app')
 		)
+	```
+
++ this.state
+	- 组件与用户互动
+	- react将组件看成了额一个状态机器，
+		> 1.一开始有一个初始的状态
+		>
+		> 2.然后于用户进行互动
+		>
+		> 3.导致用户状态变化，触发重新渲染
+
+
+	- 案例
+	```js
+		var LikeButtom = React.createClass({
+			getInitialState: function(){
+				// 定义初始状态，通过this.state来读取属性
+				return {liked: false}
+			},
+			handleClick: function(){
+				// 当用户点击时，状态值发生变化，this.setState方法修改变化值，
+				// 每次通过this.setState修改后，自动调用this.render,再次渲染组件
+				this.setState({liked: !this.state.liked}) 
+			}
+			render:function(){
+				var text = this.state.liked ? 'liked' : 'haven\'t liked';
+				return (
+					<p onClick={this.handleClick}>
+					your {text} is click to change!
+					</p>
+				)
+
+			}
+		});
+
+		ReactDOM.render(
+			<LikeButton />,
+			document.getElementById('app');
+		)
+
+		// 
 	```
 
 
