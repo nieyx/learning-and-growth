@@ -6,6 +6,7 @@
 	<script src="./react-demos-master/build/react.js"></script>
     <script src="./react-demos-master/build/react-dom.js"></script>
     <script src="./react-demos-master/build/browser.min.js"></script>
+    <script src="./react-demos-master/jquery.min.js"></script>
     <style>
     	html, body ,.contanier{
     		width: 100%;
@@ -270,6 +271,41 @@
 			<Hello name='world!'/>,
 			document.getElementById('col11')
 		);
+	</script>
+
+	<script type='text/babel'>
+		var  UserGist = React.createClass({
+			getInitialState: function(){
+				return {
+					username: '',
+					lastGistUrl: ''
+				}
+			},
+			componentDidMount: function(){
+				$.get(this.props.source,function(result){
+					var lastGist = result[0];
+					if (this.isMounted()){
+						this.setState({
+							username: lastGist.owner.login,
+							lastGistUrl: lastGist.html_url
+						});
+					}
+				}.bind(this));
+			},
+			render: function(){
+				return (
+					<div>
+						{this.state.username}'s last gist is'
+						<a href={this.state.lastGistUrl}>here</a>
+					</div>
+				)
+			}
+		})
+
+		ReactDOM.render(
+			<UserGist source='https://api.github.com/users/octocat/gists' />,
+			document.getElementById('col12')
+		)
 	</script>
 
 

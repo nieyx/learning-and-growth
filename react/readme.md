@@ -331,6 +331,53 @@ react入门教程[http://www.ruanyifeng.com/blog/2015/03/react.html]
 		);
 	```
 
++ Ajax
+	- ajax再react中的使用
+		> 组件的数据来源，是通过Ajax从服务端获取的
+		>
+		> 通过componentDidMount来设置ajax请求，等成功收到返回的数据，
+		>
+		> 再通过this.setState来重新渲染UI
+
+	- 案例
+	```js
+		// 
+		var  UserGist = React.createClass({
+			getInitialState: function(){
+				return {
+					username: '',
+					lastGistUrl: ''
+				}
+			},
+			componentDidMount: function(){
+				$.get(this.props.source,function(result){
+					var lastGist = result[0];
+					if (this.isMounted()){
+						this.setState({
+							username: lastGist.owner.login,
+							lastGistUrl: lastGist.html_url
+						});
+					}
+				}.bind(this));
+			},
+			render: function(){
+				return (
+					<div>
+						{this.state.username}'s last gist is'
+						<a href={this.state.lastGistUrl}>here</a>
+					</div>
+				)
+			}
+		})
+
+		ReactDOM.render(
+			<UserGist source='https://api.github.com/users/octocat/gists' />,
+			document.getElementById('col12')
+		)
+	```
+
+
+
 
 
 

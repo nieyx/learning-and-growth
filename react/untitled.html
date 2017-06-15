@@ -8,37 +8,38 @@
   <body>
     <div id="example"></div>
     <script type='text/babel'>
-    var Hello = React.createClass({
+    var  UserGist = React.createClass({
       getInitialState: function(){
         return {
-          opacity: 1.0
-        };
+          username: '',
+          lastGistUrl: ''
+        }
       },
-      handleChange: function(){
-        this.timer = setIntival(function(){
-          var opacity = this.state.opacity;
-          opacity -= .05;
-          if (opacity < 0.1) {
-            opacity = 1.0;
+      conponentDidMount: function(){
+        $.get(this.props.source,function(result){
+          var lastGist = result[0];
+          if (this.isMounted()){
+            this.setState({
+              username: lastGist.owner.login,
+              lastGistUrl: lastGist.html_url
+            })
           }
-          this.setState ({
-            opacity: opacity
-          })
-        }.bind(this),100);
+        }.bind(this))
       },
       render: function(){
         return (
-          <div style={{opacity: this.state.opacity}}>
-            hello {this.props.name}
+          <div>
+            {this.state.username}'s last gist is'
+            <a href={this.state.lastGistUrl}>here</a>
           </div>
         )
       }
-    });
+    })
 
     ReactDOM.render(
-      <Hello name='world!'/>,
-      document.getElementById('col11')
-    );
+      <UserGist source='https://api.github.com/users/octocat/gists' />,
+      document.getElementById('col12')
+    )
   </script>
   </body>
 </html>
