@@ -1,10 +1,11 @@
 ## React router 入门
 教程地址[http://www.ruanyifeng.com/blog/2016/05/react_router.html]
 
-### Lesson1
+### Lesson1-setting-up
 + 目录结构
 	> modules
 	>> App.js
+	>
 	> node_modules
 	>
 	> index.html
@@ -14,7 +15,6 @@
 	> package.json
 	>
 	> webpack.config.js
-	>
 
 + 原理
 	- webpack.config.js 中设置了打包的entery和output
@@ -47,3 +47,5 @@
 		})
 
 	```
+
+### Lesson2-rendering-a-route
