@@ -267,6 +267,71 @@ react入门教程[http://www.ruanyifeng.com/blog/2015/03/react.html]
 		)
 	```
 
++ 组件的声明周期
+	- 组件生命周期的三个状态
+		* Mounting 已插入真实的DOM
+		* Updating 正在被*重新*渲染
+		* Unmounting 已移除真实DOM
+
+	- React为*每个状态*都提供了*两种处理函数*
+		* will： 函数在进入状态之前调用
+		* did： 函数在进入函数之后调用
+
+	- 三种状态，共计五种处理函数
+	> componentWillMount()
+	> 
+	> componentDidMount()
+	> 
+	> componentWillUpdate(object nextProps,object nextState)
+	> 
+	> componentDidUpdate(object nextProps, object nextState)
+	> 
+	> componentWillUnmount()
+
+	- React提供了两种特殊状态的处理函数
+	> componentWillReceiveProps(object newProps) : 已加载组件的新参数时调用
+	>
+	> shouldComponentUpdate(object nextProps, object nextState): 组件判断是否重新渲染时调用
+
+	- 详细官网文档说明[https://facebook.github.io/react/docs/react-component.html]
+
+	- 案例
+	```js
+		// 
+		var Hello = React.createClass({
+			getInitialState: function(){
+				return {
+					opacity: 1.0
+				};
+			},
+			componentDidMount: function(){
+				this.timer = setInterval(function(){
+					var opacity = this.state.opacity;
+					opacity -= .05;
+					if (opacity < 0.1) {
+						opacity = 1.0;
+					}
+					this.setState({
+						opacity: opacity
+					});
+				}.bind(this),100);
+			},
+			render: function(){
+				return (
+					<div style={{opacity: this.state.opacity}}>
+						hello {this.props.name}
+					</div>
+				);
+			}
+		});
+
+		ReactDOM.render(
+			<Hello name='world' />,
+			document.getElementById('app')
+		);
+	```
+
+
 
 
 
