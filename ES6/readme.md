@@ -149,7 +149,7 @@
 + 用途
 
 
-### 什么是解构
+## 什么是解构
 > ES6允许按照一定的模式，从数组和对象中*提取出数值*，对*变量进行赋值*，被称为*解构*
 >> 提取数值-----> 变量赋值
 
@@ -168,4 +168,131 @@
 	c // 3
 	d // 4
 ```
+
+> 默认值
+```js
+	// es6内部会严格判断变量是否===undefined，如果等于，则才会使用默认值
+	let [a,b=1] = ["",undefined]; // a = "",b = 1
+
+	let[a=1,b=2] = [null,undefined]; // a=null,b=2
+	
+```
+
+> 当默认值是一个表达式，
+```js
+	function f(){
+		console.log('aaa');
+	}
+
+	let [a = f()] = [1];
+	// 上述声明不会生效，因为a=1，函数不会被调用
+	// 上述表达式等于
+	let a;
+	if ([1][0] === undefined){
+		a = f();
+	} else {
+		a = [1][0];
+	}
+
+```
+
+> 默认值引用其他的变量
+```js
+	let [x=1,y=x] = [] // 1，1
+	let [x=1,y=x] = [1] // 1，1
+	let [x=1,y=x] = [1,2] // 1，2
+	let [x=y,y=1] = [] //报错，x在用到y值时，y还未声明
+
+```
+
+### 对象的解构赋值
+
+### 变量的结构赋值的用途
+> 1.交换变量的值
+>
+> 2.函数返回的多个值
+>
+> 3.函数参数的定义
+>
+> 4.提取JSON数据
+>
+> 5.遍历map结构
+
+1.变量交换值
+```js
+	let x = 1;
+	let y = 2;
+	[x,y]=[y,x];
+```
+
+2. 函数返回的多个值
+```js
+	// 返回一个数组
+	function example(){
+		return [1,2,3];
+	}
+	let [a,b,c] = example();
+
+	// 返回一个对象
+	function example(){
+		return {
+			foo:1,
+			bar:2
+		};
+	}
+	let {foo,bar} = example();
+```
+
+3.函数参数的定义
+```js
+	// 参数是有序的值
+	function f([a,b,c]){}
+	f([1,2,3])
+	// 参数是无序的值
+	function f({x,y,z}){}
+	f({x=1,z=3,t=2})
+```
+
+4.提取json数据
+```js
+	// 
+	let jsonData = {
+		name:'tom',
+		age:18,
+		data: [123,456] 
+	};
+	let [name,age,data=number] = jsonData;
+```
+5.遍历map
+```js
+	// 
+	var map = new Map();
+	map.set('first', 'hello');
+	map.set('second', 'world');
+
+	for(let [key,value] of map){
+		console.log(key +' is '+ value);
+	}
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
