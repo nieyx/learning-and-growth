@@ -276,6 +276,62 @@
 
 ```
 
+## 字符串的扩展
+> 1.字符串Unicode表示法
+>
+> 2.codePointAt()
+>
+> 3.String.fromCodePoint()
+>
+> 4.字符串的遍历器接口
+>
+> 5.at()
+>
+> 6.normalize()
+>
+> 7.includes(),startsWidth(),endsWith()
+>
+> 8.repeat()
+>
+> 9.padStart(),paEnd()
+>
+> 10.模板字符串
+>
+> 11.实例：模板编译
+>
+> 12.标签模板
+>
+> 13.String.raw()
+>
+> 14.模板字符串的限制
+
+
+1. 字符的unicode表示法
+- js允许采用\uxxxx形式表示一个字符，xxxx代表unicode的码点
+```js
+	'\u0061' // a
+```
+- 表示法限于\u0009~\uffff之间的字符安，超出这个范围的字符，需使用两个双字节的形式来表示
+```js
+	'\uD842\uDFB7' // 𠮷
+	‘\u20BB7’ // 7
+```
+- es6改进了，如果直接在\u后跟着超过0xffff的数值，比如‘\u20bb7’,js将其解析为\u20bb + 7，\u20bb是一个不可打印的字符，所以只会显示一个空格，后面跟着一个7，es6改进，*将码点放入大括号，js就可正确解析*
+```js
+	"\u{20BB7}"// "𠮷"
+
+	"\u{41}\u{42}\u{43}" // "ABC"
+
+	let hello = 123;
+	hell\u{6F} // 123
+
+	'\u{1F680}' === '\uD83D\uDE80' // true
+```
+
+10. 模版字符串
+文档地址[http://es6.ruanyifeng.com/#docs/string]
+
+
 
 
 
