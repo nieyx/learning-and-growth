@@ -330,6 +330,72 @@
 
 10. 模版字符串
 文档地址[http://es6.ruanyifeng.com/#docs/string]
+	+ 传统的js语言中，输出的字符串拼接方式如下
+	```js
+		$('#result').append(
+			'there are <b>' + basket.count + '</b>' + 
+			'items in your basket,' + 
+			'<em>' + basket.onSale + 
+			'</em> are on sale!'
+		)
+	```
+	+ 传统方式的拼接比较复杂繁琐不方便，es6引入*模板字符串*来解决这个问题
+	```js
+		// 模板字符串，用反引号`标示，嵌入的变量要用${}来标示,反引号也可以当作字符串
+		$('#result').append(`
+			there are <b> ${basket.count}</b> items
+			in your basket, <em>${basket.onSale}</em>
+			are on dale!
+		`)
+	```
+	+ 如果反引号中又有反引号，则使用反斜杠转译
+	```js
+		var greeting = `\`yo\` world`;
+	```
+	+ 如果在输出的模板字符串中，有多行字符串，会保留行内的空格和缩进，如要删除空格，
+	```js
+		$('#list').html(`
+			<ul>
+				<li>first</li>
+				<li>second</li>
+			</ul>
+		`)
+		// 去除空格
+		$('#list').html(`
+			<ul>
+				<li>first</li>
+				<li>second</li>
+			</ul>
+		`.trim())
+	```
+
+	+ 案例
+	```js
+		var x = 1;
+		var y = 2;
+		`${x} + ${y} = ${x+y}` // 1+2=3
+
+		var obj = {x:1,y:2};
+		`${obj.x + obj.y}` // 3
+	```
+
+11.实例：模板编译
++ 模板字符串，生成正式模板的实例
+```js
+	// <% %> 放置js代码
+	// <%= %> 放置表达式
+	var template = `
+		<ul>
+			<% for(var i=0l i<data.supplies.length; i++){% >
+				<li><%= data.supplies[i]%></li>
+			<% } %>
+		</ul>
+	`;
+```
+
+
+
+
 
 
 
