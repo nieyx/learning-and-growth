@@ -394,6 +394,148 @@
 ```
 
 
+### 函数的扩展
++ 为函数参数制定默认值
+```js
+	// es6之前，不允许为函数的参数设置默认值
+	function log(x,y){
+		y = y || "world";
+		console.log(x,y)
+	}
+	log('hello'); // hello world
+	log('hello','es6'); // hello es6
+	log('hello',''); // hello world
+
+	// es6
+	function log(x,y='world'){
+		console.log(x,y);
+	}
+	log('hello'); // hello world
+	log('hello','es6'); // hello es6
+	log('hello',''); // hello 
+
+	// eg
+	function Point(x=0,y=0){
+		this.x = x;
+		this.y = y;
+	}
+	var p = new Point();
+	p // x=0,y=0
+```
+
++ 与解构赋值默认值结合使用
+```js
+	// 结合使用
+	function foo({x,y=5}){
+		console.log(x,y)
+	};
+	foo({}) // x:undefined y=5
+	foo({x:1}) // x:1my=5
+	foo({x:1,y:2}) // x:1,y:2
+	foo() // error,格式不统一
+
+	// 解构赋值例子
+	function fetch(url,{body:'',method='GET',headers={}}){
+		console.log(method);
+	}
+	fetch('www.baidu.com',{}); // GET
+	fetch('www.baidu.com'); // error
+
+	// 第二种fetch的引用，可以使用默认值
+	function fetch(url,{method='GET'} = {}){
+		console.log(method);
+	}
+	fetch('www...')
+
+	// m1与m2的差别
+	function m1({x=0,y=0} = {}){
+		return [x,y]
+	}
+	function m2({x,y} = {x:0,y:0}){
+		return [x,y]
+	}
+
+	m1(); // 0,0
+	m2(); // 0,0
+
+	m1({x:3,y:8}) // [3,8]
+	m2({x:3,y:8}) // [3.8]
+
+	m1({x:3}) //[3,0]
+	m2({x:3}) //[3,undefined]
+
+	m1({}) // [0,0]
+	m2({}) // [undefined,undefined]
+
+	m1({z:3}) // [0,0]
+	m2({z:3}) // [undefined,undefined]
+
+
+```
+
+
+### 对象的扩展
+
++ 属性的简洁表示法
+	> 在对象之中，直接书写变量，属性名为变量名，属性值变为变量值
+	```js
+		var foo = 'bar';
+		var baz = {foo};
+		baz // {foo:"bar"}
+
+		// 等同与
+		var baz = {
+			foo: 'bar'
+		}
+
+		function f(x,y){
+			return {x,y}
+		}
+
+		f(1,2); // {x:1,y:2}
+		// 等同于
+		function f(x,y){
+			return {
+				x:x,
+				y:y
+			};
+		}	
+		f(1,2) // Object {x:1,y:2}
+	``` 
+	> 方法的简写
+	```js
+		var o = {
+			method(){
+				return "hello"
+			}
+		};
+		o.method() // hello
+
+		// 等同于
+		var o = {
+			method: function(){
+				return "hello"
+			}
+		}
+
+		// 综合实际例子
+		var birth = '2000/01/01';
+		var Person = {
+			name:'zhangsan',
+			// 等同于 birth:birth
+			birth,
+			// 等同于 hello:function(){}
+			hello(){
+				console.log('my name is ',this.name)
+			}
+		}
+		Person.name // zhangsan
+		Person.birth // 2000/01/01
+		Person.hello() // my name is zhangsan
+	```
+
+
+
 
 
 
