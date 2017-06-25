@@ -534,7 +534,19 @@
 		Person.hello() // my name is zhangsan
 	```
 
-
+### Set
++ 基本用法
+	- Set构造函数
+	- 类数组，没用重复项
+```js
+	const s = new Set();
+	[1,2,3,3,2,3,4,5,1,2,3,2].forEach(x => s.add(x));
+	for(let i of s){
+		console.log(i);
+	}
+	s // [1,2,3,4,5]
+	// set结构 不会添加重复值
+```
 
 
 
