@@ -51,32 +51,33 @@
 
 ### 为HTMl添加新的元素
 + 创建新的元素
-	```html
-		<!DOCTYPE html>
-		<html lang="en">
-		<head>
-			<meta charset="UTF-8">
-			<title>create element</title>
-		</head>
-		<script>
-			document.createElement('myHero');
-		</script>
-		<style>
-		myHero {
-			display: block;
-			background: grey;
-			padding: 50px;
-			font-size: 30px;
 
-		}
-		</style>
-		<body>
-			<p>这是一个普通的段落</p>
-			<div>这是一个普通的容器</div>		
-			<myHero>新创建的标签</myHero>
-		</body>
-		</html>
-	```
+```html
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>create element</title>
+	</head>
+	<script>
+		document.createElement('myHero');
+	</script>
+	<style>
+	myHero {
+		display: block;
+		background: grey;
+		padding: 50px;
+		font-size: 30px;
+
+	}
+	</style>
+	<body>
+		<p>这是一个普通的段落</p>
+		<div>这是一个普通的容器</div>		
+		<myHero>新创建的标签</myHero>
+	</body>
+	</html>
+```
 
 ### HTML5新元素
 文档地址[http://www.runoob.com/html/html5-new-element.html]
@@ -106,39 +107,41 @@
 	- audio 
 		* 支持的格式mp3，wav，ogg
 		* 在标签中放置的文本，可以在不支持的浏览器中显示
-	```html
-		<!DOCTYPE html>
-		<html lang="en">
-		<head>
-			<meta charset="UTF-8">
-			<title>audio</title>
-		</head>
-		<body>
-			<audio controls>
-				<source src='http://www.runoob.com/try/demo_source/horse.ogg'>
-				<source src='http://www.runoob.com/try/demo_source/horse.mp3'>
-				你的浏览器不支持audio
-			</audio>
-		</body>
-		</html>
-	```
+
+```html
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>audio</title>
+	</head>
+	<body>
+		<audio controls>
+			<source src='http://www.runoob.com/try/demo_source/horse.ogg'>
+			<source src='http://www.runoob.com/try/demo_source/horse.mp3'>
+			你的浏览器不支持audio
+		</audio>
+	</body>
+	</html>
+```
 	- video
-	```html
-		<!DOCTYPE html>
-		<html lang="en">
-		<head>
-			<meta charset="UTF-8">
-			<title>video</title>
-		</head>
-		<body>
-			<video width='300' height='200' controls>
-				<source src='http://www.runoob.com/try/demo_source/movie.mp4'>
-				<source src='http://www.runoob.com/try/demo_source/movie.ogg'>
-				你的浏览器不支持video
-			</video>
-		</body>
-		</html>
-	```
+
+```html
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>video</title>
+	</head>
+	<body>
+		<video width='300' height='200' controls>
+			<source src='http://www.runoob.com/try/demo_source/movie.mp4'>
+			<source src='http://www.runoob.com/try/demo_source/movie.ogg'>
+			你的浏览器不支持video
+		</video>
+	</body>
+	</html>
+```
 
 	- source 
 		* 提供媒体支持的类型，常嵌套在video，audio中，
@@ -149,62 +152,103 @@
 		* 嵌入其他的插件
 		* 常用属性
 		> width/height,src,type
-	```html
-		<!DOCTYPE html>
-		<html lang="en">
-		<head>
-			<meta charset="UTF-8">
-			<title>embed</title>
-		</head>
-		<body>
-			<embed src="http://www.runoob.com/try/demo_source/helloworld.swf" type="" width='200' height='200'>
-		</body>
-		</html>
-	```
+```html
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>embed</title>
+	</head>
+	<body>
+		<embed src="http://www.runoob.com/try/demo_source/helloworld.swf" type="" width='200' height='200'>
+	</body>
+	</html>
+```
 + 新的表单元素
 	- datalist
 		* 定义了input标签的可能选型列表
 		* IE9以下，safari不支持
-		```html
-			<!DOCTYPE html>
-			<html lang="en">
-			<head>
-				<meta charset="UTF-8">
-				<title>datalist</title>
-			</head>
-			<body>
-				<form action="*.php">
-				<input type="text" list='num'>
-				<datalist id='num'>
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-				</datalist>
-				<input type="submit">
-				</form>
-			</body>
-			</html>
-		```
+
+```html
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>datalist</title>
+	</head>
+	<body>
+		<form action="*.php">
+		<input type="text" list='num'>
+		<datalist id='num'>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+		</datalist>
+		<input type="submit">
+		</form>
+	</body>
+</html>
+	```
 	- output
 		* 输出结果
 		* oninput 关系表达式
 		* name 对象的唯一名称
-		```html
-			<!DOCTYPE html>
-			<html lang="en">
-			<head>
-				<meta charset="UTF-8">
-				<title>output</title>
-			</head>
-			<body>
-				<form action="*.php" oninput="x.value= parseInt(a.value)+parseInt(b.value)">0
-				<input type="range" id='a' value='100'>100
-				+ <input type="text" id='b' value='50'>
-				= <output name='x' for ='a b'>
-				</form>
-			</body>
-			</html>
-		```
+
+```html
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>output</title>
+	</head>
+	<body>
+		<form action="*.php" oninput="x.value= parseInt(a.value)+parseInt(b.value)">0
+		<input type="range" id='a' value='100'>100
+		+ <input type="text" id='b' value='50'>
+		= <output name='x' for ='a b'>
+		</form>
+	</body>
+	</html>
+```
+
++ 新的语义和结构元素
+
+### canvas
++ 什么是canvas
+> 画布，是个容器，内部通过脚本js来绘制图形
+>
+> canvas标签内可以设置style样式
+
+```html
+	<canvas id='myCanvas' width='200' height='200' style='border:1px solid #f00'></canvas>
+```
++ 使用js脚本来绘制图像
+> 获取画布，设置类型，设置样式
+
+```html
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>canvas</title>
+	</head>
+	<body>
+		<canvas id='myCanvas' width="300" height="300"></canvas>
+		<script>
+			var c = document.getElementById('myCanvas'); // 获取画布
+			var ctx = x.getContext('2d'); // 设置类型
+			ctx.filleStyle = '#f00';
+			ctx.fillRect(0,0,400,400)
+
+		</script>
+	</body>
+	</html>
+```
+
++ 在画布上绘制线条
+> moveTo : 起始坐标点
+>
+> lineTo : 结束坐标点
 
 
 
