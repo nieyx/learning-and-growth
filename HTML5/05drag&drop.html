@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<meta charset="UTF-8">
+	<title>drag/drop</title>
+	<style type="text/css">
+	#div1, #div2
+	{float:left; width:100px; height:35px; margin:10px;padding:10px;border:1px solid #aaaaaa;}
+	</style>
+	<script>
+		function allowDrop(env){
+			env.preventDefault();
+		}
+
+		function drag(env){
+			env.dataTransfer.setData("Text", env.target.id);
+		}
+
+		function drop(env){
+			env.preventDefault();
+			var data = env.dataTransfer.getData("Text");
+			env.target.appendChild(document.getElementById(data));
+		}
+	</script>
+</head>
+<body>
+	
+	<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"  >
+		<img src="http://www.runoob.com/try/demo_source/img_w3slogo.gif" id='drag1' width="88" height="31" draggable='true' ondragstart="drag(event)">
+	</div>
+	<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)" ></div>
+</body>
+</html>

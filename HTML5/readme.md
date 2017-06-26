@@ -249,8 +249,108 @@
 > moveTo : 起始坐标点
 >
 > lineTo : 结束坐标点
+>
+> strock() 来绘制线条
 
+```html
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>draw</title>
+	</head>
+	<body>
+		<canvas id="a" width="400" height='400' style="border:1px solid #f00"></canvas>
+		<script>
+			var c = document.getElementById('a');
+			var ctx = c.getContext('2d');
+			ctx.moveTo(10,10);
+			ctx.lineTo(200,200);
+			ctx.stroke();
+		</script>
+	</body>
+	</html>
+```
 
++ 绘制圆形
+> arc(x,y,r,start,stop)
+
+```html
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>arc</title>
+	</head>
+	<body>
+		<canvas id="b" width="400" height='400' style="border:1px solid #f00"></canvas>
+		<script>
+			var c = document.getElementById('b');
+			var ctx = c.getContext('2d');
+			ctx.arc(200,200,200,0,2*Math.PI);
+			ctx.stroke();
+		</script>
+	</body>
+	</html>
+```
+
++ 绘制文本
+> font,fillText(text,x,y),strokeText(text,x,y)
+
+```html
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>canvas Text</title>
+	</head>
+	<body>
+		<canvas id="c" width="400" height='400' style="border:1px solid #f00"></canvas>
+		<script>
+			var c = document.getElementById('c');
+			var ctx = c.getContext('2d');
+			ctx.font = '30px MicroSoft YaHei';
+			ctx.fillText('hello word!!', 50, 50)
+		</script>
+	</body>
+	</html>
+```
+
+### 拖放
+```html
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>drag/drop</title>
+		<style type="text/css">
+		#div1, #div2
+		{float:left; width:100px; height:35px; margin:10px;padding:10px;border:1px solid #aaaaaa;}
+		</style>
+	</head>
+	<body>
+		<script>
+			function allowDrop(env){
+				env.preventDefault();
+			}
+
+			function drag(env){
+				env.dataTransfer.setData("Text", env.target.id);
+			}
+
+			function drop(env){
+				env.preventDefault();
+				var data = env.dataTransfer.getData("Text");
+				env.target.appendChild(document.getElementById(data));
+			}
+		</script>
+		<div id="div1" ondragover="allowDrop(event)" ondrop="drop(event)" >
+			<img src="http://www.runoob.com/try/demo_source/img_w3slogo.gif" alt="" width="88" height="31" dragable='true' ondragstart="drag(event)">
+		</div>
+		<div id="div2" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+	</body>
+	</html>
+```
 
 
 

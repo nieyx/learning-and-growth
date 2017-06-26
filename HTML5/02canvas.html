@@ -12,5 +12,31 @@
 		ctx.fillStyle = '#f00';
 		ctx.fillRect(0,0,200,200);
 	</script>
+
+	<canvas id="a" width="400" height='400' style="border:1px solid #f00"></canvas>
+	<script>
+		var c = document.getElementById('a');
+		var ctx = c.getContext('2d');
+		ctx.moveTo(10,10);
+		ctx.lineTo(200,200);
+		ctx.stroke();
+	</script>
+
+	<canvas id="b" width="400" height='400' style="border:1px solid #f00"></canvas>
+	<script>
+		var c = document.getElementById('b');
+		var ctx = c.getContext('2d');
+		ctx.arc(200,200,200,0,2*Math.PI);
+		ctx.stroke();
+	</script>
+
+	<canvas id="c" width="400" height='400' style="border:1px solid #f00"></canvas>
+	<script>
+		var c = document.getElementById('c');
+		var ctx = c.getContext('2d');
+		ctx.font = '30px MicroSoft YaHei';
+		// ctx.fillText('hello word!!', 50, 50)
+		ctx.strokeText('hello word!!', 50, 50)
+	</script>
 </body>
 </html>
