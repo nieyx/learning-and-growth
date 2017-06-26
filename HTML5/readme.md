@@ -140,6 +140,72 @@
 		</html>
 	```
 
+	- source 
+		* 提供媒体支持的类型，常嵌套在video，audio中，
+		* 让浏览器选组其中任意个类型，都支持，则任选其一
+		* 支持src：路径属性，type：媒体的MIME类型属性
+
+	- embed
+		* 嵌入其他的插件
+		* 常用属性
+		> width/height,src,type
+	```html
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<title>embed</title>
+		</head>
+		<body>
+			<embed src="http://www.runoob.com/try/demo_source/helloworld.swf" type="" width='200' height='200'>
+		</body>
+		</html>
+	```
++ 新的表单元素
+	- datalist
+		* 定义了input标签的可能选型列表
+		* IE9以下，safari不支持
+		```html
+			<!DOCTYPE html>
+			<html lang="en">
+			<head>
+				<meta charset="UTF-8">
+				<title>datalist</title>
+			</head>
+			<body>
+				<form action="*.php">
+				<input type="text" list='num'>
+				<datalist id='num'>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+				</datalist>
+				<input type="submit">
+				</form>
+			</body>
+			</html>
+		```
+	- output
+		* 输出结果
+		* oninput 关系表达式
+		* name 对象的唯一名称
+		```html
+			<!DOCTYPE html>
+			<html lang="en">
+			<head>
+				<meta charset="UTF-8">
+				<title>output</title>
+			</head>
+			<body>
+				<form action="*.php" oninput="x.value= parseInt(a.value)+parseInt(b.value)">0
+				<input type="range" id='a' value='100'>100
+				+ <input type="text" id='b' value='50'>
+				= <output name='x' for ='a b'>
+				</form>
+			</body>
+			</html>
+		```
+
 
 
 
