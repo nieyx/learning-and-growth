@@ -104,6 +104,42 @@
 
 + 新媒体元素
 	- audio 
+		* 支持的格式mp3，wav，ogg
+		* 在标签中放置的文本，可以在不支持的浏览器中显示
+	```html
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<title>audio</title>
+		</head>
+		<body>
+			<audio controls>
+				<source src='http://www.runoob.com/try/demo_source/horse.ogg'>
+				<source src='http://www.runoob.com/try/demo_source/horse.mp3'>
+				你的浏览器不支持audio
+			</audio>
+		</body>
+		</html>
+	```
+	- video
+	```html
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<title>video</title>
+		</head>
+		<body>
+			<video width='300' height='200' controls>
+				<source src='http://www.runoob.com/try/demo_source/movie.mp4'>
+				<source src='http://www.runoob.com/try/demo_source/movie.ogg'>
+				你的浏览器不支持video
+			</video>
+		</body>
+		</html>
+	```
+
 
 
 
