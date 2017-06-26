@@ -78,7 +78,32 @@
 		</html>
 	```
 
-<!-- ### HTML5新元素 -->
+### HTML5新元素
+文档地址[http://www.runoob.com/html/html5-new-element.html]
++ canvas,画布
+	- canvas 通常通过脚本js来绘制
+	- canvas 是个图形容器，是通过脚本js来绘制的图形
+	```html
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<title>canvas</title>
+		</head>
+		<body>
+			<canvas id="myCanvas"></canvas>
+			<script>
+				var canvas = document.getElementById('myCanvas');
+				var ctx = canvas.getContext('2d');
+				ctx.fillStyle = '#f00';
+				ctx.fillRect(0,0,300,300);
+			</script>
+		</body>
+		</html>
+	```
+
++ 新媒体元素
+	- audio 
 
 
 
