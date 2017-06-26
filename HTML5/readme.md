@@ -134,7 +134,7 @@
 		<title>video</title>
 	</head>
 	<body>
-		<video width='300' height='200' controls>
+		<video width='300' height='200' controls >
 			<source src='http://www.runoob.com/try/demo_source/movie.mp4'>
 			<source src='http://www.runoob.com/try/demo_source/movie.ogg'>
 			你的浏览器不支持video
@@ -317,6 +317,11 @@
 ```
 
 ### 拖放
++ 将元素设置为可拖放 draggable="true"
++ 当元素拖动时，会发生什么ondragstart setData() 
++ 放到何处 ondragover
++ 进行放置 ondrop
+
 ```html
 	<!DOCTYPE html>
 	<html lang="en">

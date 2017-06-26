@@ -11,12 +11,39 @@
 		你的浏览器不支持audio
 	</audio>
 	<hr>
-	<video width='300' height='200' controls>
-		<source src='http://www.runoob.com/try/demo_source/movie.mp4'>
-		<source src='http://www.runoob.com/try/demo_source/movie.ogg'>
-		你的浏览器不支持video
-	</video>
+	<div>
+		<input type="button" value='播放／暂停' onclick='playPause()'>
+		<input type="button" value='放大' onclick='makeBig()'>
+		<input type="button" value='缩小' onclick='makeSmall()'>
+		<input type="button" value='初始' onclick='makeNati()'>
+		<video width='300' height='200' controls id='myVideo'>
+			<source src='http://www.runoob.com/try/demo_source/movie.mp4'>
+			<source src='http://www.runoob.com/try/demo_source/movie.ogg'>
+			你的浏览器不支持video
+		</video>
+	</div>
 	<hr>
 	<embed src="http://www.runoob.com/try/demo_source/helloworld.swf" type="" width='200' height='200'>
+
+	<script>
+		var myVideo = document.getElementById('myVideo');
+		function playPause(){
+			if(myVideo.paused){
+				myVideo.play();
+			} else {
+				myVideo.pause();
+			}
+		}
+
+		function makeBig(){
+			myVideo.width = 560;
+		}
+		function makeSmall(){
+			myVideo.width = 320;
+		}
+		function makeNati(){
+			myVideo.width = 420;
+		}
+	</script>
 </body>
 </html>
