@@ -13,7 +13,7 @@
 			日期的选取: <input type="date">
 		</div>
 		<div>
-			邮件的填写: <input type="email" name="" id="">
+			邮件的填写: <input type="email" name="" id="" <input type="email" name="" id="" autocomplete='on'>
 			<input type="submit" value="提交">
 		</div>
 		<div>
@@ -23,8 +23,22 @@
 			range <input type="range" name="" id="" min='1' max='100' >
 		</div>
 		<div>
-			search <input type="search" name="" id="">
+			search <input type="search" name="" id="" autocomplete="on">
 		</div>
+		<div>
+			自动聚焦 <input type="text" name="" id="" autofocus>
+		</div>
+		<div>
+			<form action="*.php">
+				<input type="text" name="" id="" pattern="[A-Za-z]{3}">
+				<input type="submit" value="提交">
+			</form>
+		</div>
+		<form action="*.php">
+			<input type="text" name="" id="" required>
+			<input type="submit" value="提交">
+
+		</form>
 	</div>
 </body>
 </html>

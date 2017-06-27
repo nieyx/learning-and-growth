@@ -378,34 +378,73 @@
 > url
 
 + color
+
 ```html
 	<input type="color" name="" id="">
 ```
 + date 
+
 ```html
 	<input type="date" name="" id="">
 ```
 + email
+
 ```html
 	<input type="email" name="" id="">
 ```
 
 + number 
 > disabled、min/max，step，value
+
 ```html
 	<input type="number" name="" id="" value='2' >
 ```
 
 + range
+
 ```html
 	<input type="range" name="" id="" min='1' max='100'>
 ```
 
 + url
+
 ```html
 	<input type="url" name="" id="">
 ```
 
+### input表单的属性
++ autocomplete 输入联动信息提示
+
+```html
+	<input type="email" name="" id="" autocomplete='on'>
+```
++ novalidate 不验证form和input域
+
+```html
+	<form action="*.php" novalidate>
+	<input type="email" name="" id="">
+	</form>
+```
+
++ autofocus input表单自动聚焦
+
+```html
+	<input type="text" name="" id="" autofocus>
+```
+
++ form／formaction／formenctype/formmethod/formnovalidate/form
+
++ height和width属性只适合input:image的属性
+
++ min/max 是应用在num range date
+
++ pattern 属性 正则匹配
+```html
+	<input type="text" name="" id="" pattern=“[A-Za-z]{3}”>
+	<input type="submit" value="提交">
+```
++ placeholder 输入框中的默认信息
++ required
 
 
 
