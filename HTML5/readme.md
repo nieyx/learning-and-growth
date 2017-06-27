@@ -357,6 +357,34 @@
 	</html>
 ```
 
+### 新的input类型
++ 在不支持新的input类型的浏览器中，input会显示成文本域
+> color
+>
+> date/datetime/datetime-local
+>
+> email
+>
+> mouth/time/wek
+>
+> number
+>
+> range
+>
+> search
+>
+> tel
+>
+> url
+
++ color
+```html
+	<input type="color" name="" id="">
+```
++ date 
+```html
+	<input type="date" name="" id="">
+```
 
 
 
