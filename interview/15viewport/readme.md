@@ -65,3 +65,15 @@
 ```html
 	<meta name='viewport' content="width=devicewidth, initial-scale=1">
 ```
+
+
+### 面试题要点
++ 数据类型
++ 检测数据类型的方法
++ BOM是什么
++ DOM都有什么方法
++ 盒子模型
++ 数组的方法
++ 解释负载均衡
++ jquery的好处
++ 闭包的好处

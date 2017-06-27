@@ -385,6 +385,26 @@
 ```html
 	<input type="date" name="" id="">
 ```
++ email
+```html
+	<input type="email" name="" id="">
+```
+
++ number 
+> disabled、min/max，step，value
+```html
+	<input type="number" name="" id="" value='2' >
+```
+
++ range
+```html
+	<input type="range" name="" id="" min='1' max='100'>
+```
+
++ url
+```html
+	<input type="url" name="" id="">
+```
 
 
 
