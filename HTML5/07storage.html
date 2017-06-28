@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>storage</title>
+	<style>
+		.search_module {
+			width: 320px;
+			height: 200px;
+			border: 3px dashed #000;
+			text-align:center;
+		}
+	</style>
+</head>
+<body>
+	<!-- <input type="button" value="click" onclick='clickCounter()'>
+	<div id="result"></div>
+	<script>
+		if(typeof(Storage) !== 'undefined') {
+			localStorage.sitename = 'test';
+			localStorage.sitename1 = 'test1';
+			sessionStorage.sitename1 = 'test1';
+			localStorage.removeItem('sitename')
+		}
+
+		function clickCounter(){
+			if(typeof(Storage) !== 'undefined') {
+
+				if (localStorage.clickCounter) {
+					localStorage.clickCounter = Number(localStorage.clickCounter) + 1;
+				} else {
+					localStorage.clickCounter = 1;
+				}
+				document.getElementById('result').innerHTML = '你已经点击了' + localStorage.clickCounter;
+			} else {
+				document.getElementById('result').innerHTML = '你的浏览器不支持web storage'
+			}
+		} 
+	</script> -->
+
+	<!-- 查询模块 -->
+	<div class="search_module">
+		<label for="sitename">网站名key</label>
+		<input type="text" id="sitename">
+		<br>
+		<label for="siteurl">网址value:
+		</label>
+		<input type="text" id="siteurl">
+		<br>
+		<input type="button" value="新增记录" onclick="save()">
+		<hr>
+		<label for="search_site">输入网站名</label>
+		<input type="text" id="search_site">
+		<input type="button" value="查找网站" onclick='search()'>
+		<p id="result"></p>
+	</div>
+	<div id="list"></div>
+	<script>
+		loadAll();
+		function save(){
+			var sitename = document.getElementById('sitename');
+			var siteurl = document.getElementById('siteurl');
+			localStorage.setItem(sitename.value,siteurl.value);
+			alert('添加成功');
+
+		}
+		function search() {
+			var searchSite = document.getElementById('search_site');
+			var result = document.getElementById('result');
+			result.innerHTML = searchSite.value + '网址：' + localStorage.getItem(searchSite.value);
+		}
+		function loadAll(){
+			var list = document.getElementById('list');
+			if (localStorage.length > 0) {
+				var result = '<table><tr><td>网站名</td><td>网址</td>';
+				for (var i = 0; i < localStorage.length; i++) {
+					var sitename = localStorage.key(i);
+					var siteurl = localStorage.getItem(sitename);
+					result += '<tr><td>'+sitename+'</td><td>'+siteurl+'</td>'
+				}
+				result += '</table>';
+				list.innerHTML = result;
+			} else {
+				list.innerHTML = '数据为空...'
+			}
+		}
+	</script>
+</body>
+</html>

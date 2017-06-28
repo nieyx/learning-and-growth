@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>templateStr</title>
+</head>
+<body>
+	<div id="result"></div>
+	<script>
+		var res = document.getElementById('result');
+		// 模版字符串
+		var jsonBody = [
+		{id:1,name:'tom'},
+		{id:2,name:'jummy'},
+		{id:3,name:'bart'},
+		{id:4,name:'lisa'},
+		{id:5,name:'lucy'},
+		]
+		var result = `
+		<ul>
+			<% for (var i = 0; i < jsonBody.length; i++) { %>
+				<li><%= jsonBody[i][name] %></li>
+			<% } %>
+		</ul>
+		`;
+		var template = `
+		<ul>
+		  <% for(var i=0; i < 10; i++) { %>
+		    <li><%= i %></li>
+		  <% } %>
+		</ul>
+		`;
+		res.innerHTML = template;
+	</script>
+</body>
+</html>

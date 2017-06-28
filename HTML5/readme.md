@@ -444,7 +444,133 @@
 	<input type="submit" value="提交">
 ```
 + placeholder 输入框中的默认信息
-+ required
++ required 在提交之前hi进行验证
+
+
+### 新的语义元素
+> section nav aside footer article
+
+
+### HTML5的web存储
+> web存储，一个比cookie更好的本地存储方式
+
++ 什么是web存储
+	- 本地存储用户的*浏览数据*
+	- 之前本地存储使用的是*cookie*
+	- 区别
+		* web存储相比cookie，更加的快读，
+		* web可以存储大量的数据，而不影响网站的性能
++ localStorge和sessionStorage
+	- localStorage：没有时间限制的数据存储
+	- sessionStorage：针对一个session的数据存储，当用户关闭当前页面的时候，数据就会被删除
++ 如何检查浏览器是否支持web存储
+
+```js
+	if (typeof(Storage) !== 'undefined' ) {
+		console.log('true')
+	} else {
+		console.log('false')
+	}
+```
+
++ localStorage 对象
+> 存储方式 key：value的方式
+
+
+```html
+	<script>
+		if (typeof(Strage) !== 'undefined') {
+			localStorage.sitename = 'test'
+			localStorage.sitename1 = 'test1'
+			localStorage.removeItem('sitename')
+		} else {
+			console.log(‘你的浏览器不支持storage’)
+		}
+	</script>
+```
+
++ 接口API
+> localStorage.setItem 保存数据
+> 
+> localStorage.getItem 获取数据
+> 
+> localStorage.removeItem 移除单条数据
+> 
+> localStorage.clear() 删除所有数据
+> 
+> localStorage.key(index) 得到某个值的索引key
+
++ 案例
+
+```html
+	<div id='result'></div>
+	<input type="button" value="点击" onclick='clickconter()'>
+	<script>
+		function clickconter(){
+			if (typeof(Storage) !== 'undefined'){
+				if(localStorage.clickconter){
+				localStorage.clickconter = Number(localStorage.clickconter)+1;
+				} else {
+					localStorage.clickconter = 1;
+				}
+				document.getElementById('redult').innerHTML = '你点击了' + localStorage.clickconter
+			} else {
+				document.getElementById('redult').innerHTML = '你的浏览器不支持web Storage'
+			}
+		}
+	</script>
+```
+
++ 用web Storage开发一个简单的网站列表程序
+> 功能，输入网站名，根据网站名，查找网址，列出当前已保存的所有网站
+
+```html
+	<div class="table_module">
+		<label for="sitename">网站名key：</label>
+		<input type="text" name="sitename" id="sitename">
+		<br>
+		<label for="siteurl">网址value：</label>
+		<input type="text" name="siteurl" id="siteurl">
+		<br>
+		<input type="button" value="新增记录" onclick='save()'>
+		<hr>
+		<label for="search_site"></label>
+		<input type="text" name="search_site" id="search_site">
+		<input type="button" value="查找网站" onclick='search()'>
+		<p id='result'></p>
+	</div>
+	<div id="list"></div>
+	<script>
+		var list = document.getElementById('list');
+		loadALl();
+		function save(){
+			var sitename = document.getElementById('sitename');
+			var siteurl = document.getElementById('siteurl');
+			localStorage.setItem(sitename.value,siteurl.url);
+			alert('添加成功');
+
+		}
+		function search() {
+			var searchSite = document.getElementById('search_site');
+			var result = document.getElementById('result');
+			result.innerHTML = searchSite.value + '网址：' + localStorage.getItem(searchSite);
+		}
+		function loadAll(){
+			if (localStorage.length > 0) {
+				var result = '<table><tr><td>网站名</td><td>网址</td>';
+				for (var i = 0; i < localStorage.length; i++) {
+					var sitename = localStorage.key(i);
+					var siteurl = localStorage.getItem(sitename);
+					result += '<tr><td>'+sitename+'</td><td>'+siteurl+'</td>'
+				}
+				result += '</table>';
+				list.innerHTML = result;
+			} else {
+				list.innerHTML = '数据为空...'
+			}
+		}
+	</script>
+```
 
 
 
