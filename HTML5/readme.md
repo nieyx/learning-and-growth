@@ -673,6 +673,25 @@
 	</html>
 ```
 
++ 删除数据记录
+```js
+	db.transaction(function(tx){
+		tx.executeSql('DELETE FROM LOGS WHERE id=1');
+		tx.executeSql('DELETE FROM LOGS WHERE id=?', [id]);
+	})
+```
++ 更新记录
+```js
+	db.transaction(function(tx){
+		tx.executeSql('UPDATE LOGS SET LOG=\'w3c\'  WHERE id=2')
+		tx.executeSql('UPDATE LOGS SET LOG=\'w3c\'  WHERE id=?',[id])
+	})
+```
+
+### HTML5应用程序缓存
+> 使用html5，通过创建cache mainfest文件，可以创建web应用的离线版本
+
+
 
 
 
