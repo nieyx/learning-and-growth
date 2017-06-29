@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>db</title>
+	</head>
+	<body>
+		<div id="result"></div>
+		<script>
+			// 创建表
+			var db = openDatabase('mydb','1.0','Test db',2*1024*1024);
+			var msg;
+			// 插入数据
+			db.transaction(function(tx){
+				tx.executeSql('CREATE TABLE IF NOT EXISTS LOGS (id unique, log)');
+				tx.executeSql('INSERT INFO LOGS (id, log) VALUE(1，"菜鸟教程")');
+				tx.executeSql('INSERT INFO LOGS (id, log) VALUE(2，"www.runoob.com")');
+				msg = '<p>数据已创建，并插入了两条数据数据</p>';
+				document.getElementById('result').innerHTML = msg;
+			})
+			// 查询数据
+			db.transaction(function(tx){
+				tx.executeSql('SELECT * FROM LOGS', [], function(tx, results){
+						var len = results.rows.length, i;
+						msg = '<p>查询记录条数：'+len+'</p>';
+						document.getElementById('result').innerHTML += msg;
+
+						for (i = 0; i < len; i++){
+		                  msg = "<p><b>" + results.rows.item(i).log + "</b></p>";
+		                  document.querySelector('#status').innerHTML +=  msg;
+			            }
+				}, null);
+			})
+		</script>
+	</body>
+	</html>

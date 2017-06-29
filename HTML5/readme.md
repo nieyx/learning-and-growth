@@ -572,6 +572,107 @@
 	</script>
 ```
 
+### WEB SQL
++ 核心方法
+	1.openDatabase: 使用现有的数据库或新创建一个数据库创建一个数据库对象
+	2.transaction: 基于一个事物，基于这种情况执行提交或是回滚
+	3.executeSql: 执行实际的SQL查询
+
++ openDatabase
+> 打开一个数据库，如果没有，则会创建一个新的数据库
+```js
+	var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+	// 数据库名称 版本号 描述文本 数据库大小 创建回调
+	// 创建回调，会在创建数据库之后被调用
+```
+
++ 执行查询操作
+> database.transaction
+```js
+	// 创建一个名为LOGS的表
+	var db = openDatabase('mydb','1.2','test DB',2*1024*1024);
+	db.transaction(function(tx){
+		tx.excuteSql('CREATE TABLE IF NOT EXISTS LOGS (id unique, log)');
+	})
+```
++ 插入数据
+> executeSql
+```js
+	var db = openDatabase('mydb','1.2','test DB',2*1024*1024);
+	db.transaction(function(tx){
+		tx.excuteSql('CREATE TABLE IF NOT EXISTS LOGS (id unique, log)');
+		tx.executeSql('INSERT INFO LOGS (id, log) VALUE(1, "菜鸟教程")');
+		tx.executeSql('INSERT INFO LOGS (id, log) VALUE (2, "www.runoob.com")');
+		// 动态的插入数据,e_id/e_log 会映射数组中的参数条目？
+		tx.execute('INSERT INFO LOGS (id, value) VALUE (?,?)',[e_id, e_log])
+	})
+```
+
++ 读取数据
+> 读取数据库中已经存在的数据
+```js
+	var db = openDatabase('mydb','1.2','Test DB', 2*1024*1024);
+
+	db.transaction(function(tx){
+		tx.executeSql('CREATE TABLE IF NOT EXISTS LOGS(id unique, log)');
+		tx.executeSql('INSERT INFO LOGS (id. log) VALUE (1,'this is '1');
+		tx.executeSql('INSERT INFO LOGS (id. log) VALUE (2,'this is '2');
+	})
+
+	db.transaction(function(tx){
+		tx.executeSql('SELECT * FROM LOGS', [], function(tx, results){
+			var len = results.rows.length, i;
+			msg = "<p>查询记录条目："+ len +"</p>";
+			document.querySelector('#status').innerHTML += msg;
+
+			for (i=0;i<len;i++){
+				alert(results.rows.items(i).log)
+			}
+		},null);
+	});
+```
++ 完整案例
+> 创建表并查询数据
+
+```html
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>db</title>
+	</head>
+	<body>
+		<div id="result"></div>
+		<script>
+			// 创建表
+			var db = openDatabase('mydb','1.0','Test db',2*1024*1024);
+			var msg;
+			// 插入数据
+			db.transaction(function(tx){
+				tx.executeSql('CREATE TABLE IF NOT EXISTS LOGS (id unique, log)');
+				tx.executeSql('INSERT INFO LOGS (id, log) VALUE(1，"菜鸟教程")');
+				tx.executeSql('INSERT INFO LOGS (id, log) VALUE(2，"www.runoob.com")');
+				msg = '<p>数据已创建，并插入了两条数据数据</p>';
+				document.getElementById('result').innerHTML = msg;
+			})
+			// 查询数据
+			db.transaction(function(tx){
+				tx.executeSql('SELECT * FROM LOGS', [], function(tx, results){
+						var len = results.rows.length, i;
+						msg = '<p>查询记录条数：'+len+'</p>';
+						document.getElementById('result').innerHTML += msg;
+
+						for (i = 0; i < len; i++){
+		                  msg = "<p><b>" + results.rows.item(i).log + "</b></p>";
+		                  document.querySelector('#status').innerHTML +=  msg;
+			            }
+				}, null);
+			})
+		</script>
+	</body>
+	</html>
+```
+
 
 
 
