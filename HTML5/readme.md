@@ -739,7 +739,98 @@
  	/html/ /offline.html
  ```
 
+ ### web worker
+ + 什么是web worker
+ > web works是运行在后台的js，不会影响页面的性能
+ >
+ > 在html页面中执行脚本时，页面的状态是不可响应的，直到脚本已完成
+ >
+ > web worker是运行在后台的js，独立于其他的脚本，不会影响页面的性能，可以做任何事：点击，选取内容，而此时web worker在后台运行
  
+ + 检测浏览器是否支持web worker
+ ```js
+ 	if (typeof(Worker) !== 'undefined') {
+ 		console.log('true')
+ 	} else {
+ 		console.log('false')
+ 	}
+ ```
+
+ + 创建web worker文件
+ ```js
+ 	// demo_workers.js
+ 	var i=0;
+
+ 	function timeCount(){
+ 		i = i+1;
+ 		postmessage(); // 向html页面回传一段消息
+ 		setTimeout('timeCount()',500);
+ 	}
+ 	timeCount();
+ ```
+
+ + 创建web worker 对象
+ > 已经创建了web worker文件，在html页面要调用它
+ ```js
+ 	if (typeof(w) == 'undefined') {
+ 		w = new Worker('demo_worker.js');
+ 		// 通过onmessage，来监听事件，会的文件中的值
+ 		w.onmessage = function(event){
+ 			document.getELementById('result').innerHTML = event.data;
+ 		}
+ 	}
+ ```
+
+ + 终止 web worker
+ ```js
+ 	w.terminate();
+ ```
+
+ + 完整的web worker代码
+
+ ```html
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>web worker</title>
+	</head>
+	<body>
+	<p>count：<output id="result"></output></p>
+	<input type="button" value="开始" onclick='start()'>
+	<input type="button" value="停止" onclick='stop()'>
+	<script>
+	var w;
+
+	function start(){
+		if (typeof(Worker) !== 'undefined'){
+			if(typeof(w) == 'undefined') {
+				w = new Worker('demo_worker.js')；
+				w.onmessage = function(event){
+					document.getElementById('result').innerHTML = event.data;
+				}
+
+			} else {
+				document.getElementById('result').innerHTML = '抱歉，你的浏览器不支持';
+			}
+		}
+
+	}
+
+	function stop(){
+		w.terminate();
+		w = undefined;
+	}
+	</script>
+	</body>
+	</html>
+ ```
+
+ + web worker 位于文件外部，无法访问以下对象
+ - window对象
+ - document对象
+ - parent对象
+
 
 
 
