@@ -691,6 +691,55 @@
 ### HTML5应用程序缓存
 > 使用html5，通过创建cache mainfest文件，可以创建web应用的离线版本
 
++ 什么是应用程序缓存(application cache)
+> web 应用可以进行缓存，并在没有网络的嘶吼进行访问
+
++ web存储带来的优势
+1. 离线缓存---用户可以在离线时使用
+2. 速度---已缓存资源加载的更快
+3. 减少服务器的负载---浏览器将只从服务器下载*更新过或更改过*的资源
+
++ cache manifest 的基础
+- 在启动应用程序缓存时，在文档标签中包含manifest的属性
+
+```html
+	<!DOCTYPE html>
+	<html lang="en" manifest='demo.appcache'>
+	<head>
+		<meta charset="UTF-8">
+		<title>manifest</title>
+	</head>
+	<body>
+	</body>
+	</html>
+```
+
+- 每个制定了manifest属性的页面，都会被缓存
+- manifest文件的扩展名：.appcache
+
++ manifest文件
+- 文本文件，告知浏览器被缓存的内容(以及不缓存的内容)
+- 文件分为三个部分
+	* cache manifest 在此标题下列出的文件将在首次下载后进行缓存
+	* network 再此标题下列出的文件需要与服务器连接，且不会被缓存
+	* fallbback  在此标题下列出的文件规定当页面无法访问的时的回退页面
+
+ - 完整的manifest文件
+ ```js
+ 	CACHE MANIFEST 
+ 	# 2017-06-29 v1.0.0
+ 	/theme.css
+ 	/logo.gif
+ 	/main.js
+
+ 	NETWORK:
+ 	login.php
+
+ 	FALLBACK:
+ 	/html/ /offline.html
+ ```
+
+ 
 
 
 
