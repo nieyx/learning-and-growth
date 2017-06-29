@@ -834,7 +834,6 @@
 ### websocket
 > websocket API中，浏览器和服务器只需要做一个握手的动作，浏览器于服务器之间就形成了一个快速的通道，二者之间就可以数据相互传送
 
-### window.postMessage
 
 
 
