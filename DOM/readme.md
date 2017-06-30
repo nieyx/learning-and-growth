@@ -38,12 +38,12 @@
 	setImage();
 	// 为每个图片绑定事件
 	for(var j=1,j<=i;j++){
-		imgs[i].onmouseover = function(){
-			(function(i){
+		(function(i){
+				imgs[i].onmouseover = function(){
 				setImage();
-				imgs[j].style.left = imgWidth - translate * (j-1) + 'px';
-			})(i);
-		}
+				imgs[j].style.left = parseInt(imgs[j].style.left) - translate + 'px';
+			}
+		})(i);
 	}
 
 ```
