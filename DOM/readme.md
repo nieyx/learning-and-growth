@@ -149,11 +149,24 @@ function myReady(fn){
 
 ### 如何判断元素的节点类型
 + 四种方法
-- isELement
-- isHTML
-- IsXML
-- contains
+	- isELement
+	- isHTML
+	- IsXML
+	- contains
++ 判断是否是元素节点
 
+```html
+	<div id="test">aaa</div><!-- 这是一个注释节点 -->
+	<script>
+		var isElement = function(el){
+			return !!el && el.nodeType === 1;
+		}
+		var test = document.getElementById('test');
+		console.log(isElement(test))
+		console.log(isElement(test.nextSibling));
+	</script>
+	
+```
 
 
 
