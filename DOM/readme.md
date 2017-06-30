@@ -1,11 +1,16 @@
 ## DOM
 + 什么是DOM
-> document object module
-+ 一个页面，由html css js构成
-+ html 结构
-+ css 样式
-+ js 行为
-+ 通过js来控制页面，浏览器，操作bom，dom
+> document object model
+> 一个页面，由html css js构成
+>
+> html 结构
+>
+> css 样式
+>
+> js 行为
+>
+> 通过js来控制页面，浏览器，操作bom，dom
+>
 
 + 主要内容
 - 滑动门特效
@@ -47,3 +52,25 @@
 	}
 
 ```
+
++ 认识DOM
+- DOM的文档类型
+> html:显示数据
+> 
+> xml:描述数据
+```js
+<?xml version="1.0 encoding='utf-8'?>
+```
+- DOM的节点类型
+> Element(元素节点) Attr(属性节点) Text(文本节点) Comment(注释节点) Document(文档节点) DocumentType(文档类型节点) documentFragment(文档片段节点)
+
+
+
+
+
+
+
+
+
+
+
