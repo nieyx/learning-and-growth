@@ -171,7 +171,7 @@
 + HTML DOM的方法
 - getElementById() 返回id的元素
 - getElementsByTagName() 返回包含标签的节点列表
-- getElementByClassName() 返回指定类名的节点列表
+- getElementByClassName() 返回指定类名的节点列表,ie9以下不支持
 - appendChild() 添加子节点
 - removedChild() 删除子节点
 - replaceChild() 替换子节点
@@ -225,6 +225,101 @@
 	</script>
 ```
 
+### HTMLDOM 修改
++ 修改HTML元素
+	- 改变HTML的内容
+	- 改变css的样式
+	- 改变HTML的属性
+	- 创建新的HTML元素
+	- 删除已有的HTML的元素
+	- 改变事件（处理程序）
++ 创建HTML的内容
+> document.getElementById().innerHTML
+
++ 改变css的样式
+> ocument.getElementById().style.color
+
++ 创建新的HTML的元素
+> 创建元素节点，然后把它追加到已有的元素上
+
+```html
+	<div id="div1">
+		<p id="p1">para1</p>
+		<p id="p2">para2</p>
+	</div>
+	<script>
+		var para = document.createElement('p');
+		var node = document.createTextNode('this is a para');
+		para.appendChild(node);
+		var element = document.getElementById('div1');
+		element.appendChild(para);
+
+	</script>
+```
+
++ 删除元素
+> removeChild(),从父元素删除元素
+
+```html
+	<div id="div1">
+		<p id="p1">para1</p>
+		<p id="p2">para2</p>
+	</div>
+	<script>
+		var element = document.getElementById('div1');
+		var p1 = document.getElementById('p1');
+		element.removeChild(p1);
+	</script>
+```
+
++ HTML DOM 事件
+	- html事件的例子
+	> 当用户点击鼠标时
+	> 
+	> 当页面加载时
+	> 
+	> 当图片加载时
+	> 
+	> 当鼠标拖动到元素上时
+	> 
+	> 当输入字段被改变时
+	> 
+	> 当HTML表单被提交时
+	> 
+	> 当用户触发按键时
+
+- 案例
+
+```html
+	// 简单的点击
+	<h1 onclick='this.innerHTML="123"'>1</h1>
+	<h1 onclick='changetext(this)'>123</h1>
+	<script>
+	function changetext(id){
+		id.innerHTML = '456'
+	}
+	</script>
+	// 使用HTML 
+	<button id='mybtn'>点击</button>
+	<p id="demo"></p>
+	<script>
+		document.getElementById('mybtn').onclick = function(){
+			displayDate();
+		};
+		var displayDate = function(){
+			document.getElementById('demo').innerHTML = Date();
+		}
+	</script>
+	// onchange事件,输入字段的验证
+	<input type="text" id="text" onchange='f1()'>
+	<script>
+		function f1(){
+			var x = document.getElementById('text')
+			x.value = x.value.toUpperCase();
+		}
+	</script>
+
+```
 
 
 
