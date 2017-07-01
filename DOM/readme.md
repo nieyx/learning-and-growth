@@ -3,14 +3,9 @@
 > document object model
 > 一个页面，由html css js构成
 >
-> html 结构
+> html 结构，css 样式，js 行为
 >
-> css 样式
->
-> js 行为
->
-> 通过js来控制页面，浏览器，操作bom，dom
->
+> 通过js来控制页面，浏览器，如何获取，删除，修改，添加hTML元素的标准
 
 + 主要内容
 - 滑动门特效
@@ -22,35 +17,37 @@
 - 元素节点的分类
 
 + 滑动门案例
-```js
-	// 获取容器并获取所有的img标签
-	var box = document.getElementById('container');
-	// 每个间隙的距离
-	var imgs = box.getElementsByTagName('img')
-	// 滑动的距离
-	var translate = 160;
-	// 图片的宽度
-	var imgWidth = imgs[0].offsetWidth();
-	// 盒子的宽度及盒子的位置
-	var boxWidth = imgWidth + translate * (imgs.length-1) + 'px';
 
-	// 每个图片的初始位置
-	function setImage(){
-		for(var i=1, len = imgs.length;i<len;i++){
-			imgs[i].style.left = imgWidth + translate * (i-1) + 'px';
-		}
-	}
-	setImage();
-	// 为每个图片绑定事件
-	for(var j=1,j<=i;j++){
-		(function(i){
-				imgs[i].onmouseover = function(){
-				setImage();
-				imgs[j].style.left = parseInt(imgs[j].style.left) - translate + 'px';
+```html
+	<script>
+		// 获取容器并获取所有的img标签
+		var box = document.getElementById('container');
+		// 每个间隙的距离
+		var imgs = box.getElementsByTagName('img')
+		// 滑动的距离
+		var translate = 160;
+		// 图片的宽度
+		var imgWidth = imgs[0].offsetWidth();
+		// 盒子的宽度及盒子的位置
+		var boxWidth = imgWidth + translate * (imgs.length-1) + 'px';
+
+		// 每个图片的初始位置
+		function setImage(){
+			for(var i=1, len = imgs.length;i<len;i++){
+				imgs[i].style.left = imgWidth + translate * (i-1) + 'px';
 			}
-		})(i);
-	}
-
+		}
+		setImage();
+		// 为每个图片绑定事件
+		for(var j=1,j<=i;j++){
+			(function(i){
+					imgs[i].onmouseover = function(){
+					setImage();
+					imgs[j].style.left = parseInt(imgs[j].style.left) - translate + 'px';
+				}
+			})(i);
+		}
+	</script>
 ```
 
 + 认识DOM
@@ -58,7 +55,7 @@
 > html:显示数据
 > 
 > xml:描述数据
-```js
+```xml
 <?xml version="1.0 encoding='utf-8'?>
 ```
 - DOM的节点类型
@@ -108,8 +105,9 @@
 > 
 > ie不支持，要做兼容，document.documentElement.doScoll('left')来判断dom树是否创建完毕---hack兼容
 
-```js
-function myReady(fn){
+```html
+<script>
+	function myReady(fn){
 	if (document.addEventListener){
 		document.addEventListener('DOMContentLoaded',fn,false);
 	} else {
@@ -145,6 +143,7 @@ function myReady(fn){
 		}
 	}
 }
+</script>
 ```
 
 ### 如何判断元素的节点类型
@@ -168,6 +167,63 @@ function myReady(fn){
 	
 ```
 
+
++ HTML DOM的方法
+- getElementById() 返回id的元素
+- getElementsByTagName() 返回包含标签的节点列表
+- getElementByClassName() 返回指定类名的节点列表
+- appendChild() 添加子节点
+- removedChild() 删除子节点
+- replaceChild() 替换子节点
+- insertChild() 在指定的子节点前插入新的子节点
+- createAttribute() 创建属性节点
+- createElement() 创建元素节点
+- createTextNode() 创建文本节点
+- getAttribute() 返回指定的属性值
+- setAttribute() 修改属性值
+
++ HTML DOM的属性
+> 属性是(HTML元素)节点的值
+
+```html
+	<p id='info'>helloword</p>
+	<script>
+		var info = document.getElementById('info').innerHTML;
+		document.write(info);
+
+	</script>
+```
+
++ nodeName 
+> nodeName 是只读属性，nodeName的属性规定节点的名称
+	- 元素节点 的nodeName 是标签名称
+	- 属性节点 的nodeName 是属性名称
+	- 文本节点 的nodeName 是#text
+	- 文档节点 的nodeName 是#document
+
++ nodeValue
+> 规定节点的值
+	- 元素节点的 nodeValue 是 undefined 或 null
+	- 文本节点的 nodeValue 是 文本本身
+	- 属性节点的 nodeValue 是 属性值
+
++ nodeType属性
+> nodeType属性返回的节点的类型，nodeType是只读的
+	- 元素 1
+	- 属性 2
+	- 文本 3
+	- 注释 8
+	- 文档 9
+
++ 获取文档值
+
+```html
+	<p id='info'>hello world</p>
+	<script>
+	var txt = document.getElementById('info');
+	document.write(txt.firstChild.nodeValue); // hello world
+	</script>
+```
 
 
 
