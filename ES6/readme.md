@@ -548,7 +548,63 @@
 	// set结构 不会添加重复值
 ```
 
+### Promise
+1. promise的含义
+	- *异步编程*的解决方案
+	- promise是一个容器，保存着未来才会结束的事件（一个异步操作)结果，
+	- promise时一个对象，可以提供异步操作的消息
+	- promise提供了*统一的API*，各种异步的操作都可用同样的方法进行处理
 
+2. promise对象的两个特点
+	- 对象的状态不受外界的影响，promise对象的异步操作有三种状态
+	> pending resolved rejected,只有异步操作的结果，可以决定当前是哪一种状态，任何操作都无法改变，promise--承诺
+	- 一旦状态改变，就不会再变，任何时候都可以得到这个结果，
+
+3. promise的缺点
+	+ 无法取消promise，一旦新建，就会立即执行，无法中途取消
+	+ 如果不设置回调函数，promise内部抛出错误，不会反应到外部
+	+ 当出去pending（进行中的状态)，无法得知目前进展到哪一个阶段（刚开始还是即将完成）
+
+4. 基本用法
+> Promise对象是一个构造函数，用来生成promise实例
+
+```html
+<script>
+	var promise = new Promise(function 
+		(resolve, reject) {
+		// some code...
+		if(/*异步操作成功*/){
+			resolve(value);
+		} else {
+			reject(error);
+		}
+	})
+</script>
+```
+
++ promise实例生成之后，可以使用*then*方法指定resolved和reject状态返回回调函数
+
+```html
+	<script>
+		// 使用方法
+		promise.then(function(value){
+			// success
+		},function(error){
+			// error
+		})
+		// promise对象的简单例子
+		function timeout(ms){
+			return new Promise((resolve,reject) => {
+				setTimeout(resolve, ms,'done');
+			});
+		}
+
+		timeout(100).then((value) => {
+			console.log(value)
+		})
+
+	</script>
+```
 
 
 
