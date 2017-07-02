@@ -1,6 +1,7 @@
 ## webpack入门与实战
 
 ### 安装
+
 ```js
 	// 1.创建并进入文件夹
 	mkdir webpack-demo && cd webpack-demo
@@ -12,6 +13,7 @@
 
 ### 文件编译
 > 创建一个js文件，并进行编译
+
 	```js
 		// hello.js
 		function hello(str){
