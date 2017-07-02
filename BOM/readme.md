@@ -46,8 +46,62 @@ document.body.clientwidth
 
 + window Location 
 > 在使用时，可以不加window前缀
+- location.hostname 返回web主机的域名
+- location.pathname 返回当前页面的路径和文件名
+- location.port 返回web的主机端口
+- location.protocal 返回web协议，http/https
+- location.href 当前页面的url
+- window.location.assign() 加载新文档
+> window.location.assign('www.w3school.com')
 
+### window.history
+> 包含浏览器的历史
++ window.history
+	- history.back() 浏览器的后退按钮，加载history列表表中的前一个url
+	- history.forward() 浏览器的向前按钮，加载history列表表中的后一个url
 
+### window.navagator
+> 访问者浏览器的信息，不应该被应用于检测浏览器的版本
+
+### js弹窗
++ alert()
++ confirm()
+
+```html
+	<script>
+		function myFunction(){
+			var x;
+			var r = confirm('按下按钮'); // 确认弹窗上提示信息
+			if (r == true){
+				x='true';
+			} else {
+				x='false'
+			}
+			document.getELementById().innerHTML = x;
+		}
+	</script>
+```
++ prompt()
+
+```html
+	<script>
+		function myFunction(){
+			var x ;
+			var y = prompt('请输入',‘123’);
+			if(y!=null && y!=''){
+				x='hello' + y;
+				document.getELementById().innerHTML = x;
+			}
+
+		}
+	</script>
+```
+
+### js的计时事件
++ setInterval/clearInterval
+> setInterval(function(){},1000)
++ setTimeout/clearTimeout
+> setTimeout(function(){},1000)
 
 
 
