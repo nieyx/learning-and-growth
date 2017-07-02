@@ -103,7 +103,43 @@ document.body.clientwidth
 + setTimeout/clearTimeout
 > setTimeout(function(){},1000)
 
+### js Cookie
+> cookie 存储web页面的用户信息
 
++ 什么是Cookie
+> 存在于电脑上的文本文件
+>
+> 当web服务器向浏览器发送web页面时，在连接关闭后，服务端不会记录用户的信息
+>
+> 当浏览器从服务器上请求web时，属于该页面的cookie会被添加到请求中，服务器通过这种方式来回去用和的信息
+
+
++ 使用js来创建cookie
+> document.cookie 来创建，读取及删除cookie
+
+```js
+	// 创建cookie
+	document.cookie = "username=John";
+```
+
++ 使用js来读取cookie
+> var x = document.cookie;
+
++ 使用js来修改cookie
+> 重新给cookie赋值，旧的值将被覆盖
++ 使用js来删除cookie
+```js
+	document.cookie="username=John Smith; expires=Thu, 18 Dec 2013 12:00:00 GMT; path=/"
+```
+> 设置expires的过期时间
+```js
+	// expires的过期时间，删除时不必指定cookie的值
+	document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 GMT"
+```
++ cookie字符串
+> 使用名值对
++ js cookie的实例
+> 设置cookie值的函数，获取cookie值的函数，检测cookie值的函数
 
 
 
