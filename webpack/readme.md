@@ -26,6 +26,7 @@
 >> 首先在相关的文件夹下，安装css-loader和style-loader
 >> css-loader 来负责转换css文件，style-loader负责将css文件显示在页面上
 
+
 	```js
 		require('!style-loader!css-loader'./css.css);
 
@@ -40,6 +41,7 @@
 
 ### 项目中webpack的使用 
 + 创建目录，并初始化
+
 	```js
 		mkdir webpack-demo && cd webpack-demo
 		mkdir src
@@ -55,6 +57,7 @@
 	>>> style
 
 + 配置输入输出文件路径
+
 	```js
 		// webpack.config.js
 		module.exports = {
@@ -65,7 +68,9 @@
 			}
 		}
 	```
+	
 + 运行命令行
+
 	```js
 		// 直接运行webpack
 		webpack
@@ -78,6 +83,7 @@
 
 ### 通过npm的方式调用
 > 在package.json中设置script下的参数，来实现运行的目的
+
 ```js
 	// 在script中添加如下的webpack的代码，
 	"scripts": {
@@ -93,6 +99,7 @@
 + 文档链接地址[http://webpack.github.io/docs/configuration.html#entry]
 + entry
 	- 三种输入方式
+	
 		```js
 			entry:'./script/js', // 方式1
 			entry: ['./script/js/main.js','./script/js/a.js'] //方式2
@@ -105,6 +112,7 @@
 + output
 	- 文档链接地址[http://webpack.github.io/docs/configuration.html#output-filename]文档链接地址
 	- 输出方式
+	
 		```js
 			output:{
 				path: __dirname + '/script/',
@@ -118,6 +126,7 @@
 
 
 ### html-webpack-plugin插件的使用
+
 ```js
 	// 在index.html中引用的文件名是固定情况时
 	<script src='dist/js/bundle.js'></script>
@@ -130,6 +139,7 @@
 		> npm install html-webpack-plugin --save-dev
 	- 安装后在webpack.config.js 文件中，引用这个插件
 		> var htmlWebpackPlugin = require('html-webpack-plugin')
+		
 		```js
 			// 在文件中，初始化插件
 			plugins: [
@@ -140,6 +150,7 @@
 + 引出新的问题
 	- 在项目根目录下的index.html与在dist文件下生成的index.html没有任何的关系
 	- plugins有个参数，可以解决关联的问题
+	
 	```js
 		new htmlWebpackPlugin({
 			template:'index.html', // 根目录下的模板文件
@@ -149,6 +160,7 @@
 		})
 	```
 	- 在webpack.config.js中设置了模板变量后，在index.html的文件中，进行模板变量的引用
+	
 	```js
 		<%= htmlWebpackPlugin.options.title%> // title是模板变量值
 	```
@@ -160,12 +172,14 @@
 		> plugin的配置文件，所有插件的参数
 
 	- 让有的js文件在head中，有的在body中
+	
 	```js
 		// 在index.html文件中，直接引入chunks中main／a的entery路径
 		<%= htmlWebpackPlugin.files.chunks.main.entry%>
 	```
 
 	- 文件压缩
+	
 	```js
 		// 压缩过程中，删除注释，删除空格
 		new htmlWebpackPlugin({ // 进行初始化
@@ -182,6 +196,7 @@
 	```
 
 + 处理**多页面**应用
+
 ```js
 	plugins: [
 		new htmlWebpackPlugin({ // 进行初始化
@@ -211,6 +226,7 @@
 		}), 
 	]
 ```
+
 + 处理文件中的资源文件
 - loader[webpack.github.com/docs/ysing-loaders.html]
 
@@ -250,6 +266,7 @@
 		```
 	+ loader的使用
 		- 文档地址[]
+		
 		```js
 			var path = require('path');
 			loaders: {
@@ -272,6 +289,7 @@
 	- 包的使用文档[https://www.npmjs.com/package/postcss-loader]
 	- github 案例地址[https://github.com/postcss/postcss]
 	- 使用
+	
 	```js
 		// 对于添加浏览器前缀，还要在安装autoprefixer,precss
 		npm install autoprefixer --save-dev	
@@ -311,6 +329,7 @@
 	```
 
 	- 处理css文件中的@import的文件
+	
 		```css
 			module: {
 			rules:[
