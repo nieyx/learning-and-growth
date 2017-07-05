@@ -21,7 +21,6 @@
 19. 遇到疑难问题时，你通常是如何解决的？最好举例说明
 20. inline、inline-block-block的区别是?
 
-
 2017年5月20日用友面试题 
 1. 请写出以下代码运行结果
 var fullName = 'langulage';var obj = {  fullName:'javascript',  props:{    getFullName:function(){      return this.fullName;
@@ -265,6 +264,7 @@ fn(4,2,6)输出[2,4,6]
 14.正则表达式
 15.viewport
 16.数组的基本操作方法
+17.css的3d变换的使用
 
 
 

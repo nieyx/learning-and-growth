@@ -1078,45 +1078,47 @@ var str = &lsquo;hello<img src="haha.png" alt="哈哈" />world&rsquo;;<br 
 2017年5月16日蚂蚁金服北京面试题<br />
 1.  面向对象<br />
 2.  闭包<br />
-3.  :display:inline-block有间隙如何处理？<br />
-4.  node.js<br />
-5.  expres.js <br />
-6.  apply和call的区别<br />
-7.  css有哪几种选择器<br />
-8.  react原理<br />
-9.  说一下mvc框架<br />
-10. http/https的区别<br />
-11. 原生ajax实现的步骤<br />
-12. requirejs原理<br />
-13. ajax/jsonp区别?jsonp原理<br />
-14. 为什么大部分网站css/js/img分不同域名引入<br />
-15. 页面重构分三个步骤，说说看？<br />
-16. 优化页面性能有哪几种方式？<br />
-17. 事件监听<br />
-18. js上拉加载和下拉刷新的实现方法？<br />
-19. es6语法新特性<br />
-2017并行科技前端面试题<br />
-1. css<br />
+3.  :display:inline-block有间隙如何处理？</p>
+<ol>
+<li>node.js</li>
+<li>expres.js </li>
+<li>apply和call的区别</li>
+<li>css有哪几种选择器</li>
+<li>react原理</li>
+<li>说一下mvc框架</li>
+<li>http/https的区别</li>
+<li>原生ajax实现的步骤</li>
+<li>requirejs原理</li>
+<li>ajax/jsonp区别?jsonp原理</li>
+<li>为什么大部分网站css/js/img分不同域名引入</li>
+<li>页面重构分三个步骤，说说看？</li>
+<li>优化页面性能有哪几种方式？</li>
+<li>事件监听</li>
+<li>js上拉加载和下拉刷新的实现方法？</li>
+<li>es6语法新特性<br />
+2017并行科技前端面试题</li>
+<li>css<br />
 1.1 简要手绘盒子模型，并对边框和边距进行标注?<br />
-1.2 界面div三平分除了flex布局外，简写其它两种布局代码?<br />
-2. javascrpt<br />
+1.2 界面div三平分除了flex布局外，简写其它两种布局代码?</li>
+<li>javascrpt<br />
 2.1 es6中let const var的区别是什么?<br />
 2.2 对数组[5,6,6,7,8,8]进行去重，es5或者es6方法<br />
 2.3 谈谈对es6中=&gt;的理解<br />
 2.4 点击一个按钮，发出ajax请求，如何防止 用户在此请求方式返回之前再次点击?<br />
 2.5 封闭一个深度克隆方法es5或es6?<br />
-2.6 请用正则校验身份号码，要求符合15位或18位，末尾可能是X<br />
-3. html5&amp;css3<br />
+2.6 请用正则校验身份号码，要求符合15位或18位，末尾可能是X</li>
+<li>html5&amp;css3<br />
 3.1 html5和css3新增了哪些标签和属性?<br />
-3.2 用css3写一个开关按钮，按下时置灰变色，并改变按钮文字(如按下之前是on,按下之后是off)<br />
-4. http<br />
-4.1 http和https请求的区别是什么？post请求和get请求的区别是什么?<br />
-5. 前端框架和模板<br />
+3.2 用css3写一个开关按钮，按下时置灰变色，并改变按钮文字(如按下之前是on,按下之后是off)</li>
+<li>http<br />
+4.1 http和https请求的区别是什么？post请求和get请求的区别是什么?</li>
+<li>前端框架和模板<br />
 5.1 使用过的前端框架有哪些?<br />
 5.2 使用过的模板引擎有哪些?<br />
 5.3 使用过的模块加载器有哪些?<br />
 5.4 简写ReactNative中使用es5和es6如何绑定的this？<br />
-5.5 如何理解 前端MVC架构，简要画出流程图</p>
+5.5 如何理解 前端MVC架构，简要画出流程图</li>
+</ol>
 <p>58赶集<br />
 三面<br />
 1. var url = <a href="http://www.58.com?a=1&amp;b=2$c">http://www.58.com?a=1&amp;b=2$c</a><br />
@@ -1218,18 +1220,47 @@ fn(4,2,6)输出[2,4,6]<br />
     Man.protoType = new People();
 &lt;/script&gt;
 </code></pre></p>
-<p>9.给一个数组重新排序<br />
-<pre><code class="html">    var arr = [12,1,2,3,23,45,7,8,0];
+<p>9.给一个数组重新排序</p>
+<p><pre><code class="html">    &lt;script&gt;
+        var arr = [12,1,2,3,23,45,7,8,0];
 
-    // 实现方式
-    var arrSort = [12,1,2,3,23,45,7,8,0];
+        // 实现方式1，用es6的方法
+        var arrSort = [12,1,2,3,23,45,7,8,0,1,2,1,2,4,5,6,1];
+        var s = arrSort.filter(function(ele, index, arr){
+            return arr.indexOf(ele) === index
+        })
+        console.log(s)
+        s.sort(function(x,y){
+            if(x&gt;y){
+                return 1;
+            }
+            if (x&lt;y) {
+                return -1;
+            }
+            return 0
+        })
+        console.log(s)
+        // 实现方法2
+        var arrSort1 = [12,1,2,3,23,45,7,8,0,1,2,1,2,4,5,6,1];
+        function arrSort(arr){
+            var arr1 = [];
+            for(var i=0;i&lt;arr.length;i++){
+                if(arr1.indexOf(arr[i]) === -1){
+                    arr1.push(arr[i])
+                }
+            }
+            console.log(arr1)
+        }
+        arrSort(arrSort1);
+    &lt;/script&gt;
 
 </code></pre><br />
 10.写出一个函数的序列化url<br />
 <pre><code class="html">    var url = 'http://3g.baidu.com?username=zhangsan&amp;age=18&amp;address=qweqwe'; // 转换成{'username':'zhangsan','age':'18','address':'qweqwe'}
 </code></pre></p>
-<p>11.html5 的websocket<br />
+<p>11.html5的websocket<br />
 12.跨域<br />
 13.移动设备的兼容处理，浏览器兼容的处理<br />
 14.正则表达式<br />
-15.viewport</p></article></body></html>
+15.viewport<br />
+16.数组的基本操作方法</p></article></body></html>
