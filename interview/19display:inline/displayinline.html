@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>display:inline</title>
+	<style>
+		.alist a{
+			display: inline-block;
+			background: #f0f;
+			padding: .5em 1em;
+		}
+		.fs {
+			font-size:0;
+		}
+		.ws {
+			word-spacing: -6px;
+		}
+		.ws span,.ws a{
+			background: #f0f;
+			padding: .5em 1em;
+		}
+		.ws a {
+			display: inline-block;
+			word-spacing: 0;
+		}
+	</style>
+</head>
+<body>
+	<p>现象展示</p>
+	<div class="form">
+		<input type="text" name="" id="">
+		<input type="submit" value="提交按钮">
+	</div>
+	<div class="alist">
+		<a href="#">这是1</a>
+		<a href="#">这是2</a>
+		<a href="#">这是3</a>
+	</div>
+	<p>去除空格</p>
+	<div class="form">
+		<input type="text" name="" id=""><input type="submit" value="提交按钮">
+	</div>
+	<div class="alist">
+		<a href="#">这是1</a><a href="#">这是2</a><a href="#">这是3</a>
+	</div>
+	<p>添加注释</p>
+	<div class="form">
+		<input type="text" name="" id=""><!-- 
+		 --><input type="button" value="按钮">
+	</div>
+	<div class="alist">
+		<a href="#">这是一个按钮1</a><!-- 
+		 --><a href="#">这是一个按钮2</a><!-- 
+		 --><a href="#">这是一个按钮3</a>
+	</div>
+	<p>给标签吃胶囊</p>
+	<div class="alist">
+		<a href="#">这是1
+		<a href="#">这是2
+		<a href="#">这是3
+	</div>
+	<hr>
+	<div class="alist">
+		<a href="#">这是1
+		<a href="#">这是2
+		<a href="#">这是3</a>
+	</div>
+
+	<p>设置font-size</p>
+	<div class="fs">
+		<input type="text" name="" id="">
+		<input type="submit" value="提交按钮">
+	    <img src="http://image.zhangxinxu.com/image/study/s/s128/mm1.jpg" />
+	    <img src="http://image.zhangxinxu.com/image/study/s/s128/mm2.jpg" />
+	</div>
+
+	<p>设置word-spacing</p>
+	<div class="ws">
+		<input type="text" name="" id="">
+		<input type="submit" value="提交按钮">
+		<span>1</span>
+		<span>2</span>
+		<span>3</span>
+		<br>
+		<a href="#">123</a>
+		<a href="#">123</a>
+		<a href="#">123</a>
+	</div>
+</body>
+</html>

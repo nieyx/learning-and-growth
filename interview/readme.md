@@ -67,6 +67,7 @@ var str = 'hello<img src="haha.png" alt="哈哈" />world';
 1.	面向对象
 2.	闭包
 3.	:display:inline-block有间隙如何处理？
+
 4.	node.js
 5.	expres.js 
 6.	apply和call的区别
@@ -217,11 +218,40 @@ fn(4,2,6)输出[2,4,6]
 ```
 
 9.给一个数组重新排序
-```html
-	var arr = [12,1,2,3,23,45,7,8,0];
 
-	// 实现方式
-	var arrSort = [12,1,2,3,23,45,7,8,0];
+```html
+	<script>
+		var arr = [12,1,2,3,23,45,7,8,0];
+
+		// 实现方式1，用es6的方法
+		var arrSort = [12,1,2,3,23,45,7,8,0,1,2,1,2,4,5,6,1];
+		var s = arrSort.filter(function(ele, index, arr){
+			return arr.indexOf(ele) === index
+		})
+		console.log(s)
+		s.sort(function(x,y){
+			if(x>y){
+				return 1;
+			}
+			if (x<y) {
+				return -1;
+			}
+			return 0
+		})
+		console.log(s)
+		// 实现方法2
+		var arrSort1 = [12,1,2,3,23,45,7,8,0,1,2,1,2,4,5,6,1];
+		function arrSort(arr){
+			var arr1 = [];
+			for(var i=0;i<arr.length;i++){
+				if(arr1.indexOf(arr[i]) === -1){
+					arr1.push(arr[i])
+				}
+			}
+			console.log(arr1)
+		}
+		arrSort(arrSort1);
+	</script>
 
 ```
 10.写出一个函数的序列化url
@@ -229,11 +259,12 @@ fn(4,2,6)输出[2,4,6]
 	var url = 'http://3g.baidu.com?username=zhangsan&age=18&address=qweqwe'; // 转换成{'username':'zhangsan','age':'18','address':'qweqwe'}
 ```
 
-11.html5 的websocket
+11.html5的websocket
 12.跨域
 13.移动设备的兼容处理，浏览器兼容的处理
 14.正则表达式
 15.viewport
+16.数组的基本操作方法
 
 
 
