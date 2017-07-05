@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>pseudo-class</title>
+	<style>
+		.list2 li:first-child {
+			color:#f0f;
+		}
+		.p1 > span {
+			font-size:5em;
+		}
+		p.p2:first-letter {
+			font-size:5em;
+		}
+	</style>
+</head>
+<body>
+	<p>伪类的使用</p>
+	<ul class="list1">
+		<li style="color:#f0f">list1</li>
+		<li>list2</li>
+	</ul>
+	<ul class="list2">
+		<li>list1</li>
+		<li>list2</li>
+	</ul>
+	<hr>
+	<p>伪元素的使用</p>
+	<p class="p1"><span>H</span>ello World, and wish you have a good day!</p>
+	<p class="p2">Hello World, and wish you have a good day!</p>
+</body>
+</html>

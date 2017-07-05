@@ -1,9 +1,9 @@
-## css伪类和伪元素
+## css伪类和伪元素[http://www.alloyteam.com/2016/05/summary-of-pseudo-classes-and-pseudo-elements/]
 > 出现的目的是为了格式化文档以外的东西
 
 ### 什么是伪类和伪元素
 1. **伪类**
-	+ 为已有的元素处于**某个状态**时，为其添加对应的**样式**
+	+ 为已有的元素处于**某个状态**时，为其添
 	+ 这种状态根据用户的**行为**而**动态的变化**
 	+ 例子
 		- 当用户悬停在指定元素上时，可用通过：hover来描述这个状态
@@ -15,3 +15,28 @@
 		- 可以通过before在一个元素前增加一些文本，并为文本添加样式
 		- 用户可以看到这些文本，但是在文档树中却没有
 
+### 伪类和伪元素的区别
+> 有没有创建文档树以外的元素+ 伪类：是为已有的元素添加样式
++ 伪元素：是创建了一个文档树以外的元素
+
+```html
+	// 案例,为ul的第一个子元素添加颜色
+	<style>
+		.list1 li:first-child {
+			color:red		}
+	</style>
+	// 直接操作元素的标签，传统的方法
+	<ul class="list">
+		<li style="color:red">list1</li>
+		<li>list2</li>
+	</ul>
+	// 操作伪类
+	<ul class="list1">
+		<li>list1</li>
+		<li>list2</li>
+	</ul>
+```
+
+### 伪类和伪元素的应用
+![](../../image/pseduo-class/pseduo.png)
+![](../../image/pseduo-class/pseduo-class.png)
