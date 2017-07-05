@@ -201,6 +201,37 @@
 				scope = 'local';
 				console.log(scope); // local
 			}
+
+			var x = 1,y=z=0;
+			function add(n) {
+				return n = n +1;
+			}
+			y = add(x);
+			function add(n) {
+				return n = n +3;
+			}
+			z = add(x);
+
+			var myObj = {
+				num:2,
+				add: function(){
+					this.num = 3;
+					(function(){
+						console.log(this.num);
+						this.num = 4;
+						console.log(this.num);
+					})();
+					console.log(this.num);
+				}
+			}
+			myObj.add()
+
+			var i = 0;
+			for (i=0;i++<3;){
+				setTimeout(function(){
+					return function(){console.log(i)}
+				}(),0)
+			}
 		```
 
 	- 解决函数声明提升的方法
