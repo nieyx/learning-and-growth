@@ -136,6 +136,93 @@
 	</div>
 ```
 
+### 伪元素
++ :before
+> 在被选元素之前插入内容，要用content属性来插入内容，被插入的内容不存在与dom树中
+
+```html
+	<style>
+		h1:before {
+			content: 'hello';
+		};
+	</style>
+	<h1>world!</h1>
+
+```
+
++ :after
+> 在被选元素之前插后内容，要用content属性来插入内容，被插入的内容不存在与dom树中
+
+```html
+	<style>
+		h1:before {
+			content: 'hello';
+		};
+	</style>
+	<h1>world!</h1>
+
+```
++ :first-letter
+> 匹配文档的首字母
+
+```html
+	<style>
+		h2:first-letter {
+			color:#f00;
+		}
+	</style>
+	<h2>hello world !!!</h2>
+
+```
++ :first-line
+>匹配元素的第一行
+
+```html
+	<style>
+		p:first-line {
+			color:#f0f;
+		}
+	</style>
+	<p class="line1">
+		Hello World, and wish you have a good day!
+		<br>
+		Hello World, and wish you have a good day!
+		<br>
+		Hello World, and wish you have a good day!
+		<br>
+	</p>
+```
++ ::selection
+> 被用户选中的部分，只支持双引号
+
+```html
+	<style>
+		::selection {
+			background-color: #aeaeae;
+		};
+	</style>
+	<p>Hello World, and wish you have a good day!</p>
+
+```
++ ::placeholder
+>
+
+```html
+	<style>
+		
+	</style>
+
+```
++ ::backdrop
+>
+
+```html
+	<style>
+		
+	</style>
+
+```
+
 
 
 

@@ -46,6 +46,21 @@
 		.dis :disabled {
 			opacity: .5;
 		}
+		h1:before {
+			content:'hello ';
+		}
+		h1:after {
+			content:' !!!!';
+		}
+		h2:first-letter {
+			color:#f00;
+		}
+		p.line1:first-line {
+			color:#f0f;
+		}
+		p.selection::selection {
+			background-color: #aeaeae;
+		}
 	</style>
 </head>
 <body>
@@ -112,5 +127,20 @@
 		<input type="button" value="button" disabled>
 		<input type="submit" value="submit" disabled>
 	</div>
+	<p>:before:after</p>
+	<h1>world</h1>
+	<p>first-letter</p>
+	<h2>hellow world!!</h2>
+	<p>first-line</p>
+	<p class="line1">
+		Hello World, and wish you have a good day!
+		<br>
+		Hello World, and wish you have a good day!
+		<br>
+		Hello World, and wish you have a good day!
+		<br>
+	</p>
+	<p>：：selection</p>
+	<p class="selection">Hello World, and wish you have a good day!</p>
 </body>
 </html>
