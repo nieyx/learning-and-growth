@@ -204,24 +204,6 @@
 	<p>Hello World, and wish you have a good day!</p>
 
 ```
-+ ::placeholder
->
-
-```html
-	<style>
-		
-	</style>
-
-```
-+ ::backdrop
->
-
-```html
-	<style>
-		
-	</style>
-
-```
 
 
 
