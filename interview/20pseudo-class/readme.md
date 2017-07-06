@@ -3,7 +3,7 @@
 
 ### 什么是伪类和伪元素
 1. **伪类**
-	+ 为已有的元素处于**某个状态**时，为其添
+	+ 为已有的元素处于**某个状态**时，为其添加css样式
 	+ 这种状态根据用户的**行为**而**动态的变化**
 	+ 例子
 		- 当用户悬停在指定元素上时，可用通过：hover来描述这个状态
@@ -38,5 +38,128 @@
 ```
 
 ### 伪类和伪元素的应用
+> 为了验证兼容行，可以先在网站验证其兼容性	[http://caniuse.com/#home]
 ![](../../image/pseduo-class/pseduo.png)
 ![](../../image/pseduo-class/pseduo-class.png)
+
+### 伪类根据状态分类：LVHA
++ link：a标签默认的状态
++ visited： a标签被访问过之后的状态
++ hover： a标签悬浮上去的状态
++ active： a变迁标签被点击时的状态
++ focus： 选择获取焦点的输入字段
+
+
+### 伪类的解构化
++ not 否定类，除了某一项外，其他的都添加样式
+
+```html
+	<style>
+		.first-item {
+			color:#00f;
+		}
+	</style>
+	<ul class="lilist">
+		<li>123</li>
+		<li>123</li>
+		<li>123</li>
+		<li>123</li>
+	</ul>
+```
+
++ first-child 匹配元素的第一个子元素
++ last-child 匹配元素的最后一个子元素
+
+```html
+	<style>
+		li:first-child {
+			color: #f00;
+		}
+		li:last-child {
+			color:#f00;
+		}
+	</style>
+	<ul class="ullist">
+		<li>123</li>
+		<li>123</li>
+		<li>123</li>
+	</ul>
+```
+
++ nth-child 匹配特定数字的子元素
+
+```html
+	<style>
+		li:nth-child(2n+1) {
+			color:#f0f;
+		}
+	</style>
+	<ul class="ul1">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+		<li>9</li>
+		<li>0</li>
+	</ul>
+```
+
+### 与表单相关的伪类
++ :checked
+
+```html
+	<style>
+		input:checked + label {
+			color:#f0f;
+		}
+	</style>
+	<div class="input">
+		<input type="text" name="" id="input">
+		<label for="input"></label>
+	</div>
+```
+
++ disale 匹配禁用的表单元素
+
+```html
+	<style>
+		:disable {
+			opacity: .5;
+		}
+	</style>
+	<div class="disable">
+		<input type="text" disabled>
+	</div>
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

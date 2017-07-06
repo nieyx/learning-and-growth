@@ -13,6 +13,39 @@
 		p.p2:first-letter {
 			font-size:5em;
 		}
+		.alist a {
+			text-decoration: none;
+		}
+		.alist a:link {
+			color: #f00;
+		}
+		.alist a:visited {
+			color: #f0f;
+		}
+		.alist a:hover {
+			color: #00f;
+		}
+		.alist a:active {
+			color: #0f0;
+		}
+		.lilist li:not(.lilist1) {
+			color:#00f;
+		}
+		.ullist li:first-child {
+			color: #f00;
+		}
+		.ullist li:last-child {
+			color: #f00;
+		}
+		.ul1 li:nth-child(2n+1) {
+			color:#f0f;
+		}
+		.input input:checked + label {
+			color:#00f;
+		}
+		.dis :disabled {
+			opacity: .5;
+		}
 	</style>
 </head>
 <body>
@@ -29,5 +62,55 @@
 	<p>伪元素的使用</p>
 	<p class="p1"><span>H</span>ello World, and wish you have a good day!</p>
 	<p class="p2">Hello World, and wish you have a good day!</p>
+
+	<hr>
+	<p>a</p>
+	<div class="alist">
+		<a href="#">这是一个链接</a>
+	</div>
+	<hr>
+	<p>not</p>
+	<ul class="lilist">
+		<li class="lilist1">123</li>
+		<li>123</li>
+		<li>123</li>
+		<li>123</li>
+	</ul>
+	<hr>
+	<p>first-child/last-child</p>
+	<ul class="ullist">
+		<li>123</li>
+		<li>123</li>
+		<li>123</li>
+	</ul>
+	<hr> 
+	<p>nth-child</p>
+	<ul class="ul1">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+		<li>9</li>
+		<li>0</li>
+	</ul>
+	<p>:checked</p>
+	<div class="input">
+		<input type="checkbox" name="" id="i1"><label for="i1">我同意</label>
+		<br>	
+		<input type="checkbox" name="" id="i2"><label for="i2">我同意</label>
+		<br>	
+		<input type="checkbox" name="" id="i3"><label for="i3">我同意</label>
+	</div>
+	<p>disabled</p>
+	<div class="dis">
+		输入框： <input type="text" disabled />
+		<br>
+		<input type="button" value="button" disabled>
+		<input type="submit" value="submit" disabled>
+	</div>
 </body>
 </html>
