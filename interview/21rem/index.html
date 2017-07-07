@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<title>rem</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.con {
+			width: 10rem;
+			height:10rem;
+			background:#f0f;
+			border: 1px solid #000;
+			box-sizing: border-box;
+		}
+		.text {
+			width: 5rem;
+			height: 5rem;
+			margin: 2.5rem;
+			background: #00f;
+			text-align: center;
+			line-height:5rem;
+		}
+	</style>
+</head>
+<body>
+	<div class="con">
+		<div class="text">
+			这是内容
+		</div>
+	</div>	
+	<script>
+		// 动态的设置根元素fint-size的大小
+		document.addEventListener('DOMContentLoaded',function(e){
+			document.getElementsByTagName('html')[0].style.fontSize = window.innerWidth / 10 + 'px';
+			console.log(window.innerWidth,'width')
+			console.log(window.innerHeight,'height')
+			console.log(document.getElementsByTagName('html')[0].style.fontSize,'fontSize')
+			console.log(window.devicePixelRatio)
+		})
+	</script>
+</body>
+
+</html>

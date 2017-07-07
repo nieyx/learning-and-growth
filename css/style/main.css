@@ -1,0 +1,81 @@
+.nav {
+  width: 960px;
+  height: 36px;
+  background: #F5F5F5;
+  font: 12px/36px arial, sans-serif;
+  color: #6E6E6E;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+.nav_left {
+  height: 36px;
+  float: left;
+}
+.nav_left span {
+  margin-right: 10px;
+}
+.nav_right {
+  height: 36px;
+  float: right;
+}
+.nav_right ul {
+  margin: 0;
+  list-style: none;
+}
+.nav_right ul li {
+  float: left;
+  padding-left: 15px;
+}
+.nav_bar {
+  width: 960px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+.nav_bar .img {
+  width: 200px;
+  height: 85px;
+  float: left;
+}
+.nav_bar .img img {
+  width: 100%;
+  height: 100%;
+}
+.nav_bar .nav_input {
+  float: left;
+  width: 760px;
+  height: 85px;
+}
+.nav_bar .nav_input .nav_title {
+  height: 35px;
+  line-height: 35px;
+}
+.nav_bar .nav_input .nav_title span {
+  text-align: center;
+  display: inline-block;
+  width: 70px;
+}
+.nav_bar .nav_input .nav_title .active {
+  color: #fff;
+  background: #ED612B;
+}
+.nav_bar .nav_input .nav_title_input {
+  margin-top: -1px;
+  height: 36px;
+}
+.nav_bar .nav_input .nav_title_input .input {
+  float: left;
+  width: 400px;
+  height: 36px;
+  border: solid #ed612b 3px;
+  padding: 0;
+}
+.nav_bar .nav_input .nav_title_input .button {
+  float: left;
+  display: inline-block;
+  width: 70px;
+  height: 42px;
+  line-height: 42px;
+  background: #ED612B;
+  color: #fff;
+  text-align: center;
+}
