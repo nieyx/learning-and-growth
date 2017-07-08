@@ -1,5 +1,21 @@
 ## Array 的方法
-
+> 1.slice
+>
+> 2.push/pop
+>
+> 3.unshift/shift
+>
+> 4.splice
+>
+> 5.join
+>
+> 6.concat
+>
+> 7.sort
+>
+> 8.reverse
+>
+> 9.indexOf
 ### slice
 
 ```js
@@ -55,6 +71,8 @@
 	console.log(toString.call(arr)) // [object, array]
 	console.log(arr.join('-')); // "1-5-2-4-3"
 	console.log(typeof arr.join(',')) // string
+	var string = arr.join('-');
+	console.log(string.split('-')) // [1,5,2,4,3]
 ```
 
 ### concat
