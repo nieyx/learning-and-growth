@@ -1,0 +1,40 @@
+## 各种排序
+
+### 冒泡排序
+> 每次循环之后，将最大的元素，冒泡到最后一位
++ 工作原理
+	- 如数组 arr = [1,5,2,4,3];
+	- 循环数组，第一次循环，1和5比较，1<5,顺序不变，[1,5,2,4,3];
+	- 然后5>2，交换位置，数组变成 [1,2,5,4,3];
+	- 然后 5>4,交换位置，数组变成 [1,2,4,5,3];
+	- 然后 5>3,交换位置，数组变成 [1,2,4,3,5];
+	- 然后在进行[1,2,4,3]的排序，原理如上
+
+
+```js
+	// 交换数组中的位置
+	function sort(arr,a,b){
+		var tmp = arr[a];
+		arr[a] = arr[b];
+		arr[b] = tmp;
+	}
+
+	// 开始循环数组
+	function bubbleSort(arr){
+		var _array = arr.concat();
+		// 循环数组中的第一项和其他项比较，开始冒泡
+		for (var i=0,len=_array.length;i<len;i++){
+			for(var j=0; j < len - i - 1;j++) {
+				if (_array[j] >= _array[j+1]){
+					sort(_array,j,j+1);
+				}
+			}
+		}
+		return _array
+	}
+
+	// 开始引用
+	var arr = [1,5,2,4,3,1];
+	var arrSort = bubbleSort(arr);
+	console.log(arrSort);
+```
