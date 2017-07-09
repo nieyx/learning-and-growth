@@ -206,12 +206,37 @@
 #### CROS
 > 是w3c的标准，jsonp只允许发送get请求，cros允许各种类型的请求，但是需要浏览器和服务器同时支持
 >
-> 
+> cros 是浏览器自动完成的，不需要用户参与，
 >
+> cros是同源的ajax没有什么区别，代码完全一样，浏览器一单发现ajax请求跨域，就会自动添加一些附加的头信息
 
-```js
-```
 
++ cros的简单请求的基本流程
+	- 浏览器发出cros请求，在头信息中，添加一个origin的字段
+	```js
+		// 在请求投中，自动添加一个origin的字段
+		GET /cros HTTP/1.1
+		Origin: http://api.bobb.com // 本次请求来自那个源，服务器根据这个值，巨鼎是否统一本次请求
+		Host: api.alice.com
+		Accept-Language: en-US
+		connection: keep-alive
+		User-agent: ...
+	```
+	- 如果服务器检测到浏览器发送过来的源，不在许可的范围内，服务器会返回一个正常的HTTP的呼应
+	- 浏览器发现回应的痛信息中没有包含Access-Control_Allow_Orign的字段，就爆出XMLHttpRequest的inerror的回电函数捕获
+	- 如果在许可范围内，服务器返回的响应，会多出以下字段的信息
+		```js
+			Access-Control-Allow-Origin: http://api.bobb.com
+			Access-Control-Allow-Creadentials: true
+			Access-Control-Expose-Headers: FooBar
+			Content-Type: text/html;charset=utf-8
+			// Access-Control-Allow-Origin 在白名单中并允许通讯的字段
+			// Allow-Control-Allow-Creadential:true  允许传递cookie
+			// Access-Control-Expose-Header 添加额外的header
+		```
+
+	
++ withCreadentials 打开ajax的withCreadential属性，才可发送cookie
 
 
 
