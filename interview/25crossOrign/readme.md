@@ -1,5 +1,6 @@
 ### 跨域
-文档链接1[http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html][http://www.ruanyifeng.com/blog/2016/04/cors.html]
+文档链接1[http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html]
+文档链接2[http://www.ruanyifeng.com/blog/2016/04/cors.html]
 ### 为什么要跨域及什么是同源策略
 + 浏览器的安全基石**同源策略**
 + A网站的cookie，B网站不能打开，除非这两个网页同源
