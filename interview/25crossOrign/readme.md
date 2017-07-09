@@ -39,3 +39,108 @@
 ```js
 	set-cookie= key=value;domain=.example.com; path=/
 ```
+
+### iframe
+> 如果两个页面不同源，就无法访问对方的DOM，典型的例子，iframe窗口和window.open方法打开的窗口，它们无法与父窗口进行通讯
+
+```html
+	<div class="container">
+		<iframe src="http://www.baidu.com" frameborder="0" id="myIframe"></iframe>
+	</div>
+	<script>
+		// 如父窗口运行以下命令，iframe窗口不是同源，就会报错
+		document.getElementById('myIframe').contentWindow.document
+	</script>
+```
+
++ 解决跨域窗口通讯的办法
+	- 片段标识符 fragment
+	- window.name
+	- 跨文档通讯的api 
+
+### 片段标识符
+> 片段标识符指的是url的#后的部分，改变#后面的部分，页面不会刷新
+
+```js
+	// 父窗口可以把信息写入子窗口的片段标识符
+	var src = originURl + '#' + data;
+	document.getElementById('myIframe').src = src;
+	// 子窗口通过监听haschange事件得到通知
+	window.onhaschange = checkMessage;
+	function checkMessage() {
+		var message = window.location.hsah;
+	}
+```
+
+### window.name 
+> 无论是否同源，只要在同一个窗口里，前一个页面设置了这个属性，后一个网页就可以读取她
+```js
+	// 父窗口先打开一个子窗口，再让载入一个不同源的网页，该网页信息写入window.name属性
+	window.name = data;
+	// 子窗口跳回一个与主窗口同域的网址
+	location = 'jttp://parent.url.com/xxx.html'
+	// 主窗口就可以读取子窗口的window的name
+	var data = document.getElementById('myIframe').contentwindow.name
+```
++ 优点，存储数据大，但是影响性能，因为总是在监听子窗口的window.name的变化
+
+
+### window.postmessage
+> H5引入的全新的API，跨文档通讯的API
+
+```js
+	// a向b发送消息
+	var popup = window.open('http://bbb.com','title');
+	popup.postMessage('hello world', 'http://bbb.com');
+	// postmessage的第一个参数是具体的消息内容，第二个参数是接受消息的窗口源orign
+	// orign可以设置成*，表示向所有的窗口传递
+	// 子向父发送消息
+	window.opener.postMessage('nice to meet you', 'http://aaa.com');
+
+	// 父窗口和子窗口都可以通过监听message事件，来获得对方的消息
+	window.addEventListerner('message', function(e){
+		console.log(e.data)	
+	},false)
+
+	// message 事件的事件对象enevt，提供以下三个属性
+	// event.source 发送消息的窗口
+	// event.origin 消息发向的网址
+	// event.data 消息的内容
+
+	// 例：子擦黄口通过event.source属性医用父窗口，然后发送消息
+	window.addEventListener('message', receivemessage);
+	function receivemessage(event){
+		event.source.postMessage('nice to meet you', '*')
+	}
+
+	// event.origin 属性可以过滤不是发给本窗口的消息
+	window.addEventListener('message', receivemessge);
+	function receivemessage(event){
+		if (event.origin !== 'http://aaa.com') return 
+		if (event.data = 'hello world') {
+			event.source.postmessage('hello', "*");
+		} else {
+			console.log(event.data);
+		}
+	}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

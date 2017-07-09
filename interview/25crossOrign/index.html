@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>cross-orign</title>
+	<style>
+		#container {
+			width: 900px;
+			height: 700px;
+			background: #00f;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+		}
+		#myIframe {
+			width: 500px;
+			height: 500px;
+			border: 1px solid #f00;
+
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<!-- <iframe src="http://www.baidu.com" frameborder="0" id="myIframe"></iframe> -->
+		<iframe  frameborder="0" id="myIframe"></iframe>
+	</div>
+	<script>
+		// console.log(document.getElementById('myIframe').contentwindow.document)
+		var orignURL = 'http://www.baidu.com';
+		var data = 'name=tom&age=18&address=beijing'
+		var src = orignURL + '#' + data;
+		document.getElementById('myIframe').src = src;
+
+		// 子元素获取数据
+		window.onhaschange = checkMessage;
+		function checkMessage(){
+			var message = window.location.hash
+			console.log(message,'message')
+			parent.location.href = target + '#' + hash;
+		}
+	</script>
+</body>
+</html>
