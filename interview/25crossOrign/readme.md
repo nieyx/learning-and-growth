@@ -1,5 +1,5 @@
 ### 跨域
-
+文档链接1[http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html][http://www.ruanyifeng.com/blog/2016/04/cors.html]
 ### 为什么要跨域及什么是同源策略
 + 浏览器的安全基石**同源策略**
 + A网站的cookie，B网站不能打开，除非这两个网页同源
@@ -125,6 +125,91 @@
 	}
 ```
 
+### localStorage
+> window.postMessage，可以读取其他窗口的localStorage
+
+```js
+	// 父窗口，父窗口发送的消息
+	var win = document.getElementstByTagName('iframe')[0].contentwindow;
+	var obj = {name:'jack'};
+	win.postMessage(JSON.stringfy({key:'storage',data:obj}),'http://bbb.html')
+
+	
+
+	// 子窗口，接受消息,并写入自己的localStorage
+	window.onmessage = function(e){
+		if (e.origin !== 'http://bbb.com'){
+			return 
+		}
+		var payload = JSON.parse(e.data);
+		localStorage.setItem(payload.key,JSON.stringfy(payload.data))
+
+	}
+
+	// 加强版的父窗口发送
+	var win = document.getElementstByTagName('iframe')[0].contentwindow;
+	var obj = {name:'jack'};
+	// 存入对象
+	win.postMessage(JSON.stringfy(key:'storage',method:'set', data:obj))
+	// 读取对象
+	win.postMessage(JSON.stringfy(key:'storage',method:'get'),"*");
+	window.onmessage = function(e){
+		if (e.origin !== 'http://aaa.com') {
+			return 
+		}
+		console.log(JSON.parse(e.data).name)
+	}
+
+	// 加强版的子窗口接受
+
+```
+
+### AJAX
+> 同源政策规定，ajax请求只能发给同源的网址，否则就报错
+>
+> 除了架设服务器代理（浏览器请求同源服务器，再有服务器请求外部的资源）
+
++ 在浏览器，可以有三种方法来进行跨域
+	- jsonp
+	- websocket
+	- cros
+
+#### jsonp
+> 在页面添加一个script标签，向如武器请求json数据，服务器受到请求后，将数据放在一个置顶名字的回调函数中传回来
+
+```js
+	function addScriptTag(src){
+		var script = docuemnt.createElement('script');
+		script.setAttribute('type','text/javascript');
+		script.src = src;
+		document.body.appendChild(script);
+	}
+	window.onload = function(){
+		addScriptTag('http://example.com/ip?callback=foo');
+
+		function foo(data) {
+			console.log('your publice IP address is:' + data.ip)
+		}
+	}
+
+	// 服务端传递的数据
+	foo({
+		'ip':'1,2,3,4'
+	})
+```
+
+#### websocket
+> websocket有一个origin的字段，服务器接受字段之后，会判断该域名是否在白名单中，然后进行通讯
+
+
+#### CROS
+> 是w3c的标准，jsonp只允许发送get请求，cros允许各种类型的请求，但是需要浏览器和服务器同时支持
+>
+> 
+>
+
+```js
+```
 
 
 
