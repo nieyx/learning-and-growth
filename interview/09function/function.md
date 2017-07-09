@@ -383,6 +383,7 @@
 
 
 ### 函数的颗粒化		
+文档阅读地址[http://www.zhangxinxu.com/wordpress/2013/02/js-currying/]
 
 
 
