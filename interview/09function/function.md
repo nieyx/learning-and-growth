@@ -404,12 +404,69 @@
 		// 执行时的代码
 		f1(f2)
 	```
-	- 时间监听
-	```js
-	```
+
 	- promise
-	```js
-	```
+	> 每一个异步任务返回一个Promise对象，该对象又一个then的方法，允许指定回调函数
+	文档链接[http://es6.ruanyifeng.com/#docs/promise#Promise-prototype-then]
+
+	1. promise类似一个容器，里面保存着未来才会结束的事件，通常是一个异步操作的结果
+	2. promise是一个对象，它可以获取异步操作的消息
+	3. promise对象的特点
+		+ 对象的状态不受外界的影响
+		+ 一但状态改变，就不会再变，什么时候都可以获取到这个结果，与event事件不同，event的事件如果错过，在监听，是得不到结果
+	4. promise的异步编程的好处：避免了层层嵌套，缺点：无法取消，一旦创建就会立即执行
+	5. Promise的基本用法
+		+ Promise是个构造函数，可以用来生成实例
+		```js
+			var promise = new Promise(function(resolve, reject){
+				if (/*异步操作成功*/) {
+					resolve(value);
+				} else {
+					reject(new Error(value))
+				}
+			})
+			// 实例生成之后，可以对promise进行then的回调函数的设置
+			promise.then(function(){},function(){})
+
+
+			// 一个promise的简单的例子
+			function timeout(ms){
+				return new Promise(function(resolve,reject){
+					setTimeout(resolve, ms, 'done')
+				})
+			}
+			timeout(1000).then((value)=>{
+				console.log(value)
+			})
+
+			// promise新建之后就会立即执行
+			let promise = new Promise((resolve,reject)=>{
+				console.log('promise');
+				resolve();
+			})
+			promise.then(()=>{
+				console.log('resolve')
+			})
+			console.log('hi!')
+
+
+			let promise1 = new Promise((resolve,reject)=>{
+				for (var i=0;i<100;i++){
+					if (i < 66) {
+						console.log('promise');
+						resolve();
+						break;
+					}
+				}
+				console.log('promise1')
+			});
+
+			promise1.then(()=>{
+				console.log('resolve')
+			})
+
+			console.log('hi')
+		```
 
 
 
