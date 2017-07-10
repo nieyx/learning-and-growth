@@ -209,7 +209,7 @@
 > cros 是浏览器自动完成的，不需要用户参与，
 >
 > cros是同源的ajax没有什么区别，代码完全一样，浏览器一单发现ajax请求跨域，就会自动添加一些附加的头信息
-
+文档地址[https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS]
 
 + cros的简单请求的基本流程
 	- 浏览器发出cros请求，在头信息中，添加一个origin的字段
@@ -223,7 +223,7 @@
 		User-agent: ...
 	```
 	- 如果服务器检测到浏览器发送过来的源，不在许可的范围内，服务器会返回一个正常的HTTP的呼应
-	- 浏览器发现回应的痛信息中没有包含Access-Control_Allow_Orign的字段，就爆出XMLHttpRequest的inerror的回电函数捕获
+	- 浏览器发现回应的头信息中没有包含Access-Control_Allow_Orign的字段，就爆出XMLHttpRequest的inerror的回电函数捕获
 	- 如果在许可范围内，服务器返回的响应，会多出以下字段的信息
 		```js
 			Access-Control-Allow-Origin: http://api.bobb.com
