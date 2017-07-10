@@ -386,4 +386,45 @@
 文档阅读地址[http://www.zhangxinxu.com/wordpress/2013/02/js-currying/]
 
 
+### promise
+文档地址[http://www.ruanyifeng.com/blog/2012/12/asynchronous%EF%BC%BFjavascript.html]
++ js的运行模式是单线程的，一次只能执行一个任务，如果排在前面的脚本，运行时很耗时，那么就会阻塞浏览器，导致浏览器没有反应
+
++ 异步编程的集中方法
+	- 回调函数
+	```js
+		f1();
+		f2();
+
+		function f1(callback){
+			setTimeout(function(){
+				callback();
+			},1000);
+		}
+		// 执行时的代码
+		f1(f2)
+	```
+	- 时间监听
+	```js
+	```
+	- promise
+	```js
+	```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
