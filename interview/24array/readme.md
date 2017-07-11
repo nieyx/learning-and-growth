@@ -23,6 +23,7 @@
 	// slice 
 	console.log(arr.slice(2)) // 从数字开始到结束 [2,4,3]
 	console.log(arr.slice(0,2)) // 输出截取的数组[1,5]
+	console.log(arr) // [1,5,2,4,3]
 ```
 
 ### push／pop
@@ -32,6 +33,7 @@
 	console.log(arr.push(5)); // 返回数组的长度 6
 	// pop
 	console.log(arr.pop()); // 返回删除的数组的最后一项 5
+	console.log(arr) //[1,5,2,4,3]
 ```
 
 ### unshift/shift

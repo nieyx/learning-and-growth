@@ -267,8 +267,16 @@ fn(4,2,6)输出[2,4,6]
 
 ```
 10.写出一个函数的序列化url
-```html
+```js
 	var url = 'http://3g.baidu.com?username=zhangsan&age=18&address=qweqwe'; // 转换成{'username':'zhangsan','age':'18','address':'qweqwe'}
+
+	var urlStr = url.match(/\?+(\w+\=\w+\&*)+/);
+	var urlArr = urlStr[0].slice(1).split('&'); // ['username=zhangsan','age=18','address=qweqwe']
+	var urlObj = {};
+	for (var i of urlArr){
+		urlObj[i.slice(0,i.search('='))] = i.slice(i.search('=')+1)
+	}
+	urlObj
 ```
 
 11.html5的websocket
