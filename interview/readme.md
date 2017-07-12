@@ -23,18 +23,46 @@
 
 2017年5月20日用友面试题 
 1. 请写出以下代码运行结果
-var fullName = 'langulage';var obj = {  fullName:'javascript',  props:{    getFullName:function(){      return this.fullName;
-    }
-  }  console.log(obj.prop.getFullName());  var test = obj.prop.getFullName;  console.log(test());
-}
+```js
+	var fullName = 'langulage';
+	var obj = { 
+		fullName:'javascript', 
+		props:{    
+			getFullName:function(){      
+				return this.fullName;
+	    	}}  
+	}
+	console.log(obj.props.getFullName());  // undefined
+	var test = obj.props.getFullName;  
+	console.log(test()); // langulage
+```
 2. 请写出以下代码运行结果
-var name = 'window';var Tom = { name:"Tom", show:function(){   console.log(this.name);
- }, wait:function(){   var fun = this.show;
-   fun();
- }
-};
-Tom.wait();
+```js
+	var name = 'window';
+	var Tom = { 
+		name:"Tom", 
+		show:function(){
+			console.log(this.name);
+		},
+		wait:function(){
+			var fun = this.show;
+	   		fun();
+	 	}
+	};
+	Tom.wait(); // window
+```
+
 3. 在String对象上定义一个repeatify函数。这个函数接受一个整数,来明确字符串需要重复几次。这个函数要求字符串重复指定的次数。比如: ‘abc’.repeatify(3); abcabcabc
+```js
+	String.protoType.repeatify = String.protoType.repeatify || function(times){
+		var str = 'abc';
+		for (var i=0;i<times;i++){
+			str += this;
+		}
+		return str;
+	}
+	String.repeatify(3);
+```
 4. 正则匹配输出’hello[哈哈]world’
 var str = 'hello<img src="haha.png" alt="哈哈" />world';
 5. 请罗列常用清除浮动方案
@@ -133,6 +161,7 @@ fn(4,2,6)输出[2,4,6]
 
 一面
 1.eval函数什么时候用到,有什么吭
+计算某个字符串中的js代码
 2.jq选择性能问题
 3.jq defer函数怎么实现
 4.requirejs实现原理  requirejs怎么实现就近加载模块
@@ -151,7 +180,7 @@ fn(4,2,6)输出[2,4,6]
 1.	常见的行内元素
 2.	input标签中readonly和disabled的区别
 3.	html新增了那些标签，input新增了哪些类型
-4.	div剧中
+4.	div居中
 5.	css中的伪类
 6.	判断数据类型的方法
 7.	写下运行结果
@@ -276,7 +305,6 @@ fn(4,2,6)输出[2,4,6]
 	for (var i of urlArr){
 		urlObj[i.slice(0,i.search('='))] = i.slice(i.search('=')+1)
 	}
-	urlObj
 ```
 
 11.html5的websocket
@@ -286,7 +314,7 @@ fn(4,2,6)输出[2,4,6]
 13.移动设备的兼容处理，浏览器兼容的处理
 
 14.正则表达式
-
+match search replace slice split 
 15.viewport 
 
 16.数组的基本操作方法
@@ -307,6 +335,79 @@ fn(4,2,6)输出[2,4,6]
 22. 快递排序，冒泡排序，插入排序 
 
 23. 兼容css3的样式
+
+24. 变量的提升
+est();
+```
+
+### 经典面试题
+1. 变量的提升
+```js
+	function test() {
+		console.log(a); // undefined
+		console.log(foo()); // 2
+
+		var a = 1;
+		function foo() {
+			return 2;
+		}
+	}
+
+	t
+2. this在js中的运行机制
+```js
+	var fullname = 'John Doe';
+	var obj = {
+		fullname: 'Colin Ihrig',
+		prop: {
+			fullname: 'Aurelio De Rosa',
+			getFullname: function() {
+				return this.fullname;
+			}
+		}
+	};
+	console.log(obj.prop.getFullname());  // 'Aurelio De Rosa'
+	var test = obj.prop.getFullname; 
+	console.log(test()); // John Doe
+```
+
+3. 原生native的方法
+在String对象上定义一个repeatify函数。这个函数接受一个整数,来明确字符串需要重复几次。这个函数要求字符串重复指定的次数。比如: ‘abc’.repeatify(3); abcabcabc
+```js
+	String.protoType.repeatify = String.protoType.repeatify || function(times){
+		var str = 'abc';
+		for (var i=0;i<times;i++){
+			str += this;
+		}
+		return str;
+	}
+```
+
+4. call和apply
+```js
+	var fullname = 'John Doe';
+	var obj = {
+		fullname: 'Colin Ihrig',
+		prop: {
+			fullname: 'Aurelio De Rosa',
+			getFullname: function() {
+				return this.fullname;
+			}
+		}
+	};
+	var test = obj.prop.getFullname; 
+	test.call(obj.prop) // Aurelio De Rosa
+	test.bind(obj.prop)() // Aurelio De Rosa
+```
+
+5. scope 范围
+```js
+	(function() {
+	    var a = b = 5;
+	})();
+
+	console.log(b); // 5,b是全局的变量
+```
 
 
 

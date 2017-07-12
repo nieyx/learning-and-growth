@@ -2,7 +2,7 @@
 
 #### 什么是浮动
 ```
-当一个盒子使用了float的属性时，导致父级盒子不能被撑开，这种现象叫做浮动
+元素脱离的文档流，当一个盒子使用了float的属性时，导致父级盒子不能被撑开，这种现象叫做浮动
 ```
 #### 浮动产生的原因
 ```
@@ -25,3 +25,17 @@
 
 #### 为什么overflow可以清除浮动
 + 因为当使用overflow的时候，触发了BFC--block formating context，块级格式化上下文
+
+
+### BFC
+> block formatting context 块级格式化上下文，触发了bfc之后，独自的渲染区域， 
+
++ 什么情况会触及底层的BFC(5种)
+	- float的值不为none
+	- overflow的值不为 visible
+	- display的值为table-cell，table-caption，inline-block中的任何一个
+	- position的值不为relative和static
+	- width|height|min-width|min-height：（！auto）
+
++ ie8以下的haslayout，和bfc有相同的意思
+	- zoom:(!normal)
