@@ -210,7 +210,45 @@
 	</body>
 	</html>
 ```
+	- oninput
+	> 动态监测input／textarea标签中，用户输入的变化,在ie9以下不支持此属性，要使用onpropertychange
+		* input标签中checkbox，radio，属性值发生变化
+		* input标签中的text，password等各种输入，和textarea标签，value的属性值发生变化
+		* select元素的选中项，selectIndex属性发生变化
+	>  inpropertychange事件后，event和peopertyName属性来获取变化的属性名称
 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="container">
+		<textarea name="" id="inputmes" cols="30" rows="10" oninput="oninput(event)" onpropertychange='onpropertychange(event)'></textarea>
+		<div class="message"></div>
+	</div>
+	<script>
+		var inputmes = document.getElementById('inputmes');
+		function oninput(event){
+			console.log(event.target.value);
+		}
+
+		function onpropertychange(event){
+			if (event.propertyName.toLowerCase() == 'value'){
+				console.log(event.srcELement.value)
+			}
+		}
+
+		// 如果使用jquery则直接绑定这两个事件
+		$('textarea').bind('oninput onpropertychange', function(){
+			$('.message').html($(this).val())
+		})
+	</script>
+</body>
+</html>
+```
 + 新的语义和结构元素
 
 ### canvas
@@ -833,6 +871,7 @@
 
 ### websocket
 > websocket API中，浏览器和服务器只需要做一个握手的动作，浏览器于服务器之间就形成了一个快速的通道，二者之间就可以数据相互传送
+
 
 
 
