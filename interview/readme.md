@@ -94,7 +94,6 @@ var str = 'hello<img src="haha.png" alt="哈哈" />world';
 1.	面向对象
 2.	闭包
 3.	:display:inline-block有间隙如何处理？
-
 4.	node.js
 5.	expres.js 
 6.	apply和call的区别
