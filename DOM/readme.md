@@ -243,6 +243,13 @@
 > 
 > 子元素的内外边框到父元素的内边框的距离
 + getBoundingClientRect(); 获取对象的值，width，height，left，right，top，bottom
+
++ getAttribute/setAttribute/removeAttribute 对行间样式进行获取／设置／移除操作
+
++ clientWidth/offsetWidth/document.documentElement.clientWidth
+> clientWidth = contentWidth + paddingWidth 
+> offsetWidth = contentWidth + paddingWidth + borderWidth
+
 + 获取文档值
 
 ```html
