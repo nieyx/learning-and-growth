@@ -215,6 +215,34 @@
 	- 注释 8
 	- 文档 9
 
++ childNodes 获得某个元素下所有子元素，包括元素节点，属性节点，注释节点，文本节点等
++ children 获得某个元素的所有的元素子节点
+
+```html
+	 <div id="box">
+	 	<ul>
+	 		<li class="items">1</li>
+	 		<li class="items">2</li>
+	 		<li class="items">3</li>
+	 	</ul>
+	 </div>
+	 <script>
+	 // childNodes 是个伪数组,获得的都是直接子元素
+	 	var box = document.getElementById('box');
+	 	box.childNodes;
+	 </script>
+```
+
++ parenrNode ,firstElementNode, lastElementNode,nextElementNode,preElementNode;
+> 父节点，第一个子节点，最后一个子节点，笑一个子节点，上一个子节点
+
++ offsetParent
+> 元素的直接定位父级，如果父级没有定位，那么获得到的就是body
++ offsetLeft/offsetTop
+> 元素获得到直接定位父级的左侧距离/上侧距离
+> 
+> 子元素的内外边框到父元素的内边框的距离
++ getBoundingClientRect(); 获取对象的值，width，height，left，right，top，bottom
 + 获取文档值
 
 ```html

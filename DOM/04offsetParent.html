@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>offsetParent</title>
+	<style>
+		div {
+			padding: 100px;
+		}
+		#div1 {
+			background: #f00;
+			/*position: relative;*/
+		}
+		#div2 {
+			background: #f0f;
+			/*position: relative;*/
+		}
+		#div3 {
+			background: #00f;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1">
+		<div id="div2">
+			<div id="div3"></div>
+		</div>
+	</div>
+	<script>
+		var div3 = document.getElementById('div3');
+		console.log(div3.offsetParent) // body 未有定位时，是body,
+		console.log(div3.offsetLeft)
+		console.log(div3.style.left) // 不能通过style.left来获取行内样式
+		console.log(getComputedStyle(div3).left)
+	</script>  
+</body>
+</html>

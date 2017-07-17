@@ -1014,396 +1014,399 @@ body .markdown-body
     page-break-after: avoid;
   }
 }
-</style><title>readme</title></head><body><article class="markdown-body"><p>2017年5月20日搜狗面试题<br />
-1. doctype的作用是什么?页面中有没有它的区别是?<br />
-2. w3c标准盒模型占位宽度是如何计算的?它与IE盒模型有什么不同?<br />
-3. 请说下移动端常见的适配不同屏幕大小的方法?<br />
-4. 一个高宽未知的图片如何在一个比它大的容器内水平垂直居中?<br />
-5. label标签的作用是什么?<br />
-6. 定义链接四种状态的伪类的正确书写顺序是?<br />
-7. 你知道的css选择器有哪些?<br />
-8. 下面两个div的间距应该是多少?为什么?<br />
-<div style="margin:5px"></div><div style="margin:10px"></div><br />
-9. png8、png24的区别是什么?<br />
-10. png和jpg这两种图片格式分别适用的场景是?<br />
-11.请介绍下你知道的前端性能优化方法?<br />
-12. 页面导入样式时，使用link和 @import有什么区别?<br />
-13.请介绍下css中针对ie6-9常用的hack方法<br />
-14. Javascript的基本数据类型有哪些?<br />
-15.请介绍下Javascript原型、原型链的特点?<br />
-16.曾经用原生Javascript实现过什么功能?<br />
-17. 请用jquery和原生Js分别实现添加、移除、移动、复制、创建和查找DOM节点<br />
-18. 实时监测用户在input内输入的字符数应该监听哪个事件?<br />
-19. 遇到疑难问题时，你通常是如何解决的？最好举例说明<br />
-20. inline、inline-block-block的区别是?</p>
-<p>2017年5月20日用友面试题 <br />
-1. 请写出以下代码运行结果<br />
-<pre><code class="js">    var fullName = 'langulage';
-    var obj = { 
-        fullName:'javascript', 
-        props:{    
-            getFullName:function(){      
-                return this.fullName;
-            }}  
-    }
-    console.log(obj.props.getFullName());  // undefined
-    var test = obj.props.getFullName;  
-    console.log(test()); // langulage
-</code></pre><br />
-2. 请写出以下代码运行结果<br />
-<pre><code class="js">    var name = 'window';
-    var Tom = { 
-        name:&quot;Tom&quot;, 
-        show:function(){
-            console.log(this.name);
-        },
-        wait:function(){
-            var fun = this.show;
-            fun();
-        }
-    };
-    Tom.wait(); // window
-</code></pre></p>
-<ol>
-<li>在String对象上定义一个repeatify函数。这个函数接受一个整数,来明确字符串需要重复几次。这个函数要求字符串重复指定的次数。比如: ‘abc’.repeatify(3); abcabcabc<br />
-<pre><code class="js">    String.protoType.repeatify = String.protoType.repeatify || function(times){
-        var str = 'abc';
-        for (var i=0;i&lt;times;i++){
-            str += this;
-        }
-        return str;
-    }
-    String.repeatify(3);
-</code></pre></li>
-<li>正则匹配输出’hello[哈哈]world’<br />
-var str = &lsquo;hello<img src="haha.png" alt="哈哈" />world&rsquo;;</li>
-<li>请罗列常用清除浮动方案</li>
-<li>陈述Zepto tap事件点透的原因及解决方案</li>
-<li>解释一下Javascript 的同源策略，你所能了解到的ajax跨域解决方案以及各种方案的优缺点。</li>
-<li>罗表移动前端常用自适应解决方案</li>
-<li>cookie、localStorage、sessionStorage三者优缺点，适用场景</li>
-</ol>
-<p>2017年5月16日 汽车之家面试题<br />
-1.  复杂型数组重排，类似于数组去重?<br />
-2.  百度首页所有元素共有多少个标签?用原生JS编写<br />
-3.  require.js的实现原理<br />
-4.  require.js、sea.js和common.js的区别?<br />
-5.  简单的CSS问题</p>
-<p>2017年5月16日 VIPKID的面试题<br />
-1.  bind方法的原理<br />
-2.  实现forEach<br />
-3.  移动端/PC端的区别<br />
-4.  你认为最好的代码是什么样子的？<br />
-5.  ES6了解过吗？<br />
-6.  替换域名 <a href="http://abc.com/a/b">http://abc.com/a/b</a> =&gt; localhost:8080/a/b<br />
-7.  如何实现前后端分离？如何约定API？<br />
-8.  前端构建流程<br />
-9.  在上一个公司里学到了什么？<br />
-10. Angular/Vue/React如何选型?<br />
-11. 有没有别的公司offer?<br />
-2017年5月16日蚂蚁金服北京面试题<br />
-1.  面向对象<br />
-2.  闭包<br />
-3.  :display:inline-block有间隙如何处理？<br />
-4.  node.js<br />
-5.  expres.js <br />
-6.  apply和call的区别<br />
-7.  css有哪几种选择器<br />
-8.  react原理<br />
-9.  说一下mvc框架<br />
-10. http/https的区别<br />
-11. 原生ajax实现的步骤<br />
-12. requirejs原理<br />
-13. ajax/jsonp区别?jsonp原理<br />
-14. 为什么大部分网站css/js/img分不同域名引入<br />
-15. 页面重构分三个步骤，说说看？<br />
-16. 优化页面性能有哪几种方式？<br />
-17. 事件监听<br />
-18. js上拉加载和下拉刷新的实现方法？<br />
-19. es6语法新特性<br />
-2017并行科技前端面试题<br />
-1. css<br />
-1.1 简要手绘盒子模型，并对边框和边距进行标注?<br />
-1.2 界面div三平分除了flex布局外，简写其它两种布局代码?<br />
-2. javascrpt<br />
-2.1 es6中let const var的区别是什么?<br />
-2.2 对数组[5,6,6,7,8,8]进行去重，es5或者es6方法<br />
-2.3 谈谈对es6中=&gt;的理解<br />
-2.4 点击一个按钮，发出ajax请求，如何防止 用户在此请求方式返回之前再次点击?<br />
-2.5 封闭一个深度克隆方法es5或es6?<br />
-2.6 请用正则校验身份号码，要求符合15位或18位，末尾可能是X<br />
-3. html5&amp;css3<br />
-3.1 html5和css3新增了哪些标签和属性?<br />
-3.2 用css3写一个开关按钮，按下时置灰变色，并改变按钮文字(如按下之前是on,按下之后是off)<br />
-4. http<br />
-4.1 http和https请求的区别是什么？post请求和get请求的区别是什么?<br />
-5. 前端框架和模板<br />
-5.1 使用过的前端框架有哪些?<br />
-5.2 使用过的模板引擎有哪些?<br />
-5.3 使用过的模块加载器有哪些?<br />
-5.4 简写ReactNative中使用es5和es6如何绑定的this？<br />
-5.5 如何理解 前端MVC架构，简要画出流程图</p>
-<p>58赶集<br />
-三面<br />
-1. var url = <a href="http://www.58.com?a=1&amp;b=2$c">http://www.58.com?a=1&amp;b=2$c</a><br />
-function fn(url){<br />
-}<br />
-实现fn(url)输出 {a:1,b:2,c:true}<br />
-2.post跨域请求和服务端交互的流程<br />
-3.常用状态码含义 (什么时候出现304 if-modify-since等 ,304是否向服务端发请求,304响应是否有body)<br />
-4.实现fn()排序<br />
-fn(3,6,4,1) 输出 [1,3,4,6]<br />
-fn(4,2,6)输出[2,4,6]<br />
-5.DOM diff原理?虚拟dom是否是fragment<br />
-6.typeof 1   typeopf &ldquo;1&rdquo;  typeof String 返回什么  (number string function 注意大小写)<br />
-7.cookie session的实现原理和机制<br />
-8.decodeURI  decodeURIComponent encodeURIComponent encodeURI区别</p>
-<p>二面<br />
-1.网络安全问题(单点登录 outh认证 登录密码等敏感信息前端如何保证安全)<br />
-2.跨域问题怎么实现<br />
-3.团队管理的时间进度怎么控制<br />
-4.都用过哪些设计模式<br />
-5.数据结构和算法了解多少<br />
-6.分析自己做的项目的架构</p>
-<p>一面<br />
-1.eval函数什么时候用到,有什么吭<br />
-计算某个字符串中的js代码<br />
-2.jq选择性能问题<br />
-3.jq defer函数怎么实现<br />
-4.requirejs实现原理  requirejs怎么实现就近加载模块<br />
-5.ajax原生怎么实现<br />
-6.描述redux流程<br />
-7.react怎么实现日志功能(中间件)<br />
-8.中间如果是异步怎么处理<br />
-9.后端nodejs代码用webpack打包的话会有什么问题(核心模块会被打包)<br />
-10.react里父组件 自组件之间的通信<br />
-11.正则表达式 &lsquo;.&rsquo; &lsquo;+&rsquo; &lsquo;*&rsquo; 分别表示什么<br />
-12.node模块中path.relative方法什么作用<br />
-13.说下你自己觉得最复杂的项目</p>
-<p>百度互联网创投中心 2017.7.4<br />
-1.  常见的行内元素<br />
-2.  input标签中readonly和disabled的区别<br />
-3.  html新增了那些标签，input新增了哪些类型<br />
-4.  div居中<br />
-5.  css中的伪类<br />
-6.  判断数据类型的方法<br />
-7.  写下运行结果</p>
-<p><pre><code class="html">    &lt;script&gt;
-        var x=1,y=z=0;
-        function add(n){
-            return n=n+1;
-        }
-        y=add(x); // 4
-        function add(n){
-            return n=n+3;
-        }
-        z=add(x); // 4
+</style><title>readme</title></head><body><article class="markdown-body"><h2 id="dom"><a name="user-content-dom" href="#dom" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>DOM</h2>
+<ul>
+<li>
+<p>什么是DOM</p>
+<blockquote>
+<p>document object model<br />
+一个页面，由html css js构成</p>
+<p>html 结构，css 样式，js 行为</p>
+<p>通过js来控制页面，浏览器，如何获取，删除，修改，添加hTML元素的标准</p>
+</blockquote>
+</li>
+<li>
+<p>主要内容</p>
+</li>
+<li>滑动门特效</li>
+<li>认识dom</li>
+<li>文档与节点类型</li>
+<li>domready</li>
+<li>元素节点类型的判断</li>
+<li>元素节点继承的层次</li>
+<li>
+<p>元素节点的分类</p>
+</li>
+<li>
+<p>滑动门案例</p>
+</li>
+</ul>
+<pre><code class="html">    &lt;script&gt;
+        // 获取容器并获取所有的img标签
+        var box = document.getElementById('container');
+        // 每个间隙的距离
+        var imgs = box.getElementsByTagName('img')
+        // 滑动的距离
+        var translate = 160;
+        // 图片的宽度
+        var imgWidth = imgs[0].offsetWidth();
+        // 盒子的宽度及盒子的位置
+        var boxWidth = imgWidth + translate * (imgs.length-1) + 'px';
 
-        // 相当于以下的函数
-        var x=1,y=z=0;
-        function add(n){
-            return n=n+1;
-        }
-        function add(n){
-            return n=n+3; // 将第一个函数覆盖
-        }
-        y=add(x); // 4
-        z=add(x); // 4
-
-
-        var myobj = {
-            num:2,
-            add:function(){
-                this.num = 3;
-                (function(){
-                    console.log(this.num); // undefined 函数被直接调用时，指向window或者undefined
-                    this.num = 4;
-                })();
-                console.log(this.num) // 3
+        // 每个图片的初始位置
+        function setImage(){
+            for(var i=1, len = imgs.length;i&lt;len;i++){
+                imgs[i].style.left = imgWidth + translate * (i-1) + 'px';
             }
-        } 
-
-        var i;
-        for ( i = 0; i++ &lt; 3) {
-            setTimeout(function(){
-                return function(){console.log(i)}
-            }(),0)
-        } // 三个4
-
-        for (var i=0;i&lt;10;i++){
-            // 第一次i=0，进入if判断，i=2，continue退出本次循环
-            // i=2，i++之后，i=3，进入if判断，i=5，continue退出本次循环
-            // i再次执行i++，i=6，不会进入if判断，执行i+=3，变成9
-            // 最后循环外，i变成了9
-            if (i&lt;5) { 
-                i+=2;
-                continue;
-            }
-            i+=3;
-            break;
-            console.log(i); //  因为有break，所以并不会执行到这行代码
         }
-        console.log(i);
-    &lt;/script&gt;
-</code></pre><br />
-8.  js的继承方式，以下代码如何实现继承<br />
-<pre><code class="html">&lt;script&gt;
-    function People(){
-        this.type = '';
-    }
-    function Man(){
-        this.name = '';
-    }
-
-    Man.protoType = new People();
-&lt;/script&gt;
-</code></pre></p>
-<p>9.给一个数组重新排序</p>
-<p><pre><code class="html">    &lt;script&gt;
-        var arr = [12,1,2,3,23,45,7,8,0];
-
-        // 实现方式1，用es6的方法
-        var arrSort = [12,1,2,3,23,45,7,8,0,1,2,1,2,4,5,6,1];
-        var s = arrSort.filter(function(ele, index, arr){
-            return arr.indexOf(ele) === index
-        })
-        console.log(s)
-        s.sort(function(x,y){
-            if(x&gt;y){
-                return 1;
-            }
-            if (x&lt;y) {
-                return -1;
-            }
-            return 0
-        })
-        console.log(s)
-        // 实现方法2
-        var arrSort1 = [12,1,2,3,23,45,7,8,0,1,2,1,2,4,5,6,1];
-        function arrSort(arr){
-            var arr1 = [];
-            for(var i=0;i&lt;arr.length;i++){
-                if(arr1.indexOf(arr[i]) === -1){
-                    arr1.push(arr[i])
+        setImage();
+        // 为每个图片绑定事件
+        for(var j=1,j&lt;=i;j++){
+            (function(i){
+                    imgs[i].onmouseover = function(){
+                    setImage();
+                    imgs[j].style.left = parseInt(imgs[j].style.left) - translate + 'px';
                 }
-            }
-            console.log(arr1)
+            })(i);
         }
-        arrSort(arrSort1);
+    &lt;/script&gt;
+</code></pre>
+
+<ul>
+<li>认识DOM</li>
+<li>DOM的文档类型<blockquote>
+<p>html:显示数据</p>
+<p>xml:描述数据<br />
+<pre><code class="xml">&lt;?xml version=&quot;1.0 encoding='utf-8'?&gt;
+</code></pre></p>
+</blockquote>
+</li>
+<li>
+<p>DOM的节点类型</p>
+<blockquote>
+<p>Element(元素节点) Attr(属性节点) Text(文本节点) Comment(注释节点) Document(文档节点) DocumentType(文档类型节点) documentFragment(文档片段节点)</p>
+</blockquote>
+</li>
+<li>
+<p>返回值</p>
+</li>
+</ul>
+<pre><code class="html">    &lt;!-- nodename，nodevalue实验 --&gt;
+    &lt;div id=&quot;container&quot;&gt;这是一个元素节点&lt;/div&gt;
+    &lt;script&gt;
+    var divNode = document.getElementBy('container');
+    // 元素节点
+    console.log(divNode.nodeName + '/' + divNode.nodeValue) // div/null
+    // 属性节点
+    var attrNode = divNode.attribute[0];
+    console.log(attrNode.nodeName,attrNode.nodeValue) // id,container
+    // 文本节点,childNodes 获得子元素
+    var textNode = divNode.childNodes[0];
+    console.log(textNode.nodeName,textNode.nodeValue) // #text,这是一个元素节点
+    // 注释节点
+    var commentNode = document.body.childNodes[1];
+    console.log(commentNode.nodeName,commentNode.nodeValue) // #comment,nodename，nodevalue实验 
+
+    // 文档类型节点
+    console.log(document.doctype.nodeName,document.doctype.nodeName)
+
+
+    &lt;/script&gt;
+</code></pre>
+
+<h3 id="domready"><a name="user-content-domready" href="#domready" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>domReady</h3>
+<p>浏览器内部工作原理[<a href="http://kb.cnblogs.com/page/129756/">http://kb.cnblogs.com/page/129756/</a>]</p>
+<blockquote>
+<p>dom树渲染完成，成为domReady</p>
+</blockquote>
+<ul>
+<li>
+<p>浏览器渲染引擎的基本渲染流程（html结构的渲染过程）</p>
+<blockquote>
+<p>1.解析HTML构建DOM树(构成DOM节点)</p>
+<p>2.构建渲染树(解析样式信息)</p>
+<p>3.布局渲染树（布局DOM节点）</p>
+<p>4.绘制渲染树（绘制DOM节点）</p>
+</blockquote>
+</li>
+<li>
+<p>domContentLoaded</p>
+<blockquote>
+<p>在页面的dom树创建完成后(HTML解析第一步完成)即出发，而无需等待其他资源加载</p>
+<p>ie不支持，要做兼容，document.documentElement.doScoll(&lsquo;left&rsquo;)来判断dom树是否创建完毕&mdash;hack兼容</p>
+</blockquote>
+</li>
+</ul>
+<pre><code class="html">&lt;script&gt;
+    function myReady(fn){
+    if (document.addEventListener){
+        document.addEventListener('DOMContentLoaded',fn,false);
+    } else {
+        IEContentLoaded(fn);
+    }
+    // IE模拟DOMcontentLoaded
+    function IEContentLoaded (fn){
+        var d = window.document;
+        var done = false;
+        // 只执行一次的用户的回调函数init()
+        var init = function(){
+            if(!done){
+                done = true; // 确保init只执行一次
+                fn();
+            }
+        }
+
+        (function(){
+            try {
+            d.documentElement.doScroll('left'); // 调用doScroll方法，里面的数值随便传
+        } catch (e){
+            setTimeout(argument.callee,50);
+            init();
+        }})();
+
+        // 监听document的加载状态
+        d.onreadystatechange = function(){
+            // 如果用户在domready之后绑定的函数，就立马执行
+            if (d.readyState =='complete') {
+                d.onreadystatechange = null; // 清清除事件
+                init();
+            }
+        }
+    }
+}
+&lt;/script&gt;
+</code></pre>
+
+<h3 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>如何判断元素的节点类型</h3>
+<ul>
+<li>四种方法<ul>
+<li>isELement</li>
+<li>isHTML</li>
+<li>IsXML</li>
+<li>contains</li>
+</ul>
+</li>
+<li>判断是否是元素节点</li>
+</ul>
+<pre><code class="html">    &lt;div id=&quot;test&quot;&gt;aaa&lt;/div&gt;&lt;!-- 这是一个注释节点 --&gt;
+    &lt;script&gt;
+        var isElement = function(el){
+            return !!el &amp;&amp; el.nodeType === 1;
+        }
+        var test = document.getElementById('test');
+        console.log(isElement(test))
+        console.log(isElement(test.nextSibling));
     &lt;/script&gt;
 
-</code></pre><br />
-10.写出一个函数的序列化url<br />
-<pre><code class="js">    var url = 'http://3g.baidu.com?username=zhangsan&amp;age=18&amp;address=qweqwe'; // 转换成{'username':'zhangsan','age':'18','address':'qweqwe'}
+</code></pre>
 
-    var urlStr = url.match(/\?+(\w+\=\w+\&amp;*)+/);
-    var urlArr = urlStr[0].slice(1).split('&amp;'); // ['username=zhangsan','age=18','address=qweqwe']
-    var urlObj = {};
-    for (var i of urlArr){
-        urlObj[i.slice(0,i.search('='))] = i.slice(i.search('=')+1)
+<ul>
+<li>HTML DOM的方法</li>
+<li>getElementById() 返回id的元素</li>
+<li>getElementsByTagName() 返回包含标签的节点列表</li>
+<li>getElementByClassName() 返回指定类名的节点列表,ie9以下不支持</li>
+<li>appendChild() 添加子节点</li>
+<li>removedChild() 删除子节点</li>
+<li>replaceChild() 替换子节点</li>
+<li>insertChild() 在指定的子节点前插入新的子节点</li>
+<li>createAttribute() 创建属性节点</li>
+<li>createElement() 创建元素节点</li>
+<li>createTextNode() 创建文本节点</li>
+<li>getAttribute() 返回指定的属性值</li>
+<li>
+<p>setAttribute() 修改属性值</p>
+</li>
+<li>
+<p>HTML DOM的属性</p>
+<blockquote>
+<p>属性是(HTML元素)节点的值</p>
+</blockquote>
+</li>
+</ul>
+<pre><code class="html">    &lt;p id='info'&gt;helloword&lt;/p&gt;
+    &lt;script&gt;
+        var info = document.getElementById('info').innerHTML;
+        document.write(info);
+
+    &lt;/script&gt;
+</code></pre>
+
+<ul>
+<li>
+<p>nodeName </p>
+<blockquote>
+<p>nodeName 是只读属性，nodeName的属性规定节点的名称</p>
+</blockquote>
+<ul>
+<li>元素节点 的nodeName 是标签名称</li>
+<li>属性节点 的nodeName 是属性名称</li>
+<li>文本节点 的nodeName 是#text</li>
+<li>文档节点 的nodeName 是#document</li>
+</ul>
+</li>
+<li>
+<p>nodeValue</p>
+<blockquote>
+<p>规定节点的值</p>
+</blockquote>
+<ul>
+<li>元素节点的 nodeValue 是 undefined 或 null</li>
+<li>文本节点的 nodeValue 是 文本本身</li>
+<li>属性节点的 nodeValue 是 属性值</li>
+</ul>
+</li>
+<li>
+<p>nodeType属性</p>
+<blockquote>
+<p>nodeType属性返回的节点的类型，nodeType是只读的</p>
+</blockquote>
+<ul>
+<li>元素 1</li>
+<li>属性 2</li>
+<li>文本 3</li>
+<li>注释 8</li>
+<li>文档 9</li>
+</ul>
+</li>
+<li>
+<p>childNodes 获得某个元素下所有子元素，包括元素节点，属性节点，注释节点，文本节点等</p>
+</li>
+<li>children 获得某个元素的所有的元素子节点</li>
+</ul>
+<pre><code class="html">     &lt;div id=&quot;box&quot;&gt;
+        &lt;ul&gt;
+            &lt;li class=&quot;items&quot;&gt;1&lt;/li&gt;
+            &lt;li class=&quot;items&quot;&gt;2&lt;/li&gt;
+            &lt;li class=&quot;items&quot;&gt;3&lt;/li&gt;
+        &lt;/ul&gt;
+     &lt;/div&gt;
+     &lt;script&gt;
+     // childNodes 是个伪数组,获得的都是直接子元素
+        var box = document.getElementById('box');
+        box.childNodes;
+     &lt;/script&gt;
+</code></pre>
+
+<ul>
+<li>parenrNode ,firstElementNode, lastElementNode,nextElementNode,preElementNode;<blockquote>
+<p>父节点，第一个子节点，最后一个子节点，笑一个子节点，上一个子节点+ 获取文档值</p>
+</blockquote>
+</li>
+</ul>
+<pre><code class="html">    &lt;p id='info'&gt;hello world&lt;/p&gt;
+    &lt;script&gt;
+    var txt = document.getElementById('info');
+    document.write(txt.firstChild.nodeValue); // hello world
+    &lt;/script&gt;
+</code></pre>
+
+<h3 id="htmldom"><a name="user-content-htmldom" href="#htmldom" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>HTMLDOM 修改</h3>
+<ul>
+<li>修改HTML元素<ul>
+<li>改变HTML的内容</li>
+<li>改变css的样式</li>
+<li>改变HTML的属性</li>
+<li>创建新的HTML元素</li>
+<li>删除已有的HTML的元素</li>
+<li>改变事件（处理程序）</li>
+</ul>
+</li>
+<li>
+<p>创建HTML的内容</p>
+<blockquote>
+<p>document.getElementById().innerHTML</p>
+</blockquote>
+</li>
+<li>
+<p>改变css的样式</p>
+<blockquote>
+<p>ocument.getElementById().style.color</p>
+</blockquote>
+</li>
+<li>
+<p>创建新的HTML的元素</p>
+<blockquote>
+<p>创建元素节点，然后把它追加到已有的元素上</p>
+</blockquote>
+</li>
+</ul>
+<pre><code class="html">    &lt;div id=&quot;div1&quot;&gt;
+        &lt;p id=&quot;p1&quot;&gt;para1&lt;/p&gt;
+        &lt;p id=&quot;p2&quot;&gt;para2&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        var para = document.createElement('p');
+        var node = document.createTextNode('this is a para');
+        para.appendChild(node);
+        var element = document.getElementById('div1');
+        element.appendChild(para);
+
+    &lt;/script&gt;
+</code></pre>
+
+<ul>
+<li>删除元素<blockquote>
+<p>removeChild(),从父元素删除元素</p>
+</blockquote>
+</li>
+</ul>
+<pre><code class="html">    &lt;div id=&quot;div1&quot;&gt;
+        &lt;p id=&quot;p1&quot;&gt;para1&lt;/p&gt;
+        &lt;p id=&quot;p2&quot;&gt;para2&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        var element = document.getElementById('div1');
+        var p1 = document.getElementById('p1');
+        element.removeChild(p1);
+    &lt;/script&gt;
+</code></pre>
+
+<ul>
+<li>
+<p>HTML DOM 事件</p>
+<ul>
+<li>html事件的例子<blockquote>
+<p>当用户点击鼠标时</p>
+<p>当页面加载时</p>
+<p>当图片加载时</p>
+<p>当鼠标拖动到元素上时</p>
+<p>当输入字段被改变时</p>
+<p>当HTML表单被提交时</p>
+<p>当用户触发按键时</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>案例</p>
+</li>
+</ul>
+<pre><code class="html">    // 简单的点击
+    &lt;h1 onclick='this.innerHTML=&quot;123&quot;'&gt;1&lt;/h1&gt;
+    &lt;h1 onclick='changetext(this)'&gt;123&lt;/h1&gt;
+    &lt;script&gt;
+    function changetext(id){
+        id.innerHTML = '456'
     }
-</code></pre></p>
-<p>11.html5的websocket</p>
-<p>12.跨域</p>
-<p>13.移动设备的兼容处理，浏览器兼容的处理</p>
-<p>14.正则表达式<br />
-match search replace slice split <br />
-15.viewport </p>
-<p>16.数组的基本操作方法</p>
-<p>17.css的3d变换的使用</p>
-<ol>
-<li>
-<p>函数的颗粒化<br />
-[<a href="http://www.zhangxinxu.com/wordpress/2013/02/js-currying/">http://www.zhangxinxu.com/wordpress/2013/02/js-currying/</a>]</p>
-</li>
-<li>
-<p>对象和对象永远不相等<br />
-+ 引用类型的比较，比较的的是内存的地址，指针不同<br />
-+ 复杂数据类型，分堆栈存储，栈中存储的是堆中的指针，因为指向不同，存储的内容不同</p>
-</li>
-<li>
-<p>foreach 和 for in的区别</p>
-</li>
-<li>
-<p>js中同步和异步的区别</p>
-</li>
-<li>
-<p>快递排序，冒泡排序，插入排序 </p>
-</li>
-<li>
-<p>兼容css3的样式</p>
-</li>
-<li>
-<p>变量的提升<br />
-est();<br />
-<pre><code>
-### 经典面试题
-1. 变量的提升
-```js
-    function test() {
-        console.log(a); // undefined
-        console.log(foo()); // 2
+    &lt;/script&gt;
+    // 使用HTML 
+    &lt;button id='mybtn'&gt;点击&lt;/button&gt;
+    &lt;p id=&quot;demo&quot;&gt;&lt;/p&gt;
+    &lt;script&gt;
+        document.getElementById('mybtn').onclick = function(){
+            displayDate();
+        };
+        var displayDate = function(){
+            document.getElementById('demo').innerHTML = Date();
+        }
+    &lt;/script&gt;
+    // onchange事件,输入字段的验证
+    &lt;input type=&quot;text&quot; id=&quot;text&quot; onchange='f1()'&gt;
+    &lt;script&gt;
+        function f1(){
+            var x = document.getElementById('text')
+            x.value = x.value.toUpperCase();
+        }
+    &lt;/script&gt;
 
-        var a = 1;
-        function foo() {
-            return 2;
-        }
-    }
-
-    t
-2. this在js中的运行机制
-```js
-    var fullname = 'John Doe';
-    var obj = {
-        fullname: 'Colin Ihrig',
-        prop: {
-            fullname: 'Aurelio De Rosa',
-            getFullname: function() {
-                return this.fullname;
-            }
-        }
-    };
-    console.log(obj.prop.getFullname());  // 'Aurelio De Rosa'
-    var test = obj.prop.getFullname; 
-    console.log(test()); // John Doe
-</code></pre></p>
-</li>
-<li>
-<p>原生native的方法<br />
-在String对象上定义一个repeatify函数。这个函数接受一个整数,来明确字符串需要重复几次。这个函数要求字符串重复指定的次数。比如: ‘abc’.repeatify(3); abcabcabc<br />
-<pre><code class="js">    String.protoType.repeatify = String.protoType.repeatify || function(times){
-        var str = 'abc';
-        for (var i=0;i&lt;times;i++){
-            str += this;
-        }
-        return str;
-    }
-</code></pre></p>
-</li>
-<li>
-<p>call和apply<br />
-<pre><code class="js">    var fullname = 'John Doe';
-    var obj = {
-        fullname: 'Colin Ihrig',
-        prop: {
-            fullname: 'Aurelio De Rosa',
-            getFullname: function() {
-                return this.fullname;
-            }
-        }
-    };
-    var test = obj.prop.getFullname; 
-    test.call(obj.prop) // Aurelio De Rosa
-    test.bind(obj.prop)() // Aurelio De Rosa
-</code></pre></p>
-</li>
-<li>
-<p>scope 范围<br />
-<pre><code class="js">    (function() {
-        var a = b = 5;
-    })();
-
-    console.log(b); // 5,b是全局的变量
-</code></pre></p>
-</li>
-</ol></article></body></html>
+</code></pre></article></body></html>

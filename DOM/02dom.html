@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>dom节点的操作</title>
+	<style>
+		li {
+			width: 20px;
+			height: 30px;
+			background: #f00;
+			transition: 1s;
+		}
+	</style>
+</head>
+<body>
+	<!-- <div id="box">
+	 	<ul>
+	 		<li class="items">1</li>
+	 		<li class="items">2</li>
+	 		<li class="items">3</li>
+	 	</ul>
+	 </div> -->
+	 <ul id="box">
+	 	<li></li>
+	 	<li></li>
+	 	<li></li>
+	 </ul>
+	 <script>
+	 // childNodes 是个伪数组
+	 	// var box = document.getElementById('box');
+	 	// console.log(box.childNodes); // length:3 节点分别为text，ul，text
+	 	// console.log(box.childNodes[1].childNodes); // 
+	 	// console.log(box.childNodes[1].children); // 
+	 	// document.onclick = function(){
+	 	// 	// for (var i = 0, len = box.childNodes[1].childNodes.length; i < len; i++) {
+	 	// 	// 	if (box.childNodes[1].childNodes[i].nodeType === 1) {
+		 // 	// 		box.childNodes[1].childNodes[i].style.width = '150px';
+	 	// 	// 	}
+	 	// 	// }
+	 	// 	for (var i=0,len = box.children[0].childNodes.length;i<len;i++){
+	 	// 		box.children[0].children[i].style.width = '300px';
+	 	// 		box.children[0].children[i].style.background = '#00f';
+	 	// 	}
+	 	// }
+	 	var box = document.getElementById('box');
+	 	document.onclick = function(){
+	 		// for (var i=0,len = box.children.length;i<len;i++){
+	 		// 	box.children[i].style.width = '300px';
+	 		// }
+	 		for (var i = 0, len = box.childNodes.length; i < len; i++){
+	 			if (box.childNodes[i].nodeType === 1) {
+		 			box.childNodes[i].style.width = '300px';
+		 		}
+	 		}
+	 	}
+	 </script>
+</body>
+</html>
