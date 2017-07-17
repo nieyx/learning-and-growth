@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>留言板</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.container {
+			width: 800px;
+			height: 600px;
+			background: #dedede;
+			margin: 0 auto;
+		}
+		textarea ,input {
+			width: 800px;
+			display: block;
+		}
+		input {
+			height: 40px;
+			line-height: 40px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h2>留言内容</h2>
+		<hr>
+		<div class="message">
+			<p>暂时没有留言内容</p>
+			<ul id="ul">
+			</ul>
+		</div>	
+		<textarea name="" id="" cols="30" rows="10" id="content"></textarea>
+		<input type="button" value="发表留言" id="btn">
+	</div>
+	<script>
+		var btn = document.getElementById('btn');
+		var ul = document.getElementById('ul');
+		var content = document.getElementById('content');
+		btn.onclick = function(){
+			console.log(content)
+			if (content.innerHTML) {
+				var li = document.createElement('li');
+				var aD = document.createElement('a');
+				aD.innerHTML = 'delete';
+				li.innerHTML = content.innerHTML;
+				li.appendChild(aD);
+				ul.appendChild(li);
+			} else {
+				alert('请输入内容');
+			}
+		}
+
+
+
+
+	</script>
+</body>
+</html>
