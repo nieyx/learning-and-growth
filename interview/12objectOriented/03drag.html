@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>封装面向对象的可拖拽的方法</title>
+	<style>
+		.box {
+			width: 100px;
+			height: 100px;
+			background: #f00;
+			position: absolute;
+			left:0;
+			top:0;
+		}
+	</style>
+</head>
+<body>
+	<script>
+	//功能函数
+		// window.onload = function(){
+		// 	var box = document.getElementById('box');
+		// 	var boxx = 0;
+		// 	var boxy = 0;
+		// 	box.onmousedown = function(env){
+		// 		var e = env || window.event;
+		// 		boxx = e.clientX - box.offsetLeft;
+		// 		boxy = e.clientY - box.offsetTop;
+		// 		document.onmousemove = function(e){
+		// 			var e = e || window.event;
+		// 			box.style.left = e.clientX - boxx + 'px';
+		// 			box.style.top = e.clientY - boxy + 'px';
+		// 		}
+
+		// 		document.onmouseup = function(){
+		// 			document.onmousemove = null;
+		// 			document.onmouseup = null;
+		// 		}
+		// 		return false;
+		// 	}
+		// }
+
+		// 面向对象
+		window.onload = function(){
+			var d1 = new Drag();
+			d1.down();
+		}
+		function Drag(){
+			this.box = document.getElementById('box');
+			this.boxx = 0;
+			this.boxy = 0;
+		}
+		Drag.prototype.down = function () {
+			var This = this;
+			this.box.onmousedown = function(env){
+				var e = env || window.event;
+				This.boxx = e.clientX - box.offsetLeft;
+				This.boxy = e.clientY - box.offsetTop;
+
+				document.onmousemove = function(){
+					var e = e || window.event;
+					This.move(e);
+				}
+				document.onmouseup = function(){
+					This.upClear();
+				}
+				return false;
+			}
+		}
+		Drag.prototype.move = function (e) {
+			this.box.style.left = e.clientX - this.boxx + 'px';
+			this.box.style.top = e.clientY - this.boxy + 'px';
+		}
+		Drag.prototype.upClear = function () {
+				document.onmousemove = null;
+				document.onmouseup = null;
+		}
+	</script>
+	<div class="box" id="box"></div>
+</body>
+</html>
