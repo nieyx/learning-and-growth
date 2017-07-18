@@ -62,6 +62,37 @@
 		xiaohong.name; // '小红'
 		xiaohong.__proto__ === Student; // true
 	```
+
+### 基本数据类型的包装对象
++ 基本数据类型：string ，number，boolean
++ 对象是复杂数据类型obj，obj可以有自己的属性和方法
++ 那么，问题来了，如下的字符串，为什么可以调用str.indexof方法
+```js
+	var str = 'hello world!';
+	str.charAt();
+	str.indexof('e');
+
+	// str是基本数据类型，在调用方法的时候创建一个包装对象，在调用完之后包装对象消失
+	var str = 'hello world!';
+	str.charAt(); // 创建一个包装对象，包装对象中有charAt的方法
+
+	String.prototype.charAt = function(){
+		// some code here
+	}
+	
+
+	// 思考如下代码会输出什么
+	var str = '123';
+	str.number = 10; // 创建了一个包装对象，给对象添加了number的属性，创建之后，包装对象消失
+	console.log(str.number) // undefined ，再次创建包装对象
+
+	var str = '123';
+	String.prototype.number = function(){
+		console.log(10);
+	}
+	console.log(str.number()) // 在包装对象上添加了方法，调用的是包装对象的方法
+```
+
 ### 原型链
 + 创建函数
 	- 每一个创建的对象，都会有一个原型__proto__，这个原型，指向它的原型对象
