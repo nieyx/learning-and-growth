@@ -93,6 +93,42 @@
 	console.log(str.number()) // 在包装对象上添加了方法，调用的是包装对象的方法
 ```
 
+### 面向对象的一些属性和方法
++ hasOwnProperty()  : 看是不是对象自身下面的属性
++ constructor :  查看对象的构造函数，每个原型都会自动添加constructor属性，
+> 构造函数或被默认的添加上constructor，如
+```js
+	var Aaa  = function () {
+		this.name = '123';
+	}
+	Aaa.prototype.constructor = Aaa;
+	console.log(Aaa.prototype.constructor === Aaa) // true
+
+	// Aaa.prototype.constructor === Aaa 是在构建函数被创建之后就生成的，最好不要修改
+	// 但有时候会不经意的修改，如下
+	Aaa.prototype = {
+		num: 10,
+		prop: 20	}
+	console.log(Aaa.prototype) // Aaa
+	console.log(Aaa.prototype.constructor === Aaa) // flase
+	console.log(Aaa.prototype.constructor) // object
+
+	// 原因，在Aaa.prototype = {}时被prototype的值被一个json对象给赋值，修复方式如下
+	Aaa.prototype = {
+		constructor: Aaa,
+		num: 10,
+		prop: 20
+	}
+	console.log(Aaa.prototype) // Aaa
+	console.log(Aaa.prototype.constructor === Aaa) // true
+	console.log(Aaa.prototype.constructor) // Aaa
+``` 
+
++ For in 的时候有些属性是找不到的系统自带的属性
+避免修改construtor属性
++ instanceof :  运算符对象与构造函数在原型链上是否有关系，可用来判断数据类型
++ toString() :  object上的方法，可用来判断数据类型
+
 ### 原型链
 + 创建函数
 	- 每一个创建的对象，都会有一个原型__proto__，这个原型，指向它的原型对象
@@ -165,6 +201,37 @@
 	```
 
 + 原型继承
+```js
+	// 创建一个人的类
+	function CreatePerson (name, sex) {
+		this.name = name;
+		this.sex = sex;
+	}
+	CreatePerson.prototype.showname = function () {
+		return console.log(this.name)
+	}
+	
+	// 创建一个明星的类
+	function CreateStar (name, sex, address) {
+		this.name = name;
+		this.sex = sex;
+		this.address = address;
+	}
+	CreateStar.prototype.showSex = function () {
+		return console.log(this.name + '  ' + this.sex);
+	}
+
+	// 上面的代码中，CreatePerson与CreateStar中都有this.name this.sex,可以让明星类去引用人类的方法
+	// 修改如下
+	function CreateStar (name, sex, address) {
+		CreatePerson.call(this, name, sex) // 可以调用父类的属性，但是没有父类原型上的方法
+		this.address = address;
+	}
+
+	// 实现原型继承
+	// 可直接想到的方法
+	CreateStar.prototype = CreatePerson.prototype // 复杂数据类型的存储，是存储在堆中的，将一个对象赋值给另一个，他俩的指针指向了同一个原型对象的地址，那么修改子类的时候，父类也被修改，这是不想看到的结果，所以不能这样使用
+```
 + class继承
 	> ES6中class继承
 	```
