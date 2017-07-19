@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>原型继承</title>
+</head>
+<body>
+	<script>
+		window.onload = function(){
+			// function Student () {
+			// 	this.name = 'zhangsan'
+			// }
+			// Student.prototype.class = function () {
+			// 	return console.log(this.name);
+			// }
+
+			// // primaryStudent
+			// function primaryStudent (props) {
+			// 	Student.call(this, props);
+			// 	this.prop = props;
+			// }
+
+			// // F
+			// var F = function () {};
+			// F.prototype = Student.prototype;
+			// primaryStudent.prototype = new F();
+			// primaryStudent.prototype.constructor = primaryStudent;
+
+			// var p1 = new primaryStudent();
+			// p1.class();
+
+			// 将上述内容可封装成一个函数，供多次调用
+			function Student () {
+				this.name = 'zhangsan';
+			}
+			Student.prototype.class = function () {
+				return console.log(this.name);
+			}
+
+			function Inerit(child, parent) {
+				var F = function () {};
+				F.prototype = parent.prototype;
+				child.prototype = new F();
+				child.prototype.constructor = child;
+			}
+
+			function primaryStudent (props) {
+				Student.call(this, props);
+			}
+
+			Inerit(primaryStudent, Student);
+
+			var p1 = new primaryStudent();
+			p1.name = 'lisi';
+			p1.class();
+		}
+	</script>
+</body>
+</html>
