@@ -201,6 +201,38 @@
 	```
 
 + 原型继承
+	- 简单的继承,方法继承，拷贝继承
+	```js
+		// for in 可以用来循环属性
+		var a = {
+			name: 'xiaohong';
+		};
+		var b = a;
+		b.name = 'xiaoming';
+		console.log(b.name) // xiaoming
+		console.log(a.name) // xiaoming, a的属性被更改，因为复杂数据类型的存储在堆中，对象赋值，指针指向同一个地方，一个改变，内容就改变
+
+		// 正确的修改方式
+		var a = {
+			name: 'xiaoming'
+		}
+		var b = {}
+		for (var attr in a) {
+			b[attr] = a[attr]
+		}
+		b.name = 'xiaohong'
+		console.log(b.name) // xiaohong
+		console.log(a.name) // xiaoming
+
+		// 对上述code进行代码封装
+		function extend(obj1, obj2) {
+			for (var attr in obj1) {
+				obj2[attr] = obj1[attr]
+			}
+		}
+		extend(a, b)
+	```
+	- 原型继承
 ```js
 	// 创建一个人的类
 	function CreatePerson (name, sex) {
@@ -213,8 +245,10 @@
 	
 	// 创建一个明星的类
 	function CreateStar (name, sex, address) {
-		this.name = name;
-		this.sex = sex;
+		// this.name = name;
+		// this.sex = sex;
+		CreatePerson.call(this, name, sex) // 可以调用父类的属性，但是没有父类原型上的方法
+
 		this.address = address;
 	}
 	CreateStar.prototype.showSex = function () {
@@ -223,14 +257,25 @@
 
 	// 上面的代码中，CreatePerson与CreateStar中都有this.name this.sex,可以让明星类去引用人类的方法
 	// 修改如下
-	function CreateStar (name, sex, address) {
-		CreatePerson.call(this, name, sex) // 可以调用父类的属性，但是没有父类原型上的方法
-		this.address = address;
-	}
-
+	// function CreateStar (name, sex, address) {
+	// 	CreatePerson.call(this, name, sex) // 可以调用父类的属性，但是没有父类原型上的方法
+	// 	this.address = address;
+	// }
+	
 	// 实现原型继承
 	// 可直接想到的方法
 	CreateStar.prototype = CreatePerson.prototype // 复杂数据类型的存储，是存储在堆中的，将一个对象赋值给另一个，他俩的指针指向了同一个原型对象的地址，那么修改子类的时候，父类也被修改，这是不想看到的结果，所以不能这样使用
+
+	// 可通过一个中间的空对象来转换
+	var F = function () {};
+	F.prototype = CreatePerson.prototype;
+	CreateStar.prototype = new F();
+	CreateStar.prototype.constructor = CreateStar;
+
+	var p1 = new CreateStar('xiaoming','man','beijing');
+	p1.showname();
+	p1.showSex();
+
 ```
 + class继承
 	> ES6中class继承
