@@ -606,7 +606,92 @@
 	</script>
 ```
 
+### 箭头函数
++ 词法作用域
+> 词法作用域，就是一个变量的作用在定义的时候就已经被定义好了，当本作用域找不到变量，就会一直向父作用域去着，直到找到位置
++ 箭头函数中的this，箭头函数遵循词法作用域
+	- 箭头函数本身没有this，但是会向上查找this，找到就继承this
+	- 普通函数this是在定义时候决定的，谁调用就指向谁
 
+	```js
+		function fn() {
+			var a = 'hello';
+			var b = 'js';
+
+			function innerFn(){
+				var b = 'world';
+				console.log(`${a} ${b}`)
+			}
+			innerFn(); // 函数中已经定义了变量b，所以不会继续往上找
+		}
+		fn();  // hello world
+	```
+
+	- 箭头函数中的this
+	```js
+		function taskA() {
+			this.name = 'hello'
+
+			var fn = function(){
+				console.log(this) // window
+				console.log(this.name) // hello
+			}
+
+			var arrow_fn = () => {
+				console.log(this) // window
+				console.log(this.name) // hello
+			}
+
+			fn()
+			arrow_fn()
+		}
+		taskA(); 
+		// fn中的this是在运行的时候产生的，由于是直接调用的fn() 所以this就是指向window，如果将上述改成
+		function taskA(){
+			this.name = 'hello';
+
+			var fn = function(){
+				console.log(this);
+				console.log(this.name);
+			}
+
+			var obj = {
+				name: 'haha',
+				fn: fn
+			}
+			obj.fn();
+		}
+		taskA(); // obj,haha
+
+		// 箭头函数中的流程，遵循词法作用域，本身没有this，于是向上找，找到taskA是有this的，于是就继承了tasA的作用域，taskA是直接被调用的，所以tasA的this是window
+		
+		// 下面案例this的指向是什么？
+		function taskA() {
+			var arrow_fn = () => {
+				console.log(this)
+				console.log(this.name)
+			}
+			arrow_fn()
+		}
+		var obj = {name:'jack'}
+		taskA(); // window,undefined
+		taskA.bind(obj)() // obj, jack
+
+		// 其他的案例
+		var obj = {
+			field: 'hello',
+			getField () {
+				console.log(this.field);
+			},
+			setField: () => {
+				console.log(this.field);
+			}
+		}
+
+		obj.getField(); // hello
+		obj.setField(); // undefined setField中的this指向的是window，但是window中没有field的属性
+		
+	```
 
 
 

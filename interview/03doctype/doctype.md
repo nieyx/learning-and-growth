@@ -9,15 +9,20 @@
 #### 什么是doctype
 
 > 1. doctype 是文档标准类型的声明
+>
 > 2. 出现在文件的第一行
+>
 > 3. doctype不是html标签，是指令，指示web浏览器文档关于页面使用哪个html的版本规范进行编写的指令
+>
 > 4. 目的：告诉浏览器使用什么样的文档定义（DTD）来解析文档
 
 #### 如何设置doctype
->
 > 1. html4.0.1 有三种声明格式
+>
 > 2. html5 ：使用最新的html的格式，因此是不需要DTD的引用
+>
 > 3. html4.0.1与html5的差别
+>
 >>	- 4.0.1 是基于SGML，而5.0不是，所以引用的方式不同
 >>	- SGML -- standard generalized makeup language
 

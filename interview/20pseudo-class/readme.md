@@ -123,7 +123,7 @@
 	</div>
 ```
 
-+ disale 匹配禁用的表单元素
++ disable 匹配禁用的表单元素
 
 ```html
 	<style>
