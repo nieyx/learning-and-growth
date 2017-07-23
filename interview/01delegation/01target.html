@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件冒泡和事件捕获</title>
+	<style>
+		div {
+			padding: 50px;
+		}
+		#s1 {
+			background: #f00
+		}
+		#s2 {
+			background: #00f
+		}
+	</style>
+</head>
+<body>
+	<div id="s1">s1
+    	<div id="s2">s2</div>
+	</div>
+<script>
+	s1.addEventListener("click",function(e){
+	        alert("s1 冒泡事件");         
+	},false);
+	s2.addEventListener("click",function(e){
+	        alert("s2 冒泡事件");
+	},false);
+	        
+	s1.addEventListener("click",function(e){
+	        alert("s1 捕获事件");
+	},true);
+	        
+	s2.addEventListener("click",function(e){
+	        alert("s2 捕获事件");
+	},true);
+</script>
+</body>
+</html>

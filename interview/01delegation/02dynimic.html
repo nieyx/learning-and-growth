@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动态添加li之后的事件代理绑定</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		li {
+			list-style: none;
+		}
+		input {
+			display: block;
+			width: 300px;
+			height: 30px;
+			line-height: 30px;
+			background: #f0f;
+			text-align:center;
+			border-style: none;
+			margin:0 auto;
+		}
+		.box {
+			width: 600px;
+			height: 600px;
+			padding: 20px;
+			margin:0 auto;
+			border: 10px solid #000;
+		}
+		ul li {
+			height: 30px;
+			line-height: 30px;
+			background: #f0f;
+			border-bottom: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="按钮" id="btn">
+	<div class="box" id="box">
+		<ul id="ul">
+			<li>list1</li>
+			<li>list2</li>
+		</ul>
+	</div>
+	<script>
+		var btn = document.getElementById('btn');
+		var box = document.getElementById('box');
+		var lis = box.getElementsByTagName('li');
+		var ul = document.getElementById('ul');
+		btn.addEventListener('click', function(){
+			var li = document.createElement('li')
+			var num = lis.length;
+			li.innerHTML = 'list' + ++num;
+			ul.appendChild(li);
+		})
+
+		ul.addEventListener('click', function(e){
+			alert(e.target)
+			console.log(e.target)
+		})
+	</script>
+
+</body>
+</html>

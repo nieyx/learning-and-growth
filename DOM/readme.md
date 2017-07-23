@@ -1,4 +1,4 @@
-## DOM
+f## DOM
 + 什么是DOM
 > document object model
 > 一个页面，由html css js构成
