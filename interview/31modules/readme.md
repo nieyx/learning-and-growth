@@ -100,9 +100,15 @@
 
 + require.js 是基于AMD模块化的
 
+### CMD异步模块加载
++ cmd和amd的不同之处，是对于**依赖模块的执行时机不同**
 
-
-
+```js
+	defined(function(require, exports, module){
+		var clock = require('clock');
+		clock.start();
+	})
+```
 
 
 
