@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>优化js的加载</title>
+</head>
+<body>
+	<!-- 在不支持defer的浏览器上，执行的顺序是defer，script，window.onload -->
+	<!-- 在支持defer的浏览器上ie和firefox3.5上，执行的顺序是script，defer，window.onload -->
+	<!-- <script async>
+		alert('defer')
+	</script>
+	<script>
+		alert('script')
+	</script>
+	<script>
+		window.onload = function(){
+			alert('window.onload')
+		}
+	</script> -->
+	<script>
+		var script = document.createElement('script');
+		script.type = 'text/javascript';
+
+		script.onload = function() {
+			alert('script loaded')
+		};
+
+		script.src = './script1.js';
+		document.getElementsByTagName('head')[0].appendChild(script);
+	</script>
+</body>
+</html>

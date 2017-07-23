@@ -34,4 +34,80 @@
 + js解析 --- 在js加载的同时也在解析
 
 
-### 渲染
+### 优化建议
+参考页面[https://www.ibm.com/developerworks/cn/web/1308_caiys_jsload/index.html]
+1. 将script标签放在页面的底部
+2. 减少script的请求量
+3. 无阻塞脚本，在页面加载完成后，在加载js代码，window.onload事件触发之后在下载脚本
+	+ 使用defer和async的属性
+	+ 动态的创建script标签
+	+ XHR创建script标签，弊端是必须页面处于同源，不能是存在cdn缓存中
+
+
+### defer属性
++ 在html4.0中提出的，只在ie和firefox3.5以上才有效果，
++ 在script标签中设置了defer属性之后，表示这个js脚本不会多DOM进行操作
++ 设置defer属性之后，可以放置在页面的任何部分，会加载但是不会执行，直到dom加载完成，既载onload执行之前才会被解析
+
+### async属性
++ 与defer具有相同的功能，可以异步加载js脚本
++ 但是设置了async属性的脚本，是加载后就会执行，在js之间有依赖的话，是会报错的
+
+
+### 动态加载脚本
++ 动态的加载脚本，在script标签被打到页面上之后，就直接立刻开始下载
++ 此方法的好处是：无论在何处，文件的加载和执行，都不会加载和阻塞页面的处理过程
++ 可以将此方法创建的script放在head中
++ 动态加载的脚本，会在调用的时候直接加载，如何这个脚本中包含其他页面需要调用的接口，那么就会出现问题
++ 这时就需要对脚本做一个监控，查看是否加载完成
+
+```js
+	// 封装一个动态创建script的方法
+	function loadScript (url, callback) {
+		var script = docuemnt.createElement('script');
+		script.type = 'text/javascript';
+
+		if (script.readState) {
+			script.onreadystats = function () {
+				if (script.readyState == "loaded" || script.readyState == "complete") {
+					script.onreadystatechange = null;
+					callback();
+				}
+			}
+		} else {
+			script.onload = function () {
+				callback()
+			}
+		}
+
+		script.src = url;
+		document.getElementsByTagNamw('head')[0].appendChild(script);
+	}
+	loadScript('./script.js', function(){
+		loadScript('./script1.js', function(){
+			alert('all files are loaded')
+		})
+	}) // 可以保证加载顺序
+```
+
+
+### XHR对象实现异步加载
++ 可以使用xhr的方式下载不理解执行的代码
+```js
+	var xhr = new XMLHttpRequest();
+	xhr.open('get','script1.js')
+	xhr.onreadystatechange = function () {
+		if (xhr.readState ===4) {
+			if ( xhr.status >= 200 && xhr.readyState <= 300 || xhr.readyState === 304) {
+				var script = document.createElement('script');
+				script.type = 'text/javascript';
+				script.text = xhr.responseText;
+				document.body.appendChild('script');
+			}
+			
+		}
+	}
+	xhr.send(null);
+```
+
+
