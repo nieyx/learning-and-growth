@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多列等高的处理方式</title>
+	<style>
+		.outer {
+		  width: 960px;
+		  margin: 0 auto;
+		  border: 1px solid #000;
+		  overflow: hidden;
+		  background-color: green;
+		  color: #fff;
+		}
+		.left {
+		  width: 200px;
+		  position: relative;
+		  float: left;
+		}
+		.equh {
+		  width: 100%;
+		  height: 999em;
+		  position: absolute;
+		  left: 0;
+		  top: 0;
+		  border-right: 1px solid #000;
+		  background-color: orange;
+		}
+
+		.left-con {
+		  padding: 1em;
+		  position: relative;
+		  z-index: 1;
+		}
+		.right {
+		  padding: 1em;
+		  overflow: hidden;
+		}
+
+		.box {
+		  width: 600px;
+		  overflow: hidden;
+		  margin: 10px auto;
+		  border: 1px solid #888;
+		}
+		.sub {
+		  float: left;
+		  width: 30%;
+		  margin-right: 3%;
+		  border: 1px solid orange;
+		  padding-bottom: 9999px;
+		  margin-bottom: -9999px;
+		}
+	</style>
+
+</head>
+<body>
+	<div class="outer">
+	  <div class="left">
+	    <div class="equh"></div>
+	    <div class="left-con">
+	      <p>left</p>
+	      <p>left</p>
+	      <p>left</p>
+	    </div>
+	  </div>
+	  <div class="right">
+	    <p>right</p>
+	    <p>right</p>
+	    <p>right</p>
+	    <p>right</p>
+	    <p>right</p>
+	  </div>
+	</div>
+	<div class="box">
+	  <div class="sub">
+	    <p>a</p>
+	  </div>
+	  <div class="sub">
+	    <p>b</p>
+	    <p>b</p>
+	  </div>
+	  <div class="sub">
+	    <p>c</p>
+	    <p>c</p>
+	    <p>c</p>
+	  </div>
+	</div>
+</body>
+</html>

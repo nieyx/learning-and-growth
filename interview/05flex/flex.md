@@ -14,12 +14,12 @@
 
 #### 基本概念
 
-> + 采用flex布局的元素，成为flex容器，flex container
-> + flex容器中的每一项，称为flex items
-> + 容器磨人由两根轴，main axis，cross axis
-> + 主轴开始的位置称为main start，结束位置main end
-> + 侧轴开始的位置称为cross start，结束位置为cross end
-> + 项目默认占主轴的位置为main size，占侧轴的位置为cross size
+> 1 采用flex布局的元素，成为flex容器，flex container
+> 2 flex容器中的每一项，称为flex items
+> 3 容器默认由两根轴，main axis，cross axis
+> 4 主轴开始的位置称为main start，结束位置main end
+> 5 侧轴开始的位置称为cross start，结束位置为cross end
+> 6 项目默认占主轴的位置为main size，占侧轴的位置为cross size
 
 
 #### 容器的属性
