@@ -104,7 +104,7 @@
 	- word-space：-个数 * 2
 13. 什么是BFC，
 + BFC block formatting context
-+ BFC北部的元素和外部的元素不会相互影响
++ BFC内部的元素和外部的元素不会相互影响
 
 
 

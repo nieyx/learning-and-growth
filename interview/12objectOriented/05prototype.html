@@ -7,34 +7,50 @@
 <body>
 	<script>
 		// 父类
-		function Aaa () {
+		function Aaa(){
 			this.name = [1,2,3];
 		}
-		Aaa.prototype.showname = function () {
-			return console.log('name is ' + this.name);
-		}
-		// 子类
-		function Bbb () {
-
+		Aaa.prototype.shownamw = function(){
+			console.log(this.name)
 		}
 
-		// 继承方式
+
+		// 想继承Aaa的一个子类 Bbb
+		function Bbb() {
+
+		}
 		Bbb.prototype = new Aaa();
 		var b1 = new Bbb();
-		alert(b1.name,111) // 1,2,3
-		// alert(b1.showname()) // undefined
 		b1.name.push(4);
+		console.log(b1.name) // [1,2,3,4]
 		var b2 = new Bbb();
-		alert(b2.name,222) // 1,2,3,4 不同的实例，但是修改b1的时候，b2改变，这不是预想的效果
+		console.log(b2.name) // [1,2,3,4]
 
-		// 创建一个转换层，为了修改时互相不影响
-		var F = function(){}
-		F.prototype = Aaa.prototype;
-		Bbb.prototype = new F();
-		Bbb.prototype.constrcutor = Bbb();
-		
+		// 对于上面的问题，b1修改了那么属性，b2引用的时候也是调用了修改之后的属性
+		// 为了避免混淆，要将属性和方法分开继承
+		function Ccc() {
+			this.name = [1,2]
+		}
+		Ccc.prototype.showname = function () {
+			console.log(this.name)
+		}
+		function Ddd() {
+			Ccc.call(this); // 调用父类的属性
+		}
+		// 一个空的函数F
+		function F() {}
+		F.prototype =  Ccc.prototype;
+		Ddd.prototype = new F();
+		console.log(Ddd.prototype)
+		console.log(Ddd.prototype.constructor)
+		Ddd.prototype.constructor = Ddd; // 通过Ddd.prototype=new F();修改了Ddd的构造函数，通过手动将值修改过来
 
+		var d1 = new Ddd();
+		d1.name = [1]
+		d1.showname(); // [1]
 
+		var d2 = new Ddd();
+		d2.showname(); // [1,2]
 	</script>
 </body>
 </html>
