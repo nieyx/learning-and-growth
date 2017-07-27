@@ -12,40 +12,48 @@
 			left:0;
 			top:0;
 		}
+		#box1 {
+			background: #00f;
+			left:100px;
+		}
 	</style>
 </head>
 <body>
 	<script>
 	//功能函数
-		// window.onload = function(){
-		// 	var box = document.getElementById('box');
-		// 	var boxx = 0;
-		// 	var boxy = 0;
-		// 	box.onmousedown = function(env){
-		// 		var e = env || window.event;
-		// 		boxx = e.clientX - box.offsetLeft;
-		// 		boxy = e.clientY - box.offsetTop;
-		// 		document.onmousemove = function(e){
-		// 			var e = e || window.event;
-		// 			box.style.left = e.clientX - boxx + 'px';
-		// 			box.style.top = e.clientY - boxy + 'px';
-		// 		}
+	// window.onload = function(){
+	// 	var box = document.getElementById('box');
+	// 	var boxx = 0;
+	// 	var boxy = 0;
 
-		// 		document.onmouseup = function(){
-		// 			document.onmousemove = null;
-		// 			document.onmouseup = null;
-		// 		}
-		// 		return false;
-		// 	}
-		// }
+	// 	box.onmousedown = function(env){
+	// 		var e = env || window.event;
+	// 		boxx = e.clientX - box.offsetLeft;
+	// 		boxy = e.clientY - box.offsetTop;
 
-		// 面向对象
-		window.onload = function(){
-			var d1 = new Drag();
+	// 		document.onmousemove = function(event){
+	// 			var e = event || window.event;
+	// 			box.style.left= e.clientX - boxx + 'px';
+	// 			box.style.top= e.clientY - boxy + 'px';
+	// 		}
+	// 		document.onmouseup = function(event){
+	// 			document.onmousemove= null;
+	// 			document.onmouseup = null;
+	// 		}
+
+	// 		return false;
+	// 	}
+	// }
+
+	// 面向对象的方式
+	window.onload = function(){
+			var d1 = new Drag('box');
 			d1.down();
+			var d2= new Drag('box1');
+			d2.down();
 		}
-		function Drag(){
-			this.box = document.getElementById('box');
+		function Drag(id){
+			this.box = document.getElementById(id);
 			this.boxx = 0;
 			this.boxy = 0;
 		}
@@ -53,9 +61,8 @@
 			var This = this;
 			this.box.onmousedown = function(env){
 				var e = env || window.event;
-				This.boxx = e.clientX - box.offsetLeft;
-				This.boxy = e.clientY - box.offsetTop;
-
+				This.boxx = e.clientX - This.box.offsetLeft;
+				This.boxy = e.clientY - This.box.offsetTop;
 				document.onmousemove = function(){
 					var e = e || window.event;
 					This.move(e);
@@ -76,5 +83,6 @@
 		}
 	</script>
 	<div class="box" id="box"></div>
+	<div class="box" id="box1"></div>
 </body>
 </html>

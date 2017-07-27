@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>弹窗组建的开发</title>
+	<style>
+		.box {
+			width: 600px;
+			height: 500px;
+			background: #fff;
+			border: 1px solid #000;
+		}
+		.nav {
+			width: 100%;
+			height: 40px;
+			line-height: 40px;
+			background: #dedede
+		}
+		.box .title {
+			float: left;
+			margin-left: 20px;
+		}
+		.box .close {
+			float: right;
+			margin-right: 20px;
+		}
+		.btn {
+			width: 300px;
+			height: 40px;
+			background: #f0f;
+			word-spacing:-6px;
+
+		}
+		.btn input {
+			display: inline-block;
+			width: 100px;
+			height: 40px;
+			line-height: 40px;
+			background: #d3d3d3;
+			border-style:none;
+			border-radius:10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="btn" id="btn">
+		<input type="button" value="居中弹窗">
+		<input type="button" value="右下角弹窗">
+		<input type="button" value="居中带浮层弹窗">
+	</div>
+	<script>
+		window.onload = function () {
+			var btn = document.getElementById('btn');
+			var inputs = btn.getElementsByTagName('input');
+
+			// 给第一个按钮绑定事件
+			inputs[0].onclick = function () {
+				alert(1)
+			}
+
+			// 给第一个按钮绑定事件
+			inputs[1].onclick = function () {
+				alert(11)
+			}
+
+			// 给第一个按钮绑定事件
+			inputs[2].onclick = function () {
+				alert(111)
+			}
+
+			function PopDiv() {
+
+			}
+			PopDiv.prototype.pop = function () {
+				var div = document.createElement('div');
+				div.className = 'box';
+			}
+		}
+	</script>
+	<!-- <div class="box">
+		<div class="nav">
+			<div class="title">弹窗</div>
+			<div class="close"> X </div>
+		</div>
+		<div class="body"></div>
+	</div> -->
+</body>
+</html>

@@ -67,6 +67,15 @@
 ```
 4. 正则匹配输出’hello[哈哈]world’
 var str = 'hello<img src="haha.png" alt="哈哈" />world';
+```js
+	var str = 'hello<img src="haha.png" alt="哈哈" />world';
+	var a = str.search('<');
+	var c = str.match('<');
+	var b = str.search('>');
+	var d = str.match('>');
+	console.log(a,c)
+	console.log(b,d)
+```
 5. 请罗列常用清除浮动方案
 6. 陈述Zepto tap事件点透的原因及解决方案
 7. 解释一下Javascript 的同源策略，你所能了解到的ajax跨域解决方案以及各种方案的优缺点。
@@ -449,7 +458,72 @@ est();
 12. 说一个遇到的过有挑战的项目
 
 
+### 51talk 2017.7.25
+1. &&与|| 和 &与|的区别
+	- &与|是位运算符，但是也可以进行逻辑运算
+	- a || b  如果a为true，那就返回a，如果a为false，那么句返回b
+	- a | b，是要同时判断两侧的a，b
+2. 正则匹配9位qq号码
+3. js的继承方式
+> 拷贝继承，原型继承，构造函数继承
+4. 手写ajax请求
+5. 多个ajax请求，如何判断完成全部的数据接收？
+> 计数，每次请求完成后，count++，最后判断count的值是否和请求址相等，相等的话，就完成数据接收
+6. jquery的深拷贝
 
+
+### 美旅 2017.7.26
+1. angular中什么事件可以触发脏检查，什么是angular的脏检查
+2. angular中控制器中如何实现数据的传递
+3. angular中service，provider和factory有什么不同
+4. angular和jqueryyou 有和不同
+5. node的中间件用过哪些
+7. node中如何进行断点调试
+8. js中严格模式和非严格模式有何不同
+9. js冒泡原理与应用，什么事件不支持冒泡，js中事件捕获的应用
+10. js实现快速排序
+11. 封装一个函数，使得每次调用的时候，计数，知道是第几次调用这个函数
+```js
+	function count(){
+		var self = this;
+		this.count = 0;
+		return function(){
+			console.log(self.count++)
+		}
+	};	
+	var c = count();
+	c();
+```
+12. 闭包的应用
+```js
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+	</head>
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+		<script>
+			var lis = document.getElementsByTagsName('li');
+			for(var i=0,i<lis.length;i++){
+				lis[i].onclick = function {
+					alert(i);
+				}
+			}
+		</script>
+	</body>
+	</html>
+```
+13. 浏览器的同源策略是什么，跨域的方式，各个方法的优缺点
+14. 使用npm 安装包的版本时候，比如@^1.0.0 中^是什么意思
+15. git origin 后面可以跟分支地址？
 
 
 
