@@ -127,6 +127,23 @@
 + For in 的时候有些属性是找不到的系统自带的属性
 避免修改construtor属性
 + instanceof :  运算符对象与构造函数在原型链上是否有关系，可用来判断数据类型
+```js
+	Function instanceof Object // false
+	// js可以来看对象之间的关系
+	Function.__proto__ === Object.prototype // false
+	// 那Function的__proto__是指向谁呢？
+	Function.__proto__ === Function.prototype // true
+	// 指向了自己的原型对象，那么如下的
+	Function instanceof Fcuntion // true
+	// 那么Function instanceof Object也可以解释了
+	Function.__proto__ === Function.prototype
+	Function.__proto__.__proto__ === Object.prototype
+
+	// 如果我们设置了
+	Function.__proto__.__proto__ = null;
+	Function instanceof Object // false
+	Function instanceof Function // true 
+``` 
 + toString() :  object上的方法，可用来判断数据类型
 
 ### 原型链
@@ -151,6 +168,10 @@
 	> 3.obj的原型上也没有，要一直查到Object.prototype对象
 	>
 	> 4.一直没找到，则返回undefined
+
+	- 原型链__proto__
+	文档地址[https://blog.oyanglul.us/javascript/understand-prototype.html]
+
 + 构造函数
 	- new + 函数 ----> 构造函数
 		```js
@@ -168,7 +189,26 @@
 			// 当函数直接被调用时，this指向的是window，并且返回undefined
 			// 原型：xiaohong	 ----> Student.prototype ----> Object.prototype ----> null
 		```
+	- new一个构造函数之后，发生了什么事情？
+	```js
+		function A (name) {
+			this.name = name || 'xiaoming';
+		}
+		A.prototype.showName = function () {
+			return console.log(this.name)
+		}
+		// var a = new A('haha'); =>
+		var a = new Object();
+		a.__proto__ = A.prototype;
+		A.call(a,'haha'); // 把A的this指向a
 
+		// 上述中的__proto__ 是啥？是原型链
+		a.showName === A.prototype.showName // 
+		a.toString === Object.prototype.toString //
+		a.__proto__ === A.prototype
+
+
+	```
 	- constructor属性
 		```
 			// 从构造函数上继承了constructor属性

@@ -12,6 +12,7 @@
 9. angular中的digest周期是什么
 10. 至少列出三种不同模块之间的通讯？
 11. angualr中使用jquery好么？
+12. angular中$watch的使用？
 
 ### service factory 和 provider是什么关系？
 1. service---**返回的是一个实例化的对象**
@@ -175,5 +176,23 @@
 
 ### angualr中使用jquery好么？
 1. 慢慢改掉习惯
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
