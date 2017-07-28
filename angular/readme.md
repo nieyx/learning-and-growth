@@ -177,7 +177,43 @@
 ### angualr中使用jquery好么？
 1. 慢慢改掉习惯
 
+### angular中$watch的使用
++ watch的简介
+	1. 脏检查会触发watch的方法
+	2. 在脏检查的digest执行时，如果watch观察的value与上次执行时候不一样，就会被触发，watch实现了页面跟随model的及时更新
+	3. watch方法在用的时候主要是受冻监听一个对象，但对象发生变化时触发某个事件
 
++ watch方法的用法
+	1. $watch(watchFn, watchAction, deepWatch);
+	2. watchFn:angualr的表达式或函数的字符串
+	3. watchAction(newValue, oldValue, scope),watchFn发生时会被调用
+	4. deepWatch： 可选的布尔值，检查被监控的对象的每个属性是否发生变化
+
++ 案例
+```js
+	// 当name的表单改变30次，然后触发某个事件
+	// 控制器代码如下
+	var firstController = function ($scope) {
+		$scope.name = 'zhangsan';
+		$scope.count = 0;
+
+		// 监听一个model，当一个model每次改变时，都会出啊发第二个函数
+		$scope.$watch('name', function(new, old){
+			++$scope.count;
+			if( $scope.count > 30) {
+				$scope.name = '已经大于30次了'
+			}
+		})；
+	}
+
+	// html代码如下
+	<div ng-app=''>
+		<div ng-controller="firstController">
+		<input type="text" name="" id="" ng-model='name'>
+		改变次数：{{count}} - {{name}}
+		</div>
+	</div>
+```
 
 
 
