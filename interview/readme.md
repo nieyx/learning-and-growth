@@ -529,6 +529,9 @@ est();
 1. angular的双向数据绑定？
 2. angular脏检查中的watch是如何实现的？有手动触发过脏检查么？
 3. angular中如何实现父子controll之间的通讯，父子controll中的scope有什么关系？
+> service,emit和borstcast
+>
+> 继承关系
 4. ajax是如何进行数据传递的？ajax返回的状态码都有什么？302是什么意思？
 5. angualr中的$http和$get有何不同？
 6. 用递归的方式实现100的阶乘？
