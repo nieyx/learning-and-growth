@@ -468,9 +468,81 @@
 			console.log('hi')
 		```
 
+### js的垃圾回收机制
+文档链接[https://segmentfault.com/a/1190000007315908]
+1. 什么是js的垃圾回收？
++ js具有自动垃圾回收的机制，就是说回收那些不再继续使用的变量，然后释放内存
++ 垃圾收集器会按照固定的时间间隔来回收
++ 常用的方法有两种
+	- 标记清除
+	- 循环计数
+
+2. 什么是标记清除和循环计数
++ 标记清除：
+> 1.垃圾收集器在运行的时候，会给存储在内存中的所有变量都加上标记（可以使用任何方式）
+>
+> 2. 然后垃圾收集器会去掉环境中的变量，和被环境变量所引用的变量的标记
+>
+> 3. 在进行上述处理之后，还有还有标记的变量，将被视为要被删除的变量，原因是环境中的变量已经无法访问到这些变量了
+>
+> 4. 垃圾收集器完成内存的清除工作，销毁那些带标记的值病回收它们的内存空间
+
++ 循环计数
+> 1. 跟踪记录每个值被引用的次数
+>
+> 2. 当声明了一个变量，并将一个引用值类型赋值给该变量，则这个值的引用次数就是1 var obj = {name: 'tom'};
+>
+> 3. 如果包含对这个值引用的变量又取得了另外一个值，那么这个值的引用次数减1
+>
+> 4. 当这个值的引用次数变味0的时候，则说明没有办法再访问这个值了，可以将其回收
 
 
+3. 案例
+```js
+	function problem(){
+		var objA = new Object();
+		var objB = new Object();
+		objA.prop = objB;
+		objB.prop = objA;
+		// 两个对象的相互引用，引用次数都是我，
+	}
 
+
+	// 在IE中，涉及到DOM对象，就会存在循环引用的问题
+	var element = document.getElementById("some_element");
+	var myObject = new Object();
+	myObject.element = element;
+	element.someObject = myObject;
+
+	// 解决办法
+	myObject.element = null;
+	element.someObject = null;
+
+	// 切断引用值之间的联系
+```
+
+4. 闭包中的内存泄漏
+```js
+	// 如果闭包的作用域链中保存着一个HTML的元素，那么这个意味着这个元素无法被销毁
+	function fn () {
+		var ele = document.getElementById('someId');
+		ele.onclick = function () {
+			alert(ele.id)
+		}
+	}
+	// 以上代码创建了一个作为ele 元素事件处理程序的闭包，而这个闭包则又创建了一个循环引用。由于匿名函数保存了一个对fn()的活动对象的引用，因此就会导致无法减少ele的引用数。只要匿名函数存在，ele的引用数至少也是1，因此它所占用的内存就永远不会被回收
+
+	// 将上述代码修改为
+	function assignHandler(){
+	    var element = document.getElementById("someElement");
+	    var id = element.id;
+	    element.onclick = function(){
+	        alert(id);
+	    };
+	    element = null;
+	}
+	// 把element.id 的一个副本保存在一个变量中，从而消除闭包中该变量的循环引用同时将element变量设为null。
+```
 
 
 
