@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>闭包</title>
+</head>
+<body>
+	<script>
+		// 给函数求和
+		function sum (arr) {
+			return arr.reduce(function (x, y) {
+				return x + y;
+			})
+		}
+		console.log(sum([1,2,3]));
+
+		// 当不想直接调用函数的时候，就直接输出结果
+		function lazy_sum (arr) {
+			var sum = function () {
+				return arr.reduce(function (x, y) {
+					return x + y
+				})
+			}
+
+			return sum;
+		}
+		var cal = lazy_sum([1,2,3]);
+		console.log(cal());
+
+		// 设置函数的私有变量
+		function create_count(count){
+			var x = count || 0;
+			return {
+				inc: function () {
+					return x += 1;
+				}
+			}
+		};
+		var c1 = create_count();
+		console.log(c1.inc()); 
+		console.log(c1.inc()); 
+		var c2 = create_count(10);
+		console.log(c2.inc()); 
+		console.log(c2.inc());   
+		console.log('--------', x) // x是私有变量
+
+		// 设置私有变量
+		var foo = {
+			secret: 'secret',
+			set_secret: function(v){
+				return this.secret = v;
+			},
+			get_secret: function (){
+				return this.secret;
+			}
+		}
+		foo.get_secret();
+		foo.set_secret('123');
+	</script>
+</body>
+</html>

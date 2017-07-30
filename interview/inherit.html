@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js的继承方式</title>
+</head>
+<body>
+	<script>
+		// 拷贝继承
+		var a = {
+			name: 'tom',
+			age: 18
+		}
+		var b = {};
+		function extend(obj1,obj2){
+			for(var i in obj2) {
+				obj1[i] = obj2[i];
+			}
+		}
+		extend(b,a);
+		console.log(b.name,b.age)
+
+		// 构造函数的继承
+		function Aaa(name) {
+			this.name = name || 'tom';
+		}
+		Aaa.prototype.showname = function () {
+			return this.name
+		}
+		var a = new Aaa('zhangsan');
+		console.log(a.showname());
+		var a1 = new Aaa('lisi');
+		console.log(a1.showname());
+
+		function Bbb(age) {
+			this.age = age || 18;
+		}
+		
+		// 想让b继承a,最直接的方式是将Bbb.prototype = Aaa.prototype;但是由于引用数值类型被复制，会共享一个内存地址
+		// Bbb.prototype = Aaa.prototype;
+
+		Bbb.prototype = new Aaa();
+		Bbb.prototype.showage = function () {
+			return this.age + this.name
+		}
+		Bbb.prototype.showname = function () {
+			return this.age + this.name
+		}
+		var b = new Bbb();
+		console.log(b.showname()) // tom
+		console.log(b.showage()) // tom
+
+	</script>
+
+</body>
+</html>

@@ -544,8 +544,27 @@
 	// 把element.id 的一个副本保存在一个变量中，从而消除闭包中该变量的循环引用同时将element变量设为null。
 ```
 
+### 函数式编程和对象式编程
+文档地址[http://www.ruanyifeng.com/blog/2012/04/functional_programming.html]
+1. 函数式编程
++ 什么是函数式编程
+> 将运算过程，写成一系列的嵌套函数的调用
+```js
+	// 想计算（1+2）* 3 ／ 4
+	<!-- 一般写法 -->
+	var a = 1 + 2;
+	var b = a * 3;
+	var c = b / 4;
+
+	<!-- 函数式编程 -->
+	var result = subtract(multiply(add(1,2),3),4);
+```
++ 函数式编程的特点
+
+2. 对象式编程
 
 
+### js的常用编程模式
 
 
 
