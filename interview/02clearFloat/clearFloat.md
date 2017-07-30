@@ -39,3 +39,27 @@
 
 + ie8以下的haslayout，和bfc有相同的意思
 	- zoom:(!normal)
+
+### 为什么overflow和zoom可以清除浮动
+
+1. float
++ float出现的原始意义：**是为了解决图片环绕的问题**
++ float的包裹性，float是一个就有方向位置的display：inline-block
+
+2. zoom 可以清除在ie下的浮动
+> 子元素的浮动，父元素不随之扩大
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

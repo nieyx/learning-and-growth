@@ -40,3 +40,155 @@
 3. 每一个文件就为一个模块
 4. 每一个模块内定义的全局变量或是函数的作用范围被限定在这个模块内
 5. 只有export对象能将一个模块内的变量或事函数传递到外部
+
+
+###  nodejs 创建一个简单的http服务
+```js
+	var http = require('http'); <!-- 引用模块 -->
+
+	http.createServer(function(req, res){
+		res.writeHead(200, {'Content-Type': 'text/plain'});
+		res.end('hello world\n');
+	}).listen(1337, '127.0.0.1');
+	console.log('server is running at http://127.0.0.1');
+```
+
+### nodejs的运行环境与浏览器的不同
+1. 浏览器的全局window上挂载了一些方法
+2. node的全局属性是挂在在process上的
+
+### nodejs的模块与commonjs规范
+1. js编程中可能遇到的问题
++ 用function定义全局的函数，但是当有多人协作的时候，引入大量的js文件的时候，就可能出现全局变量被覆盖，方法被重写的情况----js缺少模块的管理机制，不能够来隔离不同模块的开发，一般我们的处理方式是：**命名空间的方式**，将变量和方法限制在一个作用域内
+
+2. commonjs
++ 模块的定义，模块的标示，模块的引用
+
+3. nodejs中使用了commonjs
++ 每一个js文件，都是一个独立的模块
++ 因为nodejs是commonjs的，所以可以加载大量的其他模块，来实现功能
+
+### 模块的流程
++ 创建模块
+> teacher.js
++ 导出模块
+> exports.add = function(){}
++ 加载模块
+> var teacher = require('./teacher')
++ 使用模块
+> teacher.add('')
+
+### nodejs API
+
+1. url与uri
++ url 定位：统一资源定位符 
++ uri 标示：统一资源标示符号 uri > url
++ url模块[https://nodejs.org/dist/latest-v6.x/docs/api/url.html]
+	- url.parse('str')
+	- url.formate({})
+	- url.resolve('str', 'str')
+
+2. querystring
++ querystring.stringify({},'','')
+	- 第一个参数是传递的要进行序列化的对象
+	```js
+		querystring.stringify({username:'tom',password:123456,address:'beijing'})
+
+		// result
+		'username=tom&password=123456&address=beijing'
+	```
+	- 第二个参数是每组序列化之后的对象中间的链接符号，默认是&
+	```js
+		querystring.stringify({username:'tom',password:123456,address:'beijing'}, ',')
+
+		// result
+		'username=tom,password=123456,address=beijing'
+	```
+	- 第三个参数是每组对象中的链接符号，默认是=
+	```js
+		querystring.stringify({username:'tom',password:123456,address:'beijing'},'&',':')
+
+		// result
+		'username:tom&password:123456&address:beijing'
+	```
++ querystring.parse
+	- 第一个参数是传递要进行反序列化的字符串
+	- 第二个参数是按照什么方式来解析
+	- 第三个参数是按照什么方式来解析
+	- 第四个参数是传递支持的个数，最多是1000个
+
++ querystring.escape
+> 对字符进行转义
+```js
+	querystring.escape('哈哈')
+	<!-- result -->
+	'%E5%93%88%E5%93%88'
+```
++ querystring.unescape
+> 对字符进行转义
+```js
+	querystring.unescape('%E5%93%88%E5%93%88')
+	<!-- result -->
+	'哈哈'
+```
+
+3. http
++ 什么是http及相关的知识
+	- 什么是http
+		1. 一种协议
+		2. 客户端发送请求，创建端口
+		3. http服务端在端口监听客户端的请求
+		4. http服务器像客户端返回状态和内容
+	- dns解析
+		1. chrome搜索自身的DNS缓存，
+		2. 搜索操作系统自身的dns缓存（chrome://net-internals/#dns）
+		3. 读取本地的host文件
+		4. 浏览器发起一个dns的调用
+		5. 拿到地址后，进行三次握手
+
++ 状态码
++ 1XX 请求已经接收成功，继续处理
++ 2XX 请求已经成功接收，并已经处理
++ 3XX
++ 4XX 客户端错误，请求有语法错误 ，或者请求无法实现
++ 5XX 服务端错误，
+
++ 常用的状态码的值
+```js
+	200 ok 
+	400 有语法错误
+	401 有请求，没授权 
+	403 受到请求，拒绝授权，
+	404 not found 
+	500 服务端发生错误
+	503 暂时不能处理客户端的请求，
+```
+
++ http模块
+	- 什么是回调
+	- 什么是同步／异步
+	- 什么是i/o
+	> 数据的输入输出
+	- 什么是单线程和多线程
+	- 什么是阻塞／非阻塞
+	- 什么是事件
+	- 什么是事件驱动
+	- 什么是基于事件驱动的回调
+	- 什么是事件循环
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

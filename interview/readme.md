@@ -551,7 +551,7 @@ est();
 2. 浏览器对css文件的加载方式是边下载边执行还是下载完在执行
 3. 了解过vue么？
 4. 重绘和重排有什么区别？
-5. cookie localstorage sessionStorage 有什么区别，有没有遇到只能用cookie，不能用localstorage的情况
+5. cookie localstorage sessionStorage 有什么区别，有没有遇到只能用cookie，不能用localstorage的
 
 
 
