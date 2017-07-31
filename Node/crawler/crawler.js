@@ -30,7 +30,7 @@ function filterChapters(html) {
 			videos: []
 		}
 
-		// 对cidio进行遍历
+		// 对video进行遍历
 		videos.each(function(item){
 			var video = $(this).find('.J-media-item');
 			var videoTitle = video.text()
@@ -51,7 +51,7 @@ function printCourseInfo(courseData) {
 	courseData.forEach(function(item){
 		console.log(item.chapterTitle + '\n');
 		item.videos.forEach(function(video){
-			console.log(video.id + '----' + video.title)
+			console.log('[' + video.id + ']' + video.title)
 		})
 	})
 }
