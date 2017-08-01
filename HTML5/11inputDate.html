@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<div>
+		<input type="date" name="" id="start">start
+		<input type="date" name="" id="end">end
+		<br>
+		<button id="btn">按钮</button>
+	</div>
+	<script>
+		var start = document.getElementById('start');
+		var end = document.getElementById('end');
+		var btn = document.getElementById('btn');
+		btn.onclick = function(){
+			var s = Date.parse(start.value)
+			var e = Date.parse(end.value)
+			if (s > e) {
+				alert('开始应小于结束')
+			} else  {
+				alert('选择合法')
+			}
+			console.log(typeof Date.parse(start.value))
+			console.log(typeof Date.parse(end.value))
+			console.log(Date.parse(start.value))
+			console.log(Date.parse(end.value))
+		}
+	</script>
+</body>
+</html>

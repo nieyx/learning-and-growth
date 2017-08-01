@@ -3,28 +3,20 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js'></script>
 </head>
 <body>
 	<div class="container">
-		<textarea name="" id="inputmes" cols="30" rows="10" oninput="oninput(event)" onpropertychange='onpropertychange(event)'></textarea>
-		<div class="message"></div>
+		<input type="text" name="" id="inputmes" oninput="fn(event)">
+		<div id="message"></div>
 	</div>
 	<script>
 		var inputmes = document.getElementById('inputmes');
-		function oninput(event){
-			console.log(event.target.value);
+		var message = document.getElementById('message');
+		function fn() {
+			message.innerHTML = inputmes.value;
+			console.log(message.innerHTML)
 		}
-
-		function onpropertychange(event){
-			if (event.propertyName.toLowerCase() == 'value'){
-				console.log(event.srcELement.value)
-			}
-		}
-
-		// 如果使用jquery则直接绑定这两个事件
-		$('textarea').bind('oninput onpropertychange', function(){
-			$('.message').html($(this).val())
-		})
 	</script>
 </body>
 </html>
