@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动态的添加li标签</title>
+</head>
+<body>
+	<input type="button" id="btn" value='点击' >
+	<ul class="list" id='ullist'></ul>
+	<script>
+		var ullist = document.getElementById('ullist');
+		var btn = document.getElementById('btn');
+		btn.onclick = function(e){
+			var li = document.createElement('li');
+			li.innerHTML = new Date();
+			ullist.appendChild(li);
+			this.setAttribute('disabled', 'disabled')
+			this.style.background = '#f00';
+			console.log(e)
+			setTimeout(function(){
+				btn.removeAttribute('disabled');
+				btn.style.background = '#fff';
+			},1000)
+		}
+
+		function createLi(num){
+			for (var i = 0; i < num; i++) {
+				var li = document.createElement('li')
+				li.innerHTML = i + '---' + new Date();
+				ullist.appendChild(li)
+			}
+		}
+		createLi(10);
+		ullist.addEventListener('click', function(e){
+			alert(e.target.innerHTML);
+			console.log(e.target.id,e.target.innerHTML);
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>let&const</title>
+</head>
+<body>
+	<script>
+		// 1.let只在块内有效
+		{
+			var a = 1;
+			let b = 2
+		}
+		console.log(a) // 1
+		// console.log(b) // b is not defined
+
+		// 2.let 声明一次就好
+		let c = 1;
+		// let c = 2; // 'c' has already been declared
+
+		// 3.let无函数的声明提升
+		console.log(d); // 1
+		// console.log(e); // e is not defined
+		var d = 1;
+		let e = 1;
+
+		// 4.暂时性死区,只要在块内声明使用了let，那么这个变量就被锁在了这个块内
+		var f = 1;
+		var g = 2;
+		if (true) {
+			// f = 1234; // f is not defined
+			g = 234; // 修改了全局的g
+			let f ;
+			console.log(g) // 234
+		}
+
+		// const的声明
+		const h = 1;
+		// h = 2;
+		console.log(h)
+
+		const obj = {
+			num : 123
+		}
+		obj.num = 456;
+		console.log(obj)
+
+
+		// 块级作用域
+		function fn (){
+			let a = 1;
+			if (true) {
+				console.log(a)
+				let a = 2;
+			}
+			console.log(a)
+		}
+		fn();
+	</script>
+</body>
+</html>

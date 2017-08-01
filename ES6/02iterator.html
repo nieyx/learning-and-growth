@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>iterator</title>
+</head>
+<body>
+	<script>
+			var arr = [1,2,3];
+			function iterator(arr){
+				let index = 0;
+				return {
+					next: function(){
+						return index < arr.length ? {
+							value: arr[index++],
+							done: false
+						} : {
+							value: undefined,
+							done: false
+						}
+					}
+				}
+			}
+			var it = iterator(arr);
+			console.log(it.next());
+			console.log(it.next());
+			console.log(it.next());
+			console.log(it.next());
+	</script>
+</body>
+</html>

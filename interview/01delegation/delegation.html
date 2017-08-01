@@ -57,7 +57,7 @@
 		var con2 = document.getElementById('container2');
 		con2.addEventListener('click', function(e){
 			if(e.target && e.target.nodeName == 'LI'){
-				console.log('li', e.target.id, 'was clicked')
+				console.log('li', e.target.id, 'was clicked', e.target.innerHTML,e)
 			} else {
 				console.log('err')
 			}

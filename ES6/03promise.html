@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>promise</title>
+</head>
+<body>
+	<script>
+		const imgs = [
+		'https://fsv.cmoney.tw/cmstatic/notes/capture/32909/20151203091650936.jpg',
+		'http://img.wenzhangba.com/allimg/150119/4-1501191939570.jpg',
+		'https://fsv.cmoney.tw/cmstatic/notes/capture/32909/20151203090119985.jpg']
+
+		// var p = new Promise(function(reslove, reject){
+		// 	var img = document.createElement('img');
+		// 	img.src = imgs[0];
+
+		// 	img.onload = function(){
+		// 		reslove(this);
+		// 	}
+
+		// 	img.onerror = function(err){
+		// 		reject(new Error(err))
+		// 	}
+		// })
+		// console.log(1)
+		// p.then(function(img){
+		// 	document.body.appendChild(img);
+		// 	console.log('图片加载完成')
+		// }).catch(function(err){
+		// 	console.log(err)
+		// })
+		// console.log(2)
+
+
+		// 封装一个方法，使得可以多次调用图片的方法
+		function loadImg (url) {
+			const p = new Promise(function(reslove, reject){
+				var img = new Image();
+				img.src = url;
+				img.onload = function(){
+					reslove(this);
+				}
+
+				img.onerror = function(err){
+					reject(err);
+				}
+			})
+
+			return p;
+		}
+		// 加载一个图片
+		// loadImg(imgs[0]).then(function(img){
+		// 	document.body.appendChild(img);
+		// })
+
+		// 加载多个img的时候，要使用promise。all
+		const allDone = Promise.all([loadImg(imgs[0]),loadImg(imgs[1]),loadImg(imgs[2])])
+
+		allDone.then(function(datas){
+			console.log(datas)
+			datas.forEach(function(item){
+				document.body.appendChild(item);
+			})
+		}).catch(function(err){
+			console.log(err)
+		})
+	</script>
+</body>
+</html>
