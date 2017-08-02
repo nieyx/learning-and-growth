@@ -80,4 +80,77 @@
 	console.log(p2.showMessage());
 ```
 
+3. 模块模式
+> 为对象字面量添加私有变量和私有属性
+
+```js
+	// 普通的对象字面量
+	var module = {
+		attr: 1,
+		method: function(){
+
+		}
+	}
+	
+	// 设置私有变量,一个自执行函数，返回的是一个对象，函数内部的
+	var module = (function(){
+		var privateNum = 1;
+		function privateFn(){
+			// somecode
+		}
+		return {
+			publicNum: privateNum,
+			publicFn: privateFn
+		}
+	})();
+
+	<!-- 使用模块模式的场景：创建一个对象，并用某些数据进行初始化，同时还要公开一下访问这些私有变量的方法 -->
+	function CustomType(){
+		this.name = 'zhangsan'
+	}
+	CustomType.prototype.getName = function(){
+		return this.name
+	}
+
+	var application = (function(){
+		// 私有
+		var privateA = 'a';
+		// 私有函数
+		var A = function(){}
+
+		// 实例化一个对象后，返回这个实例，然后为这个实例增加一些公有的属性和方法
+		var object = new CustomType();
+
+		object.A = 'aa';
+		object.B = function(){
+			return privateA;
+		};
+		
+		return object;
+	})();
+
+	console.log(application)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
