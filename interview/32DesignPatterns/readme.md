@@ -41,4 +41,24 @@
 	aa.getName(); // aa
 	bb.getName(); // aa
 	
+
+	// 单例模式的应用，创建一个div
+	var createDiv = function(){
+		var div = document.createElement('div');
+		div.innerHTMl = '我是一个div';
+		document.body.appendChild(div)
+		return div;
+	}
+
+	var getInstance = (function(){
+		var instance;
+		return function(){
+			return instance || (instance = fn.call(this, argument));
+		}
+	})();
+
+	btn.onclick = function(){
+		getInstance(createDiv);
+	}
+
 ```

@@ -82,20 +82,6 @@
 		// btn1.onclick = function(){
 		// 	createSingleDiv();
 		// }
-
-		// 写在一起的逻辑
-		btn1.onclick = (function(){
-			var div;
-			return function(){
-				return div || (div = (function(){
-					alert(1)
-					var box = document.createElement('div');
-					box.innerHTML = '我是一个创建div，是唯一一个div'
-					document.body.appendChild(box);
-					return box;
-				})());
-			}
-		})();
 	</script>
 </body>
 </html>
