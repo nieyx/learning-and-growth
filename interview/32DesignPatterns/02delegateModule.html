@@ -31,7 +31,7 @@
 			document.body.appendChild(imageNode);
 			return {
 				setSrc: function(src){
-					imageNode.src = this.src;
+					imageNode.src = src;
 				}
 			}
 		})();
@@ -40,11 +40,11 @@
 			var img = new Image();
 			img.onload = function(src){
 				myImage.setSrc(this.src);
-				return {
-					setSrc: function(src){
-						myImage.setSrc('http://img.lanrentuku.com/img/allimg/1212/5-121204193Q9-50.gif');
-						img.src = src;
-					}
+			}
+			return {
+				setSrc: function(src){
+					myImage.setSrc('http://img.lanrentuku.com/img/allimg/1212/5-121204193Q9-50.gif');
+					img.src = src;
 				}
 			}
 		})();
