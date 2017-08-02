@@ -62,3 +62,22 @@
 	}
 
 ```
+
+
+2. 工厂模式
+> 大量生产相似的东西，有相同的效果
+```js
+	function CreatePerson(name, age){
+		this.name = name;
+		this.age = age;
+	}
+	CreatePerson.prototype.showMessage = function(){
+		return this.name + this.age
+	}
+	var p1 = new CreatePerson('zhangsan',18)
+	console.log(p1.showMessage());
+	var p2 = new CreatePerson('lisi',18)
+	console.log(p2.showMessage());
+```
+
+
