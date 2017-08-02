@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>单例模式</title>
+	<style>
+		div {
+			width: 200px;
+			height: 200px;
+			background: #dedede;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value='点我创建一个div标签' id="btn1">
+	<input type="button" value='点我创建一个iframe标签' id="btn2">
+	<script>
+		var btn1 = document.getElementById('btn1');
+		var btn2 = document.getElementById('btn2');
+
+		// var flag = true;
+		// btn1.addEventListener('click', function(){
+		// 	if (flag) {
+		// 		var div = document.createElement('div');
+		// 		document.body.appendChild(div);
+		// 		flag = false;
+		// 	} else {
+		// 		alert('页面中已经拥有div盒子')
+		// 	}
+		// });
+
+		// 创建div
+		// var createWindow = function(){
+		//     var div = document.createElement("div");
+		//     div.innerHTML = "我是弹窗内容";
+		//     div.style.display = 'none';
+		//     document.body.appendChild(div);
+		//     return div;
+		// };
+		// // 创建iframe
+		// var createIframe = function(){
+		//     var iframe = document.createElement("iframe");
+		//     document.body.appendChild(iframe);
+		//     return iframe;
+		// };
+		// // 获取实例的封装代码
+		// var getInstance = function(fn) {
+		//     var result;
+		//     return function(){
+		//         return result || (result = fn.call(this,arguments));
+		//     }
+		// };
+		// // 测试创建div
+		// var createSingleDiv = getInstance(createWindow);
+		// btn1.onclick = function(){
+		//     var win = createSingleDiv();
+		//     win.style.display = "block";
+		// };
+		// // 测试创建iframe
+		// var createSingleIframe = getInstance(createIframe);
+		// btn2.onclick = function(){
+		//     var win = createSingleIframe();
+		//     win.src = "http://cnblogs.com";
+		// };
+
+		// 创建div，只创建一个
+		// var createWindow = function () {
+		// 	var div = document.createElement('div');
+		// 	div.innerHTML = "I'm div";
+		// 	document.body.appendChild(div);
+		// 	return div;
+		// }
+
+		// var getInstance = function(fn){
+		// 	var result;
+		// 	return function(){
+		// 		console.log(result)
+		// 		return result || (result = fn.call(this, arguments));
+		// 	}
+		// }
+		// var createSingleDiv = getInstance(createWindow);
+		// btn1.onclick = function(){
+		// 	createSingleDiv();
+		// }
+
+		// 写在一起的逻辑
+		btn1.onclick = (function(){
+			var div;
+			return function(){
+				return div || (div = (function(){
+					alert(1)
+					var box = document.createElement('div');
+					box.innerHTML = '我是一个创建div，是唯一一个div'
+					document.body.appendChild(box);
+					return box;
+				})());
+			}
+		})();
+	</script>
+</body>
+</html>
