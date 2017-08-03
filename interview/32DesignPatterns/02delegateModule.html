@@ -5,25 +5,25 @@
 	<title>图片代理</title>
 </head>
 <body>
-	<img src="http://img.lanrentuku.com/img/allimg/1212/5-121204193Q9-50.gif" alt="">
+	<!-- <img src="http://img.lanrentuku.com/img/allimg/1212/5-121204193Q9-50.gif" alt=""> -->
 	<script>
-		var imageLoader = (function(){
-			var imageNode = document.createElement('img');
-			document.body.appendChild(imageNode);
-			var img = new Image();
-			img.onload = function() {
-				imageNode.src = this.src
-			}
+		// var imageLoader = (function(){
+		// 	var imageNode = document.createElement('img');
+		// 	document.body.appendChild(imageNode);
+		// 	var img = new Image();
+		// 	img.onload = function() {
+		// 		imageNode.src = this.src
+		// 	}
 
-			return {
-				setSrc: function(src){
-					imageNode.src = 'http://img.lanrentuku.com/img/allimg/1212/5-121204193Q9-50.gif';
-					img.src = src;
-				}
-			}
-		})();
+		// 	return {
+		// 		setSrc: function(src){
+		// 			imageNode.src = 'http://img.lanrentuku.com/img/allimg/1212/5-121204193Q9-50.gif';
+		// 			img.src = src;
+		// 		}
+		// 	}
+		// })();
 		// imageLoader.setSrc('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIORDBFOrAtBbQ9_VmiH0F9Xv5V7hHTe4KDcq_8_yuGOsqF5-X')
-		imageLoader.setSrc('') // 如果图片没有加载完成img.onload一直没有被调用
+		// imageLoader.setSrc('') // 如果图片没有加载完成img.onload一直没有被调用
 
 		// 代理模式的写法
 		var myImage = (function(){
@@ -48,10 +48,10 @@
 				}
 			}
 		})();
-
-		ProxyImage.setSrc('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIORDBFOrAtBbQ9_VmiH0F9Xv5V7hHTe4KDcq_8_yuGOsqF5-X')
+		ProxyImage.setSrc('http://pic16.photophoto.cn/20100812/0035035714840447_b.jpg')
 
 		// ProxyImage.setSrc('')
+
 
 	</script>
 </body>
