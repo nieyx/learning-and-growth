@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>tab栏选项卡</title>
+	<title>tab和drag</title>
 	<style>
 		html, body, div,input,ul,li {
 			padding: 0;
@@ -43,11 +43,39 @@
 		.nav li.active {
 			background: #00f;
 		}
+		.box {
+			width: 100px;
+			height: 100px;
+			display: inline-block;
+			position: absolute;
+			top:400px;
+			left:0;
+		}
+		.box1 {
+			background: #f00;
+		}
+		.box2 {
+			background: #f0f;
+			left:200px;
+		}
 	</style>
 </head>
 <body>
+	<div class="nav" id="nav">
+	<ul>
+		<li>第一页</li>
+		<li>第二页</li>
+		<li>第三页</li>
+	</ul>
+	</div>
+	<div class="content" id="content">
+		<ul>
+			<li>111</li>
+			<li>222</li>
+			<li>333</li>
+		</ul>
+	</div>
 	<script>
-		// 普通的函数写法
 		// var nav = null;
 		// var content = null;
 		// var navLis = null;
@@ -75,48 +103,64 @@
 		// 	contentLis[this.index].style.display = 'block';
 		// }
 
-		// 面向对象的写法
-		window.onload = function(){
-			var t1 = new Tab();
-			t1.init();
-		}
+		// 面向对象
+		// window.onload = function(){
+		// 	var t1 = new Tab();
+		// 	t1.init()
+		// }
 		function Tab(){
 			this.nav = document.getElementById('nav');
 			this.content = document.getElementById('content');
-			this.navLis = nav.getElementsByTagName('li');
-			this.contentLis = content.getElementsByTagName('li');
+			this.navList = this.nav.getElementsByTagName('li');
+			this.contentList = this.content.getElementsByTagName('li');
 		}
 		Tab.prototype.init = function(){
 			var This = this;
-			for (var i = 0; i < this.navLis.length; i++) {
-				this.navLis[i].index = i;
-				this.navLis[i].onclick = function(){
+			for (var i = 0; i < this.navList.length; i++) {
+				this.navList[i].index = i;
+				this.navList[i].onclick = function(){
 					This.change(this);
 				}
 			}
 		}
 		Tab.prototype.change = function(obj){
-			for (var i = 0; i < this.navLis.length; i++) {
-				this.navLis[i].className = '';
-				this.contentLis[i].style.display = 'none';
+			for (var i = 0; i < this.navList.length; i++) {
+				this.navList[i].className = '';
+				this.contentList[i].style.display = 'none';
 			}
 			obj.className = 'active';
-			this.contentLis[obj.index].style.display = 'block';
+			this.contentList[obj.index].style.display = 'block';
 		}
 	</script>
-	<div class="nav" id="nav">
-		<ul>
-			<li>第一页</li>
-			<li>第二页</li>
-			<li>第三页</li>
-		</ul>
-	</div>
-	<div class="content" id="content">
-		<ul>
-			<li>111</li>
-			<li>222</li>
-			<li>333</li>
-		</ul>
-	</div>
+	<div class="box box1" id="box1"></div>
+	<div class="box box2" id="box2"></div>
+	<script>
+		window.onload = function(){
+			var box1 = document.getElementById('box1');
+			var boxx = 0;
+			var booy = 0;
+
+			box1.ommousedown = function(eve){
+				alert(1)
+				var e = eve || window.e;
+				boxx = e.clientX - box1.offsetLeft;
+				boxy = e.clientY - box1.offsetTop;
+
+				document.onmousemove = function(eve){
+					alert(2)
+					var e = eve || window.e;
+					box1.style.left = e.clientX - boxx + 'px';
+					box1.style.top = e.clientY - boxy + 'px';
+				}
+
+				document.onmouseup = function(){
+					document.onmousemove = null;
+					document.onmouseup = null;
+				}
+
+				return false;
+			}
+		}
+	</script>
 </body>
 </html>
