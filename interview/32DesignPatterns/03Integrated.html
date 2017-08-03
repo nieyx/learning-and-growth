@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>各种模式结合</title>
+	<style>
+		div {
+			width: 200px;
+			height: 200px;
+			background: #dedede;
+		}
+	</style>
+</head>
+<body>
+	<p>单例模式</p>
+	<button id='btn'	>点我创建一个窗口</button>
+	<script>
+		var btn = document.getElementById('btn');
+		var createDiv = function(){
+			var div = document.createElement('div');
+			div.innerHTML = '我是唯一的一个div盒子'
+			document.body.appendChild(div);
+
+			return div
+		}
+		var singleModule = (function(){
+			var result;
+			return function(){
+				return result || (result = createDiv.call(this, arguments))
+			}
+		})();
+		btn.onclick = function(){
+			singleModule();
+		}
+
+	</script>
+
+	<p>工厂模式</p>
+	<script>
+		function CreateCar(name,color,price) {
+			this.name = name;
+			this.color = color;
+			this.price = price;
+		}
+		CreateCar.prototype.showDetail = function(){
+			return this.name + this.color + this.price;
+		}
+		var c1 = new CreateCar('大众', '#f00', '10000')
+		console.log(c1.showDetail());
+		var c2 = new CreateCar('大众', '#ff0', '20000')
+		console.log(c2.showDetail());
+		var c3 = new CreateCar('大众', '#f0f', '30000')
+		console.log(c3.showDetail());
+	</script>
+
+	<p>代理模式</p>
+	<script>
+		// 图片的预加载
+		var imageLoad = (function(){
+			var img = document.createElement('img');
+			document.body.appendChild(img);
+
+			return {
+				setSrc: function(src){
+					img.src = src
+				}
+			}
+		})();
+
+		var proxyImage = (function(){
+			var image = new Image();
+			image.onload = function(){
+				imageLoad.setSrc(this.src);
+			}
+
+			return {
+				setSrc: function(src){
+					imageLoad.setSrc('http://img.lanrentuku.com/img/allimg/1212/5-121204193Q9-50.gif');
+					image.src = src;
+				}
+			}
+		})();
+
+		proxyImage.setSrc('http://pic16.photophoto.cn/20100812/0035035714840447_b.jpg')
+	</script>
+</body>
+</html>
