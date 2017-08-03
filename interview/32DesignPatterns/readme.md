@@ -153,6 +153,33 @@
 	})();
 	// 调用方式
 	ImageLoad.setSrc('https://img.alicdn.com/tps/i4/TB1b_neLXXXXXcoXFXXc8PZ9XXX-130-200.png')
+
+	// 使用代理的情况，每个函数处理的分工明确
+	var imageLoad = (function(){
+		var img = document.createElement('img');
+		document.body.appendChild(img);
+		return {
+			setSrc : function(src){
+				img.src = src;
+			}
+		}
+	})();
+
+	var proxyImgae = (function(){
+		var image = new Image();
+		image.onload = function(){
+			imageLoad.setSrc(this.src);
+		}
+
+		return {
+			setSrc: function(src){
+				imageLoad.setSrc('http://img.lanrentuku.com/img/allimg/1212/5-121204193Q9-50.gif');
+				image.src = src;
+			}
+		}
+	})();
+
+	proxyImage.setSrc('http://pic16.photophoto.cn/20100812/0035035714840447_b.jpg')
 ```
 
 
