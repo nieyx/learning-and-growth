@@ -52,7 +52,7 @@
 			t1.init();
 
 			var t2 = new Tab('nav1','content1');
-			// t2.init();
+			t2.init();
 			t2.autoPlay();
 		}
 		function Tab(id,ul){
@@ -93,7 +93,7 @@
 				}
 				This.navLis[This.iNow].className = 'active';
 				This.contentLis[This.iNow].style.display = 'block';
-			},1000000);
+			},1000);
 		}
 	</script>
 	<div class="nav" id="nav">
