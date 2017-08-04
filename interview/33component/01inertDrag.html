@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>用继承的方式编写拖拽</title>
+	<style>
+		.box {
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			top: 0;
+		}
+		.box1 {
+			background: #f00;
+			left: 0;
+		}
+		.box2 {
+			background: #f0f;
+			left: 100px;
+		}
+	</style>
+</head>
+<body>
+	<script>
+		window.onload = function(){
+			var d1 = new Drag('box1');
+			d1.init();
+			var d2 = new Drag('box2');
+			d2.init();
+		}
+		function Drag(id){
+			this.box = document.getElementById(id);
+			this.boxX = 0;
+			this.boxY = 0;
+		}
+		Drag.prototype.init = function(){
+			var self = this;
+			this.box.onmousedown = function(env){
+				var e = env || window.event;
+				self.boxX = e.clientX - self.box.offsetLeft;
+				self.boxY = e.clientY - self.box.offsetTop;
+				document.onmousemove = function(env){
+					var e = env || window.event;
+					self.box.style.left = e.clientX - self.boxX + 'px';
+					self.box.style.top = e.clientY - self.boxY + 'px';
+				}
+
+				document.onmouseup = function(){
+					self.reset();
+				}
+			}
+		}
+		Drag.prototype.reset = function(){
+			document.onmousemove = null;
+			document.onmouseup = null;
+		}
+	</script>
+	<div class="box box1" id="box1"></div>
+	<div class="box box2" id="box2"></div>
+</body>
+</html>

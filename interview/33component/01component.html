@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>用组件的方式拖拽</title>
+	<style>
+		.box {
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			top: 0;
+		}
+		.box1 {
+			background: #f00;
+			left: 0;
+		}
+		.box2 {
+			background: #f0f;
+			left: 100px;
+		}
+		.box3 {
+			background: #00f;
+			left: 200px;
+		}
+	</style>
+</head>
+<body>
+	<script>
+		window.onload = function(){
+			var d1 = new Drag();
+			d1.init({
+				id: 'box1'
+			});
+			var d2 = new Drag();
+			d2.init({
+				id: 'box2', 
+				toSown :function(){
+							document.title = '改变了title';
+						}});
+			var d3 = new Drag();
+			d3.init({
+				id: 'box3', 
+				toDown: function(){
+					document.title = '按下改变了title'
+				},
+				toUp: function(){
+					document.title = '抬起改变了title'
+				}
+			});
+		}
+		function Drag(id){
+			// this.box = document.getElementById(id);
+			this.box = null;
+			this.boxX = 0;
+			this.boxY = 0;
+			this.setting = {
+				toDown: function(){},
+				toUp: function(){},
+			}
+		}
+		Drag.prototype.init = function(opt){
+			var self = this;
+			this.box = document.getElementById(opt.id);
+			this.extend(this.setting, opt);
+			this.box.onmousedown = function(env){
+				var e = env || window.event;
+				self.boxX = e.clientX - self.box.offsetLeft;
+				self.boxY = e.clientY - self.box.offsetTop;
+				self.setting.toDown();
+				document.onmousemove = function(env){
+					var e = env || window.event;
+					self.box.style.left = e.clientX - self.boxX + 'px';
+					self.box.style.top = e.clientY - self.boxY + 'px';
+				}
+
+				document.onmouseup = function(){
+					self.reset();
+					self.setting.toUp();
+				}
+			}
+		}
+		Drag.prototype.reset = function(){
+			document.onmousemove = null;
+			document.onmouseup = null;
+		}
+		Drag.prototype.extend = function(obj1, obj2){
+			for (var i in obj2) {
+				obj1[i] = obj2[i]
+			}
+		}
+	</script>
+	<div class="box box1" id="box1"></div>
+	<div class="box box2" id="box2"></div>
+	<div class="box box3" id="box3"></div>
+</body>
+</html>
