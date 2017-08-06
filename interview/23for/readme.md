@@ -93,3 +93,8 @@
 	- forEach 是不能使用break continue return
 	- for in， 没有break continue return
 	- for of 不支持普通对象，返回只有数字索引的属性
+
+
+### forEach 和map的区别
+![](../../image/array/foreach&map.png)
+
