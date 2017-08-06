@@ -566,6 +566,8 @@
 
 ### js的常用编程模式
 
+### 函数的截流
+文档地址[http://www.alloyteam.com/2012/11/javascript-throttle/]
 
 
 

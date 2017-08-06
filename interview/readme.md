@@ -556,6 +556,55 @@ est();
 ### 云鸟科技 2017.8.1
 1. 对于input表单的date，如何实现一个选送的事件范围？
 
+### 作业盒子 2017.8.4
+1. JSONP的封装？
+2. 两列布局，左侧固定，右侧随着窗口而变化？
+3. bind方法的原理？
+4. 了解过react？
+5. angular的双向数据绑定如何实现？
+6. 如下代码输出什么结果
+```js
+	// 1 
+	var obj = {};
+	console.log(obj.prototype)
+	console.log(obj.__proto__)
+
+	// 2
+	function foo(){
+		this.a = 'a';
+		this.b = function(){
+			console.log(this)
+			console.log(this.a)
+		}
+
+		return this.b
+	}
+	foo(); 
+
+	// 3
+	function A(){}
+	function B(name){
+		this.name = name
+	}
+	function C(){
+		this.name = 'tom'
+	}
+	A.prototype.name = 'zhangsan';
+	B.prototype.name = 'zhangsan';
+	C.prototype.name = 'zhangsan';
+
+	var a = new A();
+	var b = new B();
+	var c = new C();
+
+	console.log(a.name)
+	console.log(b.name)
+	console.log(c.name)
+
+```
+7. 了解过哪些模板引擎？
+
+
 
 
 
