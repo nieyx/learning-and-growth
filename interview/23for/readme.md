@@ -96,5 +96,5 @@
 
 
 ### forEach 和map的区别
-![](../../image/array/foreach&map.png)
+![](../../image/array/foreach&map.jpeg)
 
