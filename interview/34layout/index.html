@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>实现两列布局的多种方法</title>
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		.left {
+			width: 200px;
+			height: 200px;
+			background: #f00;
+		}
+		.right {
+			width: auto;
+			height: 200px;
+			background: #0ff;
+		}
+		.l1 {
+			position: absolute;
+		}
+		.l2 {
+			float: left;
+		}
+		.container div {
+			width: 200px;
+			height: 200px;
+			background: #00f;
+			border: 1px solid #000;
+		}
+
+		.container1 .div1{
+			margin-top:100px;
+			margin-bottom:100px;
+			overflow: hidden;
+		}
+		.container1 .div2{
+			margin-top:100px;
+			margin-bottom:100px;
+			overflow: hidden;
+		}
+		.container2 .div1{
+			margin-bottom:-100px;
+			background: #f0f;
+		}
+		.container2 .div2{
+			margin-top:-100px;
+			background: #f00;
+		}
+		.boxContent1 {
+			
+		}
+		.content {
+			height: 100px;
+			background: red;
+			margin-bottom: -20px;
+		}
+
+		.boxContent2 {
+			width: 400px;
+			height: 200px;
+			border: 1px solid #000;
+			margin: 0 auto;
+		}
+		.content1 {
+			background: #dedede;
+			height: 200px;
+			margin-right:-100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box box1">
+		<div class="left l1">左侧宽度200px</div> 
+		<div class="right r1"></div>
+	</div>
+	<div class="box box2">
+		<div class="left l2">左侧宽度200px</div> 
+		<div class="right r2"></div>
+	</div>
+
+	<div class="container container1">
+		<div class="div1"></div>
+		<div class="div2"></div>
+	</div>
+	<div class="container container2">
+		<div class="div1"></div>
+		<div class="div2"></div>
+	</div>
+	<div class="boxContent1">
+		<div class="content"></div>
+		<div class="content"></div>
+	</div>
+	<div class="boxContent2">
+		<div class="content1"></div>
+	</div>
+</body>
+</html>

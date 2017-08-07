@@ -350,6 +350,28 @@
 			}
 			var f = lazy_sum([1,2,3,4]);
 			f(); // 10,在每次调用f()的时候才计算求和
+
+			var f1 = function(){
+				this.a = 1;
+				this.b = function(){
+					console.log(this.a)
+				}
+
+				return this.b
+			}
+			f1()();
+			console.log(a)
+
+			var f1 = (function(){
+				this.c = 1;
+				this.b = function(){
+					console.log(this.c)
+				}
+
+				return this.b
+			})();
+			f1();
+			console.log(c)
 		```
 	- 在对象内部封闭私有变量
 		```js

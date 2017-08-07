@@ -69,7 +69,7 @@
 	// 子窗口通过监听haschange事件得到通知
 	window.onhaschange = checkMessage;
 	function checkMessage() {
-		var message = window.location.hsah;
+		var message = window.location.hash;
 	}
 ```
 

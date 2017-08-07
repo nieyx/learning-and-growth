@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+
+    <body>
+        <!--1.用绝对定位布局示例-->
+        <div style="width: 100px;height: 100px;background-color: red;position: absolute;">左侧宽度100px</div>
+        <div style="width: auto; height: 100px;background-color:blue;">*******右侧宽度自适应*******</div>
+        <div style="width: 100px;height: 100px;background-color: grey;position: absolute;">左侧宽度100px</div>
+        <div style="width: auto; height: 100px;background-color:yellow;margin-left:100px ;">*******右侧宽度自适应*******</div>
+        <!--2.用 浮动 布局示例-->
+        <div style="width: 100px;height: 100px;background-color: yellowgreen;float: left;">左侧宽度100px</div>
+        <div style="width: auto; height: 100px;background-color:lightgrey;">*******右侧宽度自适应*******</div>
+        <!-- 3.利用负边距布局示例-->
+        <div style="width:100px;height:100px;background-color:brown;position:relative;float:left;margin-right:-100px;">左侧宽度100px
+        </div>
+        <div style="float:right;width:100%;height: 100px;">
+            <div style="margin-left:100px;height:100px;background-color: wheat;">
+                *******右侧宽度自适应*******
+            </div>
+        </div>
+    </body>
+
+</html>

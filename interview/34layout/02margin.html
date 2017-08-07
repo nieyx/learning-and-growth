@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		.div {
+			height: 200px;
+			background: #dedede;
+		}
+		span {
+			background: #00f;
+		}
+		.inline {
+			display: inline-block;
+			background: #f0f;
+			width: 100px;
+			height: 100px;
+		}
+		.box2 .div {
+			height: 200px;
+			background: #dedede;
+			margin:-10px;
+		}
+		.box2 span {
+			background: #00f;
+			margin:-10px;
+		}
+		.box2 .inline {
+			display: inline-block;
+			background: #f0f;
+			width: 100px;
+			height: 100px;
+			margin:-10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1">
+		<div class="div">我是文档流中的块级元素，位置受到文档流的控制</div>
+		<p>我是文字，也受到文档流的控制我是文字，也受到文档流的控制我是文字，也受到文档流的控制我是文字，也受到文档流的控制我是文字，也受到文档流的控制我是文字，也受到文档流的控制我是文字，也受到文档流的控制我是文字，也受到文档流的<span>我是行内元素，也受到文档流的限制</span>控制我是文字，也受到文档流的控制我是文字，也受到文档流的控制我是文字，也受到文档流的控制我是文字，	<div class="inline">制我是文字，也受到文档流文档流的控制</div>	，也受到文档流的控我是文字，也受到文档流文档流的控制我是文字，也受到文档流文档流的控制我是文字，也受到文档流文档流的控制我是文字，也受到文档流的控制</p>
+	</div>
+	<div class="box2">
+		<div class="div">我是文档流中的块级元素，位置受到文档流的控制</div>
+		<p>我是文字，也受到文档流的控制我是文字，也受到文档流的控制我是文字，也受到文档流的控制我是文字，也受到文档流的控制我是文字，也受到文档流的控制我是文字，也受到文档流的控制我是文字，也受到文档流的控制我是文字，也受到文档流的<span>我是行内元素，也受到文档流的限制</span>控制我是文字，也受到文档流的控制我是文字，也受到文档流的控制我是文字，也受到文档流的控制我是文字，	<div class="inline">制我是文字，也受到文档流文档流的控制</div>	，也受到文档流的控我是文字，也受到文档流文档流的控制我是文字，也受到文档流文档流的控制我是文字，也受到文档流文档流的控制我是文字，也受到文档流的控制</p>
+	</div>
+</body>
+</html>

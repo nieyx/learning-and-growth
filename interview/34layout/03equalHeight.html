@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>两列等高布局</title>
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		.container {
+			width: 800px;
+			margin:0 auto;
+			border: 1px solid #000;
+			overflow: hidden;
+		}
+		.container div {
+			float: left;
+		}
+		.left {
+			width: 200px;
+			background: #00f;
+			padding-bottom: 9999px;
+			margin-bottom: -9999px;
+		}	
+		.right {
+			width: 600px;
+			background: #f0f;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">按钮，点击增加右侧的高度</button>
+	<div class="container">
+		<div class="left">这是文字</div>
+		<div class="right" id="right">
+			<p>这是一段文字</p>
+			<p>这是一段文字</p>
+			<p>这是一段文字</p>
+		</div>
+	</div>
+	<script type="text/javascript">
+		window.onload = function(){
+			var btn = document.getElementById('btn');
+			var right = document.getElementById('right');
+			btn.onclick = function(){
+				var p = document.createElement('p');
+				p.innerHTML = '我是点击按钮后动态创建的p标签';
+				right.appendChild(p);
+			}
+		}
+	</script>
+</body>
+</html>
