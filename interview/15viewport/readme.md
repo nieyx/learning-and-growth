@@ -2,6 +2,9 @@
 
 文档地址[http://www.ruanyifeng.com/blog/2012/05/responsive_web_design.html]
 简书文档[http://www.jianshu.com/p/ec5a1a30694b]
+文档地址[https://github.com/amfe/article/issues/17]
+文档地址[http://www.w3cplus.com/css/viewports.html]
+
 
 ### 基本概念
 > 1.屏幕的尺寸

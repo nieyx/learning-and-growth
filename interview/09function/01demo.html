@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>一个可以add(1)(1),也可以通过add(1,1)调用的函数</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function add(){
+			var x = arguments[0];
+			if(arguments.length > 1) {
+				return  x + arguments[1];
+			} else {
+				return function (y){
+					return x + y
+				}
+			}
+		}
+		console.log(add(1,2));
+		console.log(add(1)(2));
+	</script>
+</body>
+</html>

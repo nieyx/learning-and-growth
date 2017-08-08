@@ -97,6 +97,7 @@
 
 ```js
 	var arr = [1,5,4,2,6,7,1,23,4,5];
+	// 第一种方法
 	// 去重
 	var arrFilter = arr.filter(function(ele,index,arr){
 		return arr.indexOf(ele) === index
@@ -121,6 +122,19 @@
 			n.push(i)
 		}
 	}
+
+
+	// 第三种方法
+	var arr = [1,5,4,2,6,7,1,23,4,5];
+	var obj = {};
+	var arrNew = []
+	for (var i=0;i<arr.length;i++){
+		if(!obj[arr[i]]){
+			arrNew[i] = arr[i];
+			obj[arr[i]] = 1;
+		}
+	}
+	console.log(arrNew)
 ```
 
 

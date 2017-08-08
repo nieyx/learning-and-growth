@@ -592,6 +592,80 @@
 文档地址[http://www.alloyteam.com/2012/11/javascript-throttle/]
 
 
+### js一些方法的封装
+1. concat
+```js
+	Array.prototype.concat = Array.prototype.concat || function(){
+		var arr = this.slice(0);
+		arguments.forEach(function(x){
+			if(x instanceof Array) {
+				x.forEach(function(y){
+					arr.push(y)
+				})
+			} else {
+				arr.push(x)
+			}
+		})
+
+		return arr
+	}
+```
+2. add
+```js
+	Function.prototype.add = Function.prototype.add || function(x){
+		return this += x
+	}
+```
+3. substr
+```js
+	Function.prototype.substr = Function.prototype.substr || function(x){
+		return this -= x
+	}
+```
+
+4. 封装一个函数，比如add，是的及可以使用add(1,1),也可使用add(1)(1)来调用
+```js
+	function add (x, y) {
+		var x = x;
+		return function(y){
+			return x + y
+		}
+	}
+	add(1,1);
+	add(1)(1);
+
+	// 上面的方式只可以满足add(1)(1);不能满足add(1,1);
+	function add1() {
+		var x = arguments[0];
+		if (arguments.length > 1) {
+			return x + arguments[1];
+		} else {
+			return function(y){
+				return x + y;
+			}
+		}
+	}
+	add1(1,1);
+	add1(1)(1);
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

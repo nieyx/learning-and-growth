@@ -1588,11 +1588,116 @@ est();<br />
 <li>什么是闭包？闭包的缺点，如何解决？</li>
 <li>什么是原型链？</li>
 </ol>
-<h3 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>懂球帝</h3>
+<h3 id="2017728"><a name="user-content-2017728" href="#2017728" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>懂球帝 2017.7.28</h3>
 <ol>
 <li>对象式编程和函数式编程有何不同？</li>
 <li>浏览器对css文件的加载方式是边下载边执行还是下载完在执行</li>
 <li>了解过vue么？</li>
 <li>重绘和重排有什么区别？</li>
 <li>cookie localstorage sessionStorage 有什么区别，有没有遇到只能用cookie，不能用localstorage的</li>
+</ol>
+<h3 id="201781"><a name="user-content-201781" href="#201781" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>云鸟科技 2017.8.1</h3>
+<ol>
+<li>对于input表单的date，如何实现一个选送的事件范围？</li>
+</ol>
+<h3 id="201784"><a name="user-content-201784" href="#201784" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>作业盒子 2017.8.4</h3>
+<ol>
+<li>JSONP的封装？</li>
+<li>两列布局，左侧固定，右侧随着窗口而变化？</li>
+<li>bind方法的原理？</li>
+<li>了解过react？</li>
+<li>angular的双向数据绑定如何实现？</li>
+<li>如下代码输出什么结果<br />
+<pre><code class="js">    // 1 
+    var obj = {};
+    console.log(obj.prototype)
+    console.log(obj.__proto__)
+
+    // 2
+    function foo(){
+        this.a = 'a';
+        this.b = function(){
+            console.log(this)
+            console.log(this.a)
+        }
+
+        return this.b
+    }
+    foo(); 
+
+    // 3
+    function A(){}
+    function B(name){
+        this.name = name
+    }
+    function C(){
+        this.name = 'tom'
+    }
+    A.prototype.name = 'zhangsan';
+    B.prototype.name = 'zhangsan';
+    C.prototype.name = 'zhangsan';
+
+    var a = new A();
+    var b = new B();
+    var c = new C();
+
+    console.log(a.name)
+    console.log(b.name)
+    console.log(c.name)
+
+</code></pre></li>
+<li>了解过哪些模板引擎？</li>
+</ol>
+<h3 id="201787"><a name="user-content-201787" href="#201787" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>美金 2017.8.7</h3>
+<ol>
+<li>如下代码，会输出什么结果？<br />
+<pre><code class="js">    // 1
+    (function(){
+        var a = b = 5;
+    })();
+    console.log(b);
+
+    // 2
+    &lt;div class=&quot;a b&quot;&gt;&lt;/div&gt;
+    &lt;style type=&quot;text/css&quot;&gt;
+        .a {
+            background: red;
+        }
+        .b {
+            background: #00f;
+        }
+    &lt;/style&gt;
+</code></pre></li>
+<li>js的继承方式有哪些？手写下</li>
+<li>什么是跨域，有哪些方法来跨域？jsonp的原理？</li>
+<li>原型链闭包</li>
+<li>数组去重的几种方法？</li>
+<li>两列布局的方式，有几种，原理是是什么？</li>
+</ol>
+<h3 id="201787_1"><a name="user-content-201787_1" href="#201787_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>猫眼 2017.8.7</h3>
+<ol>
+<li>用js来封装add和substr方法</li>
+<li>用js来实现concat的功能</li>
+<li>什么是跨域，有哪些方法来跨域？jsonp的原理？</li>
+<li>原型链闭包</li>
+<li>数组去重的几种方法？</li>
+<li>两列布局的方式，有几种，原理是是什么？</li>
+<li>事件委托的原理？</li>
+<li>如何判断数据类型？</li>
+</ol>
+<h3 id="58-201787"><a name="user-content-58-201787" href="#58-201787" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>58到家 2017.8.7</h3>
+<ol>
+<li>跨域，jsonp</li>
+<li>原型链？</li>
+</ol>
+<h3 id="201788"><a name="user-content-201788" href="#201788" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>丽滋行 2017.8.8</h3>
+<ol>
+<li>angular中用的是什么路由，多层路由嵌套如何实现？</li>
+<li>能独立完成开发么？觉得自己擅长的是是什么？</li>
+<li>nodejs用过什么中间件？</li>
+<li>seo是什么？做过哪些seo的优化？</li>
+<li>chrome浏览器不卡顿，ie浏览器卡顿，从哪些方面是解决问题？</li>
+<li>数据类型的判断？</li>
+<li>数组合并之后要完成排序？大量数据时如何处理？</li>
+<li>弹性盒子的一些属性，都有什么</li>
 </ol></article></body></html>
