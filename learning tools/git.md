@@ -68,3 +68,8 @@
 	- 查看远程仓库，默认名为origin
 	- git remote -v 查看更加详细的信息
 
++ git config user.name ／user.email 
+	- 查看当前的用户名和邮箱
+	- 在 git config user.name ／user.email 后面可以加上修改的邮箱
+
+
