@@ -1,7 +1,19 @@
 ## js的模块化
 文档地址[http://www.ruanyifeng.com/blog/2012/10/javascript_module.html]
 文档地址[http://www.ruanyifeng.com/blog/2012/10/asynchronous_module_definition.html]
+文档地址[http://caibaojian.com/javascript-module.html]
 
+### js的模块化
+1. 问什么会有模块化的概念？
++ 当一个项目开发的越来越复杂，会遇到一些问题：
+	- 命名冲突： 不同的工作人员，把变量都暴露在全局上，会使得代码被覆盖
+	- 文件依赖： 比如使用boostrap的时候，会将jquery优先引入
+
++ 在使用模块开发时，会避免以上的命名冲突和文件依赖的问题
+	- 使得效率更高，让其他人拿来就用，同时由于模块分的很清晰，会方便后期维护
+
+2. 模块化的演变过程
++ 函数----对象的封装，命名空间----私有成员的分离
 
 ### js的模块的写法
 1. 原始写法
@@ -63,7 +75,7 @@
 ### js中如何规范的使用模块
 1. 为什么要使用模块
 	+ 因为有了模块，就可以很方便的使用别人的代码，想要什么模块直接加载就可以
-	+ 但是每个人的编码等个都不同，现有的模块规范有AMD，CMD，commonjs
+	+ 但是每个人的编码风格都不同，现有的模块规范有AMD，CMD，commonjs
 
 2. 什么是commonjs
 	+ nodejs首先引入了commonjs的模块化
@@ -109,6 +121,7 @@
 		clock.start();
 	})
 ```
+
 
 
 
