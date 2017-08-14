@@ -84,7 +84,7 @@
 	+ 需要默认图片，
 	+ 把屏幕分辨率信息提供给服务器
 	+ 服务器将高质的图片返回
-	
+
 6. picture 标签
 	+ 不同屏幕宽度时加载不同的图片
 	```js
@@ -95,6 +95,19 @@
 		</picture>
 	```
 
+### 视频性能优化
+1. video标签播放，h5中新引入，不需要下载新的资源，每个浏览器对于video的ui外观不同，ui需要单独设置
+2. flash 过去常用的播放器，插件多，
+
+### 本地缓存方式
+1. css样式表，js文件
+2. sessionStorage：临时存储，关闭页面标签自动回收,不可以跨页面交互
+3. userData + cookie ：
+	+ userData存储内容小，
+	+ cookie：大小有限制，每次请求，	请求头会带着cookie
+4. openDatabase + localstorage
+	+ openDatabase：是一个完整的数据库，对于 不熟悉数据库同学来说，成本高
+5. localstorage边界值
 
 
 
