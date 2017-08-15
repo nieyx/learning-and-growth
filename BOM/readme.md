@@ -135,11 +135,49 @@ document.body.clientwidth
 ```js
 	// expires的过期时间，删除时不必指定cookie的值
 	document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 GMT"
+	// 过期时间是一个时间级字符串
+	var oDate = new Date();
+	oDate.setDate(oDate.getDate() + 3); // 设置过期时间为当前时间+3天之后
+	document.cookie = “usurname=john; expries = " + oDate.toGMTString();
 ```
 + cookie字符串
 > 使用名值对
 + js cookie的实例
 > 设置cookie值的函数，获取cookie值的函数，检测cookie值的函数
+
+
++ getCookie，setCookie，removeCookie
+1. getCookie 通过key值来获取cookie中存储的数据
+```js
+	// getCookie
+	function getCookie(key){
+		var arr = document.cookie.split('; ');
+		for(var i=0; i<arr.length; i++){
+			var arrNew = arr[i].split('=');
+			if(arrNew[0] == key) {
+				return decodeURI(arrNew[1]);
+			}
+		}
+	}
+```
+2. setCookie 通过key：value来将数据存储到cookie中
+```js
+	// setCookie
+	function setCookie (key, value, t){
+		var oDate = new Date();
+		oDate.setDate(oDate.getDate() + t);
+		document.cookie = key + '=' +  value + '; expries = ' + oDate.toGMTString();
+	}
+```
+3. removeCookie 删除指定的key在cookie中的数据
+```js
+	// removeCookie
+	function delCookie(key){
+		setCookie(key, '',-1) // 设置expries的值为-1
+	}
+
+```
+
 
 
 

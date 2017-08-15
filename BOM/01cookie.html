@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>cookie的应用</title>
+</head>
+<body>
+	<input type="text" name="" id="user">
+	<input type="button" value="添加" id="add">
+	<input type="button" value="移除" id="remove">
+
+	<script type="text/javascript">
+		var user = document.getElementById('user');
+		var add = document.getElementById('add');
+		var remove = document.getElementById('remove');
+		if(getCookie('username')){
+			user.value = getCookie('username')
+		}
+		add.onclick = function(){
+			setCookie('username', user.value, 3);
+			alert(document.cookie)
+		}
+		remove.onclick = function(){
+			removeCookie('username');
+			user.value = ''
+		}
+
+		// cookie的方法
+		// (function(){
+			var arr = [];
+			var arrNew = [];
+			function getCookie (key) {
+				arr = document.cookie.split('; ');
+				for (var i = 0; i < arr.length; i++) {
+					arrNew = arr[i].split('=');
+					if (arrNew[0] == key) {
+						return decodeURI(arrNew[1]);
+					}
+				}
+			}
+
+			var oDate = {};
+			function setCookie (key, value, t) {
+				oDate = new Date();
+				oDate.setDate(oDate.getDate() + t);
+				document.cookie = key + '=' + value + '; expries = ' + oDate.toGMTString();
+			}
+
+			function removeCookie(key) {
+				setCookie(key, '', -1)
+			}
+		// 	var obj = {
+		// 		getCookie: getCookie,
+		// 		setCookie: setCookie,
+		// 		removeCookie: removeCookie,
+		// 	}
+		// 	return obj
+		// })();
+	</script>
+</body>
+</html>
