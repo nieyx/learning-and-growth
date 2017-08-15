@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标的滚轮是事件</title>
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin:0;
+		}
+		div {
+			width: 100px;
+			height: 100px;
+			background: #f00;
+		}
+	</style>
+</head>
+<body style='height:2000px'>
+	<div id="div1"></div>
+	<script type="text/javascript">
+		// 检测鼠标的滚轮事件，向上div变小，向下div变大
+		window.onload = function(){
+			var oDiv = document.getElementById('div1');
+			/*IEchrome onmousewheel
+				wheelDelta
+				向上 120
+				向下 -120
+			firefox DOMMouseScroll
+
+				向上 -1
+				向下 1
+			*/
+			// ie&chrome
+			oDiv.onmousewheel = fn;
+
+			// firefox
+			if(oDiv.addEventListener){
+				oDiv.addEventListener('DOMMouseScroll',fn, false);
+			}
+			function fn(ev){
+				// 鼠标滚轮滚动的方向
+				var e = ev || event;
+				
+				var b = true;
+				if (e.wheelDelta) {
+					b = e.wheelDelta > 0 ? true : false;
+				} else {
+					b = e.detail > 0 ? false : true;
+				}
+
+				if (b) {
+					this.style.height = this.offsetHeight + 10 + 'px';
+				} else {
+					this.style.height = this.offsetHeight - 10 + 'px';
+				}
+
+				// 当页面出现滚动条时候，会出发页面滚动条的滚动，出发了事件的默认行为
+				if (e.preventDefault) {
+					e.preventDefault(); // 通过addeventListener方式绑定的事件，可以通过e.prevent来阻止默认行为
+				}
+				return false // ie和chrome中阻止默认行为
+			}
+		}
+	</script>
+</body>
+</html>
