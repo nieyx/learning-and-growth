@@ -178,7 +178,8 @@ document.body.clientwidth
 
 ```
 
-
+### 鼠标的滚轮事件
+文档地址[http://www.zhangxinxu.com/wordpress/2013/04/js-mousewheel-dommousescroll-event/]
 
 
 
