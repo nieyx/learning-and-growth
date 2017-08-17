@@ -43,3 +43,16 @@ delegate：代理，委托
 ### 事件捕获和事件冒泡的执行顺序
 + 对于非target事件，先执行捕获，后执行冒泡
 + 对于target，则先执行注册的事件，无论是冒泡还是捕获
+
+
+### 事件绑定
+1. 非ie下，支持addEventListener,
+	+ 支持捕获
+	+ 没有on参数
+	+ 执行顺序是正序
+	+ this指向window
+2. ie下，支持attachEvent
+	+ 没有捕获
+	+ 有on的参数
+	+ 标准ie下，是正序，ie8以下的反序
+	+ this指向window
