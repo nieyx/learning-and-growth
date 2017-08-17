@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var arr = [];
+		var arr1 = [];
+		for (var i = 0; i < 10; i++) {
+			arr[i] = (function(arg){
+				return function(){
+					console.log(arg)
+				}
+			})(i);
+		}
+		arr[6]()
+		arr[9]()
+
+		for (let i = 0; i < 10; i++) {
+			arr1[i] = function(){
+				console.log(i)
+			}
+		}
+		arr1[6]()
+		arr1[9]()
+	</script>
+</body>
+</html>

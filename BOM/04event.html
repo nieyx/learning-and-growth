@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>event</title>
+	<style type="text/css">
+		.box {
+			width: 100px;
+			height: 200px;
+			background: #f00;
+			position:absolute;
+			top:500px;
+			left:400px;
+		}
+	</style>
+</head>
+<body style="height:2000px">
+	<div class="box" id="box"></div>
+	<script type="text/javascript">
+		var box = document.getElementById('box');
+		box.addEventListener('click', function(ev){
+			// alert(event) chrome中alert出object，在firefox中没有东西
+			// 兼容处理
+			var e = ev || event;
+			// alert(e) alert obj
+			// 看event对象中的相关属性
+			for(var i in e) {
+				console.log(i,'---------',e[i])
+			}
+		}) 
+	</script>
+</body>
+</html>

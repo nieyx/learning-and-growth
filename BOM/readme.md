@@ -34,12 +34,24 @@ document.body.clientwidth
 		var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
 	</script>
 ```
+### 页面滚动的距离
+```html
+	<script>
+		var top = document.documentElement.scrollTop || document.body.scrollTop;
 
+		// document.documentElement.scrollTop ie&firefox
+		// document.body.scrollTop  chrome
+	</script>
+```
+
+### 内容高度
+document.documentElement.scrollHeight
+### 文档高度,算上margin+padding+border
+document.documentElement.offsetHeight
 ### 其他window的方法
 + window.open() 打开新的窗口
 + window.close() 关闭当前窗口
 + window.moveTo() 移动当前窗口
-+ window.resiezeTo() 调整当前窗口的尺寸
 
 ### window.location
 > 获取当前页面的url，把浏览器重定向到新的页面
@@ -182,7 +194,10 @@ document.body.clientwidth
 文档地址[http://www.zhangxinxu.com/wordpress/2013/04/js-mousewheel-dommousescroll-event/]
 
 
-
+### event 对象
+> ie&chrome  全局下的event对象，在firefox下，是在事件函数中传递的第一个参数
+> 
+> 做兼容：var e = ev || event ,ev是事件中传递的第一个参数
 
 
 
