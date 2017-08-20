@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jsonp获取数据</title>
+</head>
+<body>
+	<input type="button" value="获取数字" id="btn1">
+	<ul id="ul1"></ul>
+	<input type="button" value="获取字母" id="btn2">
+	<ul id="ul2"></ul>
+	<script>
+		function foo1(data) {
+			var ul1 = document.getElementById('ul1');
+			var html = '';
+			for (var i = 0; i < data.length; i++) {
+				html += '<li>'+ data[i] +'</li>'
+			}
+			ul1.innerHTML = html;
+		}
+		function foo2(data){
+			var ul2 = document.getElementById('ul2');
+			var html = '';
+			for (var i = 0; i < data.length; i++) {
+				html += '<li>'+ data[i] +'</li>'
+			}
+			ul2.innerHTML = html;
+		}
+		window.onload = function(){
+			var btn1 = document.getElementById('btn1')
+			var btn2 = document.getElementById('btn2')
+
+			btn1.onclick = function(){
+				var oScript = document.createElement('script');
+				oScript.src = '04getData.php?callback=foo1';
+				document.body.appendChild(oScript);
+			}
+			btn2.onclick = function(){
+				var oScript = document.createElement('script');
+				oScript.src = '04getData.php?t=str&callback=foo2';
+				document.body.appendChild(oScript);
+			}
+		}
+	</script>
+</body>
+</html>
