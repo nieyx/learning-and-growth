@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>flex&&box</title>
+	<link rel="stylesheet" href="./css/index.css">
+	<script>
+		document.addEventListener('DOMContentLoaded', function(){
+			document.getElementsByTagName('html')[0].style.fontSize = window.innerWidth / 15 + 'px';
+		});
+		window.onload = function(){
+			createA('rows1',arrData);
+			createA('rows2',arrData);
+		}
+		function createA(id,arr){
+			var rows = document.getElementById(id);
+			for (var i = 0; i < arr.length; i++) {
+				var oDiv = document.createElement('div');
+				var aElement = document.createElement('a');
+				aElement.href = 'javascript:;';
+				// aElement['before'].style.backgroundPosition = - 1.8 * window.innerWidth / 15 * i + 'px';
+				aElement.innerHTML = arr[i]
+				oDiv.appendChild(aElement);
+				rows.appendChild(oDiv);
+			}
+		}
+		var arrData = ['天猫','聚划算','天猫国际','外卖','天猫超市'];
+	</script>
+</head>
+<body>
+<div class="container">
+	<div class="rows" id="rows1"></div>
+	<div class="rows" id="rows2"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+@r:50rem;
+body,
+body * {
+  -webkit-text-size-adjust: 100%;
+}
+body,
+h1 {
+  margin: 0;
+  font-family: Helvetica;
+}
+a,
+input,
+button {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-appearance: none;
+}
+a {
+  text-decoration: none;
+}
+
+.rows {
+	dispaly: flex;
+	display: -webkit-box;
+	div {
+		width:0;
+		-webkit-box-flex:1;
+		flex-grow: 1;
+		text-align:center;
+
+		a {
+			font-size: 22 / @r;
+			color: #666;
+		}
+		a:before {
+			content:'';
+			width: 90 / @r;
+			height: 90 / @r;
+			display: block;
+			margin: 0 auto;
+			background-image:url('../img/icon.png');
+			background-size: 450 / @r 100 / @r;
+		}
+	}
+}

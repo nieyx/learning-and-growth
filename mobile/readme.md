@@ -34,3 +34,25 @@
 	<!-- @r: 75rem   -->
 	<!-- 100 / @r = 实际的计算100px相对的rem的尺寸   -->
 ```
+
+### 弹性盒模型flex/box
+### 新版旧版的对比
+1. 为要设置弹性盒模型，设置dispaly属性：display:box/display:-webkit-box;
+2. 主轴方向：
+	+ flex： flex-direction: row || column || row-reverse || column-reverse; // 横向，纵向，横向反序，纵向反序
+	+ box：-webkit-box-orient: horizontal || vertial // 横向，纵向
+	+ box：-webkit-box-direction: reverse || normal;
+3. 主轴富裕空间的管理：剩下空间的分配
+	+ flex： 
+		- justify-content:flex-start || center || flex-end || space-between || space-around
+	+ box：
+		- -webkit-box-pack: start || end || center || justify(space-between)
+4. 侧轴富裕空间管理
+	+ flex： align-items:flex-start || center || flex-end || space-between || space-around
+	+ box：-webkit-box-align: start || end || center 
+5. 元素的弹性空间
+	+ flex： flex-grow：设置在子元素，根据具体的数值，分配不同的宽度
+	+ box：-webkit-box-flex
+6. 设置元素的具体位置
+	+ flex： order，越小越靠前，可以使用负值和0，
+	+ box：-webkit-ordinal-group，越小越靠前，可以使用负值和0,但是最小值会被处理成1

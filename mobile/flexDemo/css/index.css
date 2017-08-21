@@ -1,0 +1,41 @@
+body,
+body * {
+  -webkit-text-size-adjust: 100%;
+}
+body,
+h1 {
+  margin: 0;
+  font-family: Helvetica;
+}
+a,
+input,
+button {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-appearance: none;
+}
+a {
+  text-decoration: none;
+}
+.rows {
+  dispaly: flex;
+  display: -webkit-box;
+}
+.rows div {
+  width: 0;
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+  text-align: center;
+}
+.rows div a {
+  font-size: 0.44rem;
+  color: #666;
+}
+.rows div a:before {
+  content: '';
+  width: 1.8rem;
+  height: 1.8rem;
+  display: block;
+  margin: 0 auto;
+  background-image: url('../img/icon.png');
+  background-size: 9rem 2rem;
+}
