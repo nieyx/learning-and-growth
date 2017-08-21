@@ -1,0 +1,173 @@
+a,
+input,
+button {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+input,
+button {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+body {
+  margin: 0;
+  -webkit-user-select: none;
+}
+body * {
+  -webkit-user-select: none;
+  font-family: Helvetica;
+}
+body {
+  -webkit-text-size-adjust: 100%;
+}
+h1 {
+  margin: 0;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+img {
+  vertical-align: top;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.active {
+  color: #f23838 !important;
+}
+.active span {
+  font-size: 0.72rem;
+}
+header {
+  height: 2.06rem;
+  background: #ef3239;
+  width: 15rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-bottom: 1px solid #a82d31;
+  box-sizing: border-box;
+}
+header a {
+  width: 2.56rem;
+  height: 1.76rem;
+  line-height: 1.76rem;
+  text-align: center;
+  position: absolute;
+  top: 0;
+}
+header #task {
+  left: 0;
+}
+header #task span {
+  font-size: 0.74rem;
+  color: #fff;
+}
+header #refresh {
+  right: 0;
+}
+header #refresh span {
+  font-size: 0.72rem;
+  color: #fff;
+}
+header h1 {
+  text-align: center;
+  font-size: 0.78rem;
+  color: #fff;
+  line-height: 1.76rem;
+}
+header h1 span {
+  font-size: 0.52rem;
+  color: #fff;
+  margin-right: 0.32rem;
+}
+#wrap {
+  position: absolute;
+  top: 4.16rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+}
+nav {
+  height: 2.1rem;
+  background: #fdfdfd;
+  width: 15rem;
+  position: absolute;
+  left: 0;
+  top: 2.06rem;
+  border-top: 1px solid #b0b0b0;
+  border-bottom: 1px solid #ccc;
+  box-sizing: border-box;
+}
+nav a {
+  float: left;
+  width: 25%;
+  height: 2.06rem;
+  line-height: 2.06rem;
+  text-align: center;
+  font-size: 0.7rem;
+  color: #848689;
+}
+nav #spanBox {
+  width: 0.74rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+nav #spanBox span {
+  font-size: 0.56rem;
+  float: left;
+}
+nav #spanBox .glyphicon-chevron-down {
+  left: -0.06rem;
+  top: -0.08rem;
+}
+nav #spanBox .glyphicon-filter {
+  font-size: 0.74rem;
+}
+#list li {
+  height: 5.62rem;
+  border-bottom: 1px solid #e0e0e0;
+  box-sizing: border-box;
+}
+#list a {
+  padding: 0.46rem 0.46rem 0.44rem;
+  height: 4.7rem;
+  display: block;
+}
+#list a img {
+  width: 4.7rem;
+  height: 4.7rem;
+  float: left;
+}
+#list a #spanWrap {
+  float: right;
+  width: 8.64rem;
+}
+#list a .sTitle {
+  font-size: 0.56rem;
+  line-height: 0.88rem;
+  color: #333;
+  margin-top: 0.1rem;
+  display: block;
+}
+#list a .sPrice {
+  display: block;
+  font-size: 0.76rem;
+  line-height: 1.28rem;
+  margin-top: 0.62rem;
+  color: #f23838;
+}
+#list a .sComment {
+  font-size: 0.56rem;
+  line-height: 0.94rem;
+  display: block;
+  color: #808080;
+}
