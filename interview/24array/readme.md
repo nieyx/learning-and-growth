@@ -98,3 +98,67 @@
 	var arr = [1,5,2,4,3];
 	arr.recerse() // [3,4,2,5,1]
 ```
+
+
+## String的方法
+> 1.获取类
+>
+> charAt();
+>
+> charCodeAt();
+>
+> fromCharCode();
+>
+> 2. 查找类
+>
+> indexOf()
+>
+> lastIndexOf()
+>
+> search()
+>
+> match()
+>
+> 3.截取类
+>
+> substr
+>
+> slice
+>
+> substring
+>
+> 4. 其他
+> 
+> replace()
+> 
+> split()
+> 
+> toLowerCase()
+> 
+> toUpperCase
+
+```js
+	<!-- charAt 返回指定值的位置-->
+	var str = 'abcdefgh';
+	console.log(str.charAt('d'),typeof str,str) //  3, string,'abcdefgh'
+	<!-- charCodeAt 返回指定值的unicode编码 -->
+	console.log(str.charCodeAt('a'),typeof str, str) // 97,string,'abcdefgh'
+	<!-- formCharCode() 将制定的unicode值合成一个字符串 -->
+	console.log(String.fromCharCode(97,98,99),typeof String.fromCharCode(97,98,99)) // 'abc' string
+	<!-- indexOf 找到指定值的位置，没有则返回-1，有则返回当前的索引值 -->
+	console.log(str.indexOf('a')) // 0
+	<!-- lastIndexOfindexOf的反向 -->
+	console.log(str.lastIndexOf('a')) // 7
+	<!-- match 匹配指定值 -->
+	console.log(str.match('a')) // ['a', index:0,input:'abcdefgh']
+	<!-- search 搜索指定值的位置 -->
+	console.log(str.search('b')) // 1
+	<!-- substr -->
+	console.log(str.substr(1,3)) // bcd
+	<!-- substring -->
+	console.log(str.substring(1,3)) // bc
+	<!-- slice-->
+	console.log(str.slice(1,3)) // bc
+	<!-- 截取字符串的 三种方式的差别，substr是开始位置 + length，substring和slice是开始位置和结束位置，slice和substring不同的是，slice支持负值-->
+
+```
