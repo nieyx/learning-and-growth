@@ -35,7 +35,7 @@
 	<!-- 100 / @r = 实际的计算100px相对的rem的尺寸   -->
 ```
 
-### 弹性盒模型flex/box
+## 弹性盒模型flex/box
 ### 新版旧版的对比
 1. 为要设置弹性盒模型，设置dispaly属性：display:box/display:-webkit-box;
 2. 主轴方向：
@@ -56,3 +56,51 @@
 6. 设置元素的具体位置
 	+ flex： order，越小越靠前，可以使用负值和0，
 	+ box：-webkit-ordinal-group，越小越靠前，可以使用负值和0,但是最小值会被处理成1
+
+
+## 响应式开发
+### @media 媒体查询
+1. 使用实例
+
+```css
+	<!-- @media一般放在css样式的底部，因为有可能会覆盖默认的css样式 -->
+	@media  all {
+		<!-- 所有媒体类型 -->
+	}	
+	@media only screen {
+		<!-- 仅仅在彩屏设备上识别 -->
+	}
+	@media all and (min-width: 500px) {
+		<!-- and是用于连接媒体类型和条件-->
+		<!--  当屏幕大于500px时，显示#f00-->
+		.box {
+			background-color: #f00;
+		}
+	}
+```
+
+2. 媒体属性
+	+ min-width  当大于等于某个值的时候会执行
+	+ max-width  当小于等于某个值的时候会执行
+
+3. and 是连接媒体属性值
+4. not 是来排除某种属性
+5. 横竖屏的出本检测
+	+ orientation： portrait／landscape 垂直／水平，是通过检测可视区的宽高比来检测，
+	> 缺点：当通过输入框等方式调用输入键盘，那么触发屏幕的检测，导致页面横竖屏切换
+
+6. 样式的引入方式
+	+ @media，放在css的底部
+	+ link标签
+	```css
+		<link rel="stylesheet" href="url" media='all and (min-width:xxx px;)'>
+	```
+	+ @import 的方式
+	```css
+		@import url('url') (min-width: 767px)
+
+	```
+
+### boostrap 移动端的页面
+
+

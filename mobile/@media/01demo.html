@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>响应式布局</title>
+	<style>
+		body, p{
+			margin:0;
+			padding: 0;
+		}
+		p {
+			font-size: 40px;
+		}
+		.container div {
+			height: 100px;
+			line-height: 100px;
+			float: left;
+			border: 1px solid #000;
+			box-sizing: border-box;
+			background: #CD5A5A;
+			font-size: 40px;
+			text-align:center;
+		}
+		@media all and (min-width: 320px) {
+			.container div {
+				width:100%;
+				background: #311D3F;
+			}
+		}
+		@media all and (min-width: 768px) {
+			.container div {
+				width:50%;
+				background: #522546
+			}
+		}
+		@media all and (min-width: 992px) {
+			.container div {
+				width:33.334%;
+				background: #522546
+			}
+		}
+		@media all and (min-width: 1200px) {
+			.container div {
+				width:16.667%;
+				background: #E23E57
+			}
+		}
+	</style>
+	<script>
+		window.onresize = function(){
+			document.getElementById('text').innerHTML = '窗口的尺寸是：' + window.innerWidth + 'px'
+		}
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<div>4</div>
+		<div>5</div>
+		<div>6</div>
+	</div>
+	<p id="text"></p>
+</body>
+</html>
