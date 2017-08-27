@@ -1,2 +1,3 @@
-# 忽略react-music-player中的node_modules
+# 忽略react-music-player中的node_modules和dist文件
 ./react/react-music-player/node_modules
+./react/react-music-player/dist
