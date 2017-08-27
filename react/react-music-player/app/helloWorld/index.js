@@ -2,23 +2,27 @@ import React from 'react';
 import { render } from 'react-dom';
 // 为了浏览器能实时的刷新修改
 import { AppContainer } from 'react-hot-loader';
-import Root from './router/root';
+import Hello from './components/hello';
 
+// render(
+// 	<Hello></Hello>,
+// 	document.getElementById('root')
+// );
 
 render(
 	<AppContainer>
-		<Root />
+		<Hello />
 	</AppContainer>,
 	document.getElementById('root')
 );
 // react-hot-loader 会只更新需要部分的内容
 
 if (module.hot) {
-    module.hot.accept('./router/root', () => {
-        const NewRoot = require('./router/root').default;
+    module.hot.accept('./components/hello', () => {
+        const NewHello = require('./components/hello').default;
         render(
             <AppContainer>
-				<NewRoot />
+				<NewHello />
 			</AppContainer>,
             document.getElementById('root')
         );
