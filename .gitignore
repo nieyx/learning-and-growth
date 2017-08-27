@@ -1,0 +1,2 @@
+# 忽略react-music-player中的node_modules
+./react/react-music-player/node_modules
