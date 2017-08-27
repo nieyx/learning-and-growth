@@ -24,7 +24,8 @@ let Root = React.createClass({
 		/*调用了setState的方法会触发react的一个更新的生命周期*/
 		$("#player").bind($.jPlayer.event.timeupdate, (e) => {
 			this.setState({
-				progress: Math.round(e.jPlayer.status.currentTime)
+				// progress: Math.round(e.jPlayer.status.currentTime)
+				progress: e.jPlayer.status.currentPercentAbsolute
 			});
 		});
 	},
