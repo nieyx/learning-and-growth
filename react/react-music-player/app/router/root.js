@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../header/components/header';
 // import Progress from '../progress/components/progress'
 import Player from '../page/player.js';
+import Musiclist from '../page/musiclist.js';
 import { MUSIC_LIST } from '../config/config';
 
 // 设置音频的总时间
@@ -11,7 +12,8 @@ let Root = React.createClass({
 	getInitialState() {
 		/*返回的是一个对象*/
 		return {
-			currentMusicItem: MUSIC_LIST[0]
+			currentMusicItem: MUSIC_LIST[5],
+			musiclist: MUSIC_LIST
 
 		}
 	},
@@ -49,7 +51,11 @@ let Root = React.createClass({
 		return (
 			<div>
 				<Header />
-				<Player currentMusicItem={this.state.currentMusicItem}></Player>
+				<Musiclist 
+					currentMusicItem={this.state.currentMusicItem}
+					musiclist={this.state.musiclist}
+					>
+				</Musiclist>
 			</div>
 		);
 	}
