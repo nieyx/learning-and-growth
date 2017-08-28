@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../header/components/header'
-import Progress from '../progress/components/progress'
+// import Progress from '../progress/components/progress'
+import Player from '../page/player.js'
 
 // 设置音频的总时间
 let duration = null;
@@ -9,7 +10,7 @@ let Root = React.createClass({
 	getInitialState() {
 		/*返回的是一个对象*/
 		return {
-			progress: 0
+		// 	progress: 0
 		}
 	},
 	/*音乐软件的初始化*/
@@ -24,30 +25,29 @@ let Root = React.createClass({
 			wmode: "window",
 		});
 		/*调用了setState的方法会触发react的一个更新的生命周期*/
-		$("#player").bind($.jPlayer.event.timeupdate, (e) => {
-			// 设置音乐的播放时间
-			duration = e.jPlayer.status.duration;
-			this.setState({
-				// progress: Math.round(e.jPlayer.status.currentTime)
-				progress: e.jPlayer.status.currentPercentAbsolute
-			});
-		});
+		// $("#player").bind($.jPlayer.event.timeupdate, (e) => {
+		// 	// 设置音乐的播放时间
+		// 	duration = e.jPlayer.status.duration;
+		// 	this.setState({
+		// 		// progress: Math.round(e.jPlayer.status.currentTime)
+		// 		progress: e.jPlayer.status.currentPercentAbsolute
+		// 	});
+		// });
 	},
 	// 对事件解绑,避免页面切换时，重新绑定
 	componentWillUnMount() {
-		$("#player").unbind($.jPlayer.event.timeupdate)
+		// $("#player").unbind($.jPlayer.event.timeupdate)
 	},
 	progressChangeHandle(progress) {
-		console.log('from root widget' + progress)
 		// 获取当前音频的总时间后进行移动进度条的操作
-		$('#player').jPlayer('play', duration * progress)
+		// $('#player').jPlayer('play', duration * progress)
 	},
 
 	render(){
 		return (
 			<div>
 				<Header />
-				<Progress progress={this.state.progress} onProgressChange={this.progressChangeHandle} baColor='#ff0'></Progress>
+				<Player></Player>
 			</div>
 		);
 	}
