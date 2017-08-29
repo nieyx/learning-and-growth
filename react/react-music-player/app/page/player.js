@@ -27,7 +27,7 @@ let Player = React.createClass({
 		return `${minutes}:${seconds}`
 	},
 	/*音乐软件的初始化*/
-	componentDidMount() {
+	componentWillMount() {
 		/*调用了setState的方法会触发react的一个更新的生命周期*/
 		$("#player").bind($.jPlayer.event.timeupdate, (e) => {
 			// 设置音乐的播放时间
