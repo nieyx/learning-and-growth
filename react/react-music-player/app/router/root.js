@@ -104,6 +104,8 @@ let App = React.createClass({
 		// 对订阅事件传递解绑
 		Pubsub.unsubscribe("DELETE_MUSIC");
 		Pubsub.unsubscribe("PLAY_MUSIC");
+		Pubsub.unsubscribe("PLAY_PRE");
+		Pubsub.unsubscribe("PLAY_NEXT");
 		$('#player').unbind($.jPlayer.event.ended)
 
 	},
