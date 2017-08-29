@@ -93,7 +93,7 @@ let Player = React.createClass({
         		<div style={{height: 10, lineHeight: '10px'}}>
               <Progress
 				progress={this.state.progress}
-				onProgressChange={this.changeProgressHandler}
+				onProgressChange={this.progressChangeHandle}
               >
               </Progress>
         		</div>
