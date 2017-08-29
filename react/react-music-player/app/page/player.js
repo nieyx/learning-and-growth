@@ -1,6 +1,8 @@
 import React from 'react';
 import Progress from '../progress/components/progress';
 import './player.less';
+import { Link } from 'react-router';
+import Pubsub from 'pubsub-js'
 
 
 
@@ -11,8 +13,18 @@ let Player = React.createClass({
 		/*返回的是一个对象*/
 		return {
 			progress: 0,
-			volume: 0
+			volume: 0,
+			leftTime: 0
 		}
+	},
+	// 格式化时间
+	format(time) {
+		let times = Math.floor(time);
+		let minutes = Math.floor(times / 60);
+		let seconds = Math.floor(times % 60);
+		seconds = seconds < 10 ? `0${seconds}` : seconds;
+
+		return `${minutes}:${seconds}`
 	},
 	/*音乐软件的初始化*/
 	componentDidMount() {
@@ -24,7 +36,8 @@ let Player = React.createClass({
 				// progress: Math.round(e.jPlayer.status.currentTime)
 				volume: e.jPlayer.options.volume * 100,
 				progress: e.jPlayer.status.currentPercentAbsolute,
-				isPlay: true
+				isPlay: true,
+				leftTime: this.format(duration * (1- this.state.progress / 100))
 			});
 		});
 	},
@@ -49,16 +62,22 @@ let Player = React.createClass({
 			isPlay: !this.state.isPlay
 		})
 	},
+	playPre(){
+		Pubsub.publish('PLAY_PRE');
+	},
+	playNext(){
+		Pubsub.publish('PLAY_NEXT');
+	},
 	render(){
 		return (
 			<div className="player-page">
-        <h1 className="caption">我的私人音乐坊 &gt;</h1>
+        <h1 className="caption"><Link to='/list'>我的私人音乐坊 &gt;</Link></h1>
         <div className="mt20 row">
         	<div className="controll-wrapper">
         		<h2 className="music-title">{this.props.currentMusicItem.title}</h2>
         		<h3 className="music-artist mt10">{this.props.currentMusicItem.artist}</h3>
         		<div className="row mt20">
-        			<div className="left-time -col-auto">-2</div>
+        			<div className="left-time -col-auto">{this.state.leftTime}</div>
         			<div className="volume-container">
         				<i className="icon-volume rt" style={{top: 5, left: -5}}></i>
         				<div className="volume-wrapper">
@@ -80,9 +99,9 @@ let Player = React.createClass({
         		</div>
         		<div className="mt35 row">
         			<div>
-          			<i className="icon prev" ></i>
+          			<i className="icon prev"  onClick={this.playPre}></i>
           			<i className={`icon ml20 ${this.state.isPlay ? 'pause' : 'play'}`} onClick={this.play}></i>
-          			<i className="icon next ml20" onClick={this.next}></i>
+          			<i className="icon next ml20" onClick={this.playNext}></i>
         			</div>
         			<div className="-col-auto">
         				<i className={`icon repeat-once`} onClick={this.changeRepeat}></i>
