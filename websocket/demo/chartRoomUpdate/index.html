@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简易聊天室</title>
+	<style>
+		#content {
+			width: 600px;
+			height: 400px;
+			border: 1px solid #f00;
+			margin: 0 auto;
+		}
+
+		#content div {
+			border-bottom: 1px solid #00f;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>chart room</h1>
+		<input type="text" name="" id="inputText">
+		<button id="btn">点击发送消息</button>
+		<div id="message"></div>
+		<div id="content"></div>
+	</div>
+
+<!--  websocket原生的做法 -->
+	<!-- <script>
+		window.onload = function(){
+			var inputText = document.getElementById('inputText');
+			var btn = document.getElementById('btn');
+			var message = document.getElementById('message');
+			var content = document.getElementById('content');
+			var ws = new WebSocket('ws://localhost:3000');
+			var mes = null;
+			ws.onopen = function(e){
+				console.log('connection open');
+				btn.onclick = function(){
+					mes = inputText.value;
+					ws.send(mes);
+				};
+
+			};
+			ws.onclose = function(e){
+				console.log('connection close');
+
+			};
+			ws.onmessage = function(e){
+				console.log('connection message');
+				var data = JSON.parse(e.data);
+				showMessage(data.type, data.con);
+
+			};
+			ws.onerror = function(err){
+				console.log('connection error');
+				console.log(err);
+			};
+
+			var showMessage = function(type, con) {
+				var div = document.createElement('div');
+				if (type === 'enter'){
+					div.style.color = "#00f";
+				} else if (type === 'leave'){
+					dic.style.color = '#f00';
+				}
+				div.innerHTML = con;
+				content.appendChild(div);
+			};
+		};
+	</script> -->
+
+ <!-- 使用socket.io的方法 -->
+ <script src ='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.1/socket.io.js'></script>
+	<script>
+		window.onload = function(){
+			var inputText = document.getElementById('inputText');
+			var btn = document.getElementById('btn');
+			var message = document.getElementById('message');
+			var content = document.getElementById('content');
+			
+			var socket = io('ws://localhost:3000');
+
+			socket.on('enter', function(data){
+				showMessage(data, 'enter');
+			});
+			socket.on('dataMessage', function(data){
+				showMessage(data, 'dataMessage');
+			});
+			socket.on('leave', function(data){
+				showMessage(data, 'leave');
+			});
+
+			btn.onclick = function(){
+				var text = inputText.value;
+				socket.emit('message', text);
+			};
+		};
+
+		var showMessage = function(data, type) {
+				var div = document.createElement('div');
+				if (type === 'enter'){
+					div.style.color = "#00f";
+				} else if (type === 'leave'){
+					div.style.color = '#f00';
+				}
+				div.innerHTML = data;
+				content.appendChild(div);
+			};
+	</script>
+</body>
+</html>

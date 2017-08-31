@@ -56,7 +56,7 @@
 				console.log(e.data);
 				var mess = JSON.parse(e.data);
 				senMessage(mess.type,mess.content);
-			}
+			};
 
 			ws.onerror = function(err){
 				console.log(err);

@@ -29,7 +29,10 @@
 文档地址[https://www.npmjs.com/package/nodejs-websocket]
 > 是nodejs提供的一个websocket的模块【1.7.1】
 
-### 聊天室的案例
+### 聊天室的案例 
+> 使用nodejs-websocket 搭建一个本地的服务器，
+> 
+> 使用connection.connections.sendText()来向所有打开的浏览器窗口同步消息
 
 
 
