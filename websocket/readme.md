@@ -35,6 +35,10 @@
 > 使用connection.connections.sendText()来向所有打开的浏览器窗口同步消息
 
 
+### sockit.io  相对与WebSocket的优点
+1. 可以传递自定义事件
+2. 可以传递一个对象，不用自己手动的去JSON.parse 和JSON.stringify转化
+
 
 
 
