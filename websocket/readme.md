@@ -24,3 +24,23 @@
 		websocket.send(msg)
 	</script>
 ```
+
+### 上述步骤使用的是一个echo公用的服务器，在本地可使用nodejs-websocket的包来创建一个本地的服务器
+文档地址[https://www.npmjs.com/package/nodejs-websocket]
+> 是nodejs提供的一个websocket的模块【1.7.1】
+
+### 聊天室的案例
+
+
+
+
+
+
+
+
+
+
+
+
+
+

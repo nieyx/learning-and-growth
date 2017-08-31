@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>websocket</title>
+</head>
+<body>
+	<div class="container">
+		<h1>Echo websocket</h1>
+		<input type="text" name="" id="wsInput">
+		<input type="button" value="点击发送数据" id="wsbtn">
+		<div id="wsDiv"></div>
+	</div>
+	<script>
+		window.onload = function(){
+			// ws是一种协议，后面跟的地址是一个远程的服务器
+			var websocket = new WebSocket('ws://localhost:3001');
+			var wsbtn = document.getElementById('wsbtn');
+			var wsDiv = document.getElementById('wsDiv');
+			var wsInput = document.getElementById('wsInput');
+			websocket.onopen = function(){
+				// 监听连接数据是否开始
+				console.log('连接建立');
+				wsDiv.innerHTML = 'connection';
+			};
+
+			websocket.onclose = function(){
+				// 监听连接数据是否结束
+				console.log('连接结束');
+			};
+
+			websocket.onmessage = function(e){
+				// 监听message事件
+				wsDiv.innerHTML = e.data;
+			};
+
+			wsbtn.onclick = function(){
+				var text = wsInput.value;
+				websocket.send(text);
+			};
+		}
+	</script>
+</body>
+</html>
