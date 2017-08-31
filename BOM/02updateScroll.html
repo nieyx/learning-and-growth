@@ -34,9 +34,9 @@
 			bind(oDiv,'DOMMouseScroll',fn);
 			function bind (obj, handle,fn) {
 				if (obj.addEventListener) {
-					obj.addEventListener(handle, fn)
+					obj.addEventListener(handle, fn);
 				} else {
-					obj.attachEvent(handle, fn)
+					obj.attachEvent(handle, fn);
 				}
 			}
 			
@@ -51,18 +51,18 @@
 				}
 
 				if (b) {
-					this.style.height = this.offsetHeight + 10 + 'px'
+					this.style.height = this.offsetHeight + 10 + 'px';
 				} else {
-					this.style.height = this.offsetHeight - 10 + 'px'
+					this.style.height = this.offsetHeight - 10 + 'px';
 				}
 
 				if (e.preventDefault){
-					e.preventDefault()
+					e.preventDefault();
 				}
 
-				return false
+				return false;
 			}
-		}
+		};
 	</script>
 </body>
 </html>

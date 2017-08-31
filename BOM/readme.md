@@ -46,8 +46,10 @@ document.body.clientwidth
 
 ### 内容高度
 document.documentElement.scrollHeight
+
 ### 文档高度,算上margin+padding+border
 document.documentElement.offsetHeight
+
 ### 其他window的方法
 + window.open() 打开新的窗口
 + window.close() 关闭当前窗口

@@ -67,7 +67,7 @@ f## DOM
 	<!-- nodename，nodevalue实验 -->
 	<div id="container">这是一个元素节点</div>
 	<script>
-	var divNode = document.getElementBy('container');
+	var divNode = document.getElementById('container');
 	// 元素节点
 	console.log(divNode.nodeName + '/' + divNode.nodeValue) // div/null
 	// 属性节点
@@ -234,7 +234,7 @@ f## DOM
 ```
 
 + parenrNode ,firstElementNode, lastElementNode,nextElementNode,preElementNode;
-> 父节点，第一个子节点，最后一个子节点，笑一个子节点，上一个子节点
+> 父节点，第一个子节点，最后一个子节点，下一个子节点，上一个子节点
 
 + offsetParent
 > 元素的直接定位父级，如果父级没有定位，那么获得到的就是body

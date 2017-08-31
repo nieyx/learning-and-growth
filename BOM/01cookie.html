@@ -14,16 +14,16 @@
 		var add = document.getElementById('add');
 		var remove = document.getElementById('remove');
 		if(getCookie('username')){
-			user.value = getCookie('username')
+			user.value = getCookie('username');
 		}
 		add.onclick = function(){
 			setCookie('username', user.value, 3);
-			alert(document.cookie)
-		}
+			alert(document.cookie);
+		};
 		remove.onclick = function(){
 			removeCookie('username');
-			user.value = ''
-		}
+			user.value = '';
+		};
 
 		// cookie的方法
 		// (function(){
@@ -47,7 +47,7 @@
 			}
 
 			function removeCookie(key) {
-				setCookie(key, '', -1)
+				setCookie(key, '', -1);
 			}
 		// 	var obj = {
 		// 		getCookie: getCookie,
