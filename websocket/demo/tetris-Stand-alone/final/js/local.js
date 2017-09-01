@@ -1,6 +1,9 @@
 var Local = function(){
 	// 游戏对象
 	var game;
+	// 创建一个定时器
+	var timer = null;
+	var InterVal = 500;
 	// 绑定键盘事件
 	var keyEvent = function(){
 		document.onkeydown = function(e){
@@ -22,6 +25,26 @@ var Local = function(){
 			}
 		};
 	};
+	// 方块的自动定时掉落
+	var move = function(){
+		if(!game.down()){
+			game.fixed();
+			game.checkClear();
+			if(game.checkGameOver()) {
+				stop();
+			} else {
+				game.performNext(perFormType(), perFormDir());
+			}
+		}
+	};
+	var perFormType = function(){
+		// 0~6
+		return Math.ceil(Math.random() * 7) - 1; 
+	};
+	var perFormDir = function(){
+		// 0~3
+		return Math.ceil(Math.random() * 4) - 1; 
+	};
 	// 开始
 	var start = function(){
 		var doms = {
@@ -32,6 +55,13 @@ var Local = function(){
 		game = new Game();
 		game.init(doms);
 		keyEvent();
+		timer = setInterval(move,InterVal);
+	};
+
+	var stop = function(){
+		clearInterval(timer);
+		timer = null;
+		document.onkeydown = null;
 	};
 	// 导出api
 	this.start = start;

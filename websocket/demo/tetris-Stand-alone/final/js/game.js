@@ -22,9 +22,9 @@ var Game = function(){
 		[0,0,0,0,0,0,0,0,0,0],
 		[0,0,0,0,0,0,0,0,0,0],
 		[0,0,0,0,0,0,0,0,0,0],
-		[0,0,0,0,0,1,1,0,0,0],
-		[0,0,0,1,1,1,1,0,0,0],
-		[0,0,1,1,1,1,1,0,0,0]
+		[0,0,0,0,0,0,0,0,0,0],
+		[0,0,0,0,0,0,0,0,0,0],
+		[0,0,0,0,0,0,0,0,0,0]
 	];
 
 	// divs
@@ -165,17 +165,78 @@ var rotate = function(){
 var fall = function(){
 	while(down());
 };
+
+var fixed = function(){
+	for (var i = 0; i < cur.data.length; i++) {
+		for (var j = 0; j < cur.data[0].length; j++) {
+			if(check(cur.origin, i, j)){
+				if (gameData[cur.origin.x + i][cur.origin.y + j] == 2){
+					gameData[cur.origin.x + i][cur.origin.y + j] = 1;
+				}
+			}
+		}
+	}
+	refreshDiv(gameData, gameDivs);
+};
+
+var performNext = function(type, dir){
+	cur = next;
+	setData();
+	next = SquareFactory.prototype.make(type, dir);
+	refreshDiv(gameData, gameDivs);
+	refreshDiv(next.data, nextDivs);
+};
+
+var checkClear = function(){
+	for (var i = gameData.length - 1; i >= 0; i--) {
+		var clear = true;
+		for (var j = 0; j < gameData[0].length; j++) {
+			if (gameData[i][j] != 1) {
+				clear = false;
+				break;
+			}
+		}
+		if (clear) {
+			for (var m = i; m > 0; m--) {
+				for (var n = 0; n < gameData[0].length; n++) {
+					gameData[m][n] = gameData[m-1][n];
+				}
+			}
+
+			for (var n = 0; n < gameData[0].length; n++) {
+					gameData[0][n] = 0;
+				}
+
+			i++;
+		}
+	}
+};
+
+var checkGameOver = function(){
+	var gameover = false;
+	for (var i = 0; i < gameData.length; i++) {
+		for (var j = 0; j < gameData[i].length; j++) {
+			if (gameData[0][j] == 1) {
+				gameover = true;
+				break;
+			}
+		}
+	}
+	return gameover;
+};
 // 初始化的方法
 	var init = function(doms){
 		gameDiv = doms.gameDiv;
 		nextDiv = doms.nextDiv;
 
-		cur = new Square();
-		next = new Square();
+		// cur = new Square();
+		// next = new Square();
+		cur = SquareFactory.prototype.make(2,2);
+		next = SquareFactory.prototype.make(3,3);
 		// 暂时设置游戏区域的内容
 		/*设置原点坐标*/
-		cur.origin.x = 10;
-		cur.origin.y = 5;
+		// cur.origin.x = 10;
+		// cur.origin.y = 5;
 		// for (var i = 0; i < cur.data.length; i++) {
 		// 	for (var j = 0; j < cur.data[0].length; j++) {
 		// 		 gameData[cur.origin.x + i][cur.origin.y + j] = cur.data[i][j];
@@ -196,4 +257,8 @@ var fall = function(){
 	this.left = left;
 	this.rotate = rotate;
 	this.fall = fall;
+	this.fixed = fixed;
+	this.performNext = performNext;
+	this.checkClear = checkClear;
+	this.checkGameOver = checkGameOver;
 };
