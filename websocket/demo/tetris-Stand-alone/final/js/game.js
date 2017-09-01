@@ -70,7 +70,101 @@ var refreshDiv = function(data,divs){
 		}
 	}
 };
+ // setData 设置原点
+ var setData = function(){
+ 	for (var i = 0; i < cur.data.length; i++) {
+ 		for (var j = 0; j < cur.data[0].length; j++) {
+ 			if(check(cur.origin, i,j)) {
+ 				gameData[cur.origin.x + i][cur.origin.y + j] = cur.data[i][j];
+ 			}
+ 		}
+ 	}
+ };
 
+ // 清楚数据
+ var clearData = function(){
+ 	for (var i = 0; i < cur.data.length; i++) {
+ 		for (var j = 0; j < cur.data[0].length; j++) {
+ 			if(check(cur.origin, i ,j)){
+ 				gameData[cur.origin.x + i][cur.origin.y + j] = 0;
+ 			}
+ 		}
+ 	}
+ };
+
+ // 在移动之前，要先check是否超出边界
+ var check = function(pos, x, y){
+	if (pos.x + x < 0) {
+		return false;
+	} else if (pos.x + x >= gameData.length) {
+		return false;
+	} else if (pos.y + y < 0) {
+		return false;
+	} else if (pos.y + y >= gameData[0].length){
+		return false;
+	} else if (gameData[pos.x + x][pos.y + y] == 1){
+		return false;
+	} else {
+		return true;
+	}
+ };
+ // 判断是否可以下降,检测数据是否合法
+ var isVliad = function(pos, data){
+ 	for (var i = 0; i < data.length; i++) {
+ 		for (var j = 0; j < data[0].length; j++) {
+ 			if (data[i][j] != 0) {
+ 				if(!check(pos, i, j)) {
+ 					return false;
+ 				}
+ 			}
+ 		}
+ 	}
+ 	return true;
+ };
+// 下移，down的方法
+var down = function(){
+	if(cur.canDown(isVliad)){
+		clearData();
+		cur.down();
+		setData();
+		refreshDiv(gameData, gameDivs);
+		return true;
+	} else {
+		return false;
+	}
+};
+// 左移， left 的方法
+var left = function(){
+	if(cur.canLeft(isVliad)){
+		clearData();
+		cur.left();
+		setData();
+		refreshDiv(gameData, gameDivs);
+	}
+};
+// 右移， right 的方法
+var right = function(){
+	if(cur.canRight(isVliad)){
+		clearData();
+		cur.right();
+		setData();
+		refreshDiv(gameData, gameDivs);
+	}
+};
+// up键是旋转，rotate
+var rotate = function(){
+	if(cur.canRight(isVliad)){
+		clearData();
+		cur.rotate();
+		setData();
+		refreshDiv(gameData, gameDivs);
+	}
+};
+
+// fall
+var fall = function(){
+	while(down());
+};
 // 初始化的方法
 	var init = function(doms){
 		gameDiv = doms.gameDiv;
@@ -82,11 +176,13 @@ var refreshDiv = function(data,divs){
 		/*设置原点坐标*/
 		cur.origin.x = 10;
 		cur.origin.y = 5;
-		for (var i = 0; i < cur.data.length; i++) {
-			for (var j = 0; j < cur.data[0].length; j++) {
-				 gameData[cur.origin.x + i][cur.origin.y + j] = cur.data[i][j];
-			}
-		}
+		// for (var i = 0; i < cur.data.length; i++) {
+		// 	for (var j = 0; j < cur.data[0].length; j++) {
+		// 		 gameData[cur.origin.x + i][cur.origin.y + j] = cur.data[i][j];
+		// 	}
+		// }
+		// console.log(gameData)
+		setData();
 		initDiv(gameDiv, gameData, gameDivs);
 		initDiv(nextDiv, next.data, nextDivs);
 		refreshDiv(gameData,gameDivs);
@@ -95,4 +191,9 @@ var refreshDiv = function(data,divs){
 
 	// 导出api
 	this.init = init;
+	this.down = down;
+	this.right = right;
+	this.left = left;
+	this.rotate = rotate;
+	this.fall = fall;
 };
