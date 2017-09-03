@@ -4,6 +4,10 @@ var Local = function(){
 	// 创建一个定时器
 	var timer = null;
 	var InterVal = 500;
+
+	// 定义时间变量
+	var timeCount = 0;
+	var time = 0;
 	// 绑定键盘事件
 	var keyEvent = function(){
 		document.onkeydown = function(e){
@@ -27,13 +31,19 @@ var Local = function(){
 	};
 	// 方块的自动定时掉落
 	var move = function(){
+		timeFunc();
 		if(!game.down()){
 			game.fixed();
-			game.checkClear();
+			var line = game.checkClear();
+			if (line) {
+				game.addScore(line);
+			}
 			if(game.checkGameOver()) {
 				stop();
+				textDiv.innerHTML = '你输了';
 			} else {
 				game.performNext(perFormType(), perFormDir());
+				textDiv.innerHTML = '你赢了';
 			}
 		}
 	};
@@ -45,16 +55,30 @@ var Local = function(){
 		// 0~3
 		return Math.ceil(Math.random() * 4) - 1; 
 	};
+
+	var timeFunc = function(){
+		timeCount += 1;
+		if (timeCount == 5) {
+			time += 1;
+			timeCount = 0;
+		}
+
+		game.setTime(time);
+	};
 	// 开始
 	var start = function(){
 		var doms = {
 			gameDiv : document.getElementById('game'),
-			nextDiv : document.getElementById('next')
+			nextDiv : document.getElementById('next'),
+			timeDiv : document.getElementById('time'),
+			scoreDiv : document.getElementById('score'),
+			textDiv : document.getElementById('text'),
 		};
 
 		game = new Game();
-		game.init(doms);
+		game.init(doms, perFormType(), perFormDir());
 		keyEvent();
+		game.performNext(perFormType(), perFormDir());
 		timer = setInterval(move,InterVal);
 	};
 

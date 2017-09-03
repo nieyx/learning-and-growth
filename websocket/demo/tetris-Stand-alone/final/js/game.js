@@ -34,6 +34,10 @@ var Game = function(){
 	// 当前方块和下一个方块
 	var cur = null;
 	var next = null;
+
+	// sccore分数
+	var score = 0;
+	var s = 0;
 	// 初始化div,
 	/*
 	container: 获取容器的id
@@ -188,6 +192,7 @@ var performNext = function(type, dir){
 };
 
 var checkClear = function(){
+	var line = 0;
 	for (var i = gameData.length - 1; i >= 0; i--) {
 		var clear = true;
 		for (var j = 0; j < gameData[0].length; j++) {
@@ -197,6 +202,7 @@ var checkClear = function(){
 			}
 		}
 		if (clear) {
+			line = line + 1;
 			for (var m = i; m > 0; m--) {
 				for (var n = 0; n < gameData[0].length; n++) {
 					gameData[m][n] = gameData[m-1][n];
@@ -210,29 +216,61 @@ var checkClear = function(){
 			i++;
 		}
 	}
+	return line;
 };
 
-var checkGameOver = function(){
-	var gameover = false;
-	for (var i = 0; i < gameData.length; i++) {
-		for (var j = 0; j < gameData[i].length; j++) {
-			if (gameData[0][j] == 1) {
-				gameover = true;
-				break;
+	var checkGameOver = function(){
+		var gameover = false;
+		for (var i = 0; i < gameData.length; i++) {
+			for (var j = 0; j < gameData[i].length; j++) {
+				if (gameData[0][j] == 1) {
+					gameover = true;
+					break;
+				}
 			}
 		}
-	}
-	return gameover;
-};
+		return gameover;
+	};
+
+	// 设置时间的方法
+	var setTime = function(time){
+		timeDiv.innerHTML = time;
+	};
+
+
+	// 得分函数
+	var addScore = function(line){
+		switch (line) {
+			case 1:
+				s = 10;
+			break;
+			case 2:
+				s = 40;
+			break;
+			case 4:
+				s = 60;
+			break;
+			case 6:
+				s = 100;
+			break;
+			default:
+			break;
+		}
+		score = score + s;
+		scoreDiv.innerHTML = score;
+	};
 // 初始化的方法
-	var init = function(doms){
+	var init = function(doms,type, dir){
 		gameDiv = doms.gameDiv;
 		nextDiv = doms.nextDiv;
-
+		timeDiv = doms.timeDiv;
+		scoreDiv = doms.scoreDiv;
+		textDiv = doms.textDiv;
 		// cur = new Square();
 		// next = new Square();
-		cur = SquareFactory.prototype.make(2,2);
-		next = SquareFactory.prototype.make(3,3);
+		// cur = SquareFactory.prototype.make(2,2);
+		// next = SquareFactory.prototype.make(3,3);
+		next = SquareFactory.prototype.make(type, dir);
 		// 暂时设置游戏区域的内容
 		/*设置原点坐标*/
 		// cur.origin.x = 10;
@@ -243,10 +281,10 @@ var checkGameOver = function(){
 		// 	}
 		// }
 		// console.log(gameData)
-		setData();
+		// setData();
 		initDiv(gameDiv, gameData, gameDivs);
 		initDiv(nextDiv, next.data, nextDivs);
-		refreshDiv(gameData,gameDivs);
+		// refreshDiv(gameData,gameDivs);
 		refreshDiv(next.data,nextDivs);
 	};
 
@@ -261,4 +299,6 @@ var checkGameOver = function(){
 	this.performNext = performNext;
 	this.checkClear = checkClear;
 	this.checkGameOver = checkGameOver;
+	this.setTime = setTime;
+	this.addScore = addScore;
 };
