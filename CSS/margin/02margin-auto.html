@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>margin-auto的作用</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.container {
+			background-color: #FFFD9D;
+			position: relative;
+			opacity: .5;
+		}
+		.alert {
+			width: 400px;
+			height: 400px;
+			background-color: #ED8282;
+			position: absolute;
+			top:0;
+			left:0;
+			bottom:0;
+			right:0;
+			margin: auto;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container" id="container">
+		<div class="alert"></div>
+	</div>
+	<div class="box"></div>
+	<script>
+		var conW = window.innerWidth || document.body.clientWidth || document.documentElement.clientWidth;
+		var conH = window.innerHeight || document.body.clientHeight|| document.documentElement.clientHeight;
+		var con = document.getElementById('container');
+
+		con.style.width = conW + 'px';
+		con.style.height = conH + 'px';
+
+	</script>
+</body>
+</html>

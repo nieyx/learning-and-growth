@@ -160,15 +160,21 @@
 ![](../image/margin/margin-10.png)
 ![](../image/margin/margin-11.png)
 
+### margin 负值的应用
+1. margin的两端对齐
+![](../image/margin/margin-apply-01.png)
+![](../image/margin/margin-apply-02.png)
+2. margin的等高布局--margin可以改变元素的占据空间
+![](../image/margin/margin-apply-03.png)
+3. 两栏自适应布局
+![](../image/margin/margin-apply-04.png)
+![](../image/margin/margin-apply-05.png)
+![](../image/margin/margin-apply-06.png)
 
 
 
 
 
-2. margin的应用
-+ 两列自适应布局
-+ 等高布局
-+ 
 
 
 
