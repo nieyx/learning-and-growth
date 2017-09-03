@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>margin的百分比计算</title>
+	<style>
+		.container {
+			border: 1px solid #000;
+		}
+		.box {
+			width: 600px;
+			height: 400px;
+			background-color: #ECFFFB;
+			border: 1px solid #B4F1F1;
+		}
+
+		.box > div {
+			width: 100px;
+			height: 100px;
+			background-color: #2D767F;
+			margin-top: 50%;
+			margin-left: 50%;
+		}
+
+		.pos {
+			width: 200px;
+			height: 200px;
+			background-color: #2D767F;
+			border: 1px solid #000;
+			position: absolute;
+		}
+
+		.pos > div {
+			width: 10px;
+			height: 10px;
+			background-color: #f00;
+			margin: 10%;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="box">
+			<div></div>
+		</div>
+		<div class="pos">
+			<div></div>
+		</div>
+	</div>
+</body>
+</html>

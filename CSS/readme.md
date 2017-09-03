@@ -107,6 +107,72 @@
 + BFC内部的元素和外部的元素不会相互影响
 
 
+### margin 
+1. margin 的百分比计算
+	+ 普通元素师相对于父级的**宽度**进行计算的，(无论是margin-top还是margin-left)
+	+ 带有定位的元素，margin的百分比是相对于第一个不为static的定位的父级元素
+	+ 应用
+	> 2:1的盒子布局，margin：50%；
+
+2. margin的重叠
+	+ 只发生在block水平重叠（不包括float和absolute
+	+ 只发生在垂直方向（不考虑wwriting-mode，垂直书写的文字）margin-top／margin-bottom
+	+ 发生重叠的场景：
+		- 相邻的兄弟元素
+		- 父级和第一个／最后一个子元素
+			* 父子元素重叠的其他条件
+			1. 父元素非格式化上下文元素
+			2. 父元素没有border-top／border-bottom的值
+			3. 父元素没有padding-top／paddin-bottom的值
+			4. 父元素和第一个子元素之间没有inline元素分隔
+			5. 父元素没有设置height／min-height／max-height的限制（margin-bottom）
+		- 空的block元素（自己和自己发生重叠）
+		> 元素没有border／padding／没有内连元素／没有设置高度（height／min-height）
+	+ 如何解决父子级的margin重叠
+		1. overflow：height
+		2. border-top 设置
+		3. padding-top 设置
+		4. 加一个内连元素
+		5. 设置高度
+
+
+	+ 重叠计算的方法
+		- 正正取大值
+		- 正负值相加
+		- 负负最负值（-30和-20 取-30，取绝对值大的）
+
+3. margin重叠的意义--为了让网页排版，便于用户的阅读
+	+ 不同标签之间的默认宽度不同，排版不自然
+	+ 在web中任何地方嵌套活着直接放入任何裸的div，都不会影响原来的布局
+	+ 遗落的空的任意多个p元素，不要影戏那个原来的阅读排版
+
+
+### margin-auto--分配块级元素的剩余空间
+![](../../image/margin/01.png)
+![](../../image/margin/02.png)
+![](../../image/margin/03.png)
+![](../../image/margin/04.png)
+![](../../image/margin/05.png)
+![](../../image/margin/06.png)
+![](../../image/margin/07.png)
+![](../../image/margin/08.png)
+![](../../image/margin/09.png)
+![](../../image/margin/10.png)
+![](../../image/margin/11.png)
+
+
+
+
+
+
+2. margin的应用
++ 两列自适应布局
++ 等高布局
++ 
+
+
+
+
 
 
 
