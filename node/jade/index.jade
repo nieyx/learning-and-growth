@@ -2,5 +2,22 @@ doctype html
 html
 	head 
 		title jade study
+		meta(charset='utf-8')
+		style.
+			body {
+				color: #f00;
+				background: #f0f0f0;
+			}
+		script.
+			var jadeVar = 'jade';
+			document.getElementById('id');
 	body
 		h1 h1 content
+		#content.content
+			.box
+			a(title='this is a link' href='http://www.baidu.com')
+		p.pCon#pcon(class='ppp').
+			1. this is 
+			2. a 
+			3. paragaph
+			4. <strong>hahah</strong>
