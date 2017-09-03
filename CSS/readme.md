@@ -148,17 +148,17 @@
 
 
 ### margin-auto--分配块级元素的剩余空间
-![](../../image/margin/01.png)
-![](../../image/margin/02.png)
-![](../../image/margin/03.png)
-![](../../image/margin/04.png)
-![](../../image/margin/05.png)
-![](../../image/margin/06.png)
-![](../../image/margin/07.png)
-![](../../image/margin/08.png)
-![](../../image/margin/09.png)
-![](../../image/margin/10.png)
-![](../../image/margin/11.png)
+![](../image/margin/01.png)
+![](../image/margin/02.png)
+![](../image/margin/03.png)
+![](../image/margin/04.png)
+![](../image/margin/05.png)
+![](../image/margin/06.png)
+![](../image/margin/07.png)
+![](../image/margin/08.png)
+![](../image/margin/09.png)
+![](../image/margin/10.png)
+![](../image/margin/11.png)
 
 
 
