@@ -172,6 +172,36 @@
 ![](../image/margin/margin-apply-06.png)
 
 
+# float 浮动
+## float的设计初衷：文字环绕效果
+
+## 清楚浮动的方法
+```css
+	<!-- clearfix 只用在饱含子元素的父级元素上 -->
+	.clearfix:after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+	.clearfix {
+		*zoom:1;
+	}
+```
+
+## float可以让元素block化，去空格化
+
+## ie7浮动的问题
+1. 含clear的浮动元素包裹不正确
+2. 浮动元素倒数两个莫名垂直间距的问题
+3. 浮动元素最后一个字符重复
+4. 浮动元素楼梯排列的问题
+5. 浮动元素和文本不在同一行的问题
+
+## BFC
+> overflow：auto／scroll／hidden ，只有不为visible
+1. 清楚浮动的影响，对ie6不管用，但是要添加_zoom:1;
+2. 避免margin穿透的问题
+3. 两栏自适应布局
 
 
 
