@@ -80,6 +80,30 @@
 				3.
 ```
 
+7. jade的变量声明和数据传递
+	+ 在页面中声明一个变量
+	```jade
+	doctype
+		html
+			head
+			meta
+			- var couse = 'jade'
+			title #{counse}
+		body
+			div.class#id
+	```
+	+ 在命令行中输入
+	> jade -P -W index.jade --obj {"course": "jade1"}
+	+ 引入json文件
+	> jade -P -W index.jade -O index.json
+	```json
+		{
+			"course": "jade3";
+		}
+	```
+
+8. jade的安全转义与非转义
+
 
 
 
