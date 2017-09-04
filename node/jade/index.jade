@@ -9,6 +9,9 @@ html
 				color: #f00;
 				background: #f0f0f0;
 			}
+			.box1 {
+				border-top: 1px solid #000;
+			}
 		script.
 			var jadeVar = 'jade';
 			document.getElementById('id');
@@ -26,8 +29,69 @@ html
 		- htmlData = '<script>alert(1);</script><span>123'
 		p !{htmlData}
 		h1 #{data}
-		h2\#{data}
+		h2 \#{data}
 
 		p= data
 		p!= htmlData
+
+		h2 流程代码，for-each-while
+		.box1 
+		- var datas = {"course": "jade", "leval":"high"}
+		ul
+			- for (var k in datas) 
+				li= datas[k]
+		- each value, key in datas
+			p #{value}: #{key}
+		- var arrCourse = ["jade", "express", 'node']
+		- each item in arrCourse
+			h3= item
+
+		- var courses = [{id:1, content:['1','2']},{id:1, content:['1','2']}]
+		dl
+			each item in courses
+				dt= item.id
+				each i in item 
+					dd= item.content
+
 		
+		- var n = 0;
+		ul 
+			while n < 4 
+				li= n++
+
+		.box1 
+			h2 if-else
+			- var arrIf = ['hello', 'jade']
+			if arrIf.length > 2 
+				p= 2
+			else if arrIf.length > 1
+				p= arrIf.join(',')
+
+			h2 switch
+			-var VarJade = 'jade';
+			case VarJade
+				when 'jade'
+					p 'Hi jade'
+				when 'express'
+					p 'Hi express'
+				default
+					p #{VarJade}
+
+		.box1
+			h2 jade 的mixin
+			//- 语句
+			mixin lesson
+				p this is a lesson1	
+			+lesson
+
+			//- 传递参数
+			mixin study(name)
+				h4 #{name}
+				if block
+					block
+				else
+					p no block
+			+study('haha')
+				p a block
+
+
