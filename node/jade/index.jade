@@ -1,22 +1,6 @@
-doctype html
-html
-	head 
-		meta(charset='utf-8')
-		//- - var course = 'jade'
-		title #{course} study
-		style.
-			body {
-				color: #f00;
-				background: #f0f0f0;
-			}
-			.box1 {
-				border-top: 1px solid #000;
-			}
-		script.
-			var jadeVar = 'jade';
-			document.getElementById('id');
-	body
-		h1 h1 content
+extends ./layout.jade
+block content
+	h1 h1 content
 		#content.content
 			.box
 			a(title='this is a link' href='http://www.baidu.com')

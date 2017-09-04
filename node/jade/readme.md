@@ -1,7 +1,7 @@
 ## jade模版引擎
 > 将动静部分柔和成一种实现机制或者技术，将数据添加页面的占位符中
 > 解决了深层次桥套
-
+![](../../image/jade/jade.png)
 ## 书写格式
 
 ## 命令行的使用
@@ -152,6 +152,20 @@
 ```
 
 9. 流程代码 for-each-while
+
+10. 模板继承
++ extends 继承代码块
++ block 定义代码块
+
+11. 模板包含
+> 解决文件之间区块包含的关系include
+
+12. jade api
++ jade.compile(source, options)
++ jade.compileFile(path, options)
++ jade.compileClient(source, options)
++ jade.render(source, options)
++ jade.renderFile(source, options)
 
 
 
