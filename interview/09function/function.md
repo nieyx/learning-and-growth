@@ -86,7 +86,79 @@
 					}
 				}
 			}
+
 			```
+
+		* 两道复杂的this指向题
+		```js
+			var name = 'window'
+			var person1 = {
+			  name: 'person1',
+			  show1: function () {
+			    console.log(this.name)
+			  },
+			  show2: () => console.log(this.name),
+			  show3: function () {
+			    return function () {
+			      console.log(this.name)
+			    }
+			  },
+			  show4: function () {
+			    return () => console.log(this.name)
+			  }
+			}
+			var person2 = { name: 'person2' }
+
+			person1.show1()
+			person1.show1.call(person2)
+
+			person1.show2()
+			person1.show2.call(person2)
+
+			person1.show3()()
+			person1.show3().call(person2)
+			person1.show3.call(person2)()
+
+			person1.show4()()
+			person1.show4().call(person2)
+			person1.show4.call(person2)()
+
+			 <!-- 答案分别是 -->
+		``` 
+		```js
+			var name = 'window'
+			function Person (name) {
+			  this.name = name;
+			  this.show1 = function () {
+			    console.log(this.name)
+			  }
+			  this.show2 = () => console.log(this.name)
+			  this.show3 = function () {
+			    return function () {
+			      console.log(this.name)
+			    }
+			  }
+			  this.show4 = function () {
+			    return () => console.log(this.name)
+			  }
+			}
+			var personA = new Person('personA')
+			var personB = new Person('personB')
+
+			personA.show1()
+			personA.show1.call(personB)
+
+			personA.show2()
+			personA.show2.call(personB)
+
+			personA.show3()()
+			personA.show3().call(personB)
+			personA.show3.call(personB)()
+
+			personA.show4()()
+			personA.show4().call(personB)
+			personA.show4.call(personB)()
+		```  
 + 构造函数的调用
 	- 什么是构造函数调用：在函数或者方法调用之前，使用**new**关键字，就构成构造函数的调用
 		```js
