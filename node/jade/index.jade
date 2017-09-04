@@ -22,3 +22,12 @@ html
 			2. a 
 			3. paragaph
 			4. <strong>hahah</strong>
+		- data = 'text'
+		- htmlData = '<script>alert(1);</script><span>123'
+		p !{htmlData}
+		h1 #{data}
+		h2\#{data}
+
+		p= data
+		p!= htmlData
+		

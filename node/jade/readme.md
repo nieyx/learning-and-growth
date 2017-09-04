@@ -103,6 +103,53 @@
 	```
 
 8. jade的安全转义与非转义
++ 在输出变量的时候 #{} 等同于=
+```jade
+	doctype
+		html
+			head
+			meta
+			- var couse = 'jade'
+			title #{course}
+		body
+			div.class#id=course
+```
++ jade会将#{}里面的东西当作变量转义，如果只想输出#{},那就加上\
+```jade
+	doctype
+		html
+			head
+			meta
+			- var couse = 'jade'
+			title #{counse}
+		body
+			div.class#id
+			p/#{}
+```
++ 如果想转义变量中的js，那么就要使用!{}来包裹变量
+```jade
+	doctype
+		html
+			head
+			meta
+			- var couse = 'jade'
+			title #{counse}
+		body
+			div.class#id=
+			p!{<script>alert(1)</script><span>1</span>}
+```
++ 如果要输出一个变量，当其有值的时候输出，没有值的时候不输出，要使用=代替#{}
+```jade
+	doctype
+		html
+			head
+			meta
+			- var couse = 'jade'
+			title #{counse}
+		body
+			div.class#id=
+			a(value= newValue)
+```
 
 
 
