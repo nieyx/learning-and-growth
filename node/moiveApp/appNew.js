@@ -8,9 +8,11 @@ var _ = require('underscore');
 var port = process.env.PORT || 3000;
 //  web服务器
 var app = express();
-// c传入本地的数据库
-mongoose.createConnection('mongodb://localhost/movieApp');
-// 设置师徒的根目录
+app.locals.moment = require('moment');// c传入本地的数据库
+// mongoose.createConnection('mongodb://localhost/movieApp');
+mongoose.Promise = require('bluebird');
+mongoose.connect('mongodb://localhost/movieApp', {server: { poolSize: 5 }, useMongoClient: true});
+// 设置视图的根目录
 app.set('views', './views/pages');
 // 设置默认的模版引擎
 app.set('view engine', 'jade');
@@ -88,9 +90,10 @@ app.post('/admin/movie/new', function(req, res){
   // 所以要做个判断，判断是哪种情况
   var id = req.body.movie._id;
   var movieObj = req.body.movie;
+  console.log(req.body);
   // 修改原有之后的提交
   if (id !== 'undefined'){
-    Movie.findById(id, function(err, moive){
+    Movie.findById(id, function(err, movie){
       if (err){
         console.log(err);
       }
@@ -123,7 +126,7 @@ app.post('/admin/movie/new', function(req, res){
             console.log(err);
         }
 
-        res.redirect('/movie/'+movie._id);
+        res.redirect('/movie/' + movie._id);
     });
 
   }
@@ -137,9 +140,27 @@ app.get('/admin/list',  function(req, res){
       console.log(err);
     }
 
-    res.render('index', {
+    res.render('list', {
       title: 'movieApp 列表页',
       movies: movies
     });
   });
+});
+
+// 删除逻辑路由
+app.delete('/admin/list', function(req, res){
+  // 从请求的url来获取id值，获得id值之后，可以将数据从数据库中删除
+  var id = req.query.id;
+  if (id){
+    Movie.remove({_id:id}, function(err, movie){
+      if (err) {
+        console.log(err);
+      } else {
+        // 当没有错误的时候，返回json数据，返回1
+        res.json({success: 1});
+      }
+
+
+    });
+  }
 });

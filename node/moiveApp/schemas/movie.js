@@ -34,7 +34,7 @@ MovieSchema.pre('save', function(next){
 });
 
 // 添加静态方法，只有实例化之后，才会有这个方法
-MovieSchema.static = {
+MovieSchema.statics = {
 	// 用来去除数据库中所有的数据
 	fetch: function(cb){
 		return this
