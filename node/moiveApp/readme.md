@@ -3,7 +3,7 @@
 2. mongoose
 3. moment.js js的处理日期的类库
 4. jade 模版引擎
-
+5. 使用bower安装jquery和boostrap类库（.bowerrs来设置路径）
 ## mongoose 对mongodb进行建模
 模式 schema
 模型 model
