@@ -5,14 +5,14 @@ module.exports = function(grunt){
       jade: {
         files: ['views/**'],
         options: {
-          livereload: true
+          livereload: true // 当文件有改动时，会重新启动服务
         }
       },
       js: {
         files: ['public/js/**', 'models/**/*.js', 'schemas/**/*.js'],
-        //tasks: ['jshint'],
+        //tasks: ['jshint'], // js的代码检查工具
         options: {
-          livereload: true
+          livereload: true // 当文件有改动时，会重新启动服务
         }
       },
       uglify: {
@@ -32,9 +32,10 @@ module.exports = function(grunt){
     },
 
     nodemon: {
+    	// dev代表开发环境
       dev: {
         options: {
-          file: 'app.js',
+          file: 'app.js', // 当前的入口文件
           args: [],
           ignoredFiles: ['README.md', 'node_modules/**', '.DS_Store'],
           watchedExtensions: ['js'],
