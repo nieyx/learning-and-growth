@@ -4,6 +4,7 @@
 3. moment.js js的处理日期的类库
 4. jade 模版引擎
 5. 使用bower安装jquery和boostrap类库（.bowerrs来设置路径）
+6. grunt /grunt-cli
 ## mongoose 对mongodb进行建模
 模式 schema
 模型 model
@@ -106,6 +107,10 @@
 + db.movies.remove() 删除全部数据
 
 
+### 全局安装grunt／grunt-cli来帮助自动化，（自动重启服务）
+> npm install grunt grunt-cli -g
+>
+> grunt-cli是一个命令行接口，安装grunt-cli的目的是可以在全局使用grunt命令，允许在任意的目录运行
 
 
 
