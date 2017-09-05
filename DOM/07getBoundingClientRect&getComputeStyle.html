@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box {
+			width: 140px;
+			padding:20px;
+			height: 140px;
+			background-color: #F4F49E;
+			position: relative;
+		}
+		.box1 {
+			width: 100px;
+			padding: 20px;
+			height: 100px;
+			background-color: #815E94;
+			position: absolute;
+		}
+		.box2	{
+			width: 100px;
+			height: 100px;
+			background-color: #8CDADB;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="box" id="box">
+			<div class="box1" id="box1">
+				<div class="box2" id="box2"></div>
+			</div>
+		</div>
+	</div>
+	<ul id="con"></div>
+	<script>
+		var $ = function(id){
+			return document.getElementById(id);
+		};
+		console.log($('box2').style.left);
+		console.log($('box2').getBoundingClientRect().left);
+		console.log(getComputedStyle($('box2')));
+		console.log(getComputedStyle($('box2')).left);
+		var obj = getComputedStyle($('box2'));
+	
+
+
+
+	</script>
+</body>
+</html>

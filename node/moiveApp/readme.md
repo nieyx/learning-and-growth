@@ -4,7 +4,7 @@
 文档 documents
 
 
-1. 在模式中，对字段类型进行定义
+1. 在模式中，对数据字段类型进行定义
 ```js
 	var mongoose = require('mongoose');
 
@@ -91,3 +91,19 @@
 			})
 	})
 ```
+
+5. 在命令行删除moogodb的数据
++ 输入mongo进去mongdb的模式
++ use 数据库的名字 （use movieApp）
++ db.movies.find({}) 查询所有的数据
++ db.movies.find({}).count() 查看数据的条数
++ db.movies.remove() 删除全部数据
+
+
+
+
+
+
+
+
+
