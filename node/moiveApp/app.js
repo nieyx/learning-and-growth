@@ -1,7 +1,9 @@
 var express = require('express');
 var path = require('path');
 var mongoose = require('mongoose');
+var bcrypt = require('bcrypt');
 var Movie = require('./models/movie');
+var User = require('./models/user');
 var bodyParser = require('body-parser');
 var _ = require('underscore');
 // process是node的全局变量，可以获得端口信息
@@ -159,8 +161,55 @@ app.delete('/admin/list', function(req, res){
         // 当没有错误的时候，返回json数据，返回1
         res.json({success: 1});
       }
-
-
     });
   }
+});
+
+// 接受用户注册的路由逻辑
+app.post('/user/signup', function(req, res){
+  // 拿到用户请求的数据,此时的user是一个对象，因为body-parser是一个中间件，它的功能就是将请求的数据转换成为一个对象
+  var _user = req.body.user; 
+  // console.log(_user); // { name: '1', password: '2' }
+  // 通过req.param req.query获取id，param获取的可能是从query获取的，页可能是从query获取的
+  // ／user/singup/1111？useid=1112 和请求的userid （“useid”： 1113} 
+  // 先拿url中拿1111，没有就拿body中的1113，
+   // 在没有拿query1112，有个优先级的关系
+
+
+   
+   User.find({name: _user.name}, function(err, user){
+    if(err){
+      console.log(err);
+    }
+
+    if (user){
+      res.redirect('/');
+    } else {
+      var user = new User(_user);
+      user.save(function(err, user){
+      if (err){
+        console.log(err);
+      }
+
+      // console.log(user);
+      // 重定向到首页
+      res.redirect('/admin/userlist');
+     });
+    }
+   });
+   
+});
+
+// user列表页
+app.get('/admin/userlist',  function(req, res){
+  User.fetch(function(err, users){
+    if (err){
+      console.log(err);
+    }
+
+    res.render('userList', {
+      title: 'movieApp 用户列表页',
+      users: users
+    });
+  });
 });
