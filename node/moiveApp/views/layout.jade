@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 doctype
 html
   head
@@ -7,3 +8,19 @@ html
     include ./includes/header
     block content
     //- h1 #{title}
+=======
+//- 布局文件
+//- 放置共用的区块，将样式抽成公共的区块
+doctype
+html
+	meta(charset='utf-8')
+	title #{title}
+	//- 应用公共的样式模块
+	include ./includes/head
+	body
+		//- 网站的标题，header的区域
+		include ./includes/header
+		//- 页面的主要内容，放置在content中
+		block content
+		h1 #{title}
+>>>>>>> f62116e0a4df048a2244e0a64f2bb5f91034addd

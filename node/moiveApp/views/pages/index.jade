@@ -4,6 +4,7 @@ extends ../layout
 block content
 	.container
 		.row
+<<<<<<< HEAD
 			each item in movies
 				.col-md-2
 					.thumbnail
@@ -13,3 +14,13 @@ block content
 							h3 #{item.title}
 							p
 								a.btn.btn-primary(href="/movie/#{item._id}", role="button")观看预告片
+=======
+			each item in moives
+				.col-md-2
+					.thumbnail
+						a(href="/moive/#{item._id}")
+							img(src="#{item.poster}", alt="#{item.title}")
+						.caption
+							h3 #{item.title}
+							p: a.btn.btn-primary(href="/moive/#{item._id}", role="button")观看预告片
+>>>>>>> f62116e0a4df048a2244e0a64f2bb5f91034addd

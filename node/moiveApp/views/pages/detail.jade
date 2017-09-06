@@ -4,6 +4,7 @@ block content
 	.container
 		.row
 			.col-md-7 
+<<<<<<< HEAD
 				embed(src="#{movie.flash}", allowFullScreen="true", quality="high", width="710", height="600", align="middle", type="application/x-shockwave-flash")
 			.col-md-5
 				dl.dl-horizontal
@@ -19,3 +20,20 @@ block content
 					dd= movie.year
 					dt 简介
 					dd= movie.summary
+=======
+				embed(src="#{moive.flash}", allowFullScreen="true", quality="high", width="710", height="600", align="middle", type="application/x-shockwave-flash")
+			.col-md-5
+				dl.dl-horizontal
+					dt 电影名字
+					dd= moive.title
+					dt 导演
+					dd= moive.doctor
+					dt 国家
+					dd= moive.country
+					dt 语言
+					dd= moive.language
+					dt 上映名字
+					dd= moive.year
+					dt 简介
+					dd= moive.summary
+>>>>>>> f62116e0a4df048a2244e0a64f2bb5f91034addd

@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "moive",
   "version": "1.0.0",
   "description": "Template Engine——Jade",
@@ -24,4 +25,11 @@
   },
   "author": "nieyx",
   "license": "ISC"
+=======
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^3.0.6",
+    "underscore": "^1.8.3"
+  }
+>>>>>>> f62116e0a4df048a2244e0a64f2bb5f91034addd
 }
