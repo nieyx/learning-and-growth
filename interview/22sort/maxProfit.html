@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>查找数组中最大差值</title>
+</head>
+<body>
+	<script>
+		var arr = [10, 5, 11, 7, 8, 9];
+		function getMaxProfit(arr){
+			var minPrice= arr[0];
+			var maxProfit = 0;
+
+			for (var i = 0; i < arr.length; i++) {
+				var currentPrice = arr[i];
+				// console.log('currentPrice', currentPrice);
+				minPrice = Math.min(minPrice, currentPrice);
+				// console.log('minPrice', minPrice);
+				var PotentialProfit = currentPrice - minPrice;
+				// console.log('PotentialProfit', PotentialProfit);
+				maxProfit = Math.max(maxProfit, PotentialProfit);
+				// console.log('maxProfit', maxProfit);
+			}
+
+			return maxProfit;
+		}
+		getMaxProfit(arr);
+	</script>
+</body>
+</html>
