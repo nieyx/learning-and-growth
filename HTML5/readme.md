@@ -873,7 +873,15 @@
 > websocket API中，浏览器和服务器只需要做一个握手的动作，浏览器于服务器之间就形成了一个快速的通道，二者之间就可以数据相互传送
 
 
-
+### server-send event可以在将服务端的数据推动到客户端
+```js
+ if (typeof EventSource != 'undefined'){
+ 		var Ss = new EventSource('*/php');
+		Ss.onmessage = function(e){
+			console.log(e.data);
+		}
+ }
+```
 
 
 
