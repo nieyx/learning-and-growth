@@ -20,7 +20,7 @@
 ```
 
 
-### rem  + less + kolar
+### rem  + less + kola
 ```js
 	// 	动态的计算html的根元素的fontsize
 	document.addEventListener('DOMContentLoaded',function(){
