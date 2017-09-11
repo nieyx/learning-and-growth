@@ -874,6 +874,8 @@
 
 
 ### server-send event可以在将服务端的数据推动到客户端
+文档地址[http://www.dzwebs.net/5403.html]
+文档地址[http://www.52im.net/thread-336-1-1.html]
 ```js
  if (typeof EventSource != 'undefined'){
  		var Ss = new EventSource('*/php');
