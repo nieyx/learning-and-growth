@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>找到对应的class</title>
+</head>
+<body>
+	<ul>
+		<li class='box1'>1</li>
+		<li>2</li>
+		<li class='box1box2'>3</li>
+		<li>4</li>
+		<li class='box1 box2'>5</li>
+		<li class='box1box2'>3</li>
+		<li class='box2 box1'>3</li>
+	</ul>
+
+	<script>
+		var lis  = getClass(document, 'box1');
+		for (var i = 0; i < lis.length; i++) {
+			lis[i].style.background = "#f00";
+		}
+		// function getClass(o, c){ 
+		// 	// 此种方法的弊端是指识别第一个box1的情况，第二三中情况不识别
+		// 	var arr = [];
+		// 	var lis = o.getElementsByTagName('*');
+
+		// 	for (var i = 0; i < lis.length; i++) {
+		// 		if (lis[i].className == c) {
+		// 			arr.push(lis[i]);
+		// 		}
+		// 	}
+		// 	return arr;
+		// }
+
+		function getClass(o, c){
+			var arr = [];
+			var lis = o.getElementsByTagName('*');
+
+			var re = new RegExp('\\b'+ c +'\\b');
+			for (var i = 0; i < lis.length; i++) {
+				if(re.test(lis[i].className)){
+					arr.push(lis[i]);
+				}
+			}
+
+			return arr;
+		}
+
+	</script>
+
+</body>
+</html>
