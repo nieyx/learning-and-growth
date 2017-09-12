@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>offsetLeft</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.con {
+			width: 400px;
+			height: 400px;
+			position: relative;
+			left:100px;
+			background-color: #f00;
+		}
+		.son {
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			top: 0;
+			left:-100px;
+			background-color: #00f;
+		}
+	</style>
+</head>
+<body>
+	<div class="con" id="con">
+		<div class="son" id="son"></div>
+	</div>
+	<script>
+		var son = document.getElementById('son');
+		var con = document.getElementById('con');
+
+		console.log(son.offsetLeft)
+		console.log(son.offsetWidth)
+		console.log(son.clientWidth)
+	</script>
+</body>
+</html>

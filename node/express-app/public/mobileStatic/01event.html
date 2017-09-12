@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>event的touches事件</title>
+	<link rel="stylesheet" href="../stylesheets/style.css">
+</head>
+<body>
+	<div id="con"></div>
+	<script>
+		(function(){
+			document.getElementsByTagName('html')[0].style.fontSize = window.innerWidth / 15 + 'px';
+		})();
+		// 目的是为了兼容在ios以上，用户缩放，回弹，默认滚动条的功能
+		document.addEventListener('touchstart', function(e){
+			e.preventDefault();
+		});
+
+		// 查看event对象的touches的信息
+
+		var con = document.getElementById('con');
+		con.addEventListener('touchmove', function(e){
+			console.log(e.touches);
+			// this.innerHTML = e.touches.length;
+			// this.innerHTML = e.targetTouches.length;
+			this.innerHTML = e.changedTouches.length;
+		});
+
+	</script>
+</body>
+</html>

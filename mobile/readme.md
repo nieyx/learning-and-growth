@@ -122,3 +122,57 @@
 3. 在ios10下禁止使用unserscale=no是不可行
 
 
+### 移动端的event事件
+1. touches
+> 在屏幕上所有手指手指的相关信息
+
+```js
+	<!-- detail -->
+	<script>
+		var div = document.getElementById('div');
+		document.addEventListener('touchstart', function(e){
+			// 阻止一些默认的事件
+			e.preventDefault();
+		})
+		div.addEventListener('touchstart', function(e){
+			console.log(e.touches);
+			this.innerHTML = e.touches.length; // 屏幕上的所有手指信息
+		})
+	</script>
+```
+2. targetTouches
+> 在当前目标元素上的手指信息
+
+```js
+	<!-- detail -->
+	<script>
+		var div = document.getElementById('div');
+		document.addEventListener('touchstart', function(e){
+			// 阻止一些默认的事件
+			e.preventDefault();
+		})
+		div.addEventListener('touchstart', function(e){
+			console.log(e.touches);
+			this.innerHTML = e.targetTouches.length; // 屏幕上的所有手指信息
+		})
+	</script>
+```
+3. changedTouches
+> 在当前目标元素上的，手指移动信息
+
+```js
+	<!-- detail -->
+	<script>
+		var div = document.getElementById('div');
+		document.addEventListener('touchstart', function(e){
+			// 阻止一些默认的事件
+			e.preventDefault();
+		})
+		div.addEventListener('touchstart', function(e){
+			console.log(e.touches);
+			this.innerHTML = e.changedTouches.length; // 屏幕上的所有手指信息
+		})
+	</script>
+```
+
+

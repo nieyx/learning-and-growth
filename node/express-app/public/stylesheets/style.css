@@ -1,8 +1,64 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
-
-a {
-  color: #00B7FF;
+#con {
+  width: 15rem;
+  height: 10rem;
+  background: #00f;
+}
+#container {
+  width: 15rem;
+}
+#container div {
+  width: 5rem;
+  height: 5rem;
+  box-sizing: border-box;
+  background: #f0f;
+  border: 5px solid #000;
+  display: inline-block;
+}
+body {
+  margin: 0;
+}
+.wrap {
+  width: 15rem;
+  height: 4.68rem;
+  position: relative;
+}
+.wrap .list {
+  padding: 0;
+  margin: 0;
+  width: 400%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  list-style: none;
+}
+.wrap .list li {
+  float: left;
+  width: 15rem;
+}
+.wrap .list img {
+  width: 15rem;
+  display: block;
+}
+.wrap nav {
+  width: 15rem;
+  height: 10px;
+  position: absolute;
+  bottom: 5px;
+  z-index: 1;
+  text-align: center;
+}
+.wrap nav a {
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  background: red;
+  border-radius: 50%;
+  vertical-align: top;
+}
+.wrap nav a.active {
+  background: #fff;
 }
