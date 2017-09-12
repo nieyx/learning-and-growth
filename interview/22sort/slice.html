@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>千位分隔</title>
+</head>
+<body>
+	<script>
+		var str = '12345678901.123';
+		function splitDot(str){
+			var iNow =0;
+			var tmp = '';
+			var num = 0;
+			var arr = [];
+			if(/\./g.test(str)){
+				var newStr = str.substr(0,str.search(/\./g));
+				var endStr = str.substr(str.search(/\./g));
+			}
+
+			var _str = newStr || str;
+			num = _str.length % 3; // 0,1,2
+			if (num){
+				var start = _str.substr(0, num);
+				arr.push(start);
+				
+			} 
+			_str = _str.substr(num);
+			for (var i = 0; i < _str.length; i++) {
+				iNow++;
+				tmp += _str[i];
+				if (iNow == 3) {
+					arr.push(tmp);
+					iNow = 0;
+					tmp = '';
+				}
+				
+			}
+			if (endStr) {
+				_str = arr.join(',') + endStr;
+			}
+			return _str;
+		}
+		splitDot(str);
+	</script>
+</body>
+</html>
