@@ -1,4 +1,4 @@
-## Array 的方法
+## Array 的方法(9)
 > 1.slice
 >
 > 2.push/pop
@@ -53,7 +53,7 @@
 	console.log(arr.indexOf(0)) // 没有则返回-1
 ```
 
-### splice 
+### splice 改变了原数组
 ```js
 	var arr = [1,2,3,4,5,6,7];
 	// 只删除，不添加，返回查处元素
@@ -100,7 +100,7 @@
 ```
 
 
-## String的方法
+## String的方法(14)
 > 1.获取类
 >
 > charAt();
@@ -159,6 +159,6 @@
 	console.log(str.substring(1,3)) // bc
 	<!-- slice-->
 	console.log(str.slice(1,3)) // bc
-	<!-- 截取字符串的 三种方式的差别，substr是开始位置 + length，substring和slice是开始位置和结束位置，slice和substring不同的是，slice支持负值-->
+	<!-- 截取字符串的 三种方式的差别，substr是开始位置 + length，substring和slice是开始位置和结束位置，slice和substring不同的是，substring支持负值-->
 
 ```
