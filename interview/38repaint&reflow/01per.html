@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>性能测试</title>
+	<style>
+		div {
+			height: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div id="myDiv1"></div>
+	<div id="myDiv2"></div>
+	<div id="myDiv3"></div>
+	<script>
+		var times = 15000;
+		console.time(1);
+		for (var i = 0; i < times; i++) {
+			document.getElementById('myDiv1').innerHTML += 'a';
+		}
+		console.timeEnd(1);
+		console.time(2);
+		var str = '';
+		for (var i = 0; i < times; i++) {
+			var tmp = document.getElementById('myDiv2').innerHTML;
+			str += 'a';
+		}
+		document.getElementById('myDiv2').innerHTML = str;
+		console.timeEnd(2);
+
+		console.time(3);
+		var _str = '';
+		for (var i = 0; i < times; i++) {
+			_str += 'a';
+		}
+		document.getElementById('myDiv3').innerHTML = _str;
+		console.timeEnd(3);
+
+		//1: 1256.2626953125ms
+
+		// 2: 9.1181640625ms
+
+		// 3: 1.622802734375ms
+	</script>
+</body>
+</html>

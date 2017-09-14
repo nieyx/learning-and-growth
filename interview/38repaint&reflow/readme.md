@@ -1,7 +1,8 @@
 ## 重绘和重排
 文档链接[http://www.ruanyifeng.com/blog/2015/09/web-page-performance-in-depth.html]
 js和css性能优化几点[https://segmentfault.com/a/1190000008829958]
-重回与重拍[http://www.cnblogs.com/zichi/p/4720000.html]
+高性能的重绘与重拍[http://www.cnblogs.com/zichi/p/4720000.html]
+高性能的js DOM编程[http://www.cnblogs.com/zichi/p/4713031.html]
 
 
 ### 页面生成的过程（5）
@@ -124,6 +125,46 @@ js和css性能优化几点[https://segmentfault.com/a/1190000008829958]
 	+ document fragment 把这个对象插入到DOM中
 	+ cloneNode 在节点上进行操作，然后再将clone的节点替换原始的节点
 
+```html
+	<ul id='fruit'>
+	  <li> apple </li>
+	  <li> orange </li>
+	</ul>
+	<script>
+		// 对上述新新添加两项
+
+		// 一般会直接想到如下的代码
+		var lis = document.getElementById('fruit');
+		var li = document.createElement('li');
+		li.innerHTML = 'apple';
+		lis.appendChild(li);
+
+		var li = document.createElement('li');
+		li.innerHTML = 'watermelon';
+		lis.appendChild(li);
+
+		// 上述代码重排了两次，如何解决，display：none。不占dom中的位置，但是会有闪烁
+		// 这是就要用到fragment来操作
+
+		var fragment = document.createDocumentFragement();
+
+		var li = document.createElement('li');
+		fragment.innerHTML = 'apple';
+		fragment.appendChild(li);
+
+		var li = document.createElement('li');
+		fragment.innerHTML = 'watermelon';
+		fragment.appendChild(li);
+
+		document.getElementById('fruit').appendChild(fragment);
+
+		// 文档片段是轻量级的，就是为了更新和移动节点
+		
+		// 1: 0.598876953125ms
+		// 2: 0.35107421875ms
+	</script>
+```
+
 5. 现将元素设置成display：none（一次的重绘和重排），然后对这个元素进行100次操作，然后在恢复显示（一次的重绘和重排）
 	+ 两次的重绘和重排，代替了复杂的100次操作
 
@@ -171,7 +212,40 @@ js和css性能优化几点[https://segmentfault.com/a/1190000008829958]
 > 一秒之内能完成多少次刷新，就叫做刷新率
 
 
+### 重绘和重排的性能对比
+```js
+	<script>
+		// 
+		var times = 15000;
+		console.time(1);
+		for (var i = 0; i < times; i++) {
+			document.getElementById('myDiv1').innerHTML += 'a';
+		}
+		console.timeEnd(1);
+		console.time(2);
+		var str = '';
+		for (var i = 0; i < times; i++) {
+			var tmp = document.getElementById('myDiv2').innerHTML;
+			str += 'a';
+		}
+		document.getElementById('myDiv2').innerHTML = str;
+		console.timeEnd(2);
 
+		console.time(3);
+		var _str = '';
+		for (var i = 0; i < times; i++) {
+			_str += 'a';
+		}
+		document.getElementById('myDiv3').innerHTML = _str;
+		console.timeEnd(3);
+
+		//1: 1256.2626953125ms
+
+		// 2: 9.1181640625ms
+
+		// 3: 1.622802734375ms
+	</script>
+```
 
 
 

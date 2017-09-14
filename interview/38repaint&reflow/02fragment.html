@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>性能测试</title>
+	<style>
+		div {
+			height: 100px;
+		}
+	</style>
+</head>
+<body>
+
+	<ul id='fruit'>
+	  <li> apple </li>
+	  <li> orange </li>
+	</ul>
+<hr>	
+	<ul id='fruit1'>
+	  <li> apple </li>
+	  <li> orange </li>
+	</ul>
+	<script>
+	var arr = [1,2,3,4,5,6,7,8,9,0]
+		console.time(1);
+		var lis = document.getElementById('fruit');
+			for (var i = 0; i < arr.length; i++) {
+				var li = document.createElement('li');
+				li.innerHTML = arr[i];
+				lis.appendChild(li);
+			}
+		console.timeEnd(1);
+
+		console.time(2);
+			var lis1 = document.getElementById('fruit1');
+			var fragment = document.createDocumentFragment();
+			for (var i = 0; i < arr.length; i++) {
+				var li = document.createElement('li');
+				li.innerHTML = arr[i];
+				fragment.appendChild(li);
+			}
+			lis1.appendChild(fragment);
+		console.timeEnd(2);
+
+
+		// 1: 0.598876953125ms
+		// 2: 0.35107421875ms
+	</script>
+</body>
+</html>
