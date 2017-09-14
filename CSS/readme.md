@@ -205,7 +205,8 @@
 
 
 
-
+## background 
+文档链接[http://linxz.github.io/blog/css%E5%B1%9E%E6%80%A7%E5%9F%BA%E7%A1%80/2015/06/think-about-background.html]
 
 
 
