@@ -1,5 +1,5 @@
 ## 前端性能优化
-
+文档地址[https://segmentfault.com/a/1190000008829958]
 1. DNS寻址与IP解析
 
 + url

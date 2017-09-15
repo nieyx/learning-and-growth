@@ -1,6 +1,7 @@
 ## 移动端web的适配利器-rem
 viewport[https://www.cnblogs.com/2050/p/3877280.html]
 rem[http://www.alloyteam.com/2016/03/mobile-web-adaptation-tool-rem/#prettyPhoto]
+rem&viewport[https://www.cnblogs.com/2050/p/3877280.html]
 ### 什么是rem
 > rem是设置字体大小的，font size of root element
 >
