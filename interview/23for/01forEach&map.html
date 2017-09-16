@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>forEach&&map</title>
+</head>
+<body>
+	<script>
+		var arr = ['one','two','three','four'];
+		var arr1 = arr.forEach(function(ele, index, array){
+			console.log(ele);
+			if (ele === 'two') {
+				array.shift();
+			}
+		});
+console.log(arr,arr1);
+		var arr2 = arr.map(function(ele, index, array){
+			return ele + '123';
+		});
+console.log(arr,arr2);
+	</script>
+</body>
+</html>

@@ -41,7 +41,7 @@
 	}
 	
 	// for in 同样便利原型链上的的属性
-	arr.prototype.fatherName = 'tomf';
+	Array.prototype.fatherName = 'tomf';
 	arr.name = 'tom';
 	let i;
 	for (i in arr) {
@@ -97,4 +97,6 @@
 
 ### forEach 和map的区别
 ![](../../image/array/foreach&map.jpeg)
+forEach[https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach]
+map[https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/map]
 
