@@ -208,7 +208,45 @@
 ## background 
 文档链接[http://linxz.github.io/blog/css%E5%B1%9E%E6%80%A7%E5%9F%BA%E7%A1%80/2015/06/think-about-background.html]
 
+## 如下代码运行完成，是什么样式
 
+```html
+	<style>
+		#page {
+			width: 520px;
+		}
+		.nav {
+			width: 200px;
+			float: right;
+		}
+		.main {
+			width: 200px;
+			float: left;
+			padding-left: 110px;
+		}
+		.sub {
+			width: 100px;
+			float: left;
+			margin: 10px 0 10px -100px;
+		}
+		.main {
+			border: 1px solid #000;
+		}
+		.nav, .sub {
+			border: 1px solid #000;
+			height:300px;
+		}
+		.sub {
+			height: 280px;
+		}
+	</style>
+	<div id="page">
+		<div class="main">
+			<div class="sub"></div>
+		</div>
+		<div class="nav"></div>
+	</div>
+```
 
 
 

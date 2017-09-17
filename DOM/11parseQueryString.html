@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>解析url的函数</title>
+	<style>
+		p {
+			height: 100px;
+		}
+		p.p-ele {
+			background: #f00;
+		}
+
+		.p-ele {
+			background: #00f;
+		}
+	</style>
+</head>
+<body>
+	<p class="p-ele"></p>
+	<script>
+		var url = 'http://www.taobao.com/index.php?key0=0&key1=1&key2=2';
+
+		function parseQueryString(str) {
+			var re = /\?/;
+			var index = url.search(re); 
+			console.log(index);
+
+			var arr = str.substr(index + 1).split('&');
+
+			console.log(arr);
+			var newArr = [];
+			var obj = {};
+			for (var i = 0; i < arr.length; i++) {
+				newArr = arr[i].split('=');
+				console.log(newArr);
+				// var key = newArr[0];
+				// var value = newArr[1];
+				// if (!obj[key]) {
+				// 	obj[key]= value;
+				// }
+				if (!obj[newArr[0]]){
+					obj[newArr[0]] = newArr[1]
+				}
+			}
+
+			return obj;
+
+		}
+
+		var objUrl = parseQueryString(url);
+		// alert(objUrl.key0)
+
+		var num1 = 2;
+		var num2 = 20;
+		console.log(num1-- + num2); // 22
+		console.log(num1+ num2); // 21
+
+
+		var obj = {};
+		if (!!obj) {
+			console.log(1);
+		} else {
+			console.log(2);
+		}
+
+		// 生序排列数组 [0,1,10,5,15]
+
+		var arr = [0,1,10,5,15];
+		function upSort(arr) {
+			arr.sort(function(x, y){
+				if (x > y) {
+					return 1;
+				}
+
+				if (x < y){
+					return -1;
+				}
+
+				return 0;
+			})
+		}
+
+		upSort(arr);
+		console.log(arr);
+
+		// 下列数组中的每个值都是多少
+		function CreateFunction(){
+			var result = new Array();
+			for (var i = 0; i < 3; i++) {
+				result[i] = function(){
+					return i;
+				};
+			}
+			console.log(result[0](),result[2](),);
+			return result
+		}
+
+		console.log(CreateFunction());
+		
+
+		// 下厨下面可能会输出的值
+		var a = 1;
+		function haha(){
+			// window.alert(a);
+			var a = 2;
+			// window.alert(a);
+		}
+		haha();
+
+		// 以下代码输出的结果
+		var name = 'qazxsw';
+		function ftn(name){
+			console.log(name); 
+			console.log(this.name);
+			console.log(this);
+		}
+		ftn('101'); // 101, qazxsw window
+		var obj = {
+			name: 'xtq'
+		};
+		ftn.call(obj, '102'); // 102, xtw, obj
+
+		// 下厨下列代码弹出的值
+		var ftn1 = function(){
+			console.log('test:ftn1');
+		};
+
+		var ftn2 = function(){
+			console.log('test:ftn2');
+		};
+
+		function ftnn (f) {
+			console.log(f)
+			f();
+			f = ftn2;
+		}
+
+		ftnn(ftn1); // test:ftn1
+		ftn1();  // test:ftn1
+
+		// 写出输出值
+		var b1 = 'b1';
+		function ff(){
+			console.log(this); // window
+			var b2 = 'b2';
+			 var b1 = 'bbb';
+			 function ft(){
+			 	console.log(this); // window
+			 	var b3 = 'b3';
+			 	b2 = b1;
+			 	b1 = b3;
+			 	console.log(b1, b2, b3); // b3, bbb , b3
+			 }
+
+			 ft();
+		}
+		ff();
+
+		// 判断结果
+		function Person(){}
+
+		Person.prototype = {
+			constructor: Person,
+			friends: ['qq', 'aa']
+		};
+
+		var person1 = new Person();
+		var person2 = new Person();
+
+		person1.friends.push('zz');
+		console.log(person1.friends); 
+		console.log(person2.friends); 
+	</script>
+</body>
+</html>

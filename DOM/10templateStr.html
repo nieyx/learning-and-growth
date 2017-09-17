@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>templateStr</title>
+	<style>
+		div {
+			height: 200px;
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+	<div id="div2"></div>
+	<div id="div3"></div>
+	<div id="div4"></div>
+
+	<script>
+		var div1 = document.querySelector('#div1');
+		var div2 = document.querySelector('#div2');
+		var div3 = document.querySelector('#div3');
+		var div4 = document.querySelector('#div4');
+		var News = [
+			{'name':'tom1', 'age':18},
+			{'name':'tom2', 'age':18},
+			{'name':'tom3', 'age':18}
+		];
+
+		var html1 = '<div class="class">'+
+		'<ul id="news-list">';
+		for (var i = 0; i < News.length; i++) {
+			html1 += '<li><a href="'+News[i].age+'">'+News[i].name+'</a></li>';
+		}
+		html1 += '</ul></div>';
+
+		div1.innerHTML = html1;
+
+		var html2 = ''
+		html2 = `
+			<div id="class">
+				<ul id="news-id">
+					# for new in News
+					<li>new.name</li>
+				</ul>
+			</div>
+		`;
+		div2.innerHTML = html2;
+
+		var name = 'tom';
+		var age = 18;
+		var html3 = `hello ${name} how old are you ${age}`;
+		div3.innerHTML = html3;
+
+		console.log(`${News`}`);
+		var html4 = `
+		   <ul>
+		      #for new in ${News}
+		        <li><i>#{new.name}</i> by #{new.age}</li>
+		          #end
+		    </ul>
+		   `;
+
+		div4.innerHTML = html4;
+	</script>
+</body>
+</html>
