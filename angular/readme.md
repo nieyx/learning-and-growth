@@ -215,6 +215,48 @@
 	</div>
 ```
 
+# angular的四大核心特性
+1. mvc--借助于$scope作用域来实现的
+MVC > modle view controll（数据模型，视图-负责展示，控制器--业务逻辑和控制逻辑）
+2. 模块化
+!()[../image/angular/angular-module.png]
+3. 指令系统
+!()[../image/angular/angular-directive.png]
+4. 双向数据绑定
+!()[../image/angular/angular-exchange.png]
+!()[../image/angular/one-way.png]
+
+
+## 前端mvc的困难
+1. 操作dom的代码必须要等待整个页面加载完成
+2. 多个js文件之间如果出现相互依赖的文件，必须自己解决
+
+## 如何使用controller，使用过程中注意定
+1. 不要试图服用controller，一个控制器只负责一小块视图
+2. 不要再controller中操作dom，
+3. 不要再controlll中作数据格式化，ng有好用的表单控件
+4. 不要再controll中作数据过滤，ng有¥filter服务
+5. 一般来说，controller是不会相互调用的，控制器之间的交互通过事件进行
+!()[../image/angular/angular-controller1.png];
+!()[../image/angular/angular-controller2.png];
+!()[../image/angular/angular-controller3.png];
+
+## model 数据模型 $scope
+## view的复用--directive
+
+## $scope
+1. $scope是一个plain old javascript object
+2. $scope提供了一些工具方法 $watch/$apply
+3. $scope是个表达式的执行环境
+4. $scope是个树形结构
+5. 子$scope对象会继承父$scope上的属性和方法
+6. ng-app上存在一个$rootScope根作用域
+7. $scope可以传播事件，类似dom事件，可上可下
+8. $scope是数据绑定的基础 
+
+## $scope的生命周期
+> 创建，注册监控，监测模型的变化，模型监测，模型销毁
+!()[../image/angular/angular-recycle.png];
 
 
 
