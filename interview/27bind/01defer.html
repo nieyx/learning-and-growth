@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>bind和call方法的不同之处</title>
+</head>
+<body>
+	<script>
+		var xw={
+	    name: "xiaownag",
+	    gender: "male",
+	    age: 24,
+	    say: function(){
+	        console.log(this.name+" , "+this.gender+" ,今年"+this.age);
+	    }
+		};
+		var xh={
+		    name: "xiaohong",
+		    gender: "female",
+		    age: 18
+		};
+		xw.say(); // xiaowang male 24
+
+		xw.say.call(xh); // xiaohong femail 18
+		xw.say.bind(xh); // xiaohong femail 18
+		xw.say.bind(xh)(); // xiaohong femail 18
+	</script>
+</body>
+</html>
