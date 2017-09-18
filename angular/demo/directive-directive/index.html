@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='MyModule'>
+<head>
+	<meta charset="UTF-8">
+	<title>指令和指令之间</title>
+</head>
+<body>
+	<!-- <div ng-controller='myApp'>
+		<loader howToLoad='loadData()'>滑动加载</loader>
+	</div>	
+<hr>
+	<div ng-controller='myApp1'>
+		<loader howToLoad='loadData1()'>滑动加载</loader>
+	</div> -->	
+	<div ng-app='myApp'>
+		<superman strength>力量</superman>
+		<hr>	
+		<superman strength speed>力量，速度</superman>
+		<hr>	
+		<superman strength speed light>力量，速度光</superman>
+		<hr>	
+	</div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<script src="./index.js"></script>
+</html>

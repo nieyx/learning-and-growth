@@ -281,7 +281,7 @@ MVC > modle view controll（数据模型，视图-负责展示，控制器--业�
 	+ 遍历dom，找到所有的指令，根据指令代码中的template，replace，trasclude转化dom结构，如果存在compile函数，则调用
 	+ 对每一条指令运行link函数，link函数一般用来操作dom，绑定事件监听
 5. 指令与控制器之间的交互
-6. 指令键的交互
+6. 指令间的交互
 7. scope类型和独立的scope
 8. scope的绑定策略
 9. angular的内置指令（63）
