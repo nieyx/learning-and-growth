@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hello指令</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+	<script src='./hi.js'></script>
+</head>
+<body ng-app="myModule">
+	<div hello></div> <!-- attr -->
+	<hello>
+		这是指令内部的内容
+	</hello> <!-- element -->
+	<!-- directive:hello -->
+	<div></div> <!-- coment -->
+	<div class='hello'></div> <!-- class -->
+</body>
+</html>

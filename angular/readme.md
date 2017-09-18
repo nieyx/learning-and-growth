@@ -272,6 +272,23 @@ MVC > modle view controll（数据模型，视图-负责展示，控制器--业�
 5. ng-class
 6. ngAnimate
 
+## 指令
+1. 最简单的resrict指令，hello
+2. template，templateUrl，$remplateCache
+3. replace 和tansclude
+4. comile和link（操作元素，添加css的样式，绑定事件）
+5. 指令与控制器之间的交互
+6. 指令键的交互
+7. scope类型和独立的scope
+8. scope的绑定策略
+9. angular的内置指令（63）
+10. 实例解析 expander
+11. 实例解析 Accordion
+12. 指令运行的原理：compile和link
+13. 总结：ERP系统的必备ui组件
+14. 互联网电商系统的必备ui组件
+15. 第三方指令库angular-ui
+16. directive思想的起源和原理描述 
 
 
 
