@@ -258,8 +258,19 @@ MVC > modle view controll（数据模型，视图-负责展示，控制器--业�
 > 创建，注册监控，监测模型的变化，模型监测，模型销毁
 !()[../image/angular/angular-recycle.png];
 
+# 路由，模块，依赖注入
+1. 路由 ngRouter
+2. 模块 module
+3. 依赖注入 $rootProvider
 
-
+## 双向数据绑定
+1. 取值表达式与ng-bind的区别
+> 避免网络环境不好时，会显示{{}},ng-bind不会，只可能是空白
+2. 双向数据绑定的典型场景--表单
+3. 动态切换标签样式
+4. ng-show/ng-hide
+5. ng-class
+6. ngAnimate
 
 
 

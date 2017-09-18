@@ -1,0 +1,27 @@
+<div class="panel panel-primary container">
+  <div class="panel-heading">
+    <h3 class="panel-title">Panel title</h3>
+  </div>
+  <div class="panel-body">
+    <form>
+		  <div class="form-group row">
+		    <label class="col-md-2">Email address:</label>
+		    <input type="email" class=" col-md-10" placeholder="Email" ng-model='userInfo.email'>
+		  </div>
+		  <div class="form-group row">
+		    <label class="col-md-2 ">Password:</label>
+		    <input type="password" class="col-md-10 " placeholder="Password" ng-model='userInfo.password'>
+		  </div>
+		  <div class="checkbox row">
+		    <div class="col-md-offset-2">
+		      <input type="checkbox" class="col-md-offset-2" ng-model='userInfo.autoLogin'> Check me out
+		    </div>
+		  </div>
+		  <div class="form-grouop col-md-offset-2">
+		  	<button class='btn btn-primary' ng-click='getFormData()'>getFormData</button>
+		  	<button class='btn btn-primary' ng-click='setFormData()'>setFormData</button>
+		  	<button class='btn btn-primary' ng-click='resetData()'>resetData</button>
+		  </div>
+		</form>
+  </div>
+</div>
