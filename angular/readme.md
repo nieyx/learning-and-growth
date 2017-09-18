@@ -277,6 +277,9 @@ MVC > modle view controll（数据模型，视图-负责展示，控制器--业�
 2. template，templateUrl，$remplateCache
 3. replace 和tansclude
 4. comile和link（操作元素，添加css的样式，绑定事件）
+	+ 加载angular，找到ng-app指令，确定应用的边界
+	+ 遍历dom，找到所有的指令，根据指令代码中的template，replace，trasclude转化dom结构，如果存在compile函数，则调用
+	+ 对每一条指令运行link函数，link函数一般用来操作dom，绑定事件监听
 5. 指令与控制器之间的交互
 6. 指令键的交互
 7. scope类型和独立的scope

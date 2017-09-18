@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>控制器和指令之间的交互</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+  <script src='./index.js'></script>
+</head>
+<body ng-app=‘myApp>
+	<div ng-controller='myCtrl'>
+		<loader howToLoad='loadData()'>滑动加载</loader>
+	</div>
+	<div ng-controller='myCtrl2'>
+		<loader howToLoad='loadData2()'>滑动加载</loader>
+	</div>
+</body>
+</html>
